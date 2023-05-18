@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #F9FAFB;
+}
+
+header{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+ul{
+    display: flex;
+}
+
+li{
+    padding-left: 20px;
+    list-style: none;
+}
+
+a{
+   text-decoration: none; 
+   color: #222222;
+}
+
+.homeCont{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

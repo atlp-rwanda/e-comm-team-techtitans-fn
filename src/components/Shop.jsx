@@ -1,11 +1,11 @@
 import "./Header/header.css";
 
-function Home() {
+let Shop = () => {
   return (
     <div className="homeCont">
-      <h1>Hello i am Landing page</h1>
+      <h1>This is shoping page</h1>
     </div>
   );
-}
+};
 
-export default Home;
+export default Shop;
