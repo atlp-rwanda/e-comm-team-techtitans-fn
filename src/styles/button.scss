@@ -1,0 +1,20 @@
+@import './colors.scss';
+
+button{
+    background-color: $secondary-color;
+    border: none;
+    padding: 5px 40px;
+    font-size: 20px;
+    font-weight: bolder;
+    border-radius: 5px;
+    color: $white;
+}
+
+button:hover{
+    background-color: $secondary-color-hover;
+    border: none;
+    font-size: 22px;
+    border-radius: 5px;
+    color: $white;
+}
+

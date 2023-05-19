@@ -1,51 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1684483965466" clover="3.2.0">
-  <project timestamp="1684483965466" name="All files">
-    <metrics statements="9" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="1" elements="15" coveredelements="3" complexity="0" loc="9" ncloc="9" packages="6" files="7" classes="7"/>
+<coverage generated="1684500863166" clover="3.2.0">
+  <project timestamp="1684500863166" name="All files">
+    <metrics statements="20" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="2" elements="32" coveredelements="6" complexity="0" loc="20" ncloc="20" packages="10" files="13" classes="13"/>
     <package name="src">
-      <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="App.jsx" path="D:\COE\ATLP\e-comm-team-techtitans-fn\src\App.jsx">
-        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
+      <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="App.jsx" path="D:\ATLP\titans\front-end\e-comm-team-techtitans-fn\src\App.jsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
       </file>
-      <file name="main.jsx" path="D:\COE\ATLP\e-comm-team-techtitans-fn\src\main.jsx">
+      <file name="main.jsx" path="D:\ATLP\titans\front-end\e-comm-team-techtitans-fn\src\main.jsx">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="7" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.components">
-      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="Home.jsx" path="D:\COE\ATLP\e-comm-team-techtitans-fn\src\components\Home.jsx">
+      <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="Home.jsx" path="D:\ATLP\titans\front-end\e-comm-team-techtitans-fn\src\components\Home.jsx">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+      <file name="Shop.jsx" path="D:\ATLP\titans\front-end\e-comm-team-techtitans-fn\src\components\Shop.jsx">
+        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="0" type="stmt"/>
         <line num="4" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Greet">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="Greet.js" path="D:\COE\ATLP\e-comm-team-techtitans-fn\src\components\Greet\Greet.js">
+      <file name="Greet.js" path="D:\ATLP\titans\front-end\e-comm-team-techtitans-fn\src\components\Greet\Greet.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
       </file>
     </package>
+    <package name="src.components.Header">
+      <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="Header.jsx" path="D:\ATLP\titans\front-end\e-comm-team-techtitans-fn\src\components\Header\Header.jsx">
+        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.testdemo">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Demo.js" path="D:\ATLP\titans\front-end\e-comm-team-techtitans-fn\src\components\testdemo\Demo.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
     <package name="src.pages">
       <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="Demopage.jsx" path="D:\COE\ATLP\e-comm-team-techtitans-fn\src\pages\Demopage.jsx">
+      <file name="Demopage.jsx" path="D:\ATLP\titans\front-end\e-comm-team-techtitans-fn\src\pages\Demopage.jsx">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="4" count="0" type="stmt"/>
       </file>
     </package>
+    <package name="src.pages.Home">
+      <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="index.jsx" path="D:\ATLP\titans\front-end\e-comm-team-techtitans-fn\src\pages\Home\index.jsx">
+        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.pages.Shop">
+      <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="Shop.jsx" path="D:\ATLP\titans\front-end\e-comm-team-techtitans-fn\src\pages\Shop\Shop.jsx">
+        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+    </package>
     <package name="src.routes">
-      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="Demoroute.jsx" path="D:\COE\ATLP\e-comm-team-techtitans-fn\src\routes\Demoroute.jsx">
+      <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="Demoroute.jsx" path="D:\ATLP\titans\front-end\e-comm-team-techtitans-fn\src\routes\Demoroute.jsx">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="4" count="0" type="stmt"/>
+      </file>
+      <file name="index.jsx" path="D:\ATLP\titans\front-end\e-comm-team-techtitans-fn\src\routes\index.jsx">
+        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.utils">
       <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="Demoutils.jsx" path="D:\COE\ATLP\e-comm-team-techtitans-fn\src\utils\Demoutils.jsx">
+      <file name="Demoutils.jsx" path="D:\ATLP\titans\front-end\e-comm-team-techtitans-fn\src\utils\Demoutils.jsx">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="4" count="0" type="stmt"/>
       </file>
