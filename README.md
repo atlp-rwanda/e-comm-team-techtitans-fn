@@ -1,3 +1,5 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/667e9254ca71636d6534/maintainability)](https://codeclimate.com/github/atlp-rwanda/e-comm-team-techtitans-fn/maintainability)
+
 # Tech-Titans E-Commerce -- Frontend
 
 
