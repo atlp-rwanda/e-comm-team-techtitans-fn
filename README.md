@@ -61,7 +61,7 @@ To install and run the Tech-titans E-Commerce frontend locally, follow these sim
 2. Create a copy of the file **_.env.sample_** and rename it to **_.env_**. Fill in the appropriate credentials and configurations.
 3. Install project dependencies by running the command: `npm install`
 4. Start the application locally by running the command: `npm start`
-5. Execute tests by running the command: `npm test`
+5. Execute tests and coverage by running the command: `npm test`
 
 Alternatively, you can access our fully functional online site [here](https://tech-titans.techsroutine.com/) to explore and interact with the application without the need for local installation.
 
