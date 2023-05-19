@@ -10,6 +10,9 @@ let Header = () => {
         <li>
           <Link to="/shop">Shop</Link>
         </li>
+        <li>
+          <Link to="/categories">Categories</Link>
+        </li>
       </ul>
     </header>
   );
