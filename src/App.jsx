@@ -1,13 +1,9 @@
-import { useState } from "react";
-import "./App.css";
-import "./main"
+import Routes from "./routes/index.jsx";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <h1>Tech Titans Project setup</h1>
+      <Routes />
     </>
   );
 }
