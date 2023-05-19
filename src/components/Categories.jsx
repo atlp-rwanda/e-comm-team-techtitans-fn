@@ -1,4 +1,4 @@
-import "./Header/Header.css";
+import "./Header/header.css";
 
 let Categories=() =>{
   return (
