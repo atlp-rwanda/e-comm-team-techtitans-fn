@@ -1,0 +1,26 @@
+// Our theme setup variables
+
+// Colors
+$primary-color: #ffffff;
+$primarydark-color: #222222;
+$secondary-color: #7A89E9;
+$textprimary-color: #ffffff;
+$accent: #78909C;
+$danger: #dc3545;
+$success: #28a745;
+
+
+// Fonts
+$fontfamily: "Poppins", sans-serif;
+
+// button
+@mixin button($color, $background, $border) {
+  color: $color;
+  background: $background;
+  border: 1px solid $border;
+  &:hover {
+    color: $color;
+    background: $background;
+    border: 1px solid $border;
+  }
+}
