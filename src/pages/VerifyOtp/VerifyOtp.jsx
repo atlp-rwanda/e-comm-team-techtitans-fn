@@ -18,6 +18,7 @@ let VerifyOtp = () => {
         </div>
       </div>
 
+
       <div className="right">
         <div className="box">
           <ul>
