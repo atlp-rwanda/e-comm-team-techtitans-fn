@@ -6,19 +6,42 @@
     height: 100vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    .left{
+    @include breakpoint(xs){
         background-color: $success;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.4fr 1fr;
+    }
+    @include breakpoint(ms){
+        background-color: rgb(47, 200, 24);
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.4fr 1fr;
+    }
+    .left{
         @include flex-center;
         font-size: 20px;
         padding-left: 5rem;
+        @include breakpoint(xs){
+        justify-content: center;
+        padding-left: 0rem;
+        }
+
     }
     .right{
         background-color: $danger;
         @include flex-center;
+        @include breakpoint(xs){
+            justify-content: center;
+        }
+        @include breakpoint(ms){
+            justify-content: center;
+        }
         .box{
             background-color: $white;
             width: 80%;
             height: 80%;
+            @include breakpoint(md){
+                width: 100%;
+            };
             @include flex-center;
             justify-content: center;
                     .btn{
