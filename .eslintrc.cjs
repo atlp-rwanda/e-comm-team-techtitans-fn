@@ -14,7 +14,7 @@ module.exports = {
   },
   
   settings: { react: { version: '18.2' } },
-  plugins: ['react-refresh',"rect","jest"],
+  plugins: ['react-refresh',"react","jest"],
   rules: {
   'react-refresh/only-export-components': 'warn',
   },
