@@ -45,7 +45,7 @@ Our project harnesses the power of cutting-edge technologies to deliver a seamle
 ### Frontend
 
 - Figma: A state-of-the-art prototyping tool utilized to craft a visually stunning user interface.
-- TailwindCSS: A highly versatile and responsive CSS framework that enables efficient styling and customization.
+- SaasCSS: A highly versatile and responsive CSS that enables efficient styling and customization.
 - ReactJS: A widely adopted frontend framework that allows for the creation of dynamic and interactive UI components.
 - Redux: A predictable state container that facilitates centralized state management, ensuring a smooth and consistent user experience.
 
