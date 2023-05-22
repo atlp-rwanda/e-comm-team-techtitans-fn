@@ -1,0 +1,59 @@
+@import "../../variables/variables.scss";
+
+.logo img{
+  margin: 20px 20px;
+  width: 70%;
+  height: 50%;
+
+}
+hr {
+  border: 1px solid $accent;
+  width: 80%;
+  margin: 20px auto;
+}
+
+#menu {
+  background: $primary-color;
+  width: 300px;
+  height: 100%;
+  border-right: 1px solid $accent;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#menu .items {
+  margin-top: 10px;
+}
+#menu .items li {
+  list-style: none;
+  padding: 15px 0;
+}
+
+#menu .items li:hover {
+  background: $secondary-color;
+  cursor: pointer;
+}
+
+#menu .items li:nth-child(1) {
+  border-left: 4px solid $primarydark-color;
+}
+#menu .items li i {
+  color: $primarydark-color;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 10px 0 25px;
+}
+
+#menu .items li {
+  color: $primarydark-color;
+  font-weight: 400;
+  transition: 0.3s ease;
+}
+
+#menu .items li:hover i {
+  color: $primarydark-color;
+}
