@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 let Header = () => {
   return (
@@ -17,10 +17,15 @@ let Header = () => {
           <Link to="/addproduct">Add Product</Link>
         </li>
         <li>
-          <Link to="/login">Login</Link>
+          <Link to="/auth/login">Login</Link>
         </li>
         <li>
           <Link to="/auth/forgot-password">Reset Password</Link>
+        </li>
+        <li>
+          <Link to="/auth/reset-password/dea70e32-7304-4a89-ba01-5407d455e96d">
+            Reset-Password Form
+          </Link>
         </li>
       </ul>
     </header>
