@@ -1,13 +1,13 @@
 import Header from "../../components/Header/Header";
-import Content from "../../components/Home";
+import Content from "../../components/About.jsx";
 
-let Home = () => {
+let About = () => {
   return (
-    <main>
+    <>
       <Header />
       <Content />
-    </main>
+    </>
   );
 };
 
-export default Home;
+export default About;

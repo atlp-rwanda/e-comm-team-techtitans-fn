@@ -1,11 +1,11 @@
 import "./Header/header.css";
 
-let Categories = () => {
+let Contact = () => {
   return (
     <div className="homeCont">
-      <h1>This is Categories Page </h1>
+      <h1>This is contact page</h1>
     </div>
   );
 };
 
-export default Categories;
+export default Contact;

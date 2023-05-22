@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createProduct } from '../../Redux/Features/Product/AddProductSlice';
-import { ViewCategory } from '../../Redux/Features/Product/CategorySlice';
+// import { ViewCategory } from '../../Redux/Features/Product/CategorySlice';
 import { CloudinaryContext, Image } from 'cloudinary-react';
 import Header from '../../components/Header/Header';
 import './AddProduct.scss';

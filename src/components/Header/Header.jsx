@@ -1,9 +1,15 @@
+import Navbar from "../Home/Navbar";
 import { Link } from "react-router-dom";
 
 let Header = () => {
   return (
     <header>
       <ul>
+        <div>
+          <div className="firstHeader">
+            <h6 className="free">Free shipping for standard order over $100</h6>
+          </div>
+        </div>
         <li>
           <Link to="/">Home</Link>
         </li>
