@@ -42,6 +42,8 @@ const store = configureStore({
     allUsers: AlluserSlice,
     setRole: setRoleSlice,
     signup: SignupSlice,
+    getProducts: GetProductsSlice,
+    getCategories: GetCategoriesSlice,
     setAccount: setAccountStatusReducer,
     review: productsReviewSlice,
     singleProduct: singleProductReducer,

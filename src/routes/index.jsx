@@ -51,6 +51,11 @@ let allRoutes = () => {
         <Route element={<Auth allowedRoles={['admin', 'seller']} />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/addproduct" element={<AddProductForm />} />
+
+        <Route element={<Auth allowedRoles={["admin", "seller"]} />}>
+          <Route path="/categories" element={<Categories />} />
+        </Route>
+
         <Route path="/verifyotp" element={<VerifyOtp socket={socket} />} />
         <Route path="/auth/login" element={<Login socket={socket} />} />
         <Route path="/signup" element={<SignupForm />} />
@@ -62,6 +67,7 @@ let allRoutes = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/listusers" element={<ListUser />} />
         <Route path="/product/:id" element={<SingleDashboard />} />
+        <Route path="/product/buyer/:id" element={<DisplayProducts />} />
         <Route path="/dashboard/productsList" element={<SellersDashboard />} />
         <Route path="/review" element={<ReviewComponent />} />
         <Route path="/listusers/:id" element={<ListUser />} />

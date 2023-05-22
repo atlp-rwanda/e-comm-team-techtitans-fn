@@ -1,0 +1,398 @@
+.upper-section {
+  width: 80%;
+  height: 300px;
+  background-image: url("../images/homepage.jpeg");
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 180px;
+  
+}
+.shop-now-btn {
+  background-color: rgb(121, 133, 235);
+  border-radius: 40px;
+  border-color: rgb(121, 133, 235);
+  color: white;
+  padding: 7px;
+  margin-top: 30px;
+  width: 100px;
+  font-size: 12px;
+}
+
+.electronics {
+  margin-top: 20px;
+  font-weight: 700px;
+}
+
+.second-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 251, 251);
+  align-items: center;
+  align-content: center;
+  width: 80%;
+  margin: 50px;
+  margin-right: 150px;
+  margin-left: 150px;
+  padding: 20px;
+}
+.shop-now {
+  color: rgb(49, 44, 44);
+  padding-top: 180px;
+  text-decoration: underline;
+  font-size: 12px;
+}
+.shop-now:hover {
+  color: rgb(121, 133, 235);
+}
+.quick-view {
+  background-color: white;
+  border-radius: 40px;
+  color: black;
+  padding: 5px;
+  margin-top: 180px;
+  width: 90px;
+  font-size: 12px;
+}
+.quick-view:hover {
+  background-color: rgb(121, 133, 235);
+  color: white;
+}
+
+.middle-part {
+  margin: 30px;
+  margin-right: 100px;
+  margin-left: 150px;
+}
+.overview {
+  margin: 30px;
+  margin-right: 100px;
+  margin-left: 30px;
+}
+
+.ul {
+  margin-right: 100px;
+  margin: 10px;
+}
+
+.li-li {
+  text-decoration: underline;
+}
+.li-li:hover {
+  color: rgb(121, 133, 235);
+}
+
+// .scnd-section{
+//     background-color: rgb(245, 246, 250);
+//     font-size: 10px;
+//     padding-left: 10px;
+//     margin-left: 10px;
+//     height: 250px;
+//     width: 265px;
+// }
+.tshirt {
+  background-image: url("../images/tshirt.avif");
+  background-size: cover;
+  font-size: 10px;
+  padding-left: 10px;
+  margin-left: 10px;
+  height: 250px;
+  width: 265px;
+}
+.airforce {
+  background-image: url("../images/airforce.jpg");
+  background-size: cover;
+  font-size: 10px;
+  padding-left: 10px;
+  margin-left: 10px;
+  height: 250px;
+  width: 265px;
+}
+.headphone {
+  background-image: url("../images/headphones.webp");
+  background-size: cover;
+  font-size: 10px;
+  padding-left: 10px;
+  margin-left: 10px;
+  height: 250px;
+  width: 265px;
+}
+.pillow {
+  background-image: url("../images/pillo.jpeg");
+  background-size: cover;
+  font-size: 10px;
+  padding-left: 10px;
+  margin-left: 10px;
+  height: 250px;
+  width: 265px;
+}
+.headphone {
+  background-image: url("../images/headphones.webp");
+  background-size: cover;
+  font-size: 10px;
+  padding-left: 10px;
+  margin-left: 10px;
+  height: 250px;
+  width: 265px;
+}
+.watch {
+  background-image: url("../images/watch.jpg");
+  background-size: cover;
+  font-size: 10px;
+  padding-left: 10px;
+  margin-left: 10px;
+  height: 250px;
+  width: 265px;
+}
+.smartv {
+  background-image: url("../images/smartv.jpeg");
+  background-size: cover;
+  font-size: 10px;
+  padding-left: 10px;
+  margin-left: 10px;
+  height: 250px;
+  width: 265px;
+}
+.hoodie {
+  background-image: url("../images/hoodie.jpeg");
+  background-size: cover;
+  font-size: 10px;
+  padding-left: 10px;
+  margin-left: 10px;
+  height: 250px;
+  width: 265px;
+}
+.skirt {
+  background-image: url("../images/skirt.jpeg");
+  background-size: cover;
+  font-size: 10px;
+  padding-left: 10px;
+  margin-left: 10px;
+  height: 250px;
+  width: 265px;
+}
+.products {
+  height: 250px;
+  width: 600px;
+}
+
+img {
+  max-width: 200px;
+  position: absolute;
+}
+
+.left-section {
+  background-image: url("../images/electronics.webp");
+  background-size: cover;
+  font-size: 10px;
+  padding-left: 10px;
+  margin-left: 10px;
+  height: 250px;
+  width: 400px;
+}
+
+.middle-section {
+  background-image: url("../images/clothes.avif");
+  background-size: cover;
+  font-size: 10px;
+  padding-left: 10px;
+  margin-left: 10px;
+  height: 250px;
+  width: 400px;
+}
+
+.right-section {
+  background-image: url("../images/chairs.jpeg");
+  background-size: cover;
+  font-size: 10px;
+  padding-left: 10px;
+  margin-left: 10px;
+  height: 250px;
+  width: 400px;
+}
+.load-more {
+  background-color: white;
+  border-radius: 40px;
+  color: black;
+  padding: 5px;
+  margin-top: 15px;
+  width: 90px;
+  margin-left: 650px;
+  font-size: 12px;
+}
+.load-more:hover {
+  background-color: rgb(121, 133, 235);
+  color: white;
+}
+.footer {
+  margin-top: 100px;
+  background-color: black;
+  height: 300px;
+  width: 100%;
+  display: flex;
+}
+
+.footer-categories {
+  padding: 10px;
+  padding-top: 20px;
+  color: white;
+  margin-top: 60px;
+  margin-left: 150px;
+  font-weight: 12px;
+}
+.email {
+  text-decoration: underline;
+}
+.subscribe {
+  background-color: rgb(121, 133, 235);
+  border-radius: 40px;
+  border-color: rgb(121, 133, 235);
+  color: white;
+  padding: 7px;
+  margin-top: 30px;
+  width: 130px;
+  font-size: 12px;
+}
+
+.copyright {
+  color: white;
+  background-color: black;
+  padding-left: 500px;
+  padding-bottom: 20px;
+}
+
+.heart {
+  height: 10px;
+  width: 10px;
+  margin-top: 7px;
+  margin-left: 250px;
+}
+
+@media only screen and (max-width: 500px) {
+  .upper-section {
+    width: 100%;
+    height: 150px;
+    background-image: url("../images/homepage.jpeg");
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 50px; 
+  }
+  .shop-now-btn {
+    background-color: rgb(121, 133, 235);
+    border-radius: 20px;
+    border-color: rgb(121, 133, 235);
+    color: white;
+    padding: 5px;
+    margin-top: 10px;
+    width: 40px;
+    font-size: 5px;
+  }
+  .electronics {
+    margin-top: 10px;
+    font-weight: 100px;
+    font-size: 12px;
+  }
+  .second-section {
+    background-color: rgb(248, 249, 249);
+    display: grid;
+    padding-top: 10px;
+    margin: 10px;
+    align-items: center;
+    align-content: center;
+  }
+  .left-section {
+    background-image: url("../images/electronics.webp");
+    background-size: cover;
+    font-size: 7px;
+    padding-left: 10px;
+    margin-left: 60px;
+    height: 200px;
+    width: 300px;
+  }
+  .middle-section {
+    background-image: url("../images/clothes.avif");
+    background-size: cover;
+    font-size: 7px;
+    padding-left: 10px;
+    margin-left: 60px;
+    height: 200px;
+    width: 300px;
+  }
+  .right-section {
+    background-image: url("../images/chairs.jpeg");
+    background-size: cover;
+    font-size: 7px;
+    padding-left: 10px;
+    margin-left: 60px;
+    height: 200px;
+    width: 300px;
+  }
+  .middle-part {
+    margin: 30px;
+    margin-right: 200px;
+
+  }
+  .overview {
+    margin-left: 50px;
+    font-size: 7px;
+  }
+  
+  .ul {
+    margin-right: 100px;
+    margin: 20px;
+  }
+  
+  .li-li {
+    text-decoration: underline;
+  }
+  .li-li:hover {
+    color: rgb(121, 133, 235);
+  }
+  .load-more {
+    background-color: rgb(121, 133, 235);
+    border-radius: 20px;
+    color: black;
+    padding: 5px;
+    margin-top: 10px;
+    width: 70px;
+    margin-left: 150px;
+    font-size: 9px;
+  }
+  .footer {
+    margin-top: 80px;
+    background-color: black;
+    height: 400px;
+    width: 450px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-categories {
+    padding: 10px;
+    padding-top: 20px;
+    color: white;
+    margin-top: 40px;
+    margin-left: 70px;
+    font-weight: 12px;
+  }
+  .subscribe {
+    background-color: rgb(121, 133, 235);
+    border-radius: 40px;
+    border-color: rgb(121, 133, 235);
+    color: white;
+    padding: 7px;
+    margin-top: 20px;
+    width: 60px;
+    font-size: 6px;
+  }
+  .copyright {
+    color: white;
+    background-color: black;
+    padding-left: 120px;
+    padding-bottom: 15px;
+    font-size: 5px;
+  }
+}

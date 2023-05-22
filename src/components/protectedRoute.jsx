@@ -1,8 +1,7 @@
 import { useLocation, Navigate, Outlet } from "react-router-dom";
-import { useEffect } from 'react';
-import jwtDecode from 'jwt-decode';
+import { useEffect } from "react";
+import jwtDecode from "jwt-decode";
 import React from "react";
-
 
 const Auth = ({ allowedRoles }) => {
     const token = localStorage.getItem('token');
