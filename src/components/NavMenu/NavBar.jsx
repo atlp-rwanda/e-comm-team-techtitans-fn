@@ -1,17 +1,13 @@
-import React from "react";
-import Profile from "../../../assets/images/profile.jpeg";
+import Profile from "../../assets/images/profile.jpeg";
 function NavBar() {
   return (
     <div className="navigation">
-      {/* 1 */}
       <div className="n1">
         <div>
           <i className="bx bx-menu" id="menu-btn"></i>
         </div>
       </div>
-      {/* 2 */}
       <div className="profile">
-        {/* 3 */}
         <div className="search">
           <i className="bx bx-search"></i>
         </div>

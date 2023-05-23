@@ -30,3 +30,32 @@ td {
   text-align: left;
   border-bottom: 1px solid $accent;
 }
+.active-status {
+  background-color: $secondary-color;
+  color: white;
+  padding: 3px 2px;
+  border-radius:17px;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.bxs-cog{
+  color: $danger;
+  font-size: 22px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.bxs-edit{
+  color: $accent;
+  font-size: 22px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.action{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60px;
+}

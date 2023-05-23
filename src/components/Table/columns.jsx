@@ -1,13 +1,16 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import EditModal from "../editComponent/EditModal"; // Import your modal component
 
 export const COLUMNS = [
   {
-    Header: "Id",
+    Header: "No.",
     accessor: "id",
+    Cell: ({ row }) => row.index + 1, // Custom accessor to display count from 1
   },
   {
     Header: "Full Name",
-    accessor: "full_name",
+    accessor: "fullname",
   },
   {
     Header: "Email",
@@ -15,24 +18,45 @@ export const COLUMNS = [
   },
   {
     Header: "Role",
-    accessor: "role",
+    accessor: "roleId",
   },
   {
     Header: "Status",
-    accessor: "status",
+    accessor: "accountStatus",
+    Cell: ({ value }) =>
+      value === "active" ? (
+        <div className="active-status">{value}</div>
+      ) : (
+        <div>{value}</div>
+      ),
   },
   {
     Header: "Action",
-    Cell: ({ row }) => (
-      <div>
-        <Link to={`/edit/${row.id}`}>
-          <i class="bx bxs-edit "></i>
-        </Link>
-        <Link to={`/edit/${row.id}`}>
-          <i class="bx bxs-trash "></i>
-        </Link>
+    Cell: ({ row }) => {
+      const [showModal, setShowModal] = useState(false);
+      const { email, roleId } = row.original;
 
-      </div>
-    ),
+      const openModal = () => {
+        setShowModal(true);
+      };
+
+      const closeModal = () => {
+        setShowModal(false);
+      };
+
+      return (
+        <div className="action">
+          <button onClick={openModal}>
+            <i className="bx bxs-edit"></i>
+          </button>
+          <Link to={`/edit/`}>
+            <i className="bx bxs-cog"></i>
+          </Link>
+          {showModal && (
+            <EditModal email={email} roleId={roleId} closeModal={closeModal} />
+          )}
+        </div>
+      );
+    },
   },
 ];

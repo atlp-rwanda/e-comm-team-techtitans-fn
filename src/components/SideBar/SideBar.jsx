@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "./sideBar.scss";
 import Logo from "../../assets/Logo/Logo.svg";
@@ -14,7 +13,7 @@ function SideBar() {
           <i className="bx bxs-dashboard"></i> <Link to="/home">Dashboard</Link>
         </li>
         <li>
-          <i class="bx bx-user"></i>
+          <i className="bx bx-user"></i>
           <Link to="/user">Users</Link>
         </li>
         <li>
@@ -22,22 +21,22 @@ function SideBar() {
           <Link to="/products">Products</Link>
         </li>
         <li>
-          <i class="bx bx-wallet"></i>
+          <i className="bx bx-wallet"></i>
           <Link to="/users">Orders</Link>
         </li>
         <li>
-          <i class="bx bx-comment-dots"></i>
+          <i className="bx bx-comment-dots"></i>
           <Link to="/users">Chats</Link>
         </li>
 
         <hr />
 
         <li>
-          <i class="bx bx-cog"></i>
+          <i className="bx bx-cog"></i>
           <Link to="/products">Settings</Link>
         </li>
         <li>
-          <i class="bx bx-help-circle"></i>
+          <i className="bx bx-help-circle"></i>
           <Link to="/users">Help Center</Link>
         </li>
       </div>
