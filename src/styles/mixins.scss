@@ -1,0 +1,32 @@
+@mixin flex-center{
+    display: flex;
+    align-items: center;
+}
+
+@mixin breakpoint($point){
+    @if $point == xs {
+        @media (max-width: 576px){
+            @content;
+        }
+    }
+    @if $point == ms{
+        @media (min-width: 577px) and (max-width: 768px){
+            @content;
+        }
+    }
+    @if $point == md{
+        @media (min-width: 769px) and (max-width: 992px){
+            @content;
+        }
+    }
+    @if $point == lg{
+        @media (min-width: 993px) and (max-width: 1200px){
+            @content;
+        }
+    }
+    @if $point == xl{
+        @media (min-width: 1201){
+            @content;
+        }
+    }
+}

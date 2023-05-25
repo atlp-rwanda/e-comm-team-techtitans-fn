@@ -13,6 +13,9 @@ let Header = () => {
         <li>
           <Link to="/categories">Categories</Link>
         </li>
+        <li>
+          <Link to="/addproduct">Add Product</Link>
+        </li>
       </ul>
     </header>
   );
