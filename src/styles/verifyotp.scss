@@ -1,0 +1,95 @@
+@import './colors';
+@import './mixins';
+
+.container {
+    background-color: $primary-color;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    @include breakpoint(xs){
+        background-color: $success;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.4fr 1fr;
+    }
+    @include breakpoint(ms){
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.4fr 1fr;
+    }
+    .left{
+        @include flex-center;
+        font-size: 20px;
+        padding-left: 5rem;
+        @include breakpoint(xs){
+        justify-content: center;
+        padding-left: 0rem;
+        }
+    }
+    .right{
+        background-color: $primary-color;
+        @include flex-center;
+        @include breakpoint(xs){
+            justify-content: center;
+        }
+        @include breakpoint(ms){
+            justify-content: center;
+        }
+        
+        .box{
+            background-color: $white;
+            width: 80%;
+            height: 80%;
+            #errorMessage{
+                color: $danger;
+                padding-top: 10px;
+            }
+            @include breakpoint(md){
+                width: 100%;
+            };
+            @include flex-center;
+            justify-content: center;
+                    .btn{
+                        @include flex-center;
+                        justify-content: center;
+                    }
+                    #allIn{
+                    width: 210px;
+                    height: 85px;
+                    }
+                    .centerLock{
+                        @include flex-center;
+                        justify-content: center;
+                        padding-bottom: 1rem;
+                    }
+                    #openlock{
+                        width: 106px;
+                        height: 96px;
+                    }
+                    #codeText{
+                        font-size: 20px;
+                        font-weight: bolder;
+                        @include flex-center;
+                        justify-content: center;
+                        padding-bottom: 1rem;
+                    }
+            .input-lock{
+               @include flex-center; 
+               border: 1px solid black;
+               border-radius: 5px;
+               height: 30px;
+               margin-top: 8px;
+               input{
+                border: none;
+                font-size: 18px;
+                height: 100%;
+                padding: 0px 5px;
+               }
+               input:focus {
+                outline: none;
+              }
+            }
+            ul{
+                display: grid;
+            }
+        }
+    }
+}
