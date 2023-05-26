@@ -5,13 +5,69 @@ $primary-color: #ffffff;
 $primarydark-color: #222222;
 $secondary-color: #7A89E9;
 $textprimary-color: #ffffff;
+$backgroundWhite-color: #F8F8F8;
 $accent: #78909C;
 $danger: #dc3545;
 $success: #28a745;
+$dashdot:#aaa;
 
 
 // Fonts
 $fontfamily: "Poppins", sans-serif;
+
+// Responsive Breakpoints
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Typography
+$heading-font-size: 24px;
+$body-font-size: 16px;
+$medium-font-size: 14px;
+$small-font-size: 12px;
+$line-height: 1.5;
+$letter-spacing: 1px;
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 48px;
+// Border Radius
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+// Box Shadows
+$box-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.1);
+$box-shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+$box-shadow-md: 0 8px 10px rgba(0, 0, 0, 0.1);
+$box-shadow-lg: 0 12px 15px rgba(0, 0, 0, 0.1);
+$box-shadow-xl: 0 16px 20px rgba(0, 0, 0, 0.1);
+// Animation
+$transition-duration: 0.3s;
+$transition-easing: ease-in-out;
+// Z-Index
+$z-index-header: 100;
+$z-index-modal: 200;
+$z-index-dropdown: 300;
+$z-index-overlay: 400;
+$z-index-tooltip: 500;
+// Breakpoints
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 992px;
+$breakpoint-xlarge: 1200px;
+// Container Widths
+$container-xs: 100%;
+$container-sm: 540px;
+$container-md: 720px;
+$container-lg: 960px;
+$container-xl: 1140px;
 
 // button
 @mixin button($color, $background, $border) {

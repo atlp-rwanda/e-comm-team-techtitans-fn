@@ -6,6 +6,7 @@ import VerifyOtp from "../pages/verifyotp/verifyotp.jsx";
 // import { UserView } from "../Redux/Features/userView.jsx";
 import Auth from "../components/protectedRoute.jsx";
 import UnauthorizedPage from "../pages/unauthorizedPage.jsx";
+import AddProductForm from "../pages/Product/AddProduct";
 const allRoutes = () => {
   return (
     <BrowserRouter>
@@ -16,6 +17,7 @@ const allRoutes = () => {
         <Route path="/unauthorized" element={<UnauthorizedPage />} />
         <Route element={<Auth allowedRoles={["admin", "seller"]} />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="/addproduct" element={<AddProductForm />} />
         <Route path="/verifyotp" element={<VerifyOtp />} />
       </Routes>
     </BrowserRouter>
