@@ -30,6 +30,7 @@ a{
 }
 
 .homeCont{
+    background: #fff;
     color: #F9FAFB;
     height: 80vh;
     display: flex;
