@@ -7,16 +7,17 @@ import VerifyOtp from '../pages/verifyotp/verifyotp.jsx';
 import Auth from '../components/protectedRoute.jsx';
 import UnauthorizedPage from '../pages/unauthorizedPage.jsx';
 import AddProductForm from '../pages/Product/AddProduct';
-import Login from '../pages/Auth/Login';
 import ForgotPassword from '../pages/Auth/ForgotPassword.jsx';
 import ResetPasswordForm from '../pages/Auth/ResetPasswordForm.jsx';
 import { resetPasswordPath } from '../utils/routeExtensions';
+import Login from "../pages/User/Login.jsx";
 
 let allRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         {/* <Route path="/shop" element={<Auth allowedRoles={["1", "2"]} ><Shop/></Auth>} /> */}
         <Route path="/categories" element={<Categories />} />
         <Route path="/unauthorized" element={<UnauthorizedPage />} />

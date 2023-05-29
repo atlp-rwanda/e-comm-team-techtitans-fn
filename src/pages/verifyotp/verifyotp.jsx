@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 let VerifyOtp = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
-  let [email, setEmail] = useState("techtitansatlp@gmail.com");
+  let email = localStorage.getItem('email')
   let [otp, setOtp] = useState("");
   let [message, setMessage] = useState("");
   let [go, setGo] = useState(false);

@@ -5,7 +5,7 @@ import resetPasswordReducer from '../Features/passwordResetSlice';
 import verifyotpSlice from '../Features/verifyotp.slice';
 import CategoryReducer from '../../Redux/Features/Product/CategorySlice';
 import productReducer from '../../Redux/Features/Product/AddProductSlice';
-
+import loginReducer from '../Features/User/loginSlice';
 const middlewares = [];
 
 // eslint-disable-next-line no-undef
@@ -19,6 +19,7 @@ const store = configureStore({
     verifyOtp: verifyotpSlice,
     category: CategoryReducer,
     product: productReducer,
+    user: loginReducer
   },
   middleware: () => [...middlewares, thunk],
 });
