@@ -2,7 +2,9 @@ import { useState, useEffect, React } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { sendResetLink } from '../../Redux/Features/passwordResetSlice';
+import 'react-toastify/dist/ReactToastify.css';
 import '../../scss/Auth/ForgotPassword.scss';
 
 const ForgotPassword = () => {
@@ -18,16 +20,13 @@ const ForgotPassword = () => {
   };
 
   const handleResetPassword = async (data) => {
+    const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+
     if (data.email === '') {
-      alert('Please enter the email to which the reset link will be sent');
-    } else if (
-      !data.email.match(
-        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/i,
-      )
-    ) {
-      alert('Please enter the a valid email address');
+      toast.error('Please enter an email address');
+    } else if (!data.email.match(emailPattern)) {
+      toast.error('Please enter a valid email address');
     } else {
-      console.log('**THE DATA**', data);
       setIsLoading(true);
 
       await dispatch(sendResetLink(data))
@@ -35,12 +34,10 @@ const ForgotPassword = () => {
         .then(() => {
           setIsLoading(false);
 
-          alert('Email sent');
+          toast.success('Check your email for a password-reset link');
         })
         .catch((error) => {
           setIsLoading(false);
-          // Handle error
-          console.log('Reset password error:', error);
         });
     }
   };

@@ -1,6 +1,7 @@
 @import "./variables/variables.scss";
 
 body {
-  background-color: $secondary-color;
   font-family: $fontfamily;
+  background-color: $primary-color;
+  font-size: 14px ;
 }

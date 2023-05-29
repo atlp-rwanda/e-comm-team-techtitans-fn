@@ -1,0 +1,118 @@
+@import "../variables/variables.scss";
+@import "../components/SideBar/sideBar.scss";
+@import "../components/Table/table.scss";
+
+#interface {
+  width: calc(100% - 300px);
+  margin-left: 300px;
+  position: relative;
+  height: auto;
+  transition: 0.3s ease;
+  background-color: $primary-color;
+}
+
+#interface .navigation {
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: $primary-color;
+  padding: 15px 30px;
+  border-bottom: 2px solid $accent;
+  position: fixed;
+  width: calc(100% - 300px);
+}
+
+#interface .navigation .profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 80px;
+  right: 0;
+}
+.profile i {
+  padding-right: 20px;
+  font-size: 25px;
+}
+.profile .vl {
+  border-left: 4px solid $primarydark-color;
+  height: 40px;
+  padding-right: 20px;
+}
+#interface .navigation .profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+#interface .navigation .profile .name {
+  margin-left: 10px;
+  color: var(--second-color);
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#menu-btn {
+  color: var(--second-color);
+  font-size: 30px;
+  cursor: pointer;
+  margin-right: 20px;
+  display: none;
+}
+
+// content design layout
+#interface .content {
+  padding: 30px;
+  margin-top: 60px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background: $primary-color;
+  min-height: calc(100vh - 80px);
+  // border-radius: 10px;
+  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+#interface .title{
+  font-weight: bold;
+  font-size: 24px;
+  padding: 10px 25px;
+}
+
+/* responsive design */
+
+@media (max-width: 769px) {
+  #menu {
+    width: 270px;
+    position: fixed;
+    top: 0;
+    left: -270px;
+    transition: 0.3s ease;
+  }
+  #menu.active {
+    left: 0px;
+  }
+  #menu-btn {
+    display: initial;
+  }
+  #interface {
+    width: 100%;
+    margin-left: 0px;
+    display: inline-block;
+  }
+  #menu.active ~ #interface {
+    width: calc(100% - 270px);
+    margin-left: 270px;
+  }
+  #interface .navigation {
+    width: 100%;
+  }
+  .board {
+    width: 94%;
+    padding: 0;
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+}
