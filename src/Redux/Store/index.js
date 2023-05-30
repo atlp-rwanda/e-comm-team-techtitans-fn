@@ -1,3 +1,4 @@
+ 
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
@@ -7,11 +8,10 @@ import CategoryReducer from "../../Redux/Features/Product/CategorySlice";
 import productReducer from "../../Redux/Features/Product/AddProductSlice";
 import loginReducer from "../Features/User/loginSlice";
 import SignupSlice from "../../Redux/Features/signup/SignupSlice";
-
 const middleware = [...getDefaultMiddleware(), thunk];
 
 // eslint-disable-next-line no-undef
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === 'development') {
   middleware.push(logger);
 }
 

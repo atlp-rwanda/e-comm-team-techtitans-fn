@@ -1,58 +1,64 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { Container } from '../../components/Container';
 import { resetPassword } from '../../Redux/Features/passwordResetSlice';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../../scss/Auth/ForgotPassword.scss';
 
 import PasswordResetSuccess from './PasswordResetSuccess';
 
 const ResetPassword = () => {
-  const [response, setResponse] = useState({ status: 0 });
+  let [response, setResponse] = useState({ status: 0 });
+  const [isResetSuccess, setIsResetSuccess] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const params = useParams();
   const dispatch = useDispatch();
-  const { register, handleSubmit } = useForm();
-  const navigate = useNavigate();
 
-  let { userId } = useParams();
-  userId = localStorage.getItem('userId');
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const navigate = useNavigate();
 
   const backToLogin = () => {
     navigate('/auth/login');
   };
 
-  const handleResetPassword = (data) => {
+  const handleResetPassword = async (data) => {
     const { password, confirmPassword } = data;
+    const { userId } = params;
 
     // Input validation
     if (!password) {
-      alert('Please enter your password');
+      toast.error('Please enter your password');
       return;
-    }
-
-    if (!confirmPassword) {
-      alert('Please confirm your password');
+    } else if (!confirmPassword) {
+      toast.error('Please confirm your password');
       return;
-    }
-
-    if (password !== confirmPassword) {
-      alert('Passwords must match');
+    } else if (
+      !password.match(
+        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/i,
+      )
+    ) {
+      toast.error(
+        'Your password must contain at least 1 uppercase, 1 lowercase, 1 digit, and one case character.',
+      );
       return;
+    } else if (password !== confirmPassword) {
+      toast.error('Passwords must match');
+      return;
+    } else {
+      await dispatch(
+        resetPassword({ password, confirmPassword, userId }),
+      ).unwrap();
+      toast.success('Password reset successful');
+      setIsResetSuccess(true);
     }
-
-    dispatch(
-      resetPassword({
-        password,
-        confirmPassword,
-      }),
-    );
-
-    // Simulating response status
-    setTimeout(() => {
-      setResponse({ status: 200 });
-    }, 2000);
   };
 
   const togglePasswordVisibility = () => {
@@ -61,7 +67,9 @@ const ResetPassword = () => {
 
   return (
     <Container>
-      {response.status !== 200 ? (
+      {isResetSuccess ? (
+        <PasswordResetSuccess />
+      ) : (
         <div className="forgot-password-page">
           <form
             className="forgot-password-form"
@@ -69,7 +77,7 @@ const ResetPassword = () => {
           >
             <div>
               <img
-                src="https://w7.pngwing.com/pngs/490/346/png-transparent-computer-icons-the-icons-keys-miscellaneous-purple-text.png"
+                src="https://seglko.org/assets/images/icons/forgot-2.png"
                 alt="password-icon"
                 className="form-top-image"
               />
@@ -81,7 +89,6 @@ const ResetPassword = () => {
                 previously used passwords
               </p>
             </h3>
-            <p className="input-labels">Password</p>
             <div className="password-input-container">
               <input
                 type={showPassword ? 'text' : 'password'}
@@ -89,37 +96,40 @@ const ResetPassword = () => {
                 placeholder="New Password"
               />
             </div>
-            <p className="input-labels">Confirm Password</p>
+            {errors.password && (
+              <p className="validation-error-text">
+                Please enter your password
+              </p>
+            )}
             <div className="password-input-container">
               <input
                 type={showPassword ? 'text' : 'password'}
                 placeholder="Confirm Password"
                 {...register('confirmPassword', { required: true })}
               />
-              <p
-                className="show-password-text"
-                onClick={togglePasswordVisibility}
-              >
-                {showPassword ? '👀' : '🙈'}
-              </p>{' '}
-              {/* <button
-                type="button"
-                className="show-password-button"
-                onClick={togglePasswordVisibility}
-              >
-                {showPassword ? 'Hide' : 'Show'}
-              </button> */}
+              {errors.confirmPassword && (
+                <p className="validation-error-text">
+                  Please confirm your password
+                </p>
+              )}
             </div>
+
             <button type="submit" className="send-email-button">
               Reset password
             </button>
-            <p className="back-to-login-text" onClick={backToLogin}>
-              <span>← </span> Back to login
-            </p>
+            <div className="below-the-submit-button">
+              <p className="back-to-login-text" onClick={backToLogin}>
+                <span>← </span> Back to login
+              </p>
+              <p
+                className="show-password-emoji"
+                onClick={togglePasswordVisibility}
+              >
+                {showPassword ? '😐' : '😑'}
+              </p>
+            </div>
           </form>
         </div>
-      ) : (
-        <PasswordResetSuccess />
       )}
     </Container>
   );
