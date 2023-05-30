@@ -1,6 +1,5 @@
 @import "./variables/variables.scss";
-
+@import "../src/scss/Auth/SignupForm.scss";
 body {
-  background-color: $secondary-color;
   font-family: $fontfamily;
 }

@@ -20,6 +20,9 @@ let Header = () => {
           <Link to="/auth/login">Login</Link>
         </li>
         <li>
+          <Link to="/signup">Signup</Link>
+        </li>
+        <li>
           <Link to="/auth/forgot-password">Reset Password</Link>
         </li>
         <li>

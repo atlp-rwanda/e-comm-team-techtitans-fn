@@ -1,0 +1,254 @@
+@import "../../variables/variables.scss";
+
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background:$backgroundWhite-color;
+}
+
+@mixin submit-button($col, $bgcol) {
+  background-color: $primary-color;
+  color: $col;
+  padding: 0.8rem 3rem;
+  display: block;
+  text-align: center;
+  font-size: $body-font-size;
+  border: none;
+  border-radius: 2px;
+}
+
+@mixin lines {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 40%;
+  height: 1px;
+  top: 40%;
+  text-align: center;
+  background-color: $accent;
+}
+
+.signup_container {
+  max-width: 75rem;;
+
+  margin: 0 auto;
+  padding: 7rem 0;
+
+  .signup {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: $secondary-color;
+
+    &-text {
+      font-size: $heading-title;
+      font-weight: 600;
+      margin: 1.2rem 0rem;
+      color: $primarydark-color;
+    }
+
+    &-btn:link,
+    &-btn:visited {
+      @include submit-button($primary-color, $secondary-color);
+    }
+
+    &-btn:hover,
+    &-btn:active {
+      @include submit-button($primary-color, $accent);
+      transition: all 3s;
+    }
+
+    p {
+      font-size: $medium-font-size;
+    }
+
+    &-left {
+      width: 50%;
+      background-color: $primary-color;
+
+      .form {
+        &-signup_logo {
+          h1 {
+            color: $secondary-color;
+            font-size: $heading-font-size;
+
+            span {
+              color: $primarydark-color;
+            }
+          }
+        }
+      }
+
+      input {
+        padding: 1rem;
+        display: block;
+        width: 90%;
+        border-radius: 0.8rem;
+        border: 1px solid $accent;
+        margin: 1.5rem 0;
+      }
+    }
+
+    &-right {
+      width: 60%;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      img {
+        width: 40%;
+        padding: 3rem;
+        align-self: center;
+      }
+
+      h3 {
+        color: $primarydark-color;
+        font-size: $body-font-size;
+        letter-spacing: 1.7px;
+        margin-left: 5rem;
+
+        .break {
+          display: block;
+        }
+
+        .white-text-color {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  .btn {
+    @include submit-button($primary-dark, transparent);
+    border: 1px solid $accent;
+    border-radius: 1rem;
+    background-color: #7A89E9;
+    color: $primary-color;
+    width: 100%;
+  }
+
+  .registerText {
+    @include lines;
+  }
+
+  .account-not {
+    margin: 1rem 0;
+    color: $primarydark-color;
+  }
+    // Media Queries
+    // @media screen and (max-width: 768px) {
+    //   .signup_container {
+    //     width: 100%;
+    //   }
+  
+    //   .signup {
+    //     flex-direction: column;
+  
+    //     &-left,
+    //     &-right {
+    //       width: 100%;
+    //       padding: 3rem;
+    //     }
+  
+    //     &-left {
+    //       padding: 3rem;
+    //     }
+  
+    //     &-right {
+    //       img {
+    //         width: 60%;
+    //       }
+    //     }
+    //   }
+    // }
+  
+    // @media screen and (max-width: 480px) {
+    //   .signup {
+    //     &-left {
+    //       padding: 2rem;
+    //     }
+  
+    //     &-right {
+    //       img {
+    //         width: 80%;
+    //       }
+  
+    //       h3 {
+    //         margin-left: 2rem;
+    //       }
+    //     }
+    //   }
+    // }
+  }
+  
+  .left-on {
+    width: 50%;
+    height: 100%;
+    background-color:$secondary-color;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+    // display: flex;
+    // width: 100%;
+    // background-color: $secondary-color;
+    // padding-left: 12em;
+  
+    // @media screen and (max-width: 768px) {
+    //   // padding-left: 2em;
+    //   .left-on{
+    //     display: none;
+    //   }
+    // }
+  }
+  
+  .left-container {
+    display: flex;
+    width:100%;
+    height:fit-content;
+    justify-content: center;
+    // height: 50em;
+  
+    // @media screen and (max-width: 768px) {
+    //   flex-direction: column;
+    // }
+  }
+  .main-container-form{
+   padding: 3rem;
+
+  }
+  @media (max-width:$breakpoint-medium) {
+    .signup_container{
+      width: 100%;
+      padding: 4rem;
+      .signup{
+      
+        &-left{
+          width: 100%;
+        }}
+         
+    }
+   
+    .left-container{
+      display: flex;
+      flex-direction: column-reverse;
+      width: 100%;
+      align-items: center;
+     
+
+    }
+    .left-on{
+      display: none;
+    }
+  }
+  
