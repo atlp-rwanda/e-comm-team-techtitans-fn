@@ -9,10 +9,8 @@ export const ViewCategory = createAsyncThunk(
       const response = await axios.get(
         `https://ecommerce-tech-titans.herokuapp.com/api/v1/category`
       );
-      console.log("response data:", response.data);
       return response.data;
     } catch (error) {
-      console.log("category error:", error.response.data.message);
       return rejectWithValue(error.response.data.message);
       // throw error;
     }

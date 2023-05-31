@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { BASE_URL } from "../../../utils/apiUtilis";
 
 // thunk for fetching data from the API
 export const createProduct = createAsyncThunk(
@@ -15,18 +16,30 @@ export const createProduct = createAsyncThunk(
       };
 
       const response = await axios.post(
-        `https://ecommerce-tech-titans.herokuapp.com/api/v1/product/create`,
+        `${BASE_URL}/api/v1/product/create`,
         product,
         config
       );
-      console.log("response data:", response.data);
       return response.data;
     } catch (error) {
-      console.log("Create product error:", error.response.data.message);
-
       return rejectWithValue(error.response.data.message);
       // throw error;
     }
+  }
+);
+
+// View product
+export const ViewProduct=createAsyncThunk(
+  'api/v1/product',
+  async (_,{rejectWithValue}) => {
+      try {
+          const response = await axios.get(` https://ecommerce-tech-titans.herokuapp.com/api/v1/product`);
+          console.log('response data:', response.data);
+          return response.data;
+
+      } catch (error) {
+          return rejectWithValue(error.response.data.message);
+      }
   }
 );
 
@@ -50,6 +63,18 @@ const ProductSlice = createSlice({
       state.error = action.payload;
       state.status = "failed";
     },
+    [ViewProduct.pending]: (state, action) => {
+      state.status = 'loading.......';
+  }
+  ,
+  [ViewProduct.fulfilled]: (state, action) => {
+      state.product = action.payload;
+      state.status = 'success';
+  },
+  [ViewProduct.rejected]: (state, action) => {
+      state.product = action.payload;
+      state.error = 'failed';
+  }
   },
 });
 

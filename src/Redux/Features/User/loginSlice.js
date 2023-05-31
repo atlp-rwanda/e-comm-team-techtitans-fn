@@ -10,24 +10,12 @@ export const login = createAsyncThunk(
         `https://ecommerce-tech-titans.herokuapp.com/api/v1/user/login`,
         user
       );
-      console.log("response data:", response?.data);
       localStorage.setItem("email", response?.data?.user?.email);
       localStorage.setItem("token", response.data.token);
-      // if(response.data.message==='Please enter your OTP'){
-      console.log(response.data.message);
-      // alert("Proceed to verify otp page")
       return response.data;
-      // }
-      // else{
-      //     console.log(response.data.message)
-      //     return response.data.message;
-      //
-      // }
     } catch (error) {
       console.log("login error:", error.response.data.message);
-      // alert(error.response.data.message)
       return rejectWithValue(error.response.data.message);
-      // throw error;
     }
   }
 );
@@ -41,17 +29,14 @@ export const verify = createAsyncThunk(
       );
       console.log("response data:", response.data);
       localStorage.setItem("token", response.data.token);
-      // localStorage.setItem('user',userdata);
       return response.data;
     } catch (error) {
       console.log("login error:", error.response.data.message);
-      // alert(error.response.data.message)
       return rejectWithValue(error.response.data.message);
     }
   }
 );
 
-// Create a slice for the user
 const loginSlice = createSlice({
   name: "user",
   initialState: {
