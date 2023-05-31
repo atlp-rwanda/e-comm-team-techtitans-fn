@@ -10,8 +10,6 @@ export const fetchUsers = createAsyncThunk(
   "user/fetchUsers",
   async ({ otp, setMessage, setGo, email }) => {
     try {
-      //https://jsonplaceholder.typicode.com/users
-      //https://ecommerce-tech-titans.herokuapp.com/api/v1/user/login/verifyotp
       const response = await fetch(
         "https://ecommerce-tech-titans.herokuapp.com/api/v1/user/login/verifyotp",
         {

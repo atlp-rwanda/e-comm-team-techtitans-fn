@@ -4,15 +4,18 @@ import Home from "../pages/Home/index";
 import Shop from "../pages/Shop/Shop.jsx";
 import VerifyOtp from "../pages/verifyotp/verifyotp.jsx";
 // import { UserView } from "../Redux/Features/userView.jsx";
-import Auth from "../components/protectedRoute.jsx";
-import UnauthorizedPage from "../pages/unauthorizedPage.jsx";
-import AddProductForm from "../pages/Product/AddProduct";
-import ForgotPassword from "../pages/Auth/ForgotPassword.jsx";
-import ResetPasswordForm from "../pages/Auth/ResetPasswordForm.jsx";
-import { ToastContainer } from "react-toastify";
-import Login from "../pages/User/Login.jsx";
+import Auth from '../components/protectedRoute.jsx';
+import UnauthorizedPage from '../pages/unauthorizedPage.jsx';
+import AddProductForm from '../pages/Product/AddProduct';
+import ForgotPassword from '../pages/Auth/ForgotPassword.jsx';
+import ResetPasswordForm from '../pages/Auth/ResetPasswordForm.jsx';
+import { ToastContainer } from 'react-toastify';
+import Login from '../pages/User/Login.jsx';
 import SignupForm from "../pages/Auth/SignUp.jsx";
- 
+import ListUser from "../pages/ListofUser";
+import Dashboard from "../pages/Dashboard/index.jsx";
+
+
 
 let allRoutes = () => {
   return (
@@ -34,6 +37,8 @@ let allRoutes = () => {
           path="/auth/reset-password/:userId"
           element={<ResetPasswordForm />}
         />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/listusers" element={<ListUser />} />
       </Routes>
       <ToastContainer />
     </BrowserRouter>

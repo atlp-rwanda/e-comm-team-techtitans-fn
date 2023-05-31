@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { BASE_URL } from "../../../utils/apiUtilis";
 
 // thunk for fetching data from the API
 export const createProduct = createAsyncThunk(
@@ -15,15 +16,12 @@ export const createProduct = createAsyncThunk(
       };
 
       const response = await axios.post(
-        `https://ecommerce-tech-titans.herokuapp.com/api/v1/product/create`,
+        `${BASE_URL}/api/v1/product/create`,
         product,
         config
       );
-      console.log("response data:", response.data);
       return response.data;
     } catch (error) {
-      console.log("Create product error:", error.response.data.message);
-
       return rejectWithValue(error.response.data.message);
       // throw error;
     }

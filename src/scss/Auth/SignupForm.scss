@@ -252,3 +252,48 @@ body {
     }
   }
   
+  .or {
+    margin-top: 10px;
+    position: relative;
+    display: block;
+    text-align: center;
+    font-size: $medium-font-size;
+    color: $primary-dark;
+
+    &:before {
+      @include lines;
+      left: 0%;
+
+  }
+
+  &:after {
+      @include lines;
+      right: 0%;
+
+  }
+  }
+
+  .gmailLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+   
+
+    .gmail-btn {
+      width: 100%;
+      padding: .8rem 3rem;
+      display: block;
+      text-align: center;
+      font-size: $body-font-size;
+      border: none;
+      border-radius: .8rem;
+        border: 1px solid $accent;
+        border-radius: 2rem;
+    }
+
+
+}
+
+
+
