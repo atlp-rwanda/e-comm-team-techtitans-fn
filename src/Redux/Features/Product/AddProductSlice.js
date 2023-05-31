@@ -1,31 +1,31 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-import { BASE_URL } from "../../../utils/apiUtilis";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { BASE_URL } from '../../../utils/apiUtilis';
 
 // thunk for fetching data from the API
 export const createProduct = createAsyncThunk(
-  "/api/v1/product/create",
+  '/api/v1/product/create',
   async (product, { rejectWithValue }) => {
     try {
-      const authToken = localStorage.getItem("token");
+      const authToken = localStorage.getItem('token');
 
       const config = {
         headers: {
-          Authorization: "Bearer " + authToken,
+          Authorization: 'Bearer ' + authToken,
         },
       };
 
       const response = await axios.post(
         `${BASE_URL}/api/v1/product/create`,
         product,
-        config
+        config,
       );
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
       // throw error;
     }
-  }
+  },
 );
 
 // View product
@@ -45,7 +45,7 @@ export const ViewProduct=createAsyncThunk(
 
 //  slice for the product
 const ProductSlice = createSlice({
-  name: "product",
+  name: 'product',
   initialState: {
     product: null,
     status: null,
@@ -53,15 +53,15 @@ const ProductSlice = createSlice({
   },
   extraReducers: {
     [createProduct.pending]: (state) => {
-      state.status = "loading.....";
+      state.status = 'loading.....';
     },
     [createProduct.fulfilled]: (state, action) => {
       state.product = action.payload;
-      state.status = "success";
+      state.status = 'success';
     },
     [createProduct.rejected]: (state, action) => {
       state.error = action.payload;
-      state.status = "failed";
+      state.status = 'failed';
     },
     [ViewProduct.pending]: (state, action) => {
       state.status = 'loading.......';
