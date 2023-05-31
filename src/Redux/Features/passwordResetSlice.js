@@ -11,7 +11,6 @@ const initialState = {
   error: null,
 };
 
-// Create a thunk for fetching data from the API
 export const sendResetLink = createAsyncThunk(
   'api/v1/user/forgot-password',
   async (user, { rejectWithValue, dispatch }) => {
@@ -40,8 +39,6 @@ export const sendResetLink = createAsyncThunk(
 export const resetPassword = createAsyncThunk(
   'api/v1/user/reset-password',
   async ({ password, confirmPassword, userId }, { rejectWithValue }) => {
-    // const { userId } = params;
-    // const { userId } = store.getState().resetPassword;
 
     const clientData = JSON.stringify({ password, confirmPassword });
 

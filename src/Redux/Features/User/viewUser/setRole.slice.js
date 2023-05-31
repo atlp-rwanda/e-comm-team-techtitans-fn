@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { BASE_URL } from "../../../../utils/apiUtilis";
 
 export const addRoles = createAsyncThunk(
   "api/v1/user/role",
@@ -11,14 +12,11 @@ export const addRoles = createAsyncThunk(
           Authorization: "Bearer " + authToken,
         },
       };
-      const { BASE_URL } = process.env;
-      console.log("config", configs);
       const response = await axios.put(
-        `${BASE_URL}/user/role/${id}`,
+        `${BASE_URL}/api/v1/user/role/${id}`,
         { email, roleId },
         configs
       );
-      console.log("response data:", response.data);
 
       return {
         data: response.data.data,
