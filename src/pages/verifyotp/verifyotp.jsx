@@ -19,7 +19,7 @@ let VerifyOtp = () => {
   //   dispatch(fetchUsers());
   // }, []);
   if (go) {
-    navigate("/shop");
+    navigate("/dashboard");
   }
 
   let handleSubmit = () => {
