@@ -9,7 +9,7 @@ export const login = createAsyncThunk(
     try {
       const response = await axios.post(`${BASE_URL}/api/v1/user/login`, user);
       localStorage.setItem("email", response?.data?.user?.email);
-      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("token", response.data?.token);
       localStorage.setItem("role", response.data.roleId);
 
       return response.data;
