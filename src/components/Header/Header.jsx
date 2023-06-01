@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 let Header = () => {
   return (
@@ -29,6 +29,9 @@ let Header = () => {
           <Link to="/auth/reset-password/dea70e32-7304-4a89-ba01-5407d455e96d">
             Reset-Password Form
           </Link>
+        </li>
+        <li>
+          <Link to="/review">Review</Link>
         </li>
       </ul>
     </header>

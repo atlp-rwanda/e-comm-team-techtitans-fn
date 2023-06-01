@@ -1,9 +1,10 @@
 @import "../../variables/variables.scss";
 
-.logo img {
+.logo img{
   margin: 20px 20px;
   width: 70%;
   height: 50%;
+
 }
 hr {
   border: 1px solid $accent;
@@ -27,7 +28,6 @@ hr {
 #menu .items li {
   list-style: none;
   padding: 15px 0;
-  font-size: 16px;
 }
 
 #menu .items li:hover {
@@ -35,9 +35,10 @@ hr {
   cursor: pointer;
 }
 
-#menu .items li:nth-child(1) {
+#menu .items li.active {
   border-left: 4px solid $primarydark-color;
 }
+
 #menu .items li i {
   color: $primarydark-color;
   width: 30px;
