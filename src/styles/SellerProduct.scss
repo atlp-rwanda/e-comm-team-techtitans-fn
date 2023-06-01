@@ -1,0 +1,295 @@
+@import "../variables/variables.scss";
+
+.content {
+  padding: 0 65px;
+}
+.titles {
+  color: $secondary-color;
+}
+
+.productImages {
+  display: flex;
+  align-items: center;
+}
+
+.image-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.image-wrapper img {
+  flex-shrink: 0;
+  width: auto;
+  height: 120px;
+  margin-right: 10px;
+}
+
+.texts {
+  display: flex;
+  font-size: $body-font-size;
+}
+
+.texts p {
+  margin-top: 30px;
+  padding: 0;
+  margin-right: 70px;
+}
+.image-box {
+  display: inline-block;
+  position: relative;
+  margin-top: 30px;
+}
+
+.image-box:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 81%;
+  height: 100%;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.image-box img {
+  display: block;
+  width: 100%;
+  border-radius: 2px;
+  z-index: 2;
+}
+
+.caption {
+  margin-left: 15px;
+}
+.price {
+  font-family: $fontfamily;
+}
+
+.my-icon {
+  color: $primarydark-color;
+  font-size: 24px;
+}
+.products-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+
+  .single-wrapper {
+    width: 30%;
+    background-color: $accent;
+    text-align: center;
+    border-bottom-left-radius: $border-radius-xl;
+    border-bottom-right-radius: $border-radius-xl;
+    flex-direction: column;
+
+    img {
+      width: 98%;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .caption {
+      margin-bottom: 0;
+      font-size: $medium-font-size;
+      text-align: left;
+    }
+
+    .price {
+      font-family: $fontfamily;
+      font-size: $medium-font-size;
+      margin: 0;
+    }
+  }
+}
+
+.bottom-section {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.categories-texts {
+  padding-right: 10%;
+  padding-top: 10%;
+  align-items: center;
+  font-size: $medium-font-size;
+
+  h5 {
+    color: $secondary-color;
+    text-decoration: underline;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: $medium-font-size;
+  }
+  p {
+    padding-top: 10px;
+  }
+}
+.price-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $dashdot;
+  border-radius: $border-radius-xl;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.price-section p {
+  margin: 0;
+  font-size: $medium-font-size;
+}
+
+.delete {
+  display: flex;
+  align-items: center;
+  font-size: $body-font-size;
+}
+
+.delete > svg {
+  margin-right: 3px;
+}
+
+.icon-caption {
+  font-size: $small-font-size;
+}
+
+// ---------------single products----------------
+.main-image {
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &.zoomed img {
+    transform: scale(1.2);
+  }
+}
+
+.enlarged-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: auto;
+  display: none;
+  z-index: 5;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.visible {
+  display: block;
+}
+
+.image-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  overflow-x: auto; /* Add horizontal scroll if necessary */
+}
+
+.image-wrapper img {
+  flex-shrink: 0;
+  width: auto;
+  height: 120px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* Optional styling to improve the image presentation */
+.image-wrapper::-webkit-scrollbar {
+  height: 5px;
+}
+
+.image-wrapper::-webkit-scrollbar-thumb {
+  background-color: $dashdot;
+  border-radius: 5px;
+}
+
+.image-wrapper::-webkit-scrollbar-track {
+  background-color: $accent;
+}
+.product-wrapper {
+  display: flex;
+  gap: 20px;
+
+  .left-side {
+    width: 50%;
+  }
+
+  .right-side {
+    width: 50%;
+  }
+}
+
+.buyer-choice {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+.buyer-choice p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: $small-font-size;
+  text-align: center;
+  margin: 0;
+}
+.buyer-choice label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: $heading-title;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+.buyer-choice label:not(:last-child)::after {
+  content: "|";
+  margin-left: 5px;
+  margin-right: 5px;
+  color: $secondary-color;
+}
+.right-side h2,
+h3,
+p {
+  margin-top: 30px;
+}
+
+/* -------------Pagination------------*/
+.pagination-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    background-color: $accent;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &.active {
+      background-color: $secondary-color;
+      font-weight: bold;
+    }
+  }
+}
