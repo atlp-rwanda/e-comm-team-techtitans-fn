@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import jwt_decode from 'jwt-decode';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { BASE_URL } from '../../utils/apiUtilis';
 
 const initialState = {
   userId: null,
@@ -16,9 +17,7 @@ export const sendResetLink = createAsyncThunk(
   async (user, { rejectWithValue, dispatch }) => {
     try {
       // Backend Urls
-      const localUrl = 'http://localhost:1001/api/v1/user/forgot-password';
-      const deployedUrl =
-        'https://ecommerce-tech-titans.herokuapp.com/api/v1/user/forgot-password';
+      const deployedUrl = `${BASE_URL}/api/v1/user/forgot-password`;
 
       const response = await axios.patch(deployedUrl, user);
 
@@ -39,13 +38,11 @@ export const sendResetLink = createAsyncThunk(
 export const resetPassword = createAsyncThunk(
   'api/v1/user/reset-password',
   async ({ password, confirmPassword, userId }, { rejectWithValue }) => {
-
     const clientData = JSON.stringify({ password, confirmPassword });
 
     try {
       // Backend Urls
-      const localUrl = `http://localhost:1001/api/v1/user/reset-password/${userId}`;
-      const deployedUrl = `https://ecommerce-tech-titans.herokuapp.com/api/v1/user/reset-password/${userId}`;
+      const deployedUrl = `${BASE_URL}/api/v1/user/reset-password/${userId}`;
 
       const response = await fetch(deployedUrl, {
         method: 'POST',
