@@ -17,6 +17,7 @@ import SingleDashboard from "../pages/Dashboard/SingleDashboard.jsx";
 import SellersDashboard from "../pages/Dashboard/SellersDashboard.jsx";
 import ReviewComponent from "../components/Review/ReviewProduct.jsx";
 
+
 let allRoutes = () => {
   return (
     <BrowserRouter>
@@ -40,6 +41,7 @@ let allRoutes = () => {
         <Route path="/product/:id" element={<SingleDashboard />} />
         <Route path="/dashboard/productsList" element={<SellersDashboard />} />
         <Route path="/review" element={<ReviewComponent />} />
+
       </Routes>
       <ToastContainer />
     </BrowserRouter>
