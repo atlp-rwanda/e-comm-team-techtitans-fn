@@ -1,25 +1,25 @@
-import "../../styles/verifyotp.scss";
-import Button from "../../components/button";
-import { IoMdUnlock } from "react-icons/io";
-import { useSelector, useDispatch } from "react-redux";
+import '../../styles/verifyotp.scss';
+import Button from '../../components/button';
+import { IoMdUnlock } from 'react-icons/io';
+import { useSelector, useDispatch } from 'react-redux';
 // import { useEffect } from "react";
-import { useState } from "react";
-import { fetchUsers } from "../../Redux/Features/verifyotp.slice";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { fetchUsers } from '../../Redux/Features/verifyotp.slice';
+import { useNavigate } from 'react-router-dom';
 
 let VerifyOtp = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
-  let email = localStorage.getItem('email')
-  let [otp, setOtp] = useState("");
-  let [message, setMessage] = useState("");
+  let email = localStorage.getItem('email');
+  let [otp, setOtp] = useState('');
+  let [message, setMessage] = useState('');
   let [go, setGo] = useState(false);
   const dispatch = useDispatch();
   // useEffect(() => {
   //   dispatch(fetchUsers());
   // }, []);
   if (go) {
-    navigate("/dashboard");
+    navigate('/dashboard');
   }
 
   let handleSubmit = () => {
@@ -64,7 +64,7 @@ let VerifyOtp = () => {
               </div>
             </li>
             <li className="btn">
-              <Button verify={"verify"} handleSubmit={handleSubmit} />
+              <Button verify={'verify'} handleSubmit={handleSubmit} />
             </li>
             <li>
               <p id="errorMessage">{message}</p>

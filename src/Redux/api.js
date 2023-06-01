@@ -1,8 +1,9 @@
 import axios from "axios";
+import { BASE_URL } from "../utils/apiUtilis";
 
 // App Base API URL
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_KEY,
+  baseURL: BASE_URL,
 });
 
 // interceptor

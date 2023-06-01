@@ -2,25 +2,27 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getProduct } from "../../Redux/Features/Dashboard/singleProductSlice";
+import { getSingleProduct } from "../../Redux/Features/Dashboard/singleProductSlice";
 import "../../styles/SellerProduct.scss";
 
 export function SingleProductView() {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { product, status, error } = useSelector((state) => state.product);
+  const { singleProduct, status, error } = useSelector(
+    (state) => state.singleProduct
+  );
   const [currentImage, setCurrentImage] = useState("");
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
-    dispatch(getProduct(id));
+    dispatch(getSingleProduct(id));
   }, [dispatch, id]);
 
   useEffect(() => {
-    if (product.data) {
-      setCurrentImage(product.data.images[0]);
+    if (singleProduct.data) {
+      setCurrentImage(singleProduct.data.images[0]);
     }
-  }, [product]);
+  }, [singleProduct]);
 
   if (status === "loading") {
     return <div>Loading...</div>;
@@ -30,7 +32,7 @@ export function SingleProductView() {
     return <div>Error: {error}</div>;
   }
 
-  if (!product.data) {
+  if (!singleProduct.data) {
     return error;
   }
 
@@ -48,7 +50,7 @@ export function SingleProductView() {
     updatedAt,
     categoryId,
     vendorId,
-  } = product.data;
+  } = singleProduct.data;
 
   const handleImageClick = (image) => {
     setCurrentImage(image);

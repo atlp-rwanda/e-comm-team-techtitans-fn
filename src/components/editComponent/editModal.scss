@@ -1,4 +1,4 @@
-@import "../../variables/variables.scss";
+@import '../../variables/variables.scss';
 
 .modal {
   position: fixed;
@@ -74,4 +74,10 @@
   border: none;
   margin-left: 20px;
   font-size: 16px;
+}
+
+.account-status-options {
+  width: 200px;
+  font-size: 17px;
+  background-color: rgba(202, 202, 202, 0.6);
 }

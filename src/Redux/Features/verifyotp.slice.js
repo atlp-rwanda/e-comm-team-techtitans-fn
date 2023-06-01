@@ -1,46 +1,43 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { BASE_URL } from '../../utils/apiUtilis';
 
 const initialState = {
   loading: false,
   users: [],
-  error: "",
+  error: '',
 };
 
 export const fetchUsers = createAsyncThunk(
-  "user/fetchUsers",
+  'user/fetchUsers',
   async ({ otp, setMessage, setGo, email }) => {
     try {
-      const response = await fetch(
-        "https://ecommerce-tech-titans.herokuapp.com/api/v1/user/login/verifyotp",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email,
-            otp,
-          }),
-        }
-      );
+      const response = await fetch(`${BASE_URL}/api/v1/user/login/verifyotp`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          otp,
+        }),
+      });
       if (!response.ok) {
-        setMessage("invalid otp");
-        throw new Error("Failed to fetch users.");
+        setMessage('invalid otp');
+        throw new Error('Failed to fetch users.');
       }
       const data = await response.json();
-      localStorage.setItem("token", data.token);
-      console.log("all data", data);
+      localStorage.setItem('token', data.token);
       setMessage(data.message);
       setGo(true);
       return data;
     } catch (error) {
       throw new Error(error.message);
     }
-  }
+  },
 );
 
 const userSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState,
   extraReducers: (builder) => {
     builder.addCase(fetchUsers.pending, (state) => {
@@ -49,7 +46,7 @@ const userSlice = createSlice({
     builder.addCase(fetchUsers.fulfilled, (state, action) => {
       state.loading = false;
       state.users = action.payload;
-      state.error = "";
+      state.error = '';
     });
     builder.addCase(fetchUsers.rejected, (state, action) => {
       state.loading = false;

@@ -1,4 +1,4 @@
-@import "../../variables/variables.scss";
+@import '../../variables/variables.scss';
 
 table {
   border-collapse: collapse;
@@ -33,6 +33,16 @@ td {
 }
 .active-status {
   background-color: $secondary-color;
+  color: white;
+  padding: 2px 1px;
+  left: 5px;
+  border-radius: 17px;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.inactive-status {
+  background-color: rgba(255, 0, 0, 0.792);
   color: white;
   padding: 2px 1px;
   left: 5px;
