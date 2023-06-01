@@ -9,6 +9,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../Redux/Features/User/loginSlice";
 import { useNavigate } from "react-router-dom";
 
+//sign in with google
+const handleLogin = () => {
+    window.open("https://ecommerce-tech-titans.herokuapp.com/api/v1/auth/google/callback","_self")
+ }
+
+
+
 const Login = () => {
   const [PasswordInputType, ToggleIcon] = UsePasswordToggle();
   const navigate = useNavigate();
@@ -86,29 +93,21 @@ const Login = () => {
                 Forgot Password ?
               </a>
 
-              <span className="or">OR</span>
-              <div className="gmailLogo">
-                <a href="#" className="gmail-btn">
-                  <img
-                    src={googleIcon}
-                    alt="gmail logo"
-                    className="googleLogo"
-                  />
-                  Sign in with Google
-                </a>
-              </div>
+                            <span className="or">OR</span>
+                            <div className="gmailLogo">
 
-              <p className="account-not">
-                Don't have an account?{" "}
-                <a href="#" className="registerText">
-                  Register
-                </a>
-              </p>
+                                <a href="#" onClick={handleLogin} className="gmail-btn"><img src={googleIcon} alt='gmail logo' className="googleLogo" />Sign in with Google</a>
+                            </div>
+
+                            <p className="account-not">Don't have an account? <a href="/signup" className="registerText">Register</a></p>
+
+
+                        </div>
+                    </form>
+                </div>
             </div>
-          </form>
+
         </div>
-      </div>
-    </div>
-  );
-};
-export default Login;
+    )
+}
+export default Login

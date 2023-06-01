@@ -10,6 +10,12 @@ import {
 import hola from "../.././assets/images/logo.png";
 import left from "../.././assets/images/_image.svg";
 import "../../scss/Auth/SignupForm.scss";
+import googleIcon from '../.././assets/images/google-icon.svg';
+
+//sign up with google
+const handleSignUp = () => {
+  window.open("https://ecommerce-tech-titans.herokuapp.com/api/v1/auth/google/callback","_self")
+}
 
 const SignupForm = () => {
   const [fullname, setFullname] = useState("");
@@ -132,6 +138,11 @@ const SignupForm = () => {
                 >
                   Sign Up
                 </button>
+                <span className="or">OR</span>
+                <div className="gmailLogo">
+
+              <a href="#" onClick={handleSignUp} className="gmail-btn"><img src={googleIcon} alt='gmail logo' className="googleLogo" />Sign up with Google</a>
+              </div>         
               </form>
             </div>
           </div>
