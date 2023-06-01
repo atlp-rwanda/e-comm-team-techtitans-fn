@@ -15,6 +15,8 @@ import ListUser from "../pages/ListofUser";
 import Dashboard from "../pages/Dashboard/index.jsx";
 import SingleDashboard from "../pages/Dashboard/SingleDashboard.jsx";
 import SellersDashboard from "../pages/Dashboard/SellersDashboard.jsx";
+import ReviewComponent from "../components/Review/ReviewProduct.jsx";
+
 
 let allRoutes = () => {
   return (
@@ -38,6 +40,7 @@ let allRoutes = () => {
         <Route path="/listusers" element={<ListUser />} />
         <Route path="/product/:id" element={<SingleDashboard />} />
         <Route path="/dashboard/productsList" element={<SellersDashboard />} />
+        <Route path="/review" element={<ReviewComponent />} />
 
       </Routes>
       <ToastContainer />

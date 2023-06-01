@@ -9,6 +9,7 @@ import loginReducer from "../Features/User/loginSlice";
 import AlluserSlice from "../Features/User/viewUser/view.slice";
 import setRoleSlice from "../Features/User/viewUser/setRole.slice";
 import SignupSlice from "../../Redux/Features/signup/SignupSlice";
+import productsReviewSlice from "../../Redux/Features/Review/ProductReview";
 
 const middleware = [...getDefaultMiddleware(), thunk];
 
@@ -27,6 +28,7 @@ const store = configureStore({
     allUsers: AlluserSlice,
     setRole: setRoleSlice,
     signup: SignupSlice,
+    review: productsReviewSlice,
   },
   middleware,
 });
