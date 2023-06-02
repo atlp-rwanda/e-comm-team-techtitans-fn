@@ -32,7 +32,11 @@ function SellerProduct() {
         <div className="productImages">
           <div className="image-wrapper">
             {currentProducts.map((product) => (
-              <img key={product.id} src={product.images[0]} alt={product.name} />
+              <img
+                key={product.id}
+                src={product.images[0]}
+                alt={product.name}
+              />
             ))}
           </div>
         </div>
@@ -68,15 +72,17 @@ function SellerProduct() {
           >
             Previous
           </button>
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
-            <button
-              key={pageNumber}
-              className={currentPage === pageNumber ? "active" : ""}
-              onClick={() => setCurrentPage(pageNumber)}
-            >
-              {pageNumber}
-            </button>
-          ))}
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+            (pageNumber) => (
+              <button
+                key={pageNumber}
+                className={currentPage === pageNumber ? "active" : ""}
+                onClick={() => setCurrentPage(pageNumber)}
+              >
+                {pageNumber}
+              </button>
+            )
+          )}
           <button
             disabled={currentPage === totalPages}
             onClick={() => setCurrentPage(currentPage + 1)}

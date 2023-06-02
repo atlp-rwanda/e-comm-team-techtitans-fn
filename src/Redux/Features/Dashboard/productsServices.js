@@ -1,23 +1,21 @@
 import { productsEndpoint } from "../../../Constants";
 import API from "../../api";
+import { BASE_URL } from "../../../utils/apiUtilis";
 
 const getProducts = async () => {
-  const response = await API.get(
-    `${import.meta.env.VITE_API_KEY}/${productsEndpoint}`
-  );
-
+  const response = await API.get(`${BASE_URL}/api/v1/${productsEndpoint}`);
 
   return response?.data?.data;
 };
 
-const getProduct = async (id) => {
+const getSingleProduct = async (id) => {
   const response = await API.get(
-    `${import.meta.env.VITE_API_KEY}/${productsEndpoint}/${id}`
+    `${BASE_URL}/api/v1/${productsEndpoint}/${id}`
   );
 
   return response?.data?.data;
 };
 
-const productsServices = { getProducts, getProduct };
+const productsServices = { getProducts, getSingleProduct };
 
 export default productsServices;

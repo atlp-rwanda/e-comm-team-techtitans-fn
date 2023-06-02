@@ -11,6 +11,9 @@ import setRoleSlice from '../Features/User/viewUser/setRole.slice';
 import SignupSlice from '../../Redux/Features/signup/SignupSlice';
 import setAccountStatusReducer from '../Features/User/accountStatusSlice';
 import productsReviewSlice from '../../Redux/Features/Review/ProductReview';
+import singleProductReducer from '../Features/Dashboard/singleProductSlice';
+import productsReducer from '../Features/Dashboard/productsSlice';
+import ProductDetailsReducer from '../Features/Product/EditProductSlice';
 
 const middleware = [...getDefaultMiddleware(), thunk];
 
@@ -31,6 +34,9 @@ const store = configureStore({
     signup: SignupSlice,
     setAccount: setAccountStatusReducer,
     review: productsReviewSlice,
+    singleProduct: singleProductReducer,
+    products: productsReducer,
+    productDetails: ProductDetailsReducer,
   },
   middleware,
 });

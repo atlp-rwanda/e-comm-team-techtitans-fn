@@ -1,8 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { productsEndpoint } from "../../../Constants";
+import { BASE_URL } from "../../../utils/apiUtilis"; 
+
 const initialState = {
-  product: [],
+  singleProduct: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -19,12 +21,12 @@ const resetToInitialState = {
 // function to leverage the endpoint services
 
 // get one product only
-export const getProduct = createAsyncThunk(
-  "getProduct-thunk",
+export const getSingleProduct = createAsyncThunk(
+  "getSingleProduct-thunk",
   async (id, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        ` ${import.meta.env.VITE_API_KEY}/${productsEndpoint}/${id}`
+        ` ${BASE_URL}/api/v1/${productsEndpoint}/${id}`
       );
       return response.data;
     } catch (error) {
@@ -35,33 +37,33 @@ export const getProduct = createAsyncThunk(
 // create slice
 
 export const singleProductSlice = createSlice({
-  name: "product",
+  name: "singleProduct",
   initialState,
   reducers: {
     reset: () => resetToInitialState,
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getProduct.pending, (state) => {
+      .addCase(getSingleProduct.pending, (state) => {
         state.isLoading = true;
         state.isSuccess = false;
         state.isError = false;
         state.message = "";
-        state.product = [];
+        state.singleProduct = [];
       })
-      .addCase(getProduct.fulfilled, (state, { payload }) => {
+      .addCase(getSingleProduct.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.isError = false;
-        state.product = payload;
+        state.singleProduct = payload;
         state.message = "";
       })
-      .addCase(getProduct.rejected, (state, { payload }) => {
+      .addCase(getSingleProduct.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.isError = true;
         state.isSuccess = false;
         state.message = payload;
-        state.product = [];
+        state.singleProduct = [];
       });
   },
 });

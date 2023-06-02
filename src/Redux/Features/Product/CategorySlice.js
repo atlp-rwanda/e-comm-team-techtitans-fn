@@ -1,14 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { BASE_URL } from '../../../utils/apiUtilis';
 
 import { createSlice } from '@reduxjs/toolkit';
 export const ViewCategory = createAsyncThunk(
   'api/v1/category',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(
-        `https://ecommerce-tech-titans.herokuapp.com/api/v1/category`,
-      );
+      const response = await axios.get(`${BASE_URL}/api/v1/category`);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

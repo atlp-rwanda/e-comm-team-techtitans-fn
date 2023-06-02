@@ -8,13 +8,11 @@ import shopImg from '../../assets/images/shoplogoimg.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../Redux/Features/User/loginSlice';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../../utils/apiUtilis';
 
 //sign in with google
 const handleLogin = () => {
-  window.open(
-    'https://ecommerce-tech-titans.herokuapp.com/api/v1/auth/google/callback',
-    '_self',
-  );
+  window.open(`${BASE_URL}/api/v1/auth/google/callback`, '_self');
 };
 
 const Login = () => {
