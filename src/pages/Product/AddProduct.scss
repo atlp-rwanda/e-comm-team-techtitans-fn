@@ -10,7 +10,7 @@
   border: 1px solid $accent;
   padding: 1rem;
   width: 100%;
-  border-radius: .8rem;
+  border-radius: 0.8rem;
 }
 @mixin inputs {
   width: 90%;
@@ -21,14 +21,14 @@
 @mixin publishedButton($bgColor, $color) {
   padding: 1rem 4rem;
   border: none;
-  background-color: $bgColor ;
-  color: $color ;
+  background-color: $bgColor;
+  color: $color;
 }
 .row {
   max-width: 90rem;
   margin: 0 auto;
   border: 1px solid $accent;
-  border-radius: .3rem;
+  border-radius: 0.3rem;
   overflow: hidden;
   .addProduct-form {
     padding: 1rem;
@@ -37,8 +37,8 @@
       font-size: $heading-font-size;
       color: $primarydark-color;
       font-weight: 500;
-      letter-spacing: .2px;
-      margin-bottom: .4rem;
+      letter-spacing: 0.2px;
+      margin-bottom: 0.4rem;
     }
     .productName {
       // padding: 3rem;
@@ -59,7 +59,7 @@
       input,
       select {
         @include inputs;
-        padding: .8rem;
+        padding: 0.8rem;
       }
       textarea {
         @include inputs;
@@ -159,23 +159,21 @@
             visibility: hidden;
             position: absolute;
             bottom: 0;
-
           }
           &::before {
-            content: url("/src/assets/gallery-icon-png-191.png");
+            content: url('/src/assets/gallery-icon-png-191.png');
             display: inline-block;
-            position:absolute;
+            position: absolute;
             //padding: 0.5rem 1rem;
             -webkit-user-select: none;
-            top:50%;
-            left:50%;
-            transform:translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             cursor: pointer;
             font-size: 1rem;
             border-radius: 5px;
             margin-right: 1rem;
           }
-
         }
       }
       &-right {
@@ -185,11 +183,11 @@
         .btn {
           @include publishedButton($secondary-color, $textprimary-color);
           align-self: center;
-          border-radius: .5rem;
+          border-radius: 0.5rem;
           margin: 3rem 0;
           &:hover {
             background-color: $accent;
-            transition: all .3s;
+            transition: all 0.3s;
             color: $primary-color;
           }
         }
@@ -197,7 +195,7 @@
     }
   }
 }
-@media (max-width:$breakpoint-md) {
+@media (max-width: $breakpoint-md) {
   .addProduct-form {
     margin: 3rem;
   }
@@ -215,7 +213,7 @@
   margin-top: 1rem;
 }
 .error {
-  color:$danger;
+  color: $danger;
   font-size: $medium-font-size;
   font-weight: 500;
   text-align: center;
@@ -227,4 +225,33 @@
   font-weight: 500;
   text-align: center;
   margin-top: 1rem;
+}
+
+// Edit Product
+.back-btn {
+  @include publishedButton(gray, $textprimary-color);
+  align-self: center;
+  border-radius: 0.5rem;
+  margin: 3rem 0;
+  margin-left: 20px;
+  width: 150px;
+  &:hover {
+    background-color: gray;
+    transition: all 0.3s;
+    background-color: rgba(0, 0, 0, 0.653);
+    cursor: pointer;
+    // color: black;
+  }
+}
+.edit-btn {
+  @include publishedButton($secondary-color, $textprimary-color);
+  align-self: center;
+  border-radius: 0.5rem;
+  margin: 3rem 0;
+  &:hover {
+    background-color: $accent;
+    transition: all 0.3s;
+    background-color: #6973af;
+    cursor: pointer;
+  }
 }

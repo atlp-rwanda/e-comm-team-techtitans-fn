@@ -1,18 +1,20 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { getSingleProduct } from "../../Redux/Features/Dashboard/singleProductSlice";
-import "../../styles/SellerProduct.scss";
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { getSingleProduct } from '../../Redux/Features/Dashboard/singleProductSlice';
+import EditProduct from '../editComponent/EditProduct';
+import '../../styles/SellerProduct.scss';
 
 export function SingleProductView() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { singleProduct, status, error } = useSelector(
-    (state) => state.singleProduct
+    (state) => state.singleProduct,
   );
-  const [currentImage, setCurrentImage] = useState("");
+  const [currentImage, setCurrentImage] = useState('');
   const [isHovered, setIsHovered] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     dispatch(getSingleProduct(id));
@@ -24,11 +26,11 @@ export function SingleProductView() {
     }
   }, [singleProduct]);
 
-  if (status === "loading") {
+  if (status === 'loading') {
     return <div>Loading...</div>;
   }
 
-  if (status === "error") {
+  if (status === 'error') {
     return <div>Error: {error}</div>;
   }
 
@@ -74,62 +76,77 @@ export function SingleProductView() {
 
     return `${day}/${month}/${year} at ${hours}:${minutes}`;
   };
+  const openModal = (id) => {
+    setShowModal(true);
+  };
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <div className="content">
-      <div className="content-header">
-        <div className="titles">
-          <h5>Products / {name}</h5>
-        </div>
+      {showModal ? (
+        <EditProduct id={id} closeModal={closeModal} />
+      ) : (
+        <div className="content-header">
+          <div className="titles">
+            <h5>Products / {name}</h5>
+          </div>
 
-        <div className="product-wrapper">
-          <div className="left-side">
-            <div
-              className={`main-image ${isHovered ? "zoomed" : ""}`}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <img src={currentImage} alt="" />
-            </div>
-            <div className="image-wrapper">
-              {images.map((image, index) => (
-                <img
-                  key={index}
-                  src={image}
-                  alt={`Image ${index + 1}`}
-                  onClick={() => handleImageClick(image)}
-                />
-              ))}
-            </div>
-          </div>
-          <div className="right-side">
-            <div className={`enlarged-image ${isHovered ? "visible" : ""}`}>
-              <img src={currentImage} alt="" />
-            </div>
-            <h2>{name}</h2>
-            <h3>${price}</h3>
-            <p>{description}</p>
-            <div className="buyer-choice">
-              <div className="quantity">
-                <label>Quantity</label>
-                <p>{quantity}</p>
+          <div className="product-wrapper">
+            <div className="left-side">
+              <div
+                className={`main-image ${isHovered ? 'zoomed' : ''}`}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <img src={currentImage} alt="" />
               </div>
-              <div className="createdAt">
-                <label>Created at</label>
-                <p>{formatDate(createdAt)}</p>
+              <div className="image-wrapper">
+                {images.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image}
+                    alt={`Image ${index + 1}`}
+                    onClick={() => handleImageClick(image)}
+                  />
+                ))}
               </div>
-              <div className="stock">
-                <label>Stock status</label>
-                <p>{stock}</p>
+            </div>
+            <div className="right-side">
+              <div className={`enlarged-image ${isHovered ? 'visible' : ''}`}>
+                <img src={currentImage} alt="" />
               </div>
-              <div className="expiryDate">
-                <label>Expiry date</label>
-                <p>{formatDate(expiryDate)}</p>
+              <h2>{name}</h2>
+              <h3>${price}</h3>
+              <p>{description}</p>
+              <div className="buyer-choice">
+                <div className="quantity">
+                  <label>Quantity</label>
+                  <p>{quantity}</p>
+                </div>
+                <div className="createdAt">
+                  <label>Created at</label>
+                  <p>{formatDate(createdAt)}</p>
+                </div>
+                <div className="stock">
+                  <label>Stock status</label>
+                  <p>{stock}</p>
+                </div>
+                <div className="expiryDate">
+                  <label>Expiry date</label>
+                  <p>{formatDate(expiryDate)}</p>
+                </div>
+              </div>
+              <div>
+                <button className="edit-product-button" onClick={openModal}>
+                  Edit Product
+                </button>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

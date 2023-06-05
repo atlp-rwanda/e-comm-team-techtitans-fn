@@ -16,7 +16,7 @@ export const setAccountStatus = createAsyncThunk(
       };
       const response = await axios.put(
         `${BASE_URL}/api/v1/user/updateAccountStatus/${id}`,
-        { accountStatus, reason },
+        { accountStatus, reason }, // data passed into the backend's req.body
         configs,
       );
       if (response.statusCode === 409) {

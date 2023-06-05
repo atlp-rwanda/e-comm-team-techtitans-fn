@@ -1,27 +1,28 @@
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Alert from "@mui/material/Alert";
-import Stack from "@mui/material/Stack";
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 import {
   Signup,
   setEmailVerificationStatus,
   verifyEmail,
-} from "../../Redux/Features/signup/SignupSlice";
-import hola from "../.././assets/images/logo.png";
-import left from "../.././assets/images/_image.svg";
-import "../../scss/Auth/SignupForm.scss";
+} from '../../Redux/Features/signup/SignupSlice';
+import hola from '../.././assets/images/logo.png';
+import left from '../.././assets/images/_image.svg';
+import '../../scss/Auth/SignupForm.scss';
 import googleIcon from '../.././assets/images/google-icon.svg';
+import { BASE_URL } from '../../utils/apiUtilis';
 
 //sign up with google
 const handleSignUp = () => {
-  window.open("https://ecommerce-tech-titans.herokuapp.com/api/v1/auth/google/callback","_self")
-}
+  window.open(`${BASE_URL}/api/v1/auth/google/callback`, '_self');
+};
 
 const SignupForm = () => {
-  const [fullname, setFullname] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [fullname, setFullname] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [emailConfirmation, setEmailConfirmation] = useState(false);
 
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const SignupForm = () => {
         email,
         password,
         confirmPassword,
-      })
+      }),
     )
       .then(() => {
         dispatch(setEmailVerificationStatus(false));
@@ -55,19 +56,19 @@ const SignupForm = () => {
   return (
     <div>
       <div className="signup_container mt-1 decoration-0 p-8">
-        {status === "loading" && <div className="signup-right">Loading...</div>}
-        {status === "failed" && (
+        {status === 'loading' && <div className="signup-right">Loading...</div>}
+        {status === 'failed' && (
           <div className="signup-right">
-            {" "}
-            <Stack sx={{ width: "100%" }} spacing={2}>
+            {' '}
+            <Stack sx={{ width: '100%' }} spacing={2}>
               <Alert severity="warning">{error}</Alert>
             </Stack>
           </div>
         )}
-        {status === "succeeded" && (
+        {status === 'succeeded' && (
           <div className="signup-right">
-            {" "}
-            <Stack sx={{ width: "100%" }} spacing={2}>
+            {' '}
+            <Stack sx={{ width: '100%' }} spacing={2}>
               <Alert severity="success">check inbox to verify email</Alert>
             </Stack>
           </div>
@@ -140,9 +141,15 @@ const SignupForm = () => {
                 </button>
                 <span className="or">OR</span>
                 <div className="gmailLogo">
-
-              <a href="#" onClick={handleSignUp} className="gmail-btn"><img src={googleIcon} alt='gmail logo' className="googleLogo" />Sign up with Google</a>
-              </div>         
+                  <a href="#" onClick={handleSignUp} className="gmail-btn">
+                    <img
+                      src={googleIcon}
+                      alt="gmail logo"
+                      className="googleLogo"
+                    />
+                    Sign up with Google
+                  </a>
+                </div>
               </form>
             </div>
           </div>

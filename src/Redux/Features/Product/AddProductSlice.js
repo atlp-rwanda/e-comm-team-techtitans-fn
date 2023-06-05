@@ -29,18 +29,17 @@ export const createProduct = createAsyncThunk(
 );
 
 // View product
-export const ViewProduct=createAsyncThunk(
+export const ViewProduct = createAsyncThunk(
   'api/v1/product',
-  async (_,{rejectWithValue}) => {
-      try {
-          const response = await axios.get(` https://ecommerce-tech-titans.herokuapp.com/api/v1/product`);
-          console.log('response data:', response.data);
-          return response.data;
-
-      } catch (error) {
-          return rejectWithValue(error.response.data.message);
-      }
-  }
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(`${BASE_URL}/api/v1/product`);
+      console.log('response data:', response.data);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  },
 );
 
 //  slice for the product
@@ -65,16 +64,15 @@ const ProductSlice = createSlice({
     },
     [ViewProduct.pending]: (state, action) => {
       state.status = 'loading.......';
-  }
-  ,
-  [ViewProduct.fulfilled]: (state, action) => {
+    },
+    [ViewProduct.fulfilled]: (state, action) => {
       state.product = action.payload;
       state.status = 'success';
-  },
-  [ViewProduct.rejected]: (state, action) => {
+    },
+    [ViewProduct.rejected]: (state, action) => {
       state.product = action.payload;
       state.error = 'failed';
-  }
+    },
   },
 });
 
