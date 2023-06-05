@@ -4,13 +4,18 @@ import Logo from "../../assets/images/Logo.svg";
 import googleIcon from "../../assets/images/google-icon.svg";
 import UsePasswordToggle from "./usePasswordToggle";
 import shopImg from "../../assets/images/shoplogoimg.svg";
-
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../Redux/Features/User/loginSlice";
-import { useNavigate } from "react-router-dom";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 import Header from "../../components/Header/Header";
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../../Redux/Features/User/loginSlice';
+import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../../utils/apiUtilis';
+
+const handleLogin = () => {
+  window.open(`${BASE_URL}/api/v1/auth/google/callback`, '_self');
+};
+
 
 const Login = () => {
   const [PasswordInputType, ToggleIcon] = UsePasswordToggle();
