@@ -18,6 +18,7 @@ import SellersDashboard from "../pages/Dashboard/SellersDashboard.jsx";
 import ReviewComponent from "../components/Review/ReviewProduct.jsx";
 import ChangePasswordPage from "../pages/changePasswordPage.jsx";
 import BuyerSingleProduct from "../pages/Shop/BuyerSingleProduct.jsx";
+import DisplayProducts from "../pages/Dashboard/DisplayProducts.jsx";
 import NotificationDashboard from "../pages/Dashboard/SellersNotification.jsx";
 import UserProfile from "../pages/Profile/UserProfile/UserProfile.jsx";
 import EditProfile from "../pages/Profile/EditProfile/EditProfile.jsx";

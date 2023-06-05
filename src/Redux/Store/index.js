@@ -15,6 +15,10 @@ import singleProductReducer from "../Features/Dashboard/singleProductSlice";
 import productsReducer from "../Features/Dashboard/productsSlice";
 import ProductDetailsReducer from "../Features/Product/EditProductSlice";
 import { singleUserReducer } from "../Features/User/getOneUserSlice";
+import GetProductsSlice from "../Features/Product/GetProducts.slice";
+import GetCategoriesSlice from "../Features/Product/GetCategories.slice";
+import DeleteProductReducer from "../Features/Product/DeleteProductSlice";
+
 import ProfileSlice from "../Features/Profile/profile.slice";
 import GetProfileSlice from "../Features/Profile/getprofile.slice";
 import LogoutSlice from "../Features/User/logoutSlice";
@@ -51,6 +55,7 @@ const store = configureStore({
     productDetails: ProductDetailsReducer,
     payment: PaymentReducer,
     oneuser: singleUserReducer,
+    productDelete: DeleteProductReducer,
     profile: ProfileSlice,
     getprofile: GetProfileSlice,
     logout: LogoutSlice,

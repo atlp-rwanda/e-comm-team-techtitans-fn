@@ -72,12 +72,17 @@ const Footer = () => {
           </div>
           <div className="footer-newsletter">
             <h3>Newsletter</h3>
-            <input type="email" placeholder="email" />
-            <a href="#" className="button">
-              SUBSCRIBE
-            </a>
+            <div className="email">
+              <input type="email" placeholder="email" />
+              <a href="#" className="button">
+                SUBSCRIBE
+              </a>
+            </div>
           </div>
         </div>
+      </div>
+      <div className="copyright">
+        <p>Copyright ©2023 All rights reserved | made by TechTitans</p>
       </div>
     </div>
   );

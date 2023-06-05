@@ -12,7 +12,7 @@ const ViewProduct = ({ product }) => {
         <p className="price">${product.price}</p>
         <div className="delete">
           <MdDelete />
-          <p className="icon-caption">REMOVE</p>
+          <button className="icon-caption">REMOVE</button>
         </div>
       </div>
     </div>
