@@ -1,4 +1,4 @@
-import "./Header/header.css";
+
 
 let Shop = () => {
   return (

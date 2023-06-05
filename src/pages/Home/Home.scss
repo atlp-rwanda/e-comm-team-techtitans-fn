@@ -1,0 +1,129 @@
+@import "../../variables/variables.scss";
+@import "../User/Login.scss";
+
+.homeContainer {
+  position: relative;
+  .carousel .slider {
+    height: 75vh;
+  }
+  .carousel .slider {
+    object-fit: cover;
+    // position: relative;
+    img {
+      object-fit: cover;
+    }
+    .word-part {
+      position: absolute;
+      top: 30%;
+      left: 12%;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      p {
+        text-align: left;
+        font-size: $medium-font-size;
+
+        color: #000;
+      }
+      h3 {
+        font-size: $heading-font-size;
+        display: inline-block;
+        margin: 2rem 0;
+      }
+      .btn-shop:link,
+      .btn-shop:visited {
+        @include loginBtn($primary-color, $secondary-color);
+        text-decoration: none;
+        &:hover,
+        &:active {
+          @include loginBtn($primary-color, $accent);
+          transition: all 3s;
+        }
+      }
+    }
+  }
+}
+.category {
+  padding: 8rem 0rem;
+  background-color: $primary-color;
+  .carousel .slider {
+    height: 60vh;
+  }
+  .carousel .control-dots .dot {
+    border: 1px solid $primarydark-color;
+    &.selected {
+      background-color: $secondary-color;
+    }
+  }
+}
+
+.part-0ne {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 3rem;
+  column-gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  .category-card_one {
+    position: relative;
+    img {
+      width: 20rem;
+      height: 25rem;
+    }
+
+    h3 {
+      position: absolute;
+      top: 6%;
+      left: 10%;
+      color: $primarydark-color;
+      font-size: $body-font-size;
+    }
+    p {
+      position: absolute;
+      top: 16%;
+      left: 10%;
+      font-size: $small-font-size;
+    }
+  }
+}
+.product-container {
+  background: $primary-color;
+}
+@media (max-width: $breakpoint-lg) {
+  .category {
+    padding: 8rem 6rem;
+  }
+}
+@media (max-width: $breakpoint-md) {
+  .category {
+    padding: 4rem;
+  }
+
+  .part-0ne {
+    display: grid;
+    column-gap: 1.5rem;
+    .category-card_one {
+      img {
+        width: 15rem;
+      }
+    }
+  }
+}
+@media (max-width: $breakpoint-sm) {
+  .category {
+    padding: 2rem 0;
+    .part-0ne {
+      display: grid;
+      column-gap: 1.5rem;
+      h3 {
+        font-size: $medium-font-size;
+      }
+      .category-card_one {
+        img {
+          width: 10rem;
+        }
+      }
+    }
+  }
+}
+//  used for at media for dot .carousel .control-dots
