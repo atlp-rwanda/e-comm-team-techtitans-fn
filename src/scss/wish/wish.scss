@@ -1,0 +1,21 @@
+@import "../../variables/variables.scss";
+
+.heart-button {
+  background-color: transparent;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.heart-button:disabled {
+  cursor: not-allowed;
+}
+
+.confirmation {
+  color: #666;
+  font-size: 14px;
+  margin-top: 10px;
+}
