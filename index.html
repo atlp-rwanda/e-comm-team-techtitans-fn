@@ -16,5 +16,21 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script
+      src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+      async
+    ></script>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            layout:
+              window.google.translate.TranslateElement.InlineLayout.VERTICAL,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
   </body>
 </html>

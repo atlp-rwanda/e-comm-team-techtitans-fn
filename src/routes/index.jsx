@@ -19,7 +19,7 @@ import ReviewComponent from '../components/Review/ReviewProduct.jsx';
 
 let allRoutes = () => {
   return (
-    <BrowserRouter>
+   <>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/categories" element={<Categories />} />
@@ -43,7 +43,7 @@ let allRoutes = () => {
         <Route path="/listusers/:id" element={<ListUser />} />
       </Routes>
       <ToastContainer />
-    </BrowserRouter>
+    </>
   );
 };
 
