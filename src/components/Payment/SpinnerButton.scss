@@ -1,0 +1,45 @@
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  width: 15px;
+  height: 15px;
+  //   border: 1.3px solid #7a89e9;
+  border: 1.3px solid #000;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// // SpinnerButton.scss
+
+// .cancel-button {
+//   svg {
+//     animation: spin 1s linear infinite;
+//     height: 1.25rem;
+//     width: 1.25rem;
+//     fill: white;
+//     margin-right: 0.5rem;
+//   }
+
+//   @keyframes spin {
+//     0% {
+//       transform: rotate(0deg);
+//     }
+//     100% {
+//       transform: rotate(360deg);
+//     }
+//   }
+// }
