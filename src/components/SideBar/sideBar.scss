@@ -29,6 +29,10 @@ hr {
   list-style: none;
   padding: 15px 0;
 }
+a{
+  text-decoration: none;
+  color: $primarydark-color;
+}
 
 #menu .items li:hover {
   background: $secondary-color;
