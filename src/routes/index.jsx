@@ -16,6 +16,9 @@ import Dashboard from '../pages/Dashboard/index.jsx';
 import SingleDashboard from '../pages/Dashboard/SingleDashboard.jsx';
 import SellersDashboard from '../pages/Dashboard/SellersDashboard.jsx';
 import ReviewComponent from '../components/Review/ReviewProduct.jsx';
+import ChangePasswordPage from '../pages/changePasswordPage.jsx';
+import UserProfile from "../pages/Profile/UserProfile/UserProfile.jsx";
+import EditProfile from "../pages/Profile/EditProfile/EditProfile.jsx";
 
 let allRoutes = () => {
   return (
@@ -41,6 +44,9 @@ let allRoutes = () => {
         <Route path="/dashboard/productsList" element={<SellersDashboard />} />
         <Route path="/review" element={<ReviewComponent />} />
         <Route path="/listusers/:id" element={<ListUser />} />
+        <Route path="/changepassword" element={<ChangePasswordPage/>}/>
+        <Route path="/profile" element={<UserProfile />} />
+        <Route path="/updateprofile" element={<EditProfile />} />
       </Routes>
       <ToastContainer />
     </>

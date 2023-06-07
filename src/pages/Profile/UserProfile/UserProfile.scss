@@ -1,0 +1,230 @@
+$primary-color: #ffffff;
+$primarydark-color: #222222;
+$secondary-color: #7A89E9;
+$textprimary-color: #ffffff;
+$accent: #78909C;
+$background-color: #f9fafb;
+$fontfamily: "Poppins", sans-serif;
+
+
+
+.profile-container {
+    background-color: $primary-color;
+    margin: 4rem auto;
+    position: relative;
+    display: flex;
+    border: 1px solid #E8E8E8;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    padding-left: 25px;
+    padding-top: 0;
+    // line-height: 35px;
+    width: 60%;
+    height: 80%;
+    color: #000;
+    // box-shadow: 1rem 1rem 1rem #ffffff;
+    .profile-image{
+        display: grid;
+        grid-template-columns: auto auto;
+        width: 320px;
+        height: 150px;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10;
+        margin-left: -8px;
+       
+        
+      }
+      .profile-image img{
+        width: 106px;
+        background-color: #c0b8b8;
+        height: 106px;
+        border-radius: 50%;
+        justify-content: space-between;
+        justify-items: center;
+        
+       
+       }
+       .profile-image .profile-name {
+        display: grid;
+        grid-template-columns: auto;
+        margin-left: 40px;
+       }
+
+       .profile-name .profile-description {
+        // font-size: 18px;
+        display: flex;
+        flex-direction: row;
+        width: 180px;
+        justify-content: space-between;
+
+      }
+
+      span{
+        display: flex;
+        flex-direction: row;
+        // font-size: medium;
+        
+      }
+      .person-name{
+        font-weight: bold;
+      }
+  }
+
+  .personal-info{
+    justify-content: space-between;
+     ;
+    width: 280px;
+    // margin: 70px;
+    display: flex;
+    p{
+      font-size: 12px;
+      line-height: .5em;
+      padding: 8px;
+    
+    }
+   
+  }
+
+  .profile-container button{
+    // position: absolute;
+    // left: 50rem;
+    // border-radius: 0%;
+    // width: 169px;
+    // height: 51px;
+    border: none;
+    background-color: $secondary-color;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: white;
+  }
+  .profile-container button:hover{
+    cursor: pointer;
+  }
+
+  .profile-image .file {
+    margin-left: 1rem;
+  }
+ .file input[type="file"]{
+  display: none;
+  }
+ .profile-image .img-upload{
+    border: 1px solid #E8E8E8;
+    width: 163px;
+    height: 30px;
+    padding: 5px 10px;
+    color: #565656;
+    cursor: pointer;
+  }
+
+
+  
+
+  @media screen and (max-width: 768px){
+    .profile-container {
+      display: grid;
+      grid-template-columns: auto;
+      width: 390px;
+      margin: 0;
+      padding-left: 2rem;
+      border: none;
+      justify-content: start;
+      height: fit-content;
+    }
+    .profile-description{
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: space-between;
+      align-items:left-start;
+      width: 300px;
+    }
+    .profile-description img{
+      width: 80px;
+      background-color: #000;
+      height: 80px;
+      border-radius: 50%;
+     }
+    .profile-container .person-info{
+      display: grid;
+      grid-template-columns: auto;
+      width: 300px;
+    }
+    .profile-container .profile-address{
+      width: 90%;
+      margin-bottom: 10px;
+      line-height: 30px;
+    }
+    .personal-info{
+      line-height: 30px;
+      width: 90%;
+      gap: 1rem;
+
+      .div-left{
+        font-weight: bold;
+      }
+      .div-right{
+        margin-left: 2rem;
+      }
+    }
+    .profile-container button{
+      position: relative;
+      right: 0;
+      bottom: 5px;
+      width: 80%;
+      margin-top: 1.2rem;
+    }
+    .-editprofile-container {
+      padding-top: 1rem;
+      position: relative;
+      display: grid;
+      grid-template-columns: auto;
+      justify-content: center;
+      padding-left: 20px;
+      width: 100%;
+      height:fit-content;
+    }
+    .form-group {
+      max-height: 300px;
+      padding-bottom: 15px;
+      display: grid;
+      width: 390px;
+      grid-template-columns: auto;
+    }
+    .profile-form input {
+      margin-top: 5px;
+      width: 70%;
+      height: 24px;
+      max-width: 300px;
+      position: relative;
+      right: 0;
+      color: #8F8F8F;
+    
+    }
+    .address-container label{
+      color: #565656;
+      text-transform: capitalize;
+    }
+    .profile-container button{
+      width: 73%;
+      position: relative;
+      float: left;
+      top: 1rem;
+      height: 51px;
+      background-color: transparent;
+      font-weight: bold;
+      text-transform: capitalize;
+      color: #000;
+    }
+    .editprofile-container button{
+      width: 73%;
+      position: relative;
+      float: left;
+      top: 1rem;
+      height: 51px;
+      background-color: transparent;
+      font-weight: bold;
+      text-transform: capitalize;
+      color: #000;
+    }
+  }
