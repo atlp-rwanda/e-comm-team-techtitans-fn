@@ -40,12 +40,23 @@
   font-weight: bold;
 }
 
-.form-group input {
-  width: 100%;
+.form-group input{
+  width: 95%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
+}
+
+.form-group select{
+  width: 100%;
+  padding: 12px 18px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  background-color: #fff;
 }
 
 /* Buttons */
