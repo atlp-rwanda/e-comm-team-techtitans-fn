@@ -27,6 +27,7 @@ export const fetchUsers = createAsyncThunk(
       }
       const data = await response.json();
       localStorage.setItem('token', data.token);
+      localStorage.setItem("role", data.roleId);
       setMessage(data.message);
       setGo(true);
       return data;
