@@ -19,7 +19,9 @@ import ProfileSlice from "../Features/Profile/profile.slice";
 import GetProfileSlice from "../Features/Profile/getprofile.slice";
 import LogoutSlice from "../Features/User/logoutSlice";
 import RecommendedProduct from "../Features/Product/RecommendedSlice";
-import GetNoticationSlice from "../../Redux/Features/Notification/NotificationSlice"
+import GetNoticationSlice from "../../Redux/Features/Notification/NotificationSlice";
+import productsReviewAverageSlice from "../../Redux/Features/Review/GetAverageProductReview";
+import productsReviewShowSlice from "../../Redux/Features/Review/GetProductReview";
 
 const middleware = [...getDefaultMiddleware(), thunk];
 
@@ -48,7 +50,9 @@ const store = configureStore({
     getprofile: GetProfileSlice,
     logout: LogoutSlice,
     recommended: RecommendedProduct,
-    getnotification:GetNoticationSlice
+    getnotification: GetNoticationSlice,
+    reviewaverage: productsReviewAverageSlice,
+    showreview: productsReviewShowSlice,
   },
   middleware,
 });

@@ -6,6 +6,7 @@ import "./Product.scss";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
+import ProductRating from "../Review/GetProductReviewAverage.jsx";
 
 const Card = () => {
   const dispatch = useDispatch();
@@ -48,6 +49,7 @@ const Card = () => {
                   <FavoriteBorderIcon />
                 </div>
               </div>
+              <ProductRating pid={product.id} />
             </div>
           ))
         ) : (

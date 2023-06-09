@@ -1,0 +1,40 @@
+@import "../../variables/variables.scss";
+.search-result {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  padding: 10px 20px;
+}
+
+.search-result:hover {
+  background-color: $primary-color;
+  cursor: pointer;
+}
+
+.image-container {
+  width: 70px;
+  height: 70px;
+  margin-right: 10px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: right;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.search-price {
+  color: $dashdot;
+}

@@ -1,52 +1,203 @@
 @import "../../variables/variables.scss";
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.right-side h2,
+h3,
+p {
+  margin: 0 !important;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  background: $background-white;
+}
+
 .css-i4bv87-MuiSvgIcon-root {
   font-size: 2.4rem !important;
   z-index: 1;
 }
-.notification {
-  position: relative;
+.css-6hp17o-MuiList-root-MuiMenu-list {
+  padding: 18px 24px !important;
+}
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+  font-size: $medium-font-size !important;
+}
 
-  &-number {
-    position: absolute;
-    width: 16px;
-    height: fit-content;
-    background: $secondary-color;
-    color: white;
-    border-radius: 50%;
-    font-size: 10px;
-    padding: 1px;
-    text-align: center;
-    top: -2px;
-    right: -7px;
-    box-shadow: -13px 5px 300px 0px rgba(0, 0, 0, 0.76);
-    -webkit-box-shadow: -13px 5px 300px 0px rgba(0, 0, 0, 0.76);
-    -moz-box-shadow: -13px 5px 300px 0px rgba(0, 0, 0, 0.76);
-    z-index: 10;
-    cursor: pointer;
+@mixin iconsWithNUmber {
+  position: absolute;
+  width: 16px;
+  height: fit-content;
+  background: $secondary-color;
+  color: white;
+  border-radius: 50%;
+  font-size: 10px;
+  padding: 1px;
+  text-align: center;
+  top: -2px;
+  right: -7px;
+  box-shadow: -13px 5px 300px 0px rgba(0, 0, 0, 0.76);
+  -webkit-box-shadow: -13px 5px 300px 0px rgba(0, 0, 0, 0.76);
+  -moz-box-shadow: -13px 5px 300px 0px rgba(0, 0, 0, 0.76);
+  z-index: 10;
+  cursor: pointer;
+}
+.header {
+  &_main {
+    background-color: $primarydark-color;
+    color: $background-white-dark;
+    display: flex;
+    font-size: $medium-font-size;
+    padding: 1rem;
+    justify-content: space-around;
+    align-items: center !important;
+
+    &--two {
+      display: flex;
+      justify-content: space-between;
+      p {
+        border: 1px solid $dashdot;
+        padding: 2px 10px;
+        &:last-child {
+          padding: 2px 64px 2px 10px;
+          border-left: 0px;
+        }
+      }
+    }
+  }
+  .nav {
+    background-color: $primary-color;
+    justify-content: space-evenly;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    .mobile-menu-icon {
+      display: none;
+    }
+    &_logo {
+        // background: green;
+      width: 16rem;
+    }
+
+    &_links {
+      display: flex;
+      list-style-type: none;
+      gap: 3rem;
+
+      justify-content: space-evenly;
+
+      .nav_link {
+        &:link,
+        &:visited {
+          text-decoration: none;
+          color: $primarydark-color;
+          font-size: $medium-font-size;
+          transition: all 0.3s;
+        }
+        &:active,
+        &:hover {
+          color: $secondary-color;
+        }
+      }
+      li {
+        &:first-child .nav_link {
+          color: $secondary-color;
+        }
+      }
+    }
+
+    .icons {
+      display: flex;
+
+      justify-content: space-between;
+      gap: 0.5rem;
+      .iconContainer {
+        position: relative;
+        &-number {
+          @include iconsWithNUmber;
+        }
+      }
+    }
   }
 }
-.notificationDisplay {
-  margin-top: 9%;
-  background-color: #eee;
+@media (max-width: $breakpoint-large) {
+  .header {
+    .nav {
+      &_links {
+        display: flex;
+        gap: 2.4rem;
+      }
+    }
+  }
 }
-.notificationN {
-  padding: 40px;
-  background: $primary-color;
-  color: $primarydark-color;
-  max-width: 100%;
-  margin: 0 auto;
-  border-radius: 5px;
-  box-shadow: 3px 3px 3px rgb(122, 122, 122);
-  margin: 2rem;
-  font-size: $small-font-size;
-  justify-content: space-between;
-  display: flex;
-
-  &-content {
-    h3 {
-      display: inline-block;
-
-      padding-bottom: 12px;
+@media (max-width: $breakpoint-medium) {
+  .header {
+    .nav {
+      position: relative;
+      .mobile-menu-icon {
+        display: block;
+        // position: absolute;
+      }
+      &_links {
+        display: none;
+        &-mobile {
+          position: absolute;
+          display: block;
+          list-style: none;
+          z-index: 1000000;
+          background: $secondary-color;
+          left: 0;
+          text-align: center;
+          padding: 0;
+          top: 68px;
+          transition: all 0.5s ease-out;
+          width: 100%;
+        }
+      }
+      li:not(:first-child):not(:last-child) {
+        border: 1px solid $background-white;
+      }
+      &_link:visited,
+      &_link:link {
+        color: $primary-color;
+        text-align: center;
+        list-style-type: none;
+        display: inline-block;
+        text-decoration: none;
+        font-size: $body-font-size;
+        padding: 42px;
+        width: 100%;
+        transition: all 0.5s ease;
+      }
+      &_link:hover,
+      &_link:active {
+        background-color: white;
+        color: $secondary-color;
+      }
+    }
+  }
+}
+@media (max-width: $breakpoint-sm) {
+  .header {
+    &_main {
+      font-size: $small-font-size;
+      &--two {
+        p {
+          border: 1px solid $dashdot;
+          padding: 2px 8px;
+          &:last-child {
+            padding: 2px 36px 2px 8px;
+            border-left: 0px;
+          }
+        }
+      }
     }
   }
 }

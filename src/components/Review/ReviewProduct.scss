@@ -79,3 +79,44 @@
 .submiti-button:hover:enabled {
   opacity: 0.8;
 }
+
+.star-rating {
+  color: gold;
+
+}
+
+.star {
+  font-size: 2rem;
+
+}
+
+.star.filled {
+  color: gold;
+}
+
+.star.empty {
+  color: lightgray;
+}
+.review-container {
+  margin-top: 1rem;
+}
+
+.review-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #fff;
+  margin-bottom: 1rem;
+}
+
+.review-feedback {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.review-rating {
+  font-size: 0.875rem;
+  color: #888;
+}
+
+
