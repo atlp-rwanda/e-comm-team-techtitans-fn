@@ -16,6 +16,7 @@ import productsReducer from "../Features/Dashboard/productsSlice";
 import ProductDetailsReducer from "../Features/Product/EditProductSlice";
 import { singleUserReducer } from "../Features/User/getOneUserSlice";
 import RecommendedProduct from "../Features/Product/RecommendedSlice";
+import GetNoticationSlice from "../../Redux/Features/Notification/NotificationSlice"
 const middleware = [...getDefaultMiddleware(), thunk];
 
 // eslint-disable-next-line no-undef
@@ -40,6 +41,7 @@ const store = configureStore({
     productDetails: ProductDetailsReducer,
     oneuser: singleUserReducer,
     recommended: RecommendedProduct,
+    getnotification:GetNoticationSlice
   },
   middleware,
 });

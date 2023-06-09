@@ -1,0 +1,52 @@
+@import "../../variables/variables.scss";
+.css-i4bv87-MuiSvgIcon-root {
+  font-size: 2.4rem !important;
+  z-index: 1;
+}
+.notification {
+  position: relative;
+
+  &-number {
+    position: absolute;
+    width: 16px;
+    height: fit-content;
+    background: $secondary-color;
+    color: white;
+    border-radius: 50%;
+    font-size: 10px;
+    padding: 1px;
+    text-align: center;
+    top: -2px;
+    right: -7px;
+    box-shadow: -13px 5px 300px 0px rgba(0, 0, 0, 0.76);
+    -webkit-box-shadow: -13px 5px 300px 0px rgba(0, 0, 0, 0.76);
+    -moz-box-shadow: -13px 5px 300px 0px rgba(0, 0, 0, 0.76);
+    z-index: 10;
+    cursor: pointer;
+  }
+}
+.notificationDisplay {
+  margin-top: 9%;
+  background-color: #eee;
+}
+.notificationN {
+  padding: 40px;
+  background: $primary-color;
+  color: $primarydark-color;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px rgb(122, 122, 122);
+  margin: 2rem;
+  font-size: $small-font-size;
+  justify-content: space-between;
+  display: flex;
+
+  &-content {
+    h3 {
+      display: inline-block;
+
+      padding-bottom: 12px;
+    }
+  }
+}

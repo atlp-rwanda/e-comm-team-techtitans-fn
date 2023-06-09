@@ -18,6 +18,7 @@ import SellersDashboard from "../pages/Dashboard/SellersDashboard.jsx";
 import ReviewComponent from "../components/Review/ReviewProduct.jsx";
 import ChangePasswordPage from "../pages/changePasswordPage.jsx";
 import BuyerSingleProduct from "../pages/Shop/BuyerSingleProduct.jsx";
+import NotificationDashboard from '../pages/Dashboard/SellersNotification.jsx';
 
 let allRoutes = () => {
   return (
@@ -45,6 +46,7 @@ let allRoutes = () => {
         <Route path="/listusers/:id" element={<ListUser />} />
         <Route path="/changepassword" element={<ChangePasswordPage />} />
         <Route path="/buyer/product/:id" element={<BuyerSingleProduct />} />
+        <Route path="/dashboard/notification" element={<NotificationDashboard />} />
       </Routes>
       <ToastContainer />
     </>
