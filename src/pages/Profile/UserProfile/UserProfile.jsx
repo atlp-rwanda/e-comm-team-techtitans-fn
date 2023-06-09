@@ -112,7 +112,7 @@ const UserProfile = () => {
               
             </div>
           
-            <div className='edit-btn-button'><a href='/updateprofile' className='link-edit'>Edit Profile</a></div>
+            <div className='edit-btn-button'><Link to='/updateprofile' className='link-edit'>Edit Profile</Link></div>
     </div>
     
     </div>
