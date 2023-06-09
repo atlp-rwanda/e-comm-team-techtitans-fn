@@ -2,10 +2,15 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./sideBar.scss";
 import Logo from "../../assets/Logo/Logo.svg";
+import { logout } from "../../Redux/Features/User/logoutSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function SideBar() {
   const [activeItem, setActiveItem] = useState("dashboard");
   const userRole = localStorage.getItem("role"); // Get user role from localStorage
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <section className="menu" id="menu">
@@ -54,6 +59,15 @@ function SideBar() {
         <li>
           <i className="bx bx-cog"></i>
           <Link to="/products">Settings</Link>
+        </li>
+        <li
+          onClick={async () => {
+            await dispatch(logout()).unwrap();
+            navigate("/auth/login");
+          }}
+        >
+          <i class='bx bx-log-out'></i>
+          Logout
         </li>
         <li>
           <i className="bx bx-help-circle"></i>
