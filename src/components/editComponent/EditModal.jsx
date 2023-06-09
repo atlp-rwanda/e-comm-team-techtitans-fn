@@ -1,11 +1,10 @@
-import { useState } from 'react';
-import './editModal.scss';
-import { useDispatch } from 'react-redux';
-import { addRoles } from '../../Redux/Features/User/viewUser/setRole.slice';
-import { getAllUsers } from '../../Redux/Features/User/viewUser/view.slice';
-import { message } from 'antd';
-
-import { useParams } from 'react-router-dom';
+import { useState } from "react";
+import "./editModal.scss";
+import { useDispatch } from "react-redux";
+import { addRoles } from "../../Redux/Features/User/viewUser/setRole.slice";
+import { getAllUsers } from "../../Redux/Features/User/viewUser/view.slice";
+import { message } from "antd";
+import { useParams } from "react-router-dom";
 
 const EditModal = ({ email, roleId, id, closeModal }) => {
   const dispatch = useDispatch();
@@ -24,15 +23,26 @@ const EditModal = ({ email, roleId, id, closeModal }) => {
   const handleSave = async (e) => {
     e.preventDefault();
     try {
+      let roleIdToSend;
+      if (updatedRoleId === "Admin") {
+        roleIdToSend = 1;
+      } else if (updatedRoleId === "Seller") {
+        roleIdToSend = 2;
+      } else if (updatedRoleId === "Buyer") {
+        roleIdToSend = 3;
+      } else {
+        throw new Error("Invalid role selected");
+      }
+
       await dispatch(
-        addRoles({ email: updatedEmail, roleId: updatedRoleId, id: id }),
+        addRoles({ email: updatedEmail, roleId: roleIdToSend, id: id })
       );
       await dispatch(getAllUsers()); // Fetch all users again
 
-      message.success('User updated successfully');
+      message.success("User updated successfully");
     } catch (error) {
       // Handle error
-      message.error('Failed to update user');
+      message.error("Failed to update user");
     }
 
     closeModal();
@@ -52,11 +62,11 @@ const EditModal = ({ email, roleId, id, closeModal }) => {
         </div>
         <div className="form-group">
           <label>Role</label>
-          <input
-            type="text"
-            value={updatedRoleId}
-            onChange={handleRoleIdChange}
-          />
+          <select value={updatedRoleId} onChange={handleRoleIdChange}>
+            <option value="Admin">Admin</option>
+            <option value="Seller">Seller</option>
+            <option value="Buyer">Buyer</option>
+          </select>
         </div>
         <div className="buttons">
           <button className="save-btn" onClick={handleSave}>

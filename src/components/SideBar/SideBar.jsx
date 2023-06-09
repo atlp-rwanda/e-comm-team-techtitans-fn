@@ -5,11 +5,12 @@ import Logo from "../../assets/Logo/Logo.svg";
 
 function SideBar() {
   const [activeItem, setActiveItem] = useState("dashboard");
+  const userRole = localStorage.getItem("role"); // Get user role from localStorage
 
   return (
     <section className="menu" id="menu">
       <div className="logo">
-        <img src={Logo} />
+        <img src={Logo} alt="Logo" />
       </div>
       <div className="items">
         <li className={activeItem === "dashboard" ? "active" : ""}>
@@ -18,12 +19,14 @@ function SideBar() {
             Dashboard
           </Link>
         </li>
-        <li className={activeItem === "users" ? "active" : ""}>
-          <i className="bx bx-user"></i>
-          <Link to="/listusers" onClick={() => setActiveItem("users")}>
-            Users
-          </Link>
-        </li>
+        {userRole === "1" || userRole === 1 ? (
+          <li className={activeItem === "users" ? "active" : ""}>
+            <i className="bx bx-user"></i>
+            <Link to="/listusers" onClick={() => setActiveItem("users")}>
+              Users
+            </Link>
+          </li>
+        ) : null}
         <li className={activeItem === "products" ? "active" : ""}>
           <i className="bx bx-layout"></i>
           <Link
@@ -35,7 +38,7 @@ function SideBar() {
         </li>
         <li className={activeItem === "orders" ? "active" : ""}>
           <i className="bx bx-wallet"></i>
-          <Link to="/users" onClick={() => setActiveItem("orders")}>
+          <Link to="/listorders" onClick={() => setActiveItem("orders")}>
             Orders
           </Link>
         </li>

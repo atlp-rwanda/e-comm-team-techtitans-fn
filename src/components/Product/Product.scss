@@ -14,6 +14,29 @@ html {
 body {
   background: $background-white !important;
 }
+.recommended-container {
+  padding: 4rem 10rem;
+  .re-card-container {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 2rem;
+    column-gap: 2rem;
+
+    .card-one-rec {
+      width: 250px;
+      .card-title-rec {
+        font-size: 16px;
+      }
+      img {
+        width: 100%;
+        height: 25rem;
+
+        object-fit: cover;
+      }
+    }
+  }
+}
 
 .product-section {
   background-color: $primary-color;
@@ -81,7 +104,7 @@ body {
   margin-top: 2rem;
   .card-one {
     img {
-      width: 20rem;
+      width: 100%;
       height: 25rem;
       object-fit: cover;
     }
@@ -99,7 +122,6 @@ body {
       font-weight: 500;
     }
     .icon {
-      margin-right: 6%;
       .css-i4bv87-MuiSvgIcon-root {
         color: $secondary-color;
         font-size: 1.8rem !important;
@@ -113,18 +135,19 @@ body {
       font-size: $body-font-size;
     }
   }
+  .recommended-container {
+    .re-card-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 1.5rem;
+      row-gap: 2rem;
+    }
+  }
   .card-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 1.5rem;
     row-gap: 2rem;
-  }
-  .card-one {
-    .card-title {
-      .icon {
-        margin-right: 20%;
-      }
-    }
   }
 }
 @media (max-width: $breakpoint-md) {
@@ -136,34 +159,36 @@ body {
       display: none;
     }
   }
+  .recommended-container {
+    .re-card-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 1.5rem;
+      row-gap: 2rem;
+    }
+  }
   .card-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 1rem;
     row-gap: 2rem;
   }
-  .card-one {
-    .card-title {
-      .icon {
-        margin-right: 25%;
-      }
-    }
-  }
 }
 @media (max-width: $breakpoint-sm) {
+  .recommended-container {
+    .re-card-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+    }
+  }
   .card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 3rem;
-  }
-
-  .card-one {
-    .card-title {
-      .icon {
-        margin-right: 2%;
-      }
-    }
   }
 }
