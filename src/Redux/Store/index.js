@@ -15,8 +15,12 @@ import singleProductReducer from "../Features/Dashboard/singleProductSlice";
 import productsReducer from "../Features/Dashboard/productsSlice";
 import ProductDetailsReducer from "../Features/Product/EditProductSlice";
 import { singleUserReducer } from "../Features/User/getOneUserSlice";
+import ProfileSlice from "../Features/Profile/profile.slice";
+import GetProfileSlice from "../Features/Profile/getprofile.slice";
+import LogoutSlice from "../Features/User/logoutSlice";
 import RecommendedProduct from "../Features/Product/RecommendedSlice";
 import GetNoticationSlice from "../../Redux/Features/Notification/NotificationSlice"
+
 const middleware = [...getDefaultMiddleware(), thunk];
 
 // eslint-disable-next-line no-undef
@@ -40,6 +44,9 @@ const store = configureStore({
     products: productsReducer,
     productDetails: ProductDetailsReducer,
     oneuser: singleUserReducer,
+    profile: ProfileSlice,
+    getprofile: GetProfileSlice,
+    logout: LogoutSlice,
     recommended: RecommendedProduct,
     getnotification:GetNoticationSlice
   },

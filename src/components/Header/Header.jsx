@@ -87,7 +87,9 @@ let Header = () => {
         <li>
           <Link className="nav_link" to="/auth/login">Login</Link>
         </li>
- 
+        <li>
+        <Link className="nav_link" to="/profile">Profile</Link>
+        </li>
       </ul>
       <div className="icons">
         <SearchIcon/>

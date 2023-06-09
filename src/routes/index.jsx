@@ -19,6 +19,9 @@ import ReviewComponent from "../components/Review/ReviewProduct.jsx";
 import ChangePasswordPage from "../pages/changePasswordPage.jsx";
 import BuyerSingleProduct from "../pages/Shop/BuyerSingleProduct.jsx";
 import NotificationDashboard from '../pages/Dashboard/SellersNotification.jsx';
+import UserProfile from "../pages/Profile/UserProfile/UserProfile.jsx";
+import EditProfile from "../pages/Profile/EditProfile/EditProfile.jsx";
+
 
 let allRoutes = () => {
   return (
@@ -47,6 +50,8 @@ let allRoutes = () => {
         <Route path="/changepassword" element={<ChangePasswordPage />} />
         <Route path="/buyer/product/:id" element={<BuyerSingleProduct />} />
         <Route path="/dashboard/notification" element={<NotificationDashboard />} />
+        <Route path="/profile" element={<UserProfile />} />
+        <Route path="/updateprofile" element={<EditProfile />} />
       </Routes>
       <ToastContainer />
     </>
