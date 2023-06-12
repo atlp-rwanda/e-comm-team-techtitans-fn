@@ -21,14 +21,19 @@ import BuyerSingleProduct from "../pages/Shop/BuyerSingleProduct.jsx";
 import NotificationDashboard from "../pages/Dashboard/SellersNotification.jsx";
 import UserProfile from "../pages/Profile/UserProfile/UserProfile.jsx";
 import EditProfile from "../pages/Profile/EditProfile/EditProfile.jsx";
-
 import HomeChat from "../components/chatTestFolder/HomeChat.jsx";
 import socketIO from "socket.io-client";
-// import ChatPage from "../components/chatTestFolder/ChatPage.jsx";
 import ChatingPage from "../components/chat/chats/chatingPage.jsx";
 import { SOCKET_URL } from "../utils/apiUtilis.js";
 
 const socket = socketIO.connect(`${SOCKET_URL}`);
+
+import CancelPayment from '../pages/Payment/CancelPayment';
+import Checkout from '../pages/Payment/Checkout';
+import SuccessfulPayment from '../pages/Payment/SuccessfulPayment';
+import CardDetails from '../pages/Payment/CardDetails.jsx';
+
+
 
 let allRoutes = () => {
   return (
@@ -43,7 +48,7 @@ let allRoutes = () => {
         <Route path="/categories" element={<Categories />} />
         {/* <Route path="/chat" element={<Chat />} /> */}
         <Route path="/unauthorized" element={<UnauthorizedPage />} />
-        <Route element={<Auth allowedRoles={["admin", "seller"]} />} />
+        <Route element={<Auth allowedRoles={['admin', 'seller']} />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/addproduct" element={<AddProductForm />} />
         <Route path="/verifyotp" element={<VerifyOtp socket={socket} />} />
@@ -60,6 +65,10 @@ let allRoutes = () => {
         <Route path="/dashboard/productsList" element={<SellersDashboard />} />
         <Route path="/review" element={<ReviewComponent />} />
         <Route path="/listusers/:id" element={<ListUser />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/payment" element={<CardDetails />} />
+        <Route path="/payment/success" element={<SuccessfulPayment />} />
+        <Route path="/payment/cancelled" element={<CancelPayment />} />
         <Route path="/changepassword" element={<ChangePasswordPage />} />
         <Route path="/buyer/product/:id" element={<BuyerSingleProduct />} />
         <Route

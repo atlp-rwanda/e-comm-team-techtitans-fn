@@ -21,11 +21,13 @@ import LogoutSlice from "../Features/User/logoutSlice";
 import RecommendedProduct from "../Features/Product/RecommendedSlice";
 import GetNoticationSlice from "../../Redux/Features/Notification/NotificationSlice";
 import allmessagesSlice from "../Features/chat/allmessagesSlice";
+import PaymentReducer from '../Features/Payment/paymentSlice';
+
 
 const middleware = [...getDefaultMiddleware(), thunk];
 
 // eslint-disable-next-line no-undef
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === 'development') {
   middleware.push(logger);
 }
 
@@ -44,6 +46,7 @@ const store = configureStore({
     singleProduct: singleProductReducer,
     products: productsReducer,
     productDetails: ProductDetailsReducer,
+    payment: PaymentReducer,
     oneuser: singleUserReducer,
     profile: ProfileSlice,
     getprofile: GetProfileSlice,

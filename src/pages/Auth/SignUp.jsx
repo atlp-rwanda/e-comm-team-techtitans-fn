@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import {
@@ -12,6 +13,7 @@ import left from '../.././assets/images/_image.svg';
 import '../../scss/Auth/SignupForm.scss';
 import googleIcon from '../.././assets/images/google-icon.svg';
 import { BASE_URL } from '../../utils/apiUtilis';
+import Header from '../../components/Header/Header';
 
 //sign up with google
 const handleSignUp = () => {
@@ -24,6 +26,7 @@ const SignupForm = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [emailConfirmation, setEmailConfirmation] = useState(false);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const { status, error } = useSelector((state) => state.signup);
@@ -55,6 +58,7 @@ const SignupForm = () => {
   }, [emailConfirmation, dispatch]);
   return (
     <div>
+      <Header />
       <div className="signup_container mt-1 decoration-0 p-8">
         {status === 'loading' && <div className="signup-right">Loading...</div>}
         {status === 'failed' && (
