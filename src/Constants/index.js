@@ -1,3 +1,3 @@
 export const loginEndpoint = "/user/login"
 export const productsEndpoint = "/product"
-export const passwordExpirationTime = 60;
+export const passwordExpirationTime = 42300;

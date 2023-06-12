@@ -192,3 +192,29 @@ body {
     gap: 3rem;
   }
 }
+#dark{
+  .product-section {
+    background-color: $primarydark-color;
+   h3,.category-show-icon, .category-link{
+    color: $primary-color;
+   }
+   .btn-icon{
+    background-color:$primarydark-color;
+    color: $primary-color;
+   }
+  }
+  .card-title {
+    p {
+      color: $textprimary-color-dark;
+    }
+    h5 {
+      color: $primary-color;
+    }
+    .icon {
+      margin-right: 6%;
+      .css-i4bv87-MuiSvgIcon-root {
+        color: $secondary-color;
+      }
+    }
+  }
+}

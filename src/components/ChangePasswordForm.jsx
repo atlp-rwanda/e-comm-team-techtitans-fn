@@ -8,8 +8,11 @@ import { toast } from 'react-toastify';
 import { changePassword } from '../Redux/Features/User/getOneUserSlice';
 import decodeToken from '../utils/decodeToken';
 import { reset } from '../Redux/Features/User/getOneUserSlice';
+import { ThemeContext } from './Theme/ThemeContext';
+import { useContext } from 'react';
 
 const ChangePasswordForm = () => {
+  const { theme} = useContext(ThemeContext);
   const [passwordShown, setPasswordShown] = useState(false);
   const [old_password, setOldPass] = useState('');
   const [new_password, setNewPass] = useState('');
@@ -80,58 +83,54 @@ const ChangePasswordForm = () => {
     }
   };
 
-  return (
-    <div>
-      <div className="card-form">
-        <div className="form-title">
-          <span>
-            <span className="word-update">Update</span> Your Password
-          </span>
-        </div>
+    return (
+<>
+        <div className='changepassword-section' id={theme}>
+           <div className='card-form'>
+<div className="form-title">
+ 
+ <span><span className="word-update">Update</span> <span className='your-password-text'>Your Password</span></span>
+ </div>
 
-        <form className="password-form" onSubmit={handleChangePassword}>
-          <div className="formgroup">
-            <label htmlFor="oldPassword">Old Password</label>
-            <input
-              type={passwordShown ? 'text' : 'password'}
-              id="oldPassword"
-              name="oldPassword"
-              value={old_password}
-              onChange={(event) => setOldPass(event.target.value)}
-            />
-          </div>
-          <div className="formgroup">
-            <label htmlFor="newPassword">New Password</label>
-            <input
-              type={passwordShown ? 'text' : 'password'}
-              name="newPassword"
-              value={new_password}
-              onChange={(event) => setNewPass(event.target.value)}
-            />
-          </div>
-          <div className="formgroup">
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
-              type={passwordShown ? 'text' : 'password'}
-              id="confirmPassword"
-              name="confirmPassword"
-              value={confirm_password}
-              onChange={(event) => setConfirmPass(event.target.value)}
-            />
-          </div>
-          <div className="error-message">
-            {errorMessage && <p>{errorMessage}</p>}
-          </div>
-          <input type="checkbox" onClick={togglePassword} /> Show password
-          <div className="button-container">
-            <button type="submit">
-              {isUpdating ? 'Updating...' : 'Update'}
-            </button>
-          </div>
-        </form>
-      </div>
+  <form className='password-form' onSubmit={handleChangePassword}>
+
+    <div className='formgroup'>
+      <label htmlFor='oldPassword'>Old Password</label>
+     <input   type={passwordShown ? "text" : "password"} id='oldPassword' name='oldPassword' 
+       value={old_password}
+       onChange={(event) => setOldPass(event.target.value)}
+      />
     </div>
-  );
+
+    <div className='formgroup'>
+      <label htmlFor='newPassword'>New Password</label>
+      <input  type={passwordShown ? "text" : "password"} name='newPassword' 
+       value={new_password}
+       onChange={(event) => setNewPass(event.target.value)}
+      />
+    </div>
+    <div className='formgroup'>
+      <label htmlFor='confirmPassword'>Confirm Password</label>
+      <input type={passwordShown ? "text" : "password"} id='confirmPassword' name='confirmPassword' 
+       value={confirm_password}
+       onChange={(event) => setConfirmPass(event.target.value)}
+      />
+    </div>
+    <div className='error-message' >
+    {errorMessage && <p>{errorMessage}</p>}
+    </div>
+    <input type="checkbox" onClick={togglePassword}/> <span className='showpassword-text'>Show password</span>
+    <div className="button-container">
+    <button type='submit'>
+    {isUpdating ? 'Updating...' : 'Update'}
+    </button>
+    </div>
+  
+  </form>
+</div> 
+        </div>
+       </> 
+    );
 };
 
 export default ChangePasswordForm;

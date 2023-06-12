@@ -127,3 +127,16 @@
   }
 }
 //  used for at media for dot .carousel .control-dots
+
+#dark{
+  .slider{
+    img {
+      filter: brightness(0.8);
+    }
+  }
+ .product-container,.category{
+  background-color: $primarydark-color;
+ }
+
+  
+}
