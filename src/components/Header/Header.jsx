@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import "./Header.scss";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import Logo from "../../assets/images/Logo.svg";
-import GoogleTranslate from "./GoogleTranslate/GoogleTranslate";
-import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Divider from "@mui/material/Divider";
-import CloseIcon from "@mui/icons-material/Close";
-import MenuIcon from "@mui/icons-material/Menu";
-import Searching from "../../pages/SearchIntegrations/search";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import './Header.scss';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import Logo from '../../assets/images/Logo.svg';
+import GoogleTranslate from './GoogleTranslate/GoogleTranslate';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Divider from '@mui/material/Divider';
+import CloseIcon from '@mui/icons-material/Close';
+import MenuIcon from '@mui/icons-material/Menu';
+import Searching from '../../pages/SearchIntegrations/search';
 
 let Header = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -27,8 +27,8 @@ let Header = () => {
   };
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    setShowProfileLink(token !== null && token !== "");
+    const token = localStorage.getItem('token');
+    setShowProfileLink(token !== null && token !== '');
   }, []);
 
   return (
@@ -45,7 +45,7 @@ let Header = () => {
           <img src={Logo} alt="Logo" />
         </div>
         <ul
-          className={isMobile ? "nav_links-mobile" : "nav_links"}
+          className={isMobile ? 'nav_links-mobile' : 'nav_links'}
           onClick={() => setIsMobile(false)}
         >
           <li>
@@ -62,9 +62,9 @@ let Header = () => {
             <Link
               className="nav_link"
               id="basic-button"
-              aria-controls={open ? "basic-menu" : undefined}
+              aria-controls={open ? 'basic-menu' : undefined}
               aria-haspopup="true"
-              aria-expanded={open ? "true" : undefined}
+              aria-expanded={open ? 'true' : undefined}
               onClick={handleClick}
             >
               Categories
@@ -75,7 +75,7 @@ let Header = () => {
               open={open}
               onClose={handleClose}
               MenuListProps={{
-                "aria-labelledby": "basic-button",
+                'aria-labelledby': 'basic-button',
               }}
             >
               <MenuItem onClick={handleClose}>Electronics</MenuItem>
@@ -100,12 +100,7 @@ let Header = () => {
             </Link>
           </li>
 
-          <li>
-            <Link className="nav_link" to="/auth/login">
-              Login
-            </Link>
-          </li>
-          <li style={{ display: showProfileLink ? "block" : "none" }}>
+          <li style={{ display: showProfileLink ? 'block' : 'none' }}>
             <Link className="nav_link" to="/profile">
               Profile
             </Link>
@@ -120,6 +115,12 @@ let Header = () => {
             </div>
             <FavoriteBorderIcon />
           </div>
+          <Link to="/checkout">
+            <span className="login-text-navbar">💳</span>
+          </Link>
+          <Link to="/auth/login">
+            <span className="login-text-navbar">Login</span>
+          </Link>
         </div>
         <div
           className="mobile-menu-icon"

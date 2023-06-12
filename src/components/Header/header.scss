@@ -1,4 +1,4 @@
-@import "../../variables/variables.scss";
+@import '../../variables/variables.scss';
 
 *,
 *::after,
@@ -82,7 +82,7 @@ body {
       display: none;
     }
     &_logo {
-        // background: green;
+      // background: green;
       width: 16rem;
     }
 
@@ -200,4 +200,10 @@ body {
       }
     }
   }
+}
+
+.login-text-navbar {
+  font-size: 15px;
+  padding-left: 10px;
+  font-weight: 550;
 }
