@@ -1,20 +1,21 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { BASE_URL } from '../../utils/apiUtilis';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { BASE_URL } from "../../utils/apiUtilis";
+import jwt from "jwt-decode";
 
 const initialState = {
   loading: false,
   users: [],
-  error: '',
+  error: "",
 };
 
 export const fetchUsers = createAsyncThunk(
-  'user/fetchUsers',
-  async ({ otp, setMessage, setGo, email }) => {
+  "user/fetchUsers",
+  async ({ otp, setMessage, setGo, email, socket }) => {
     try {
       const response = await fetch(`${BASE_URL}/api/v1/user/login/verifyotp`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email,
@@ -22,11 +23,17 @@ export const fetchUsers = createAsyncThunk(
         }),
       });
       if (!response.ok) {
-        setMessage('invalid otp');
-        throw new Error('Failed to fetch users.');
+        setMessage("invalid otp");
+        throw new Error("Failed to fetch users.");
       }
       const data = await response.json();
-      localStorage.setItem('token', data.token);
+      const userCredential = jwt(data.token);
+      localStorage.setItem("userIn", JSON.stringify(userCredential));
+      socket.emit("newUser", {
+        userName: userCredential.fullname,
+        socketID: socket.id,
+      });
+      localStorage.setItem("token", data.token);
       localStorage.setItem("role", data.roleId);
       setMessage(data.message);
       setGo(true);
@@ -34,11 +41,11 @@ export const fetchUsers = createAsyncThunk(
     } catch (error) {
       throw new Error(error.message);
     }
-  },
+  }
 );
 
 const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
   extraReducers: (builder) => {
     builder.addCase(fetchUsers.pending, (state) => {
@@ -47,7 +54,7 @@ const userSlice = createSlice({
     builder.addCase(fetchUsers.fulfilled, (state, action) => {
       state.loading = false;
       state.users = action.payload;
-      state.error = '';
+      state.error = "";
     });
     builder.addCase(fetchUsers.rejected, (state, action) => {
       state.loading = false;

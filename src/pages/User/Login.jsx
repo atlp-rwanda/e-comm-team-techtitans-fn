@@ -1,41 +1,52 @@
-import React, { useState } from 'react';
-import './Login.scss';
-import Logo from '../../assets/images/Logo.svg';
-import googleIcon from '../../assets/images/google-icon.svg';
-import UsePasswordToggle from './usePasswordToggle';
-import shopImg from '../../assets/images/shoplogoimg.svg';
-import Alert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
-import Header from '../../components/Header/Header';
-import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../Redux/Features/User/loginSlice';
-import { useNavigate } from 'react-router-dom';
-import { BASE_URL } from '../../utils/apiUtilis';
+import React, { useState, useEffect } from "react";
+import "./Login.scss";
+import Logo from "../../assets/images/Logo.svg";
+import googleIcon from "../../assets/images/google-icon.svg";
+import UsePasswordToggle from "./usePasswordToggle";
+import shopImg from "../../assets/images/shoplogoimg.svg";
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
+import Header from "../../components/Header/Header";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../Redux/Features/User/loginSlice";
+import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../utils/apiUtilis";
+import jwt from "jwt-decode";
 
 const handleLogin = () => {
   window.open(`${BASE_URL}/api/v1/auth/google/callback`, '_self');
 };
 
-const Login = () => {
+const Login = ({ socket }) => {
   const [PasswordInputType, ToggleIcon] = UsePasswordToggle();
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const dispatch = useDispatch();
+  // const allUsers = useSelector(
+  //   (state) => state.allUserToChat?.allUsers?.data?.rows
+  // );
   const status = useSelector((state) => state.user.status);
   const error = useSelector((state) => state.user.Error);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    // const logeduser = allUsers.find((item) => item.email == email);
     dispatch(login({ email, password }))
       .then((response) => {
         if (response && response.payload.message === 'Please enter your OTP') {
           setIsLoggedIn(true);
           navigate('/verifyotp');
         }
-        if (response && response.payload.message === 'Login successful') {
-          localStorage.setItem('email', email);
+        if (response && response.payload.message === "Login successful") {
+          localStorage.setItem("email", email);
+          const userCredential = jwt(localStorage.getItem("token"));
+          localStorage.setItem("userIn", JSON.stringify(userCredential));
+          socket.emit("newUser", {
+            userName: userCredential.fullname,
+            socketID: socket.id,
+          });
           setIsLoggedIn(true);
           navigate('/');
         } else {

@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import './Header.scss';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import Logo from '../../assets/images/Logo.svg';
-import GoogleTranslate from './GoogleTranslate/GoogleTranslate';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Divider from '@mui/material/Divider';
-import CloseIcon from '@mui/icons-material/Close';
-import MenuIcon from '@mui/icons-material/Menu';
-import Searching from '../../pages/SearchIntegrations/search';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./header.scss";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import Logo from "../../assets/images/Logo.svg";
+import GoogleTranslate from "./GoogleTranslate/GoogleTranslate";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Divider from "@mui/material/Divider";
+import CloseIcon from "@mui/icons-material/Close";
+import MenuIcon from "@mui/icons-material/Menu";
+import Searching from "../../pages/SearchIntegrations/search";
 
 let Header = () => {
   const [isMobile, setIsMobile] = useState(false);
