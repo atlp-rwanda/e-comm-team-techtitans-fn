@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getProducts } from "../../Redux/Features/Dashboard/productsSlice";
 import "./Product.scss";
@@ -7,6 +7,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import ProductRating from "../Review/GetProductReviewAverage.jsx";
+import WishlistButton from "../../components/wishlist-btn/wishlistbutton";
 
 const Card = () => {
   const dispatch = useDispatch();
@@ -57,6 +58,7 @@ const Card = () => {
 
                 <div className="icon">
                   <FavoriteBorderIcon />
+                  <WishlistButton product_id={product.id} />
                 </div>
               </div>
               <ProductRating pid={product.id} />

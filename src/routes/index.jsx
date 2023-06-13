@@ -25,9 +25,6 @@ import HomeChat from "../components/chatTestFolder/HomeChat.jsx";
 import socketIO from "socket.io-client";
 import ChatingPage from "../components/chat/chats/chatingPage.jsx";
 import { SOCKET_URL } from "../utils/apiUtilis.js";
-
-const socket = socketIO.connect(`${SOCKET_URL}`);
-
 import CancelPayment from '../pages/Payment/CancelPayment';
 import Checkout from '../pages/Payment/Checkout';
 import SuccessfulPayment from '../pages/Payment/SuccessfulPayment';
@@ -35,20 +32,17 @@ import CardDetails from '../pages/Payment/CardDetails.jsx';
 import SingleProduct from '../components/CartOperations/SingleProduct.jsx'
 import YourCart from '../components/CartOperations/YourCart.jsx';
 
-
+const socket = socketIO.connect(`${SOCKET_URL}`);
 
 let allRoutes = () => {
   return (
     <>
       <Routes>
-        {/* <Route path="/" element={<HomeChat socket={socket} />} /> */}
         <Route element={<Auth allowedRoles={["admin", "seller", "buyer"]} />}>
           <Route path="/chat" element={<ChatingPage socket={socket} />} />
         </Route>
-        {/* <Route path="/chat" element={<ChatPage socket={socket} />} /> */}
         <Route path="/" element={<Home />} />
         <Route path="/categories" element={<Categories />} />
-        {/* <Route path="/chat" element={<Chat />} /> */}
         <Route path="/unauthorized" element={<UnauthorizedPage />} />
         <Route element={<Auth allowedRoles={['admin', 'seller']} />} />
         <Route path="/shop" element={<Shop />} />
@@ -79,7 +73,7 @@ let allRoutes = () => {
         />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/updateprofile" element={<EditProfile />} />
-        <Route path="/changepassword" element={<ChangePasswordPage/>}/>
+        <Route path="/changepassword" element={<ChangePasswordPage />} />
         <Route path="/products/:id" element={<SingleProduct />} />
         <Route path="/mycart" element={<YourCart />} />
       </Routes>

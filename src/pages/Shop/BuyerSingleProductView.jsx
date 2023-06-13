@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getSingleProduct } from "../../Redux/Features/Dashboard/singleProductSlice";
@@ -18,16 +17,15 @@ export function BuyerSingleProductView() {
   const dispatch = useDispatch();
   const { statuss } = useSelector((state) => state.cart);
   const [showSnackbar, setShowSnackbar] = useState(false);
-  //add product to cart
-  
+
   const handleSnackbarClose = () => {
     setShowSnackbar(false);
   };
-  const handleSubmit=()=>{
 
-    dispatch(AddToCartProduct({ productId:id, productQuantity :quantitys}));
+  const handleSubmit = () => {
+    dispatch(AddToCartProduct({ productId: id, productQuantity: quantitys }));
     setShowSnackbar(true);
-  }
+  };
 
   const { singleProduct, status, error } = useSelector(
     (state) => state.singleProduct
@@ -141,45 +139,56 @@ export function BuyerSingleProductView() {
             </div>
             <div className="quantity-dial-1">
               <label>Quantity</label>
-              <input type="number" min="1" defaultValue="1"  value={quantitys}
-        onChange={(e) => setQuantitys(e.target.value)} />
+              <input
+                type="number"
+                min="1"
+                defaultValue="1"
+                value={quantitys}
+                onChange={(e) => setQuantitys(e.target.value)}
+              />
             </div>
-            <input type="submit"  onClick={handleSubmit}  disabled={statuss === "loading"} value="add to cart" className="addcartbtn" />
+            <input
+              type="submit"
+              onClick={handleSubmit}
+              disabled={statuss === "loading"}
+              value="add to cart"
+              className="addcartbtn"
+            />
             {statuss === "loading" && <div className="signup-right">Loading...</div>}
-      {statuss === "failed" && (
-        <div className="signup-right">
-          <Snackbar
-            open={showSnackbar}
-            autoHideDuration={6000}
-            onClose={handleSnackbarClose}
-          >
-            <Alert
-              onClose={handleSnackbarClose}
-              severity="error"
-              sx={{ width: "100%", fontSize: "1.5rem" }}
-            >
-              Something went Wrong! Please try again later.
-            </Alert>
-          </Snackbar>
-        </div>
-      )}
-      {statuss === "succeeded" && (
-        <div className="signup-right">
-          <Snackbar
-            open={showSnackbar}
-            autoHideDuration={6000}
-            onClose={handleSnackbarClose}
-          >
-            <Alert
-              onClose={handleSnackbarClose}
-              severity="success"
-              sx={{ width: "100%", fontSize: "1.5rem" }}
-            >
-              Product Added to Cart successfully!
-            </Alert>
-          </Snackbar>
-        </div>
-      )}
+            {statuss === "failed" && (
+              <div className="signup-right">
+                <Snackbar
+                  open={showSnackbar}
+                  autoHideDuration={6000}
+                  onClose={handleSnackbarClose}
+                >
+                  <Alert
+                    onClose={handleSnackbarClose}
+                    severity="error"
+                    sx={{ width: "100%", fontSize: "1.5rem" }}
+                  >
+                    Something went Wrong! Please try again later.
+                  </Alert>
+                </Snackbar>
+              </div>
+            )}
+            {statuss === "succeeded" && (
+              <div className="signup-right">
+                <Snackbar
+                  open={showSnackbar}
+                  autoHideDuration={6000}
+                  onClose={handleSnackbarClose}
+                >
+                  <Alert
+                    onClose={handleSnackbarClose}
+                    severity="success"
+                    sx={{ width: "100%", fontSize: "1.5rem" }}
+                  >
+                    Product Added to Cart successfully!
+                  </Alert>
+                </Snackbar>
+              </div>
+            )}
           </div>
           <ReviewComponent pid={id} />
           <ProductReviews pid={id} />

@@ -24,8 +24,8 @@ import allmessagesSlice from "../Features/chat/allmessagesSlice";
 import PaymentReducer from '../Features/Payment/paymentSlice';
 import productsReviewAverageSlice from "../../Redux/Features/Review/GetAverageProductReview";
 import productsReviewShowSlice from "../../Redux/Features/Review/GetProductReview";
+import WishlistSlice from "../../Redux/Features/Wishlist/Wishlist";
 import addProductToCartSlice from '../Features/Cart/CartSlice';
-
 
 const middleware = [...getDefaultMiddleware(), thunk];
 
@@ -59,8 +59,8 @@ const store = configureStore({
     allmessage: allmessagesSlice,
     reviewaverage: productsReviewAverageSlice,
     showreview: productsReviewShowSlice,
-    getnotification:GetNoticationSlice,
-    cart:addProductToCartSlice,
+    wishlist: WishlistSlice,
+    cart: addProductToCartSlice,
   },
   middleware,
 });
