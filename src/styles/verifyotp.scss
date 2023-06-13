@@ -81,7 +81,7 @@
                 border: none;
                 font-size: 18px;
                 height: 100%;
-                padding: 0px 5px;
+                padding: 5px 9px;
                }
                input:focus {
                 outline: none;
@@ -89,7 +89,30 @@
             }
             ul{
                 display: grid;
+                list-style: none;
             }
         }
     }
+}
+#dark.container{
+    background-color:$background-dark;
+   .right{
+    background-color:$background-dark;
+    .box{
+        background-color: $primarydark-color;
+    }
+    #openlock,#codeText,label{
+        color: $textprimary-color-dark;
+    }
+    .input-lock{
+        border: 1px solid $accent;
+      input{
+        background-color: inherit;
+        color: $primary-color;
+      }
+    }
+   }
+   .left{
+    color: $textprimary-color-dark;
+   }
 }

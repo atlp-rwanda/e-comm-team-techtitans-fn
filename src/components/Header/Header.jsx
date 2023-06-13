@@ -12,8 +12,13 @@ import Divider from "@mui/material/Divider";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import Searching from "../../pages/SearchIntegrations/search";
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import { ThemeContext } from '../Theme/ThemeContext';
+import { useContext } from 'react';
+import LogoDark from '../../assets/images/LogoDark.svg'
 
 let Header = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const [isMobile, setIsMobile] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [showProfileLink, setShowProfileLink] = useState(true);
@@ -32,7 +37,7 @@ let Header = () => {
   }, []);
 
   return (
-    <div className="header">
+    <div className="header" id={theme}>
       <div className="header_main">
         <p>Free shipping order over 1000$</p>
         <div className="header_main--two">
@@ -42,7 +47,7 @@ let Header = () => {
       </div>
       <nav className="nav">
         <div className="nav_logo">
-          <img src={Logo} alt="Logo" />
+          {theme === 'dark' ? <img src={LogoDark}  /> : <img src={Logo} alt="Logo"  />}
         </div>
         <ul
           className={isMobile ? 'nav_links-mobile' : 'nav_links'}
@@ -106,7 +111,10 @@ let Header = () => {
             </Link>
           </li>
         </ul>
-        <div className="icons">
+        <div className="switch">
+        <DarkModeSwitch onChange={toggleTheme} checked={theme==='dark'}/>
+        </div>
+      <div className="icons">
           <Searching className="search-icon-button" />
           <ShoppingCartIcon />
           <div className="iconContainer">

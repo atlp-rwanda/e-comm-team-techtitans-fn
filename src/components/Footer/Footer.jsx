@@ -4,10 +4,12 @@ import FacebookSharpIcon from "@mui/icons-material/FacebookSharp";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-
+import { ThemeContext } from "../Theme/ThemeContext";
+import { useContext } from "react";
 const Footer = () => {
+  const { theme} = useContext(ThemeContext);
   return (
-    <div className="footer">
+    <div className="footer" id={theme}>
       <div className="footer-container">
         <div className="footer-section">
           <div className="footer-categories">

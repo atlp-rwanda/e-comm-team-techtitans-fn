@@ -3,10 +3,12 @@ import Card from './Card';
 import './Product.scss';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import CategoryIcon from '@mui/icons-material/Category';
-
+import { ThemeContext } from '../Theme/ThemeContext';
+import { useContext } from 'react';
 const Product= ()=>{
+    const { theme} = useContext(ThemeContext);
     return(
-        <div className='product-section'>
+        <div className='product-section' id={theme}>
             <h3>Product overview</h3>
             <div className='products'>
                 <CategoryIcon className='category-show-icon'/>

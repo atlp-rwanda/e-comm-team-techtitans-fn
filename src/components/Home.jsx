@@ -2,10 +2,12 @@ import React from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
-import Product from "./Product/Product";
-
+import { Carousel } from 'react-responsive-carousel';
+import Product from './Product/Product';
+import { ThemeContext } from './Theme/ThemeContext';
+import { useContext } from 'react';
 function Home() {
+  const { theme} = useContext(ThemeContext);
   const navigate = useNavigate();
   let backgroundUrl =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2s9HDKipReXD4JCwZtvwq21UdaVbif2z2QQ&usqp=CAU";
@@ -14,6 +16,7 @@ function Home() {
   };
   return (
     <>
+      <div className="Home-content" id={theme}>
       <div className="homeContainer">
         <Carousel autoPlay infiniteLoop autoFocus showThumbs={false}>
           <div className="slider">
@@ -132,6 +135,7 @@ function Home() {
       </div>
       <div className="product-container">
         <Product />
+      </div>
       </div>
     </>
   );

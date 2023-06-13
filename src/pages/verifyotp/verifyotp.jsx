@@ -3,11 +3,15 @@ import Button from "../../components/button";
 import { IoMdUnlock } from "react-icons/io";
 import { useSelector, useDispatch } from "react-redux";
 // import { useEffect } from "react";
-import { useState } from "react";
-import { fetchUsers } from "../../Redux/Features/verifyotp.slice";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { fetchUsers } from '../../Redux/Features/verifyotp.slice';
+import { useNavigate } from 'react-router-dom';
+import { ThemeContext } from '../../components/Theme/ThemeContext';
+import { useContext } from 'react';
+import Header from '../../components/Header/Header';
 
 let VerifyOtp = ({ socket }) => {
+  const {theme}=useContext(ThemeContext);
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   let email = localStorage.getItem("email");
@@ -30,7 +34,9 @@ let VerifyOtp = ({ socket }) => {
   };
 
   return (
-    <div className="container">
+    <>
+    <Header/>
+    <div className="container" id={theme}>
       <div className="left">
         <div className="center">
           <h1>
@@ -72,6 +78,7 @@ let VerifyOtp = ({ socket }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

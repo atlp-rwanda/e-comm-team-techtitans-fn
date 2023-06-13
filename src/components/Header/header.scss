@@ -1,4 +1,4 @@
-@import '../../variables/variables.scss';
+@import "../../variables/variables.scss";
 
 *,
 *::after,
@@ -82,7 +82,7 @@ body {
       display: none;
     }
     &_logo {
-      // background: green;
+      //   background: green;
       width: 16rem;
     }
 
@@ -202,8 +202,56 @@ body {
   }
 }
 
-.login-text-navbar {
-  font-size: 15px;
-  padding-left: 10px;
-  font-weight: 550;
+#dark{
+  .header {
+    &_main {
+      background-color: #000000;
+      color: $background-white-dark;
+      display: flex;
+      font-size: $medium-font-size;
+      padding: 1rem;
+      justify-content: space-around;
+      align-items: center !important;
+  
+      &--two {
+        display: flex;
+        justify-content: space-between;
+        p {
+          border: 1px solid $dashdot;
+          padding: 2px 10px;
+          &:last-child {
+            padding: 2px 64px 2px 10px;
+            border-left: 0px;
+          }
+        }
+      }
+    }
+  }
+
+  .nav{
+  background-color: $primarydark-color;
+  .nav_link {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: $textprimary-color;
+      font-size: $medium-font-size;
+      transition: all 0.3s;
+    }
+    &:active,
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+  li {
+    &:first-child .nav_link {
+      color: $secondary-color;
+    }
+  }
+}
+
+.icons,.mobile-menu-icon,.login-text-navbar{
+  color: $textprimary-color
+}
+
 }

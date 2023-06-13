@@ -6,8 +6,11 @@ import { toast } from 'react-toastify';
 import { sendResetLink } from '../../Redux/Features/passwordResetSlice';
 import 'react-toastify/dist/ReactToastify.css';
 import '../../scss/Auth/ForgotPassword.scss';
+import { ThemeContext } from '../../components/Theme/ThemeContext';
+import { useContext } from 'react';
 
 const ForgotPassword = () => {
+  const { theme} = useContext(ThemeContext);
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
@@ -43,7 +46,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="forgot-password-page">
+    <div className="forgot-password-page" id={theme}>
       <form className="forgot-password-form">
         <div>
           <img

@@ -9,11 +9,15 @@ import {
   verifyEmail,
 } from '../../Redux/Features/signup/SignupSlice';
 import hola from '../.././assets/images/logo.png';
+import Logo from "../../assets/images/Logo.svg"
 import left from '../.././assets/images/_image.svg';
 import '../../scss/Auth/SignupForm.scss';
 import googleIcon from '../.././assets/images/google-icon.svg';
 import { BASE_URL } from '../../utils/apiUtilis';
 import Header from '../../components/Header/Header';
+import { ThemeContext } from '../../components/Theme/ThemeContext';
+import { useContext } from 'react';
+import LogoDark from '../../assets/images/LogoDark.svg'
 
 //sign up with google
 const handleSignUp = () => {
@@ -21,6 +25,7 @@ const handleSignUp = () => {
 };
 
 const SignupForm = () => {
+  const {theme}=useContext(ThemeContext);
   const [fullname, setFullname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -57,9 +62,10 @@ const SignupForm = () => {
     }
   }, [emailConfirmation, dispatch]);
   return (
-    <div>
-      <Header />
-      <div className="signup_container mt-1 decoration-0 p-8">
+    
+    <div className='signup-section' id={theme}>
+      <Header/>
+      <div className="signup_container mt-1 decoration-0 p-8" >
         {status === 'loading' && <div className="signup-right">Loading...</div>}
         {status === 'failed' && (
           <div className="signup-right">
@@ -86,10 +92,10 @@ const SignupForm = () => {
               <div className="form-signup_logo">
                 <h1>
                   <span>
-                    <img src={hola} alt="" />
+                  {theme === 'dark' ? <img src={LogoDark}  /> : <img src={Logo}  />}
                   </span>
                 </h1>
-                <h1>Create Account</h1>
+                <h3>Create Account</h3>
               </div>
               <form onSubmit={handleSubmit} className="form">
                 <div className="my-4">

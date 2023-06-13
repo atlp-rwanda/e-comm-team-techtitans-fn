@@ -11,9 +11,7 @@ html {
   font-size: 62.5%;
 }
 
-body {
-  background:$backgroundWhite-color;
-}
+
 
 @mixin submit-button($col, $bgcol) {
   background-color: $primary-color;
@@ -76,6 +74,7 @@ body {
       background-color: $primary-color;
 
       .form {
+        display: block;
         &-signup_logo {
           h1 {
             color: $secondary-color;
@@ -292,6 +291,29 @@ body {
         border-radius: 2rem;
     }
 
+
+}
+
+#dark.signup-section{
+  background-color: $background-dark;
+  .left-on img{
+    filter:brightness(0.8);
+  }
+  .signup-left{
+    background-color: $primarydark-color;
+  }
+  input{
+    background-color: inherit;
+    color: $textprimary-color;
+  }
+  .gmail-btn, .or{
+    color: $accent;
+  }
+  .form-signup_logo{
+    h3{
+      color: $textprimary-color;
+    }
+  }
 
 }
 
