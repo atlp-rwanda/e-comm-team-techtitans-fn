@@ -164,3 +164,14 @@ p {
     flex-wrap: wrap;
   }
 }
+.addcartbtn{
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bolder;
+  border: none;
+  color: #fff;
+  background-color: $secondary-color;
+  cursor: pointer;
+}

@@ -21,10 +21,11 @@ import LogoutSlice from "../Features/User/logoutSlice";
 import RecommendedProduct from "../Features/Product/RecommendedSlice";
 import GetNoticationSlice from "../../Redux/Features/Notification/NotificationSlice";
 import allmessagesSlice from "../Features/chat/allmessagesSlice";
-import PaymentReducer from "../Features/Payment/paymentSlice";
+import PaymentReducer from '../Features/Payment/paymentSlice';
 import productsReviewAverageSlice from "../../Redux/Features/Review/GetAverageProductReview";
 import productsReviewShowSlice from "../../Redux/Features/Review/GetProductReview";
 import WishlistSlice from "../../Redux/Features/Wishlist/Wishlist";
+import addProductToCartSlice from '../Features/Cart/CartSlice';
 
 const middleware = [...getDefaultMiddleware(), thunk];
 
@@ -59,6 +60,7 @@ const store = configureStore({
     reviewaverage: productsReviewAverageSlice,
     showreview: productsReviewShowSlice,
     wishlist: WishlistSlice,
+    cart: addProductToCartSlice,
   },
   middleware,
 });

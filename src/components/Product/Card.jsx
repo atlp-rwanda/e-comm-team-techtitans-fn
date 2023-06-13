@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getProducts } from "../../Redux/Features/Dashboard/productsSlice";
 import "./Product.scss";
@@ -57,7 +57,7 @@ const Card = () => {
                 </div>
 
                 <div className="icon">
-                  {/* <FavoriteBorderIcon /> */}
+                  <FavoriteBorderIcon />
                   <WishlistButton product_id={product.id} />
                 </div>
               </div>
