@@ -12,10 +12,10 @@ import Divider from "@mui/material/Divider";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import Searching from "../../pages/SearchIntegrations/search";
-import { DarkModeSwitch } from 'react-toggle-dark-mode';
-import { ThemeContext } from '../Theme/ThemeContext';
-import { useContext } from 'react';
-import LogoDark from '../../assets/images/LogoDark.svg'
+import { DarkModeSwitch } from "react-toggle-dark-mode";
+import { ThemeContext } from "../Theme/ThemeContext";
+import { useContext } from "react";
+import LogoDark from "../../assets/images/LogoDark.svg";
 
 let Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -32,8 +32,8 @@ let Header = () => {
   };
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    setShowProfileLink(token !== null && token !== '');
+    const token = localStorage.getItem("token");
+    setShowProfileLink(token !== null && token !== "");
   }, []);
 
   return (
@@ -47,10 +47,14 @@ let Header = () => {
       </div>
       <nav className="nav">
         <div className="nav_logo">
-          {theme === 'dark' ? <img src={LogoDark}  /> : <img src={Logo} alt="Logo"  />}
+          {theme === "dark" ? (
+            <img src={LogoDark} />
+          ) : (
+            <img src={Logo} alt="Logo" />
+          )}
         </div>
         <ul
-          className={isMobile ? 'nav_links-mobile' : 'nav_links'}
+          className={isMobile ? "nav_links-mobile" : "nav_links"}
           onClick={() => setIsMobile(false)}
         >
           <li>
@@ -67,9 +71,9 @@ let Header = () => {
             <Link
               className="nav_link"
               id="basic-button"
-              aria-controls={open ? 'basic-menu' : undefined}
+              aria-controls={open ? "basic-menu" : undefined}
               aria-haspopup="true"
-              aria-expanded={open ? 'true' : undefined}
+              aria-expanded={open ? "true" : undefined}
               onClick={handleClick}
             >
               Categories
@@ -80,7 +84,7 @@ let Header = () => {
               open={open}
               onClose={handleClose}
               MenuListProps={{
-                'aria-labelledby': 'basic-button',
+                "aria-labelledby": "basic-button",
               }}
             >
               <MenuItem onClick={handleClose}>Electronics</MenuItem>
@@ -105,23 +109,25 @@ let Header = () => {
             </Link>
           </li>
 
-          <li style={{ display: showProfileLink ? 'block' : 'none' }}>
+          <li style={{ display: showProfileLink ? "block" : "none" }}>
             <Link className="nav_link" to="/profile">
               Profile
             </Link>
           </li>
         </ul>
         <div className="switch">
-        <DarkModeSwitch onChange={toggleTheme} checked={theme==='dark'}/>
+          <DarkModeSwitch onChange={toggleTheme} checked={theme === "dark"} />
         </div>
-      <div className="icons">
+        <div className="icons">
           <Searching className="search-icon-button" />
           <ShoppingCartIcon />
           <div className="iconContainer">
             <div className="iconContainer-number">
-              <p>2</p>
+              <p></p>
             </div>
-            <FavoriteBorderIcon />
+            <a href="/wishlist">
+              <FavoriteBorderIcon />{" "}
+            </a>
           </div>
           <Link to="/checkout">
             <span className="login-text-navbar">💳</span>

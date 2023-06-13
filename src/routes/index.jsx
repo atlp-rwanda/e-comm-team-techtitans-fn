@@ -32,7 +32,7 @@ import CancelPayment from '../pages/Payment/CancelPayment';
 import Checkout from '../pages/Payment/Checkout';
 import SuccessfulPayment from '../pages/Payment/SuccessfulPayment';
 import CardDetails from '../pages/Payment/CardDetails.jsx';
-
+import Wishlist from "../pages/wishli/Wishlist";
 
 
 let allRoutes = () => {
@@ -77,6 +77,7 @@ let allRoutes = () => {
         />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/updateprofile" element={<EditProfile />} />
+        <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
       <ToastContainer />
     </>
