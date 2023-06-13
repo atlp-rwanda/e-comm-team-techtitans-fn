@@ -106,11 +106,7 @@ body {
           color: $secondary-color;
         }
       }
-      li {
-        &:first-child .nav_link {
-          color: $secondary-color;
-        }
-      }
+  
     }
 
     .icons {

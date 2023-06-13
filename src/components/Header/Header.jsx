@@ -120,7 +120,9 @@ let Header = () => {
         </div>
         <div className="icons">
           <Searching className="search-icon-button" />
-          <ShoppingCartIcon />
+          <Link to="/orders">
+            <ShoppingCartIcon />
+          </Link>
           <div className="iconContainer">
             <div className="iconContainer-number">
               <p></p>

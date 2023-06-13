@@ -1,0 +1,91 @@
+@import "../variables/variables.scss";
+
+.order-container {
+  background-color: $primary-color;
+  padding: 2px;
+}
+.order-container menu {
+  margin-top: 20px;
+  text-decoration: none;
+  list-style: none;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 0px 40px;
+  border-bottom: 2px solid $accent;
+}
+
+.card-container-order {
+  background-color: #f9fafb;
+  margin: 40px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.card-header {
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.order-status span {
+  color: $danger;
+}
+
+.card-body {
+  width: 100%;
+  background-color: $primary-color;
+  border: 1px solid $accent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  padding: 20px;
+}
+.card-body img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.card-body-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-between;
+  line-height: 20px;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.card-body-content h3,
+.card-body-content p {
+  padding-bottom: 15px;
+}
+
+.card-left button {
+  background-color: $secondary-color;
+  color: $primary-color;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: 5s;
+}
+
+.card-right button {
+  color: $danger;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: 5s;
+}

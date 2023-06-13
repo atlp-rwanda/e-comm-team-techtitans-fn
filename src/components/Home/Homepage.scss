@@ -1,0 +1,174 @@
+@import "../../variables/variables.scss";
+
+// navbar
+.header-container{
+width: 100%;
+display: flex;
+justify-content: space-around;
+background: $backgroundWhite-color;
+}
+
+.header {
+  color: $primarydark-color;
+  margin-top: 50px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 150px;
+  align-items: center;
+  align-content: center;
+  font-size: $medium-font-size;
+}
+.header:hover {
+  color: $accent;
+}
+
+// middle part with images
+.categories-cont{
+  display: flex;
+  justify-content: space-evenly;
+  height: 350px;
+  background: $backgroundWhite-color;
+}
+.categories-container{
+  width: 100%;
+  height: 350px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background: $backgroundWhite-color;
+}
+.category-images {
+  width: 300px;
+  height: 270px;
+  margin-top: 35px;
+  // margin-left: 180px;
+}
+.category-span {
+  color: $primarydark-color;
+  margin: 0;
+  margin-top: 35px;
+  margin-left: 180px;
+  font-weight: 700;
+  font-size: $medium-font-size;
+}
+.Main {
+  width: 100%;
+  height: 650px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background: $backgroundWhite-color;
+}
+.Images {
+  width: 150px;
+  height: 250px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 95px;
+}
+.Images img {
+  width: 290px;
+  height: 250px;
+  margin-top: 25px;
+  margin-left: 60px;
+}
+.Span {
+  color: $primarydark-color;
+  margin: 0;
+  margin-top: 28px;
+  margin-left: 160px;
+  font-weight: 700;
+  $small-font-size: 12px;
+}
+
+//footer
+.Footer-container{
+    width: 100%;
+    height: 350px;
+    margin-top: 50px;
+    background-color: rgb(154, 150, 212);
+    display: grid;
+    grid-template-rows: 1fr 0.5fr;
+    background: $primarydark-color;;
+}
+.footer-copyright{
+    height: 10px;
+    background: $primarydark-color;;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: 9px;
+}
+.footer-category{
+    display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.categories{
+  background: $primarydark-color;
+ display: grid;
+ grid-template-rows: 0.2fr 1fr;
+}
+.category-footer{
+  color: $backgroundWhite-color;
+
+}
+.help{
+  color: $backgroundWhite-color;
+  background: $primarydark-color;
+  height: 60%;
+  
+}
+.in-touch{
+  color: $backgroundWhite-color;
+  background: $primarydark-color;
+    
+}
+.newsletter{
+  color: $backgroundWhite-color;
+  background: $primarydark-color;
+}
+.ulist{
+  height: 60%;
+  display: grid;
+  color: $backgroundWhite-color;
+ 
+}
+.footer-header{
+  display: flex;
+  justify-content: center;
+}
+.division{
+  display: flex;
+  justify-content: center;
+}
+.subscribe{
+  background: $secondary-color;
+  border-radius: 15px;
+}
+.logo-logo{
+margin-left: 8px;
+height: 25px;
+}
+.tech-titans{
+  margin-top: 5px;
+  margin-left: 12px;
+}
+.titans{
+  color: $secondary-color;
+}
+// .search-icons{
+//   display: flex;
+//   height: 15px;
+//   width: 25px;
+//   margin-left: 0px;
+// }
+// .heart-icons{
+//   display: flex;
+//   height: 15px;
+//   width: 25px;
+//   margin-left: 25px;
+// }
+
+.cart-icons{
+  height: 20px;
+  width: 25px;
+  margin-left: 30px;
+}
