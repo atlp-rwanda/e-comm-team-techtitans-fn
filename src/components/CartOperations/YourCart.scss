@@ -1,0 +1,75 @@
+.containerview {
+  background-color :#fff;
+  height: 100%;
+  width: 300px;
+  float: right;
+  
+}
+
+.headertitle  {
+    margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  font-weight: 600;
+}
+
+.headertitle .closesign{
+    
+margin-right: 20px;
+font-weight: 9000;
+}
+
+.containerdetails{
+    margin-top: 40px;
+    display: flex;
+    margin-left: 20px;
+}
+.containerdetails .imagedesign{
+    width: 70px;
+    height: 80px;
+}
+
+.titledetail{
+    margin-top: 10px;
+    margin-left: 20px;
+    padding: 1px;
+}
+
+.titledetail h2{
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.pricedetails {
+    margin-top: 70px;
+    margin-left: 20px;
+    
+    p {
+       
+        align-items: center;
+    }
+}
+
+.buttondetails{
+    display: flex;
+     margin-left: 20px;
+     margin-top: 20px;
+     
+
+    .btnprimary{
+        color: #fff;
+        font-weight: 300;
+        border-radius: 10px;
+        background-color: #7a89e9;
+        cursor: pointer;
+        border: none;
+        margin-left: 5px;
+        width: 200px;
+        padding: 1rem 0.4rem;
+        margin-bottom: 20px;
+        margin-right: 10px;
+        
+    
+    }
+}
