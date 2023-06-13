@@ -8,7 +8,7 @@ import { GetNotification } from "../../Redux/Features/Notification/NotificationS
 function NavBar() {
   const [notification, setNotification] = useState(false);
   const { getnotification, status, error } = useSelector((state) => state.getnotification);
-
+  let userName = localStorage.getItem("userIn") || "";
   console.log("This is the notification", getnotification)
   if (getnotification && status === "succeeded") {
     var count = getnotification.data.notifications.length;
@@ -43,7 +43,7 @@ function NavBar() {
         <div className="vl"></div>
         <img src={Profile} alt="" />
         <div className="name">
-          <h3 id="currentLogin">Tristan</h3>
+          <h3 id="currentLogin">{userName}</h3>
         </div>
       </div>
     </div>

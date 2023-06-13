@@ -22,12 +22,13 @@ import RecommendedProduct from "../Features/Product/RecommendedSlice";
 import GetNoticationSlice from "../../Redux/Features/Notification/NotificationSlice";
 import allmessagesSlice from "../Features/chat/allmessagesSlice";
 import PaymentReducer from '../Features/Payment/paymentSlice';
-
+import productsReviewAverageSlice from "../../Redux/Features/Review/GetAverageProductReview";
+import productsReviewShowSlice from "../../Redux/Features/Review/GetProductReview";
 
 const middleware = [...getDefaultMiddleware(), thunk];
 
 // eslint-disable-next-line no-undef
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === "development") {
   middleware.push(logger);
 }
 
@@ -54,6 +55,8 @@ const store = configureStore({
     recommended: RecommendedProduct,
     getnotification: GetNoticationSlice,
     allmessage: allmessagesSlice,
+    reviewaverage: productsReviewAverageSlice,
+    showreview: productsReviewShowSlice,
   },
   middleware,
 });

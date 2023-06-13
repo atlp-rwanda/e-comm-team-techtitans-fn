@@ -6,7 +6,6 @@ import Productlists from "../../pages/Dashboard/ViewProduct";
 function SellerProduct() {
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products);
-
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 6;
   const totalPages = Math.ceil(products.length / productsPerPage);

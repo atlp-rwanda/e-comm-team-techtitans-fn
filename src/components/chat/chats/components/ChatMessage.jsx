@@ -15,7 +15,7 @@ export default function ChatMessage({ socket }) {
 
   useEffect(() => {
     socket.on('messageResponse', (data) => setMessages([...messages, data]));
-  }, [socket, messages]);
+  }, [messages, socket]);
 
   useEffect(() => {
     lastMessageRef.current?.scrollIntoView({ behavior: 'smooth' });
