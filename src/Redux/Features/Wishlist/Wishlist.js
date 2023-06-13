@@ -39,9 +39,7 @@ export const createWishlistItem = createAsyncThunk(
     try {
       const token = localStorage.getItem("token");
       if (!token) {
-        throw new Error(
-          "No token provided. You must be logged in to add to the wishlist."
-        );
+        toast.info("please login to add item to wishlist");
       }
 
       const config = {

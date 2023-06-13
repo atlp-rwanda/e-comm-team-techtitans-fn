@@ -125,9 +125,9 @@ let Header = () => {
             <div className="iconContainer-number">
               <p></p>
             </div>
-            <a href="/wishlist">
+            <Link to="/wishlist">
               <FavoriteBorderIcon />{" "}
-            </a>
+            </Link>
           </div>
           <Link to="/checkout">
             <span className="login-text-navbar">💳</span>

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import "../../styles/SellerProduct.scss";
-const ViewProduct = ({ product }) => {
+const BuyerView = ({ product }) => {
   return (
     <div className="single-wrapper">
-      <Link to={`/product/${product.id}`} key={product.id}>
+      <Link to={`/product/buyer/${product.id}`} key={product.id}>
         <img src={product.images[0]} alt="product" />
       </Link>
       <p className="caption">{product.name}</p>
@@ -12,11 +12,11 @@ const ViewProduct = ({ product }) => {
         <p className="price">${product.price}</p>
         <div className="delete">
           <MdDelete />
-          <button className="icon-caption">REMOVE</button>
+          <p className="icon-caption">REMOVE</p>
         </div>
       </div>
     </div>
   );
 };
 
-export default ViewProduct;
+export default BuyerView;

@@ -15,6 +15,10 @@ import singleProductReducer from "../Features/Dashboard/singleProductSlice";
 import productsReducer from "../Features/Dashboard/productsSlice";
 import ProductDetailsReducer from "../Features/Product/EditProductSlice";
 import { singleUserReducer } from "../Features/User/getOneUserSlice";
+import GetProductsSlice from "../Features/Product/GetProducts.slice";
+import GetCategoriesSlice from "../Features/Product/GetCategories.slice";
+import DeleteProductReducer from "../Features/Product/DeleteProductSlice";
+
 import ProfileSlice from "../Features/Profile/profile.slice";
 import GetProfileSlice from "../Features/Profile/getprofile.slice";
 import LogoutSlice from "../Features/User/logoutSlice";
@@ -26,6 +30,7 @@ import productsReviewAverageSlice from "../../Redux/Features/Review/GetAveragePr
 import productsReviewShowSlice from "../../Redux/Features/Review/GetProductReview";
 import WishlistSlice from "../../Redux/Features/Wishlist/Wishlist";
 import addProductToCartSlice from '../Features/Cart/CartSlice';
+import  checkoutSlice  from "../Features/checkout/Checkoutslice";
 
 const middleware = [...getDefaultMiddleware(), thunk];
 
@@ -44,6 +49,8 @@ const store = configureStore({
     allUsers: AlluserSlice,
     setRole: setRoleSlice,
     signup: SignupSlice,
+    getProducts: GetProductsSlice,
+    getCategories: GetCategoriesSlice,
     setAccount: setAccountStatusReducer,
     review: productsReviewSlice,
     singleProduct: singleProductReducer,
@@ -51,6 +58,7 @@ const store = configureStore({
     productDetails: ProductDetailsReducer,
     payment: PaymentReducer,
     oneuser: singleUserReducer,
+    productDelete: DeleteProductReducer,
     profile: ProfileSlice,
     getprofile: GetProfileSlice,
     logout: LogoutSlice,
@@ -60,6 +68,7 @@ const store = configureStore({
     reviewaverage: productsReviewAverageSlice,
     showreview: productsReviewShowSlice,
     wishlist: WishlistSlice,
+    checkout: checkoutSlice,
     cart: addProductToCartSlice,
   },
   middleware,
