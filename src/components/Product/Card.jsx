@@ -14,6 +14,15 @@ const Card = () => {
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
+
+  // Function to truncate the product name if it exceeds a certain length
+  const truncateName = (name, maxLength) => {
+    if (name.length > maxLength) {
+      return name.substring(0, maxLength) + "...";
+    }
+    return name;
+  };
+
   if (isLoading === true || products === null) {
     return (
       <div>
@@ -33,15 +42,16 @@ const Card = () => {
       <div className="card-container">
         {products.length > 0 ? (
           products.map((product) => (
-            <div className="card-one">
-              <Link to={`/buyer/product/${product.id}`} key={product.id}>
+            <div className="card-one" key={product.id}>
+              <Link to={`/buyer/product/${product.id}`}>
                 <div>
-                  <img src={product.images[0]} />
+                  <img src={product.images[0]} alt={product.name} />
                 </div>
               </Link>
               <div className="card-title">
                 <div className="product-title">
-                  <p>{product.name}</p>
+                  <p>{truncateName(product.name, 20)}</p>{" "}
+                  {/* Truncate product name to 20 characters */}
                   <h5>${product.price}</h5>
                 </div>
 
@@ -59,4 +69,5 @@ const Card = () => {
     </>
   );
 };
+
 export default Card;

@@ -1,0 +1,174 @@
+.page1-indicator {
+  //   border: 1px solid red;
+  //   align-items: center;
+  //   justify-content: center;
+  text-align: center;
+}
+.page-indication {
+  color: grey;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.payment-form-title {
+  padding-bottom: 10px;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.shipping-page-content {
+  display: flex;
+  height: 650px;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+// ⬅️ Left side (form)
+.shipping-page-left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 20px;
+  //   border: 1px solid red;
+}
+// General style used by many inputs
+.input-style {
+  border-radius: 8px;
+  background: rgba(217, 217, 217, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  height: 35px;
+
+  &:hover {
+    border: 1px solid grey;
+  }
+
+  &:focus {
+    border: 1.5px solid rgb(74, 74, 74);
+    outline: none;
+  }
+}
+
+label {
+  color: rgba(0, 0, 0, 0.67);
+  font-style: normal;
+}
+
+.name-part {
+  display: flex;
+  flex-direction: column;
+}
+.address-part {
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-part {
+  display: flex;
+  flex-direction: column;
+}
+.shipping-method-part {
+  display: flex;
+  flex-direction: column;
+}
+
+.payment-continue-button {
+  height: 40px;
+  width: 150px;
+  background-color: #7a89e9;
+  //   border: 1px solid #7a89e9;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  &:hover {
+    background-color: #6479ff;
+  }
+}
+
+.payment-cancel-button {
+  height: 40px;
+  width: 150px;
+  margin-left: 20px;
+  border: 1px solid #bec6f9;
+  cursor: pointer;
+  border-radius: 8px;
+  color: #7a89e9;
+  font-size: 14px;
+  &:hover {
+    background-color: #ebedff;
+    // color: white;
+  }
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: row;
+  //   border: 1px solid red;
+  margin-top: 8px;
+}
+
+// Right side (svg)
+.right-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.right-side-order-summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.shipping-svg {
+  width: 389px;
+  height: 317px;
+}
+
+/* Styles for form elements */
+label {
+  margin-bottom: 5px;
+}
+
+input,
+select {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+// Page 3/3
+.success-page-paragraph {
+  color: rgba(0, 0, 0, 0.67);
+  padding-bottom: 10px;
+  padding-top: 5px;
+  width: 350px;
+  // border: 1px solid red;
+}
+.success-svg {
+  width: 350px;
+  height: 447px;
+  // border: 1px solid red;
+}
+
+// Responsiveness media queries
+@media (max-width: 768px) {
+  .shipping-page-content {
+    flex-direction: column;
+    height: auto;
+    padding: 20px; /* Add padding to the entire container */
+  }
+
+  .right-side {
+    margin-top: 20px;
+    padding-left: 0; /* Remove the left padding */
+  }
+
+  .shipping-svg {
+    width: 100%;
+    height: auto;
+  }
+}

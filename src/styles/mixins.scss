@@ -3,6 +3,11 @@
     align-items: center;
 }
 
+@mixin grid-half{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
 @mixin breakpoint($point){
     @if $point == xs {
         @media (max-width: 576px){

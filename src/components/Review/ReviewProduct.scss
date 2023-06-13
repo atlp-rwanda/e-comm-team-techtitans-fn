@@ -118,5 +118,33 @@
   font-size: 0.875rem;
   color: #888;
 }
+.pagination {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.pagination-number {
+  background-color: #eee;
+  border: none;
+  border-radius: 0.2rem;
+  color: #333;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 0.2rem;
+  padding: 0.5rem 0.8rem;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-number.active {
+  background-color: #7a89e9;
+  color: #fff;
+}
+
+.pagination-number:hover {
+  background-color: #ccc;
+}
+
+
 
 

@@ -1,0 +1,107 @@
+.payment-details-paragraph {
+  color: rgba(0, 0, 0, 0.67);
+  padding-bottom: 20px;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    width: 350px;
+  }
+}
+
+.card-number-part {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-number-input {
+  width: 100%;
+
+  @media (min-width: 768px) {
+    width: 330px;
+  }
+}
+
+.input-styles {
+  border-radius: 8px;
+  background: rgba(217, 217, 217, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  height: 35px;
+  outline: none;
+
+  &:hover {
+    border: 1px solid grey;
+  }
+
+  &:focus {
+    border: 1.5px solid rgb(74, 74, 74);
+    outline: none;
+  }
+}
+
+.expiry-cvc-part {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.grid-input-and-label {
+  display: grid;
+}
+
+.card-expiry-date-input {
+  width: 100%;
+
+  @media (min-width: 768px) {
+    width: 150px;
+  }
+}
+
+.card-details-back-button {
+  height: 40px;
+  width: 100%;
+  max-width: 150px;
+  margin-left: 0;
+  border: 1px solid #bec6f9;
+  cursor: pointer;
+  border-radius: 8px;
+  color: #7a89e9;
+  font-size: 14px;
+
+  &:hover {
+    background-color: #ebedff;
+  }
+}
+
+.card-details-pay-button {
+  height: 40px;
+  width: 100%;
+  max-width: 150px;
+  background-color: #7a89e9;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+
+  &:hover {
+    background-color: #6479ff;
+  }
+}
+
+.card-details-action-buttons {
+  display: flex;
+  flex-direction: row;
+  margin-top: 8px;
+  gap: 28px;
+
+  //   @media (min-width: 768px) {
+  //     flex-direction: row;
+  //     justify-content: flex-end;
+  //   }
+}

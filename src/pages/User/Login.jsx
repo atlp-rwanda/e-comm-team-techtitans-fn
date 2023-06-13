@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.scss";
 import Logo from "../../assets/images/Logo.svg";
 import googleIcon from "../../assets/images/google-icon.svg";
@@ -11,64 +11,75 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../Redux/Features/User/loginSlice";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../utils/apiUtilis";
+import jwt from "jwt-decode";
 
 const handleLogin = () => {
-  window.open(`${BASE_URL}/api/v1/auth/google/callback`, "_self");
+  window.open(`${BASE_URL}/api/v1/auth/google/callback`, '_self');
 };
 
-const Login = () => {
+const Login = ({ socket }) => {
   const [PasswordInputType, ToggleIcon] = UsePasswordToggle();
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const dispatch = useDispatch();
+  // const allUsers = useSelector(
+  //   (state) => state.allUserToChat?.allUsers?.data?.rows
+  // );
   const status = useSelector((state) => state.user.status);
   const error = useSelector((state) => state.user.Error);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    // const logeduser = allUsers.find((item) => item.email == email);
     dispatch(login({ email, password }))
       .then((response) => {
-        if (response && response.payload.message === "Please enter your OTP") {
+        if (response && response.payload.message === 'Please enter your OTP') {
           setIsLoggedIn(true);
-          navigate("/verifyotp");
+          navigate('/verifyotp');
         }
         if (response && response.payload.message === "Login successful") {
           localStorage.setItem("email", email);
+          const userCredential = jwt(localStorage.getItem("token"));
+          localStorage.setItem("userIn", JSON.stringify(userCredential));
+          socket.emit("newUser", {
+            userName: userCredential.fullname,
+            socketID: socket.id,
+          });
           setIsLoggedIn(true);
-          navigate("/");
+          navigate('/');
         } else {
           setIsLoggedIn(false);
         }
       })
-      .catch((error) => console.log("Login error:", error));
+      .catch((error) => console.log('Login error:', error));
   };
 
   return (
     <>
       <Header />
-      {status === "loading....." && <div className="process">Loading...</div>}
-      {status === "failed" && (
+      {status === 'loading.....' && <div className="process">Loading...</div>}
+      {status === 'failed' && (
         <div
           className="error"
           style={{
-            width: "100%",
-            textAlign: "right",
-            display: "flex",
-            justifyContent: "right",
+            width: '100%',
+            textAlign: 'right',
+            display: 'flex',
+            justifyContent: 'right',
           }}
         >
-          {" "}
-          <Stack sx={{ width: "30%" }} spacing={2}>
+          {' '}
+          <Stack sx={{ width: '30%' }} spacing={2}>
             <Alert severity="warning">{error}</Alert>
           </Stack>
         </div>
       )}
-      {status === "success" && (
+      {status === 'success' && (
         <div className="success">
-          {" "}
-          <Stack sx={{ width: "30%" }} spacing={2}>
+          {' '}
+          <Stack sx={{ width: '30%' }} spacing={2}>
             <Alert severity="success">User successfully logged In!</Alert>
           </Stack>
         </div>
@@ -128,7 +139,7 @@ const Login = () => {
                 </div>
 
                 <p className="account-not">
-                  Don't have an account?{" "}
+                  Don't have an account?{' '}
                   <a href="#" className="registerText">
                     Register
                   </a>
