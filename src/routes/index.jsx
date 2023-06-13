@@ -32,6 +32,8 @@ import CancelPayment from '../pages/Payment/CancelPayment';
 import Checkout from '../pages/Payment/Checkout';
 import SuccessfulPayment from '../pages/Payment/SuccessfulPayment';
 import CardDetails from '../pages/Payment/CardDetails.jsx';
+import SingleProduct from '../components/CartOperations/SingleProduct.jsx'
+import YourCart from '../components/CartOperations/YourCart.jsx';
 
 
 
@@ -77,6 +79,9 @@ let allRoutes = () => {
         />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/updateprofile" element={<EditProfile />} />
+        <Route path="/changepassword" element={<ChangePasswordPage/>}/>
+        <Route path="/products/:id" element={<SingleProduct />} />
+        <Route path="/mycart" element={<YourCart />} />
       </Routes>
       <ToastContainer />
     </>
