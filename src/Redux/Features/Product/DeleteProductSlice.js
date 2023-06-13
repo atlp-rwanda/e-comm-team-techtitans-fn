@@ -6,7 +6,7 @@ export const getProductDetails = createAsyncThunk(
   "api/v1/product",
   async ({ id }, { rejectWithValue }) => {
     try {
-      const response = await axios.get(` ${BASE_URL}/api/v1/product/${id}`);
+      const response = await axios.get(`${BASE_URL}/api/v1/product/${id}`);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -14,12 +14,9 @@ export const getProductDetails = createAsyncThunk(
   }
 );
 
-export const editProduct = createAsyncThunk(
-  "api/v1/product/update/:id",
-  async (
-    { id, name, price, quantity, categoryId, description, expiryDate, images },
-    { rejectWithValue }
-  ) => {
+export const deleteProduct = createAsyncThunk(
+  "/api/v1/product/delete/:id",
+  async ({ id }, { rejectWithValue }) => {
     try {
       const authToken = localStorage.getItem("token");
       const config = {
@@ -27,17 +24,8 @@ export const editProduct = createAsyncThunk(
           Authorization: "Bearer " + authToken,
         },
       };
-      const response = await axios.put(
-        ` ${BASE_URL}/api/v1/product/update/${id}`,
-        {
-          name,
-          price,
-          quantity,
-          categoryId,
-          description,
-          expiryDate,
-          images,
-        }, // data passed into the backend's req.body
+      const response = await axios.delete(
+        `${BASE_URL}/api/v1/product/delete/${id}`,
         config
       );
       return response.data;
@@ -47,8 +35,7 @@ export const editProduct = createAsyncThunk(
   }
 );
 
-//  slice for the product
-const ProductDetailsSlice = createSlice({
+const DeleteProductSlice = createSlice({
   name: "product",
   initialState: {
     product: null,
@@ -67,19 +54,19 @@ const ProductDetailsSlice = createSlice({
       state.error = action.payload;
       state.status = "failed";
     },
-    [editProduct.pending]: (state, action) => {
+    [deleteProduct.pending]: (state, action) => {
       state.status = "loading.......";
     },
-    [editProduct.fulfilled]: (state, action) => {
+    [deleteProduct.fulfilled]: (state, action) => {
       state.product = action.payload;
       state.status = "success";
     },
-    [editProduct.rejected]: (state, action) => {
+    [deleteProduct.rejected]: (state, action) => {
       state.product = action.payload;
       state.error = "failed";
     },
   },
 });
 
-export const ProductDetailsReducer = ProductDetailsSlice.reducer;
-export default ProductDetailsReducer;
+export const DeleteProductReducer = DeleteProductSlice.reducer;
+export default DeleteProductReducer;
