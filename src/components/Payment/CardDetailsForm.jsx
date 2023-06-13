@@ -2,19 +2,27 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { SpinerButtonPurple } from './Spinner1';
 import { SpinerButtonWhite } from './Spinner2';
-import '../../scss/Payment/CardDetails.scss';
 import OrderSummary from './OrderSummary';
+import {
+  getOrders,
+  paymentDetails,
+} from '../../Redux/Features/Payment/paymentSlice';
+
+import '../../scss/Payment/CardDetails.scss';
 
 const CardDetailsForm = () => {
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
+  const [cvc, setCvc] = useState('');
   const [isPaymentLoading, setIsPaymentLoading] = useState(false);
+
   const [isBackToShipmentDetails, setIsBackToShipmentDetails] = useState(false);
-  const { register, handleSubmit } = useForm();
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const backToShipmentDetails = () => {
     setIsBackToShipmentDetails(true);
@@ -27,47 +35,44 @@ const CardDetailsForm = () => {
   };
 
   const handleCardNumberChange = (event) => {
-    // remove exisiting spaces from the input value
-    const input = event.target.value.replace(/\s/g, '');
-    let formattedInput = '';
-
-    for (let i = 0; i < input.length; i++) {
-      // add a space after every 4 digits
-      if (i > 0 && i % 4 === 0) {
-        formattedInput += ' ';
-      }
-      formattedInput += input[i];
-    }
-
-    setCardNumber(formattedInput);
+    setCardNumber(event.target.value);
   };
 
   const handleExpiryDateChange = (event) => {
+    setExpiryDate(event.target.value);
+
     const input = event.target.value;
     const formattedInput = input
-      .replace(/\D/g, '') // Remove non-digit characters
-      .slice(0, 4) // Limit input to 4 characters
-      .replace(/(\d{2})(\d{0,2})/, '$1 / $2'); // Insert "/" between month and year
+      .replace(/\D/g, '')
+      .slice(0, 4)
+      .replace(/(\d{2})(\d{0,2})/, '$1 / $2');
 
     setExpiryDate(formattedInput);
   };
 
-  const handlePayment = async (data) => {
-    console.log(data);
-    if (data.cardNumber === '') {
-      toast.warning('Please enter your card number');
-    } else if (data.expirydate === '') {
-      toast.warning('Please input the expiry date');
-    } else if (data.cvc === '') {
-      toast.warning('Please enter card CVC');
-    } else {
-      setIsPaymentLoading(true);
+  const handleCvcChange = (event) => {
+    setCvc(event.target.value);
+  };
 
-      setTimeout(() => {
-        setIsPaymentLoading(false);
-        navigate('/payment/success');
-      }, 2000);
-    }
+  const handlePayment = async () => {
+    setIsPaymentLoading(true);
+    const response = await dispatch(
+      paymentDetails({
+        cvc,
+        cardNumber,
+      }),
+    );
+    console.log('✅Frontend response (payment)', response);
+
+    localStorage.setItem(
+      'invoicePreview',
+      JSON.stringify(response.payload.charge.receipt_url),
+    );
+
+    setTimeout(() => {
+      setIsPaymentLoading(false);
+      navigate('/payment/success');
+    }, 2000);
   };
 
   return (
@@ -87,14 +92,12 @@ const CardDetailsForm = () => {
           <label htmlFor="cardNumber">Card Number </label>
           <input
             // this 👇🏽 shouldn't be "type=number" since we need to allow spaces in every 4 digits we input
-            type="text"
-            pattern="\d*"
-            maxLength={19}
+            // type="number"
+            maxLength={16}
             placeholder="9870  8880  8880  8880"
             className="input-styles card-number-input"
             value={cardNumber}
             onChange={handleCardNumberChange}
-            {...register('cardNumber')}
           />
         </div>
 
@@ -110,7 +113,6 @@ const CardDetailsForm = () => {
               maxLength={7}
               value={expiryDate}
               onChange={handleExpiryDateChange}
-              {...register('expirydate')}
             />
           </div>
           {/* CVC input */}
@@ -121,7 +123,8 @@ const CardDetailsForm = () => {
               className="input-styles"
               placeholder="1 2 3"
               maxLength={3}
-              {...register('cvc')}
+              value={cvc}
+              onChange={handleCvcChange}
             />
           </div>
         </div>
@@ -130,10 +133,7 @@ const CardDetailsForm = () => {
           {isPaymentLoading ? (
             <SpinerButtonPurple />
           ) : (
-            <button
-              className="payment-continue-button"
-              onClick={handleSubmit(handlePayment)}
-            >
+            <button className="payment-continue-button" onClick={handlePayment}>
               Pay
             </button>
           )}
