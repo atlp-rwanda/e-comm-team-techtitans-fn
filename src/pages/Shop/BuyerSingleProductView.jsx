@@ -7,6 +7,7 @@ import "../../styles/BuyerProduct.scss";
 
 import ReviewComponent from "../../components/Review/ReviewProduct.jsx";
 import { Recommend } from "../Product/Recommended.jsx";
+import ProductReviews from "../../components/Review/GetProductReviews.jsx";
 
 export function BuyerSingleProductView() {
   const { id } = useParams();
@@ -127,6 +128,7 @@ export function BuyerSingleProductView() {
             </div>
           </div>
           <ReviewComponent pid={id} />
+          <ProductReviews pid={id} />
         </div>
       </div>
       <Recommend />

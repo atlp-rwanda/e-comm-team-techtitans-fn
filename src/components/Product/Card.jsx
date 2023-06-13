@@ -6,6 +6,8 @@ import "./Product.scss";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
+import ProductRating from "../Review/GetProductReviewAverage.jsx";
+import WishlistButton from "../../components/wishlist-btn/wishlistbutton";
 
 const Card = () => {
   const dispatch = useDispatch();
@@ -13,6 +15,15 @@ const Card = () => {
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
+
+  // Function to truncate the product name if it exceeds a certain length
+  const truncateName = (name, maxLength) => {
+    if (name.length > maxLength) {
+      return name.substring(0, maxLength) + "...";
+    }
+    return name;
+  };
+
   if (isLoading === true || products === null) {
     return (
       <div>
@@ -32,22 +43,25 @@ const Card = () => {
       <div className="card-container">
         {products.length > 0 ? (
           products.map((product) => (
-            <div className="card-one">
-              <Link to={`/buyer/product/${product.id}`} key={product.id}>
+            <div className="card-one" key={product.id}>
+              <Link to={`/buyer/product/${product.id}`}>
                 <div>
-                  <img src={product.images[0]} />
+                  <img src={product.images[0]} alt={product.name} />
                 </div>
               </Link>
               <div className="card-title">
                 <div className="product-title">
-                  <p>{product.name}</p>
+                  <p>{truncateName(product.name, 20)}</p>{" "}
+                  {/* Truncate product name to 20 characters */}
                   <h5>${product.price}</h5>
                 </div>
 
                 <div className="icon">
-                  <FavoriteBorderIcon />
+                  {/* <FavoriteBorderIcon /> */}
+                  <WishlistButton product_id={product.id} />
                 </div>
               </div>
+              <ProductRating pid={product.id} />
             </div>
           ))
         ) : (
@@ -57,4 +71,5 @@ const Card = () => {
     </>
   );
 };
+
 export default Card;

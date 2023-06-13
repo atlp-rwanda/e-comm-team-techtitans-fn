@@ -1,0 +1,93 @@
+/* wishlist.scss */
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+@import "../../variables/variables.scss";
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+}
+
+h2 {
+  color: $primarydark-color;
+  text-align: left;
+  margin-top: 50px;
+  margin-left: 4rem;
+}
+
+p {
+  color: $primarydark-color;
+  margin-left: 4rem;
+}
+
+.wishlist-container {
+  max-width: 400px;
+  margin: 0 auto;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: $primarydark-color;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+}
+
+.wishlist-items {
+  border: 1px solid $primarydark-color;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.wishlist-item {
+  margin-bottom: 5px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: $primarydark-color;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 2px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.pagination button.active {
+  background-color: $primarydark-color;
+}
+
+.pagination button:hover {
+  background-color: darken($primarydark-color, 10%);
+}
+
+.line {
+  margin: 0 auto;
+  margin-top:4em;
+  border-bottom:  1px solid $primarydark-color;
+   border-top: 1px  solid  $primarydark-color;
+   display: flex;
+}
+.week {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 4rem 12rem;
+}
