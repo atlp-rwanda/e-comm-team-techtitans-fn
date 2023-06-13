@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { ThemeContext } from '../../components/Theme/ThemeContext';
 import { useContext } from 'react';
 import Header from '../../components/Header/Header';
+import { login } from "../../Redux/Features/User/loginSlice";
 
 let VerifyOtp = ({ socket }) => {
   const {theme}=useContext(ThemeContext);
@@ -20,7 +21,9 @@ let VerifyOtp = ({ socket }) => {
   let [go, setGo] = useState(false);
   const dispatch = useDispatch();
   const inUser = useSelector((state) => state);
-
+  const [resendText, setResendText] = useState("Resend OTP?");
+  const { email: storedEmail, password } = useSelector((state) => state.user.user?.credentials);
+  
   if (go) {
     navigate("/dashboard");
   }
@@ -31,7 +34,21 @@ let VerifyOtp = ({ socket }) => {
 
   let handleChange = (e) => {
     setOtp(e.target.value);
+    setMessage("");
+    setResendText("Resend OTP?")
   };
+  const handleResendOTP =() =>{
+    setMessage("");
+    setResendText("Resending...");
+    dispatch(login({email:storedEmail,password }))
+      .then((response) =>{
+        if (response && response.payload.message === 'Please enter your OTP') {
+          setResendText("check your email again!");
+        }
+       
+      })
+      .catch((error) => console.log('Login error:', error));
+  }
 
   return (
     <>
@@ -60,7 +77,6 @@ let VerifyOtp = ({ socket }) => {
               <label>Code</label>
               <br />
               <div className="input-lock">
-                <p></p>
                 <input
                   type="text"
                   value={otp}
@@ -68,12 +84,17 @@ let VerifyOtp = ({ socket }) => {
                 />
               </div>
             </li>
+            <li>
+              <div className="error-message-otp">
+              <p id="errorMessage">{message}</p>
+              </div>
+            </li>
             <li className="btn">
               <Button verify={"verify"} handleSubmit={handleSubmit} />
             </li>
-            <li>
-              <p id="errorMessage">{message}</p>
-            </li>
+            <div className="resend-otp" onClick={handleResendOTP}>
+            <p>{resendText}</p>
+            </div>
           </ul>
         </div>
       </div>
