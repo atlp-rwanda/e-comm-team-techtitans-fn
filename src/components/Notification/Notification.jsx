@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import "../Header/header.scss";
+import "../Header/new_header.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { GetNotification } from "../../Redux/Features/Notification/NotificationSlice";
