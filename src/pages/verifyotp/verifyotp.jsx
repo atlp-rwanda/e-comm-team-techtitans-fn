@@ -61,9 +61,14 @@ let VerifyOtp = ({ socket }) => {
             Verification
           </h1>
           <p>
-            we have sent a code to your email <br />
-            te****ns@gmailcom
-          </p>
+              we have sent a code to your email <br />
+              {`${email.substring(0, 2)}${"*".repeat(
+                email.indexOf("@") - 4
+              )}${email.substring(
+                email.indexOf("@") - 2,
+                email.indexOf("@")
+              )}${email.substring(email.indexOf("@"))}`}
+            </p>
         </div>
       </div>
       <div className="right">
