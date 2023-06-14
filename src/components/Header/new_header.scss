@@ -205,7 +205,9 @@ body {
   }
 }
 
-#dark {
+
+#dark{
+
   .header {
     &_main {
       background-color: #000000;
@@ -230,6 +232,7 @@ body {
       }
     }
   }
+
 
   .nav {
     background-color: $primarydark-color;
@@ -369,4 +372,32 @@ body {
       padding-bottom: 12px;
     }
   }
+
+  .nav{
+  background-color: $primarydark-color;
+  .nav_link {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: $textprimary-color;
+      font-size: $medium-font-size;
+      transition: all 0.3s;
+    }
+    &:active,
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+  li {
+    &:first-child .nav_link {
+      color: $secondary-color;
+    }
+  }
+}
+
+.icons,.mobile-menu-icon,.login-text-navbar{
+  color: $textprimary-color
+}
+
+
 }

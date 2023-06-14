@@ -30,7 +30,7 @@ const ReusableTable = ({ columns, data }) => {
 
   return (
     <div className="Table-container">
-      <table {...getTableProps()}>
+      <table {...getTableProps()} className="table-content">
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr key={headerGroup.id} {...headerGroup.getHeaderGroupProps()}>

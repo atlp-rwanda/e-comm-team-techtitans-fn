@@ -1,17 +1,18 @@
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { createProduct } from '../../Redux/Features/Product/AddProductSlice';
-// import { ViewCategory } from '../../Redux/Features/Product/CategorySlice';
-import { CloudinaryContext, Image } from 'cloudinary-react';
-import Header from '../../components/Header/Header';
-import './AddProduct.scss';
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createProduct } from "../../Redux/Features/Product/AddProductSlice";
+import { ViewCategory } from "../../Redux/Features/Product/CategorySlice";
+import { CloudinaryContext, Image } from "cloudinary-react";
+import Header from "../../components/Header/Header";
+import "./AddProduct.scss";
+
 function AddProductForm() {
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [quantity, setQuantity] = useState(0);
-  const [categoryId, setCategoryId] = useState('');
-  const [description, setDescription] = useState('');
-  const [expiryDate, setExpiryDate] = useState('');
+  const [categoryId, setCategoryId] = useState("");
+  const [description, setDescription] = useState("");
+  const [expiryDate, setExpiryDate] = useState("");
   const [images, setImages] = useState([]);
   const [categoryIds, setCategoryIds] = useState([]);
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -24,7 +25,7 @@ function AddProductForm() {
     }
     const imageUrls = images.map(
       (image) =>
-        `https://res.cloudinary.com/dgcmsqndb/image/upload/${image.name}`,
+        `https://res.cloudinary.com/dgcmsqndb/image/upload/${image.name}`
     );
     dispatch(
       createProduct({
@@ -35,24 +36,24 @@ function AddProductForm() {
         description,
         expiryDate,
         images: imageUrls,
-      }),
+      })
     )
       .then(() => {})
-      .catch((error) => console.log('Product Create error:', error));
+      .catch((error) => console.log("Product Create error:", error));
   };
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     const formData = new FormData();
-    formData.append('file', file);
-    formData.append('upload_preset', 'gwkladqc');
+    formData.append("file", file);
+    formData.append("upload_preset", "gwkladqc");
     const xhr = new XMLHttpRequest();
     xhr.open(
-      'POST',
-      'https://api.cloudinary.com/v1_1/dgcmsqndb/image/upload',
-      true,
+      "POST",
+      "https://api.cloudinary.com/v1_1/dgcmsqndb/image/upload",
+      true
     );
-    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    xhr.upload.addEventListener('progress', (event) => {
+    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+    xhr.upload.addEventListener("progress", (event) => {
       const progress = Math.round((event.loaded / event.total) * 100);
       setUploadProgress(progress);
     });
@@ -62,7 +63,7 @@ function AddProductForm() {
           const data = JSON.parse(xhr.responseText);
           setImages((prevImages) => [...prevImages, { name: data.public_id }]);
         } else {
-          console.error('Error uploading image:', xhr.statusText);
+          console.error("Error uploading image:", xhr.statusText);
         }
       }
     };
@@ -108,7 +109,7 @@ function AddProductForm() {
                           transformation={{
                             width: 100,
                             height: 50,
-                            crop: 'fill',
+                            crop: "fill",
                           }}
                           secure="true"
                         />
@@ -182,12 +183,12 @@ function AddProductForm() {
                     {Array.isArray(categoryIds) && // this will Checks if categoryIds is an array
                       categoryIds.map(
                         (
-                          category, // Iteration over the category objects
+                          category // Iteration over the category objects
                         ) => (
                           <option key={category.id} value={category.id}>
                             {category.name}
                           </option>
-                        ),
+                        )
                       )}
                   </select>
                 </div>
@@ -219,11 +220,11 @@ function AddProductForm() {
                 </button>
               </div>
             </div>
-            {status === 'loading.....' && (
+            {status === "loading....." && (
               <div className="process">Loading...</div>
             )}
-            {status === 'failed' && <div className="error">{error}</div>}
-            {status === 'success' && (
+            {status === "failed" && <div className="error">{error}</div>}
+            {status === "success" && (
               <div className="success">Product created successfully!</div>
             )}
           </form>
