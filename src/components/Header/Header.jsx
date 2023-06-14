@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./header.scss";
+import "./new_header.scss";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Logo from "../../assets/images/Logo.svg";
@@ -114,13 +114,23 @@ let Header = () => {
               Profile
             </Link>
           </li>
+          <li>
+            <div className="switch">
+              <DarkModeSwitch
+                onChange={toggleTheme}
+                checked={theme === "dark"}
+              />
+            </div>
+          </li>
         </ul>
-        <div className="switch">
-          <DarkModeSwitch onChange={toggleTheme} checked={theme === "dark"} />
-        </div>
+
         <div className="icons">
-          <Searching className="search-icon-button" />
-          <ShoppingCartIcon />
+          <div className="search-container">
+            <Searching className="search-icon-button" />
+          </div>{" "}
+          <Link to="/orders">
+            <ShoppingCartIcon />
+          </Link>
           <div className="iconContainer">
             <div className="iconContainer-number">
               <p></p>

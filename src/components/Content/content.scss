@@ -1,0 +1,19 @@
+@import "../../../src/variables/variables.scss";
+
+.order-content {
+margin: 30px 20rem;
+}
+
+.order-header h4{
+    padding: 5px 0;
+    font-size: 18px;
+}
+
+.order-header span{
+    color: $secondary-color;
+}
+.order-header h1{
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px 0;
+}

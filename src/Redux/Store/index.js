@@ -25,12 +25,16 @@ import LogoutSlice from "../Features/User/logoutSlice";
 import RecommendedProduct from "../Features/Product/RecommendedSlice";
 import GetNoticationSlice from "../../Redux/Features/Notification/NotificationSlice";
 import allmessagesSlice from "../Features/chat/allmessagesSlice";
-import PaymentReducer from '../Features/Payment/paymentSlice';
+import PaymentReducer from "../Features/Payment/paymentSlice";
 import productsReviewAverageSlice from "../../Redux/Features/Review/GetAverageProductReview";
 import productsReviewShowSlice from "../../Redux/Features/Review/GetProductReview";
 import WishlistSlice from "../../Redux/Features/Wishlist/Wishlist";
-import addProductToCartSlice from '../Features/Cart/CartSlice';
+import addProductToCartSlice from "../Features/Cart/CartSlice";
 
+import orderSlice from "../Features/Order/sellerOrder.slice.js";
+import updateOrderStatusSlice from "../Features/Order/updateOrderStatus.slice";
+import buyerOrderSlice from "../Features/Order/buyerOrder.slice";
+import singleOrderSlice from "../Features/Order/getOrder.slice";
 const middleware = [...getDefaultMiddleware(), thunk];
 
 // eslint-disable-next-line no-undef
@@ -68,6 +72,10 @@ const store = configureStore({
     showreview: productsReviewShowSlice,
     wishlist: WishlistSlice,
     cart: addProductToCartSlice,
+    orders: orderSlice,
+    updateOrder: updateOrderStatusSlice,
+    buyerOrders: buyerOrderSlice,
+    order: singleOrderSlice,
   },
   middleware,
 });

@@ -1,5 +1,6 @@
 @import './colors';
 @import './mixins';
+@import '../variables/variables.scss';
 
 .container {
     background-color: $primary-color;
@@ -36,11 +37,12 @@
         
         .box{
             background-color: $white;
-            width: 80%;
-            height: 80%;
+            width: 60%;
+            height: 60%;
+            box-shadow:1px 3px 10px grey ;
             #errorMessage{
                 color: $danger;
-                padding-top: 10px;
+                font-weight: bolder;
             }
             @include breakpoint(md){
                 width: 100%;
@@ -53,7 +55,6 @@
                     }
                     #allIn{
                     width: 210px;
-                    height: 85px;
                     }
                     .centerLock{
                         @include flex-center;
@@ -73,12 +74,10 @@
                     }
             .input-lock{
                @include flex-center; 
-               border: 1px solid black;
-               border-radius: 5px;
                height: 30px;
                margin-top: 8px;
                input{
-                border: none;
+                border: 1px solid $primary-dark;
                 font-size: 18px;
                 height: 100%;
                 padding: 5px 9px;
@@ -88,11 +87,25 @@
               }
             }
             ul{
-                display: grid;
+                display: block;
                 list-style: none;
             }
+            
         }
     }
+}
+.resend-otp {
+   text-align: center;
+   cursor: pointer;
+   
+   p{
+    padding: 10px;
+    color: $accent;
+   }
+}
+.error-message-otp{
+    padding-bottom:10px ;
+    text-align: center;
 }
 #dark.container{
     background-color:$background-dark;
@@ -101,11 +114,10 @@
     .box{
         background-color: $primarydark-color;
     }
-    #openlock,#codeText,label{
+    #openlock,#codeText,label,.resend-otp{
         color: $textprimary-color-dark;
     }
     .input-lock{
-        border: 1px solid $accent;
       input{
         background-color: inherit;
         color: $primary-color;
