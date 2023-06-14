@@ -1,4 +1,4 @@
-@import '../../variables/variables.scss';
+@import "../../variables/variables.scss";
 
 *::after,
 *::before {
@@ -28,7 +28,7 @@ body {
 }
 
 @mixin lines {
-  content: '';
+  content: "";
   position: absolute;
   display: block;
   width: 40%;
@@ -189,7 +189,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
 
     .gmail-btn {
       @include loginBtn($primary-dark, transparent);
@@ -298,41 +298,39 @@ body {
   margin-bottom: -6px;
   padding-right: 10px;
 }
-#dark.login-section{
+#dark.login-section {
   background-color: $background-dark;
-  .login_container{
-    .login{
+  .login_container {
+    .login {
       &-left {
-      background-color: $primarydark-color;
-      .or{
+        background-color: $primarydark-color;
+        .or {
+          color: $accent;
+        }
+      }
+      .login-text {
+        color: $primary-color;
+      }
+      p {
+        color: $accent;
+      }
+      input {
+        background-color: $primarydark-color;
+        color: $primary-color;
+      }
+      .login-right_img {
+        filter: brightness(0.8);
+      }
+      .password-toggle-icon {
         color: $accent;
       }
     }
-    .login-text{
-      color: $primary-color;
-    }
-    p{
-      color: $accent;
-    }
-    input {
-      background-color: $primarydark-color;
-      color: $primary-color;
-    
-    }
-    .login-right_img{
-      filter:brightness(0.8);
-    }
-    .password-toggle-icon {
-      color: $accent
+    .gmailLogo {
+      .gmail-btn {
+        @include loginBtn($accent, transparent);
+        border: 1px solid $accent;
+        border-radius: 2rem;
+      }
     }
   }
-  .gmailLogo {
-    .gmail-btn {
-      @include loginBtn($accent, transparent);
-      border: 1px solid $accent;
-      border-radius: 2rem;
-    }
-}
-
-}
 }

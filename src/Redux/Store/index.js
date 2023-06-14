@@ -24,12 +24,18 @@ import GetProfileSlice from "../Features/Profile/getprofile.slice";
 import LogoutSlice from "../Features/User/logoutSlice";
 import RecommendedProduct from "../Features/Product/RecommendedSlice";
 import GetNoticationSlice from "../../Redux/Features/Notification/NotificationSlice";
+
 import allmessagesSlice from "../Features/chat/allmessagesSlice";
 import PaymentReducer from "../Features/Payment/paymentSlice";
 import productsReviewAverageSlice from "../../Redux/Features/Review/GetAverageProductReview";
 import productsReviewShowSlice from "../../Redux/Features/Review/GetProductReview";
 import WishlistSlice from "../../Redux/Features/Wishlist/Wishlist";
 import addProductToCartSlice from "../Features/Cart/CartSlice";
+
+import GetOneNotificationReducer from "../../Redux/Features/Notification/GetOneNotificationSlice"
+
+
+
 
 import orderSlice from "../Features/Order/sellerOrder.slice.js";
 import updateOrderStatusSlice from "../Features/Order/updateOrderStatus.slice";
@@ -66,6 +72,7 @@ const store = configureStore({
     getprofile: GetProfileSlice,
     logout: LogoutSlice,
     recommended: RecommendedProduct,
+
     getnotification: GetNoticationSlice,
     allmessage: allmessagesSlice,
     reviewaverage: productsReviewAverageSlice,
@@ -76,6 +83,10 @@ const store = configureStore({
     updateOrder: updateOrderStatusSlice,
     buyerOrders: buyerOrderSlice,
     order: singleOrderSlice,
+
+    getnotification:GetNoticationSlice,
+    oneNotification:GetOneNotificationReducer
+
   },
   middleware,
 });

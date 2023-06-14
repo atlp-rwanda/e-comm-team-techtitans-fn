@@ -1,18 +1,23 @@
 import { useState, useRef } from "react";
+import axios from "axios";
 import { MdSearch } from "react-icons/md";
-import "./SearchBar.scss";
 import { BASE_URL } from "../../utils/apiUtilis";
-import { productsEndpoint } from "../../Constants";
+import { searchEndpoint } from "../../Constants";
+import "./SearchBar.scss";
 
 export const SearchBar = ({ setResults }) => {
   const [input, setInput] = useState("");
   const inputRef = useRef(null);
 
   const fetchData = (value) => {
-    fetch(`${BASE_URL}/api/v1/${productsEndpoint}`)
-      .then((response) => response.json())
-      .then((json) => {
-        const results = json.data.filter((item) => {
+    const queryParams = new URLSearchParams({
+      name: value,
+    }).toString();
+
+    axios
+      .get(`${BASE_URL}/api/v1/${searchEndpoint}/${queryParams}`)
+      .then((response) => {
+        const results = response.data.data.filter((item) => {
           return (
             value &&
             item &&
@@ -21,13 +26,19 @@ export const SearchBar = ({ setResults }) => {
           );
         });
         setResults(results);
+      })
+      .catch((error) => {
+        console.error("Error occurred during API request:", error);
+        setResults([]);
       });
   };
+
   const handleChange = (value) => {
     inputRef.current.focus();
     setInput(value);
     fetchData(value);
   };
+
   const handleIconClick = () => {
     inputRef.current.focus();
   };

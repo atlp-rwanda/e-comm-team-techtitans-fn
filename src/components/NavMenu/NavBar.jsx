@@ -9,12 +9,13 @@ function NavBar() {
   const [notification, setNotification] = useState(false);
   const { getnotification, status, error } = useSelector((state) => state.getnotification);
 
-  console.log("This is the notification", getnotification)
+
   if (getnotification && status === "succeeded") {
     var count = getnotification.data.notifications.length;
   } else {
     count = 0;
   }
+
   return (
     <div className="navigation">
       <div className="n1">
@@ -27,7 +28,7 @@ function NavBar() {
           <i className="bx bx-search"></i>
         </div>
         <div className="notificatiom">
-          <Link to="/dashboard/notification">
+          <Link to="/dashboard/notification" className="not-link" >
             <div className='notificatiom notification'  >
               <div className='notification-number' >
 
