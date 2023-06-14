@@ -156,16 +156,13 @@
 
 .icon-caption {
   font-size: $small-font-size;
-  cursor: pointer;
 }
 
 // ---------------single products----------------
 .main-image {
   overflow: hidden;
-
   img {
     width: 100%;
-    height: auto;
     transition: transform 0.3s ease-in-out;
   }
 
@@ -230,11 +227,7 @@
   }
 
   .right-side {
-    margin-top: 80px;
     width: 50%;
-    height: 50%;
-    display: grid;
-    gap: 0px;
   }
 }
 
