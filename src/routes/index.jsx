@@ -34,6 +34,7 @@ import YourCart from "../components/CartOperations/YourCart.jsx";
 import ListOrder from "../pages/Order";
 import BuyOrder from "../pages/Order/BuyerOrder";
 import OrderDetails from "../pages/Order/OrderDetail";
+import ReadNotification from "../pages/Dashboard/SingleNotification.jsx";
 
 import WishlistPage from "../pages/wishli/Wishlist";
 const socket = socketIO.connect(`${SOCKET_URL}`);
@@ -83,7 +84,7 @@ let allRoutes = () => {
         />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/updateprofile" element={<EditProfile />} />
-        <Route path="/changepassword" element={<ChangePasswordPage />} />
+
         <Route path="/products/:id" element={<SingleProduct />} />
         <Route path="/mycart" element={<YourCart />} />
         <Route path="/listorders" element={<ListOrder />} />
