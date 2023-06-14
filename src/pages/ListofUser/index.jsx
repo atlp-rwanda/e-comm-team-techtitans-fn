@@ -11,6 +11,9 @@ function ListUser() {
         <NavBar />
         <Content>
           <p className="title">List of Users</p>
+          <p className="sub-title">
+            Here you can see all the users and their information
+          </p>
           <UserTable />
         </Content>
       </div>

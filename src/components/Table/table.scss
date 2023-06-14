@@ -2,14 +2,14 @@
 
 table {
   border-collapse: collapse;
-  box-shadow: transparent;
   width: 100%;
-  margin: 20px 20px;
+  border: 1px solid $accent;
+  margin: 15px 10px;
 }
 tr {
   border-bottom: 1px solid $accent;
+  padding: 20px;
 }
-
 thead td {
   font-size: 12px;
   text-transform: uppercase;
@@ -21,10 +21,13 @@ thead td {
 }
 
 tbody tr:hover {
-  background: $accent;
+  background: #fafdff;
   color: $primarydark-color;
 }
 
+th {
+  background-color: #f8fbfc;
+}
 th,
 td {
   font-size: 16px;
@@ -32,15 +35,22 @@ td {
   text-align: left;
   border-bottom: 1px solid $accent;
 }
+tr:nth-child(even) {
+  background-color: #f8fbfc;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff;
+}
 .active-status {
-  background-color: $secondary-color;
-  color: white;
+  background-color: #e6dff7;
+  color: #4654ae;
   padding: 2px 1px;
   left: 5px;
   border-radius: 17px;
   text-align: center;
   text-transform: capitalize;
-  font-weight: 500;
+  font-weight: 600;
 }
 .delivered-status {
   background-color: $secondary-color;
@@ -53,14 +63,14 @@ td {
   font-weight: 500;
 }
 .inactive-status {
-  background-color: rgba(255, 0, 0, 0.792);
-  color: white;
+  background-color: #ffc4c4;
+  color: #b71c1c;
   padding: 2px 1px;
   left: 5px;
   border-radius: 17px;
   text-align: center;
   text-transform: capitalize;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .bxs-edit {
