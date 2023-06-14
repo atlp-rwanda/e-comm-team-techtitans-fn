@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { addRoles } from "../../Redux/Features/User/viewUser/setRole.slice";
 import { getAllUsers } from "../../Redux/Features/User/viewUser/view.slice";
 import { message } from "antd";
-import { useParams } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const EditModal = ({ email, roleId, id, closeModal }) => {
   const dispatch = useDispatch();
@@ -81,4 +81,10 @@ const EditModal = ({ email, roleId, id, closeModal }) => {
   );
 };
 
+EditModal.propTypes = {
+  email: PropTypes.string.isRequired,
+  roleId: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
+  closeModal: PropTypes.func.isRequired,
+};
 export default EditModal;

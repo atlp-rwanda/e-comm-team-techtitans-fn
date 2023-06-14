@@ -1,34 +1,34 @@
-import { useState } from 'react';
-import './editModal.scss';
-import { useDispatch } from 'react-redux';
-import { getAllUsers } from '../../Redux/Features/User/viewUser/view.slice';
-import { setAccountStatus } from '../../Redux/Features/User/accountStatusSlice';
-import { useForm } from 'react-hook-form';
-import { message } from 'antd';
+import { useState } from "react";
+import "./editModal.scss";
+import { useDispatch } from "react-redux";
+import { getAllUsers } from "../../Redux/Features/User/viewUser/view.slice";
+import { setAccountStatus } from "../../Redux/Features/User/accountStatusSlice";
+import { useForm } from "react-hook-form";
+import { message } from "antd";
 
 const EditAccountStatus = ({ id, closeModal }) => {
   const { register, handleSubmit, resetField } = useForm();
 
   const dispatch = useDispatch();
 
-  const statuses = ['Activate', 'Deactivate'];
+  const statuses = ["Activate", "Deactivate"];
 
   const handleSubmission = async (data) => {
     try {
-      if (data.status === '') {
-        message.warning('Please pick a new account status');
-      } else if (data.reason === '') {
-        message.warning('Please enter a reason for account status change');
+      if (data.status === "") {
+        message.warning("Please pick a new account status");
+      } else if (data.reason === "") {
+        message.warning("Please enter a reason for account status change");
       } else {
         const response = await dispatch(
           setAccountStatus({
             id,
             accountStatus: data.status,
             reason: data.reason,
-          }),
+          })
         );
         await dispatch(getAllUsers()); // Fetch all users again
-        message.success('Account status updated successfully');
+        message.success("Account status updated successfully");
         closeModal();
       }
     } catch (error) {
@@ -36,7 +36,6 @@ const EditAccountStatus = ({ id, closeModal }) => {
       message.error(`Failed to edit the account status: ${error}`);
     }
   };
-
   return (
     <div className="modal">
       <div className="modal-content">
@@ -57,7 +56,7 @@ const EditAccountStatus = ({ id, closeModal }) => {
         </div>
         <div className="form-group">
           <label>Reason</label>
-          <input type="text" {...register('reason')} />
+          <input type="text" {...register("reason")} />
         </div>
         <div className="buttons">
           <button className="save-btn" onClick={handleSubmit(handleSubmission)}>

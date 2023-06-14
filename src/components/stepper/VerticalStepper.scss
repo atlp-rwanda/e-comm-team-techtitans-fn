@@ -1,0 +1,49 @@
+.vertical-stepper {
+  position: relative;
+}
+
+.stepper-line {
+  position: absolute;
+  top: 0;
+  left: 10%;
+  transform: translateX(-10%);
+  width: 20px;
+  height: 100%;
+  background-color: #ccc;
+  z-index: -1;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.step-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.step-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.step-description {
+  margin-top: 5px;
+  color: #888;
+}
+
+.step.active .step-icon {
+  background-color: #007bff;
+}
+
+.step.active .step-label {
+  color: #007bff;
+}
