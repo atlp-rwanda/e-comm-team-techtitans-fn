@@ -55,7 +55,6 @@ const WishlistButton = ({ product_id }) => {
   const handleToggleLogin = () => {
     if (!isLoggedIn) {
       dispatch(toggleLogin());
-      toast.info("Please log in to add an item to the Wishlist");
     }
   };
 

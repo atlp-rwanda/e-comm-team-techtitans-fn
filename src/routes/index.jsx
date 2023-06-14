@@ -35,6 +35,7 @@ import ListOrder from "../pages/Order";
 import BuyOrder from "../pages/Order/BuyerOrder";
 import OrderDetails from "../pages/Order/OrderDetail";
 
+import WishlistPage from "../pages/wishli/Wishlist";
 const socket = socketIO.connect(`${SOCKET_URL}`);
 
 let allRoutes = () => {
@@ -88,6 +89,7 @@ let allRoutes = () => {
         <Route path="/listorders" element={<ListOrder />} />
         <Route path="/orders" element={<BuyOrder />} />
         <Route path="/order/:id" element={<OrderDetails />} />
+        <Route path="/wishlist" element={<WishlistPage />} />
       </Routes>
       <ToastContainer />
     </>
