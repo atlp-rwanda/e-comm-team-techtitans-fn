@@ -11,18 +11,20 @@ export const SearchBar = ({ setResults }) => {
 
   const fetchData = (value) => {
     const queryParams = new URLSearchParams({
-      name: value,
+      value: value,
     }).toString();
 
     axios
       .get(`${BASE_URL}/api/v1/${searchEndpoint}/${queryParams}`)
       .then((response) => {
         const results = response.data.data.filter((item) => {
+          const lowerCaseValue = value.toLowerCase();
           return (
             value &&
             item &&
-            item.name &&
-            item.name.toLowerCase().includes(value)
+            (item.name.toLowerCase().includes(lowerCaseValue) ||
+              item.price === parseInt(value) ||
+              item.Category.name.toLowerCase().includes(lowerCaseValue))
           );
         });
         setResults(results);
@@ -48,7 +50,7 @@ export const SearchBar = ({ setResults }) => {
       <div className="input-container">
         <input
           id="search-input"
-          placeholder="Search something..."
+          placeholder="Search by name, price, or category..."
           className="search-input"
           name="text"
           type="text"
