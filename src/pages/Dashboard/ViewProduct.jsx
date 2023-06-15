@@ -8,13 +8,7 @@ const ViewProduct = ({ product }) => {
         <img src={product.images[0]} alt="product" />
       </Link>
       <p className="caption">{product.name}</p>
-      <div className="price-section">
-        <p className="price">${product.price}</p>
-        <div className="delete">
-          <MdDelete />
-          <button className="icon-caption">REMOVE</button>
-        </div>
-      </div>
+      <p className="price">${product.price}</p>
     </div>
   );
 };

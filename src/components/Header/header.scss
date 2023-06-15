@@ -118,8 +118,9 @@ body {
 
     .icons {
       display: flex;
-      padding-left: 250px;
-      justify-content: space-between;
+      //margin-top: 10px;
+      padding-left: 200px;
+      justify-content: space-around;
       gap: 0.5rem;
       .iconContainer {
         position: relative;
@@ -127,6 +128,22 @@ body {
           @include iconsWithNUmber;
         }
       }
+    }
+    .icon-search{
+      height: 45px;
+    }
+    .cart-icon{
+      margin-top: 8px;
+      margin-left: 20px;
+    }
+    .like-icon {
+      margin-top: 8px;
+      margin-left: 5px;
+    }
+    .checkout-icon{
+      margin-top: 8px;
+      margin-left: 15px;
+      height: 10px;
     }
   }
 }
