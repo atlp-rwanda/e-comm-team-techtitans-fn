@@ -160,6 +160,12 @@ const SignupForm = () => {
                     Sign up with Google
                   </a>
                 </div>
+                <p style={{ fontSize: "10px" }}>
+                  Have an account already?
+                  <Link to="/auth/login" style={{ color: "blue" }}>
+                    Login
+                  </Link>
+                </p>
               </form>
             </div>
           </div>

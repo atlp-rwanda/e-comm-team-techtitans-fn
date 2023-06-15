@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./new_header.scss";
+import "./header.scss";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Logo from "../../assets/images/Logo.svg";
@@ -11,6 +11,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
+import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 import Searching from "../../pages/SearchIntegrations/search";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import { ThemeContext } from "../Theme/ThemeContext";
@@ -39,10 +40,43 @@ let Header = () => {
   return (
     <div className="header" id={theme}>
       <div className="header_main">
-        <p>Free shipping order over 1000$</p>
+        <p style={{ color: "white" }}>Free shipping order over 1000$</p>
         <div className="header_main--two">
-          <p>Account</p>
-          <p>EN</p>
+          <p>
+            <PopupState variant="popover" popupId="demo-popup-menu">
+              {(popupState) => (
+                <React.Fragment>
+                  <Button
+                    variant="contained"
+                    {...bindTrigger(popupState)}
+                    style={({ color: "white" }, { background: "black" })}
+                  >
+                    Account
+                  </Button>
+                  <Menu {...bindMenu(popupState)}>
+                    <Link className="nav_link" to="/auth/login">
+                      <MenuItem onClick={popupState.close}>Login</MenuItem>
+                    </Link>
+                    <Divider />
+
+                    <Link className="nav_link" to="#">
+                      <MenuItem onClick={popupState.close}>Logout</MenuItem>
+                    </Link>
+                    <Divider />
+                    <p style={{ fontSize: "9px" }}>New customer? </p>
+                    <Link
+                      className="nav_link"
+                      to="/signup"
+                      style={{ color: "blue" }}
+                    >
+                      <MenuItem onClick={popupState.close}>Register</MenuItem>
+                    </Link>
+                  </Menu>
+                </React.Fragment>
+              )}
+            </PopupState>
+          </p>
+          <p style={{ color: "white" }}>EN</p>
         </div>
       </div>
       <nav className="nav">
@@ -114,37 +148,35 @@ let Header = () => {
               Profile
             </Link>
           </li>
-          <li>
-            <div className="switch">
-              <DarkModeSwitch
-                onChange={toggleTheme}
-                checked={theme === "dark"}
-              />
-            </div>
-          </li>
         </ul>
-
+        <div className="switch">
+          <DarkModeSwitch onChange={toggleTheme} checked={theme === "dark"} />
+        </div>
         <div className="icons">
-          <div className="search-container">
+          <div className="icon-search">
             <Searching className="search-icon-button" />
-          </div>{" "}
-          <Link to="/orders">
-            <ShoppingCartIcon />
-          </Link>
-          <div className="iconContainer">
-            <div className="iconContainer-number">
-              <p></p>
-            </div>
-            <Link to="/wishlist">
-              <FavoriteBorderIcon />{" "}
+          </div>
+
+          <div className="cart-icon">
+            <Link to="/orders">
+              <ShoppingCartIcon />
             </Link>
           </div>
-          <Link to="/checkout">
-            <span className="login-text-navbar">💳</span>
-          </Link>
-          <Link to="/auth/login">
-            <span className="login-text-navbar">Login</span>
-          </Link>
+          <div className="iconContainer">
+            <div className="iconContainer-number">
+              <p>2</p>
+            </div>
+            <div className="like-icon">
+              <a href="/wishlist">
+                <FavoriteBorderIcon />{" "}
+              </a>
+            </div>
+          </div>
+          <div className="checkout-icon">
+            <Link to="/checkout">
+              <span className="login-text-navbar">💳</span>
+            </Link>
+          </div>
         </div>
         <div
           className="mobile-menu-icon"
