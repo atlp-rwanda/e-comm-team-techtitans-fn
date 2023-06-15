@@ -52,10 +52,7 @@ const OrderDetails = () => {
 
               <div>
                 <h4>
-                  <span>
-                    <i className="bx bx-calendar-event"></i>
-                  </span>{" "}
-                  Estimated Delivery:{" "}
+                  <i className="bx bx-calendar-event"></i> Estimated Delivery:{" "}
                   {order.data &&
                     order.data.expected_delivery_date.split("T")[0]}
                 </h4>
@@ -71,26 +68,10 @@ const OrderDetails = () => {
               productName={order.data && order.data.product.name}
               price={order.data && order.data.product.price}
               quantity={order.data && order.data.quantity}
-              total={order.data && order.data.total}
+              total={order.data && order.data.total_price}
               image={order.data && order.data.product.images[0]}
             />
-            <div className="order-footer">
-              <AddressCard
-                title="Payment"
-                method="MasterCard ***56"
-                icon="bx bxl-mastercard"
-                buttonText="Invoice"
-                buttonIcon="bx bx-file"
-              />
-              <AddressCard
-                title="Delivery"
-                icon="bx bxs-map"
-                address="Address"
-                addressOne="847 San Jose Bridge Apt, 174"
-                addressTwo="San Jose, CA 95112"
-                addressThree="United States"
-              />
-            </div>
+            <div className="order-footer"></div>
           </>
         )}
       </OrderContent>

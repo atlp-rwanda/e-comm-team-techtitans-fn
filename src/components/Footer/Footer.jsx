@@ -7,7 +7,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { ThemeContext } from "../Theme/ThemeContext";
 import { useContext } from "react";
 const Footer = () => {
-  const { theme} = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   return (
     <div className="footer" id={theme}>
       <div className="footer-container">
@@ -59,7 +59,7 @@ const Footer = () => {
           </div>
           <div className="footer-touch">
             <h3>Get IN TOUCH</h3>
-            <p>
+            <p style={{ color: "white" }}>
               Any questions? Let us know in store at 8th floor, 379 Kicukiro St,
               Kigali, Kgl 10018 or call us on (+250) 785 910 902
             </p>
@@ -82,7 +82,9 @@ const Footer = () => {
         </div>
       </div>
       <div className="copyright">
-        <p>Copyright ©2023 All rights reserved | made by TechTitans</p>
+        <p style={{ color: "white" }}>
+          Copyright ©2023 All rights reserved | made by TechTitans
+        </p>
       </div>
     </div>
   );

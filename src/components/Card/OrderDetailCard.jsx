@@ -10,10 +10,10 @@ function OrderDetailCard({ productName, price, quantity, total, image }) {
       <div className="content-body">
         <div className="detail-one">
           <p>{productName}</p>
-          <p>Price: {price}</p>
+          <p>Price: {price} $</p>
         </div>
         <div className="detail-two">
-          <p>Total: {total}</p>
+          <p>Total: {total} $</p>
           <p>Qty: {quantity}</p>
         </div>
       </div>
