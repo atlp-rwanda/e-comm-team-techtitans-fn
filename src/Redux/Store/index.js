@@ -31,7 +31,7 @@ import productsReviewAverageSlice from "../../Redux/Features/Review/GetAveragePr
 import productsReviewShowSlice from "../../Redux/Features/Review/GetProductReview";
 import WishlistSlice from "../../Redux/Features/Wishlist/Wishlist";
 import addProductToCartSlice from "../Features/Cart/CartSlice";
-
+import checkoutSlice from "../Features/checkout/Checkoutslice";
 import GetOneNotificationReducer from "../../Redux/Features/Notification/GetOneNotificationSlice"
 
 
@@ -78,6 +78,7 @@ const store = configureStore({
     reviewaverage: productsReviewAverageSlice,
     showreview: productsReviewShowSlice,
     wishlist: WishlistSlice,
+    checkout: checkoutSlice,
     cart: addProductToCartSlice,
     orders: orderSlice,
     updateOrder: updateOrderStatusSlice,
@@ -85,7 +86,7 @@ const store = configureStore({
     order: singleOrderSlice,
 
     getnotification:GetNoticationSlice,
-    oneNotification:GetOneNotificationReducer
+    oneNotification:GetOneNotificationReducer,
 
   },
   middleware,

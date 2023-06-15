@@ -55,9 +55,7 @@ const Card = () => {
                   {/* Truncate product name to 20 characters */}
                   <h5>${product.price}</h5>
                 </div>
-
                 <div className="icon">
-                  <FavoriteBorderIcon />
                   <WishlistButton product_id={product.id} />
                 </div>
               </div>
