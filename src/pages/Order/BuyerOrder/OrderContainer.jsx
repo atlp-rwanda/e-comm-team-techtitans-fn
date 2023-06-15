@@ -3,6 +3,10 @@ import OrderCard from "../../../components/Card/OrderCard";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getAllBuyerOrder } from "../../../Redux/Features/Order/buyerOrder.slice";
+import io from "socket.io-client";
+import { useState } from "react";
+
+const socket = io.connect("https://ecommerce-tech-titans.herokuapp.com");
 
 function OrderContainer() {
   const dispatch = useDispatch();
@@ -13,9 +17,14 @@ function OrderContainer() {
   useEffect(() => {
     dispatch(getAllBuyerOrder()); // Dispatch the thunk action to fetch buyer orders
   }, [dispatch]);
-  console.log("buyerOrders", buyerOrders);
-  console.log("status:", status);
-  console.log("error:", error);
+
+  const [orderStatus, setOrderStatus] = useState("");
+  useEffect(() => {
+    socket.on("orderStatusUpdated", (data) => {
+      setOrderStatus(data);
+    });
+    console.log("orderStatus", orderStatus);
+  }, [orderStatus]);
 
   const formatDescription = (description) => {
     const words = description.split(" ");
@@ -31,7 +40,9 @@ function OrderContainer() {
       {status === "loading" ? (
         <div>Loading orders...</div>
       ) : status === "failed" ? (
-        <div>Error: {error}</div>
+        <div className="order-error">
+          <i className="bx bx-shopping-bag"></i> No orders available.
+        </div>
       ) : buyerOrders && buyerOrders.data && buyerOrders.data.length > 0 ? (
         buyerOrders.data.map((order) => {
           const description = order.product.description;

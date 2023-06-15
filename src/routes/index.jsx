@@ -35,6 +35,7 @@ import ListOrder from "../pages/Order";
 import BuyOrder from "../pages/Order/BuyerOrder";
 import OrderDetails from "../pages/Order/OrderDetail";
 import ReadNotification from "../pages/Dashboard/SingleNotification.jsx";
+import ViewCart from "../pages/Cart";
 
 import WishlistPage from "../pages/wishli/Wishlist";
 const socket = socketIO.connect(`${SOCKET_URL}`);
@@ -95,6 +96,7 @@ let allRoutes = () => {
           path="/dashboard/notification/:id"
           element={<ReadNotification />}
         />
+        <Route path="/viewcart" element={<ViewCart />} />
       </Routes>
       <ToastContainer />
     </>

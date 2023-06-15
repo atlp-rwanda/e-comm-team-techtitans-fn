@@ -1,3 +1,4 @@
+import React from "react";
 import Header from "../../../components/Header/Header";
 import Footer from "../../../components/Footer/Footer";
 import "../../Home/Home.scss";
@@ -15,6 +16,7 @@ import io from "socket.io-client";
 import { useState } from "react";
 
 const socket = io.connect("https://ecommerce-tech-titans.herokuapp.com");
+
 const OrderDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -24,22 +26,25 @@ const OrderDetails = () => {
     dispatch(getOrder(id));
   }, [dispatch, id]);
 
-  const [orderStatus, setOrderStatus] = useState("");
+  const [orderStatus, setOrderStatus] = useState(
+    order.data && order.data.status
+  );
+
   useEffect(() => {
     socket.on("orderStatusUpdated", (data) => {
       setOrderStatus(data);
     });
     console.log("orderStatus", orderStatus);
   }, [orderStatus]);
+
   return (
     <main>
       <Header />
-
       <OrderContent>
         {status === "loading" ? (
-          <div>Loading orders...</div>
+          <div className="loader">Loading orders...</div>
         ) : status === "failed" ? (
-          <div>Error: {error.data}</div>
+          <div>{error.data}</div>
         ) : (
           <>
             <div className="order-header">
@@ -49,7 +54,6 @@ const OrderDetails = () => {
                   {order.data && order.data.product.productVendor.fullname}
                 </h4>
               </div>
-
               <div>
                 <h4>
                   <i className="bx bx-calendar-event"></i> Estimated Delivery:{" "}
@@ -58,12 +62,12 @@ const OrderDetails = () => {
                 </h4>
               </div>
               <div>
-                <button> Customer Service</button>
+                <button>Customer Service</button>
               </div>
             </div>
-
-            <HorizontalStepper orderStatus={orderStatus} />
-
+            <HorizontalStepper
+              orderStatus={orderStatus || (order.data && order.data.status)}
+            />
             <OrderDetailCard
               productName={order.data && order.data.product.name}
               price={order.data && order.data.product.price}
@@ -75,7 +79,6 @@ const OrderDetails = () => {
           </>
         )}
       </OrderContent>
-
       <Footer />
     </main>
   );

@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Demoroute() {
-  return (
-    <div>Demoroute</div>
-  )
+  return <div>Demoroute</div>;
 }
 
-export default Demoroute
+export default Demoroute;

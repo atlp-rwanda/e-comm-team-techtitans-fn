@@ -31,7 +31,7 @@ export const COLUMNS = [
           break;
         case 2:
           roleText = "Seller";
-          roleColor = "#b71c1c";
+          roleColor = "#1b5e20";
           fontWeight = 600;
           break;
         case 3:
