@@ -164,12 +164,12 @@ let Header = () => {
           </div>
           <div className="iconContainer">
             <div className="iconContainer-number">
-              <p>2</p>
+              <p></p>
             </div>
             <div className="like-icon">
-              <a href="/wishlist">
+            <Link to="/wishlist">
                 <FavoriteBorderIcon />{" "}
-              </a>
+              </Link>
             </div>
           </div>
           <div className="checkout-icon">
