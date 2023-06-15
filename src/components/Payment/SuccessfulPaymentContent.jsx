@@ -13,7 +13,6 @@ const SuccessfulPaymentContent = () => {
 
     // This timeout function is just for the Loader demonstration purposes
     setTimeout(() => {
-      // navigate('/');
       navigate('/');
       setIsBackToHomeLoading(false);
     }, 2000);
@@ -22,6 +21,10 @@ const SuccessfulPaymentContent = () => {
   const invoicePreview = () => {
     alert('This is the Invoice Preview');
   };
+
+  const theInvoice =
+    JSON.parse(localStorage.getItem('invoicePreview')) || 'https://twitter.com';
+
   return (
     <div className="shipping-page-content">
       <div className="shipping-page-left-side">
@@ -41,12 +44,14 @@ const SuccessfulPaymentContent = () => {
           {isLoading ? (
             <SpinerButtonWhite />
           ) : (
-            <button
-              className="payment-continue-button"
-              onClick={invoicePreview}
-            >
-              Invoice Preview
-            </button>
+            <a href={theInvoice} target="_blank" rel="noreferrer">
+              <button
+                className="payment-continue-button"
+                onClick={invoicePreview}
+              >
+                Invoice Preview
+              </button>
+            </a>
           )}
           {isBackToHomeLoading ? (
             <SpinerButtonWhite />
