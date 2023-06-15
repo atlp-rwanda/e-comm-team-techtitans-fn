@@ -19,20 +19,22 @@
   border: 1px solid $accent;
 }
 @mixin publishedButton($bgColor, $color) {
-  padding: 1rem 4rem;
+  padding: 10px 18rem;
   border: none;
   background-color: $bgColor;
   color: $color;
+  font-size: 17px;
+  font-weight: bold;
 }
 .row {
   max-width: 90rem;
-  margin: 0 auto;
+  margin: 2rem 5rem;
   border: 1px solid $accent;
   border-radius: 0.3rem;
   overflow: hidden;
   .addProduct-form {
     padding: 1rem;
-    background: $backgroundWhite-color;
+    background: #ffffff;
     .addProduct-heading {
       font-size: $heading-font-size;
       color: $primarydark-color;
@@ -51,7 +53,7 @@
       label {
         font-size: $medium-font-size;
         display: block;
-        font-weight: 400;
+        font-weight: 600;
         &:not(:last-child) {
           margin-bottom: 0;
         }
@@ -59,7 +61,7 @@
       input,
       select {
         @include inputs;
-        padding: 0.8rem;
+        padding: 1rem;
       }
       textarea {
         @include inputs;
@@ -182,9 +184,9 @@
         flex-direction: column;
         .btn {
           @include publishedButton($secondary-color, $textprimary-color);
-          align-self: center;
+        
           border-radius: 0.5rem;
-          margin: 3rem 0;
+          margin: 1rem 0;
           background-color: rgb(121, 133, 235);
           &:hover {
             background-color: $accent;

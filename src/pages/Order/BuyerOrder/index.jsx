@@ -10,13 +10,7 @@ let Home = () => {
       <Header />
       <OrderContent>
         <div className="order-header">
-          <h4>
-            Home
-            <span>
-              <i className="bx bx-chevron-right"></i> Order
-            </span>
-          </h4>
-          <h1>My Orders</h1>
+          <h4>My Orders</h4>
         </div>
         <OrderContainer />
       </OrderContent>

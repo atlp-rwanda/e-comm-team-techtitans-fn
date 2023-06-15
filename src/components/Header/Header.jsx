@@ -63,7 +63,6 @@ let Header = () => {
                       <MenuItem onClick={popupState.close}>Logout</MenuItem>
                     </Link>
                     <Divider />
-                    <p style={{ fontSize: "9px" }}>New customer? </p>
                     <Link
                       className="nav_link"
                       to="/signup"

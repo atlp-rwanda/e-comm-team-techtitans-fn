@@ -29,7 +29,7 @@ function OrderCard({
         </div>
         <div className="order-status">
           <p>
-            Order Status: <span>{status}</span>
+            Order Status: <span className="sub-span">{status}</span>
           </p>
         </div>
       </div>
@@ -38,7 +38,7 @@ function OrderCard({
         <div className="card-body-content">
           <div className="card-left">
             <h3>{productName}</h3>
-            <p>Description: {description}</p>
+            <p className="description-container">Description: {description}</p>
             <button onClick={handleViewDetail}>view detail</button>
           </div>
           <div className="card-right">

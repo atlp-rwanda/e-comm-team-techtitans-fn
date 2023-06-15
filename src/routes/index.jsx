@@ -5,7 +5,7 @@ import Shop from "../pages/Shop/Shop.jsx";
 import VerifyOtp from "../pages/verifyotp/verifyotp.jsx";
 import Auth from "../components/protectedRoute.jsx";
 import UnauthorizedPage from "../pages/unauthorizedPage.jsx";
-import AddProductForm from "../pages/Product/AddProduct";
+import AddProductForm from "../pages/Product";
 import ForgotPassword from "../pages/Auth/ForgotPassword.jsx";
 import ResetPasswordForm from "../pages/Auth/ResetPasswordForm.jsx";
 import { ToastContainer } from "react-toastify";
@@ -91,6 +91,10 @@ let allRoutes = () => {
         <Route path="/orders" element={<BuyOrder />} />
         <Route path="/order/:id" element={<OrderDetails />} />
         <Route path="/wishlist" element={<WishlistPage />} />
+        <Route
+          path="/dashboard/notification/:id"
+          element={<ReadNotification />}
+        />
       </Routes>
       <ToastContainer />
     </>

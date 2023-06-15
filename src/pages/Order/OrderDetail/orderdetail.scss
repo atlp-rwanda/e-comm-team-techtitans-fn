@@ -5,10 +5,13 @@
   flex-direction: row;
   margin-bottom:5px;
 }
-
+.bx-calendar-event{
+ font-size: 20px !important;
+}
 .order-header h4 {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
+  text-transform: capitalize;
 }
 .order-header button {
   background-color: $secondary-color;

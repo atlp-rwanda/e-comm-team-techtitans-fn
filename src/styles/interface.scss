@@ -28,7 +28,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 80px;
+  padding: 0 30px;
   right: 0;
   margin-top: 1rem;
 }
@@ -52,6 +52,7 @@
   color: var(--second-color);
   font-size: 13px;
   font-weight: 300;
+  text-transform: capitalize;
 }
 
 #menu-btn {

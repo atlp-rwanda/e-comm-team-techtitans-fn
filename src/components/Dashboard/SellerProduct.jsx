@@ -31,30 +31,36 @@ function SellerProduct() {
             <h2>Products</h2>
           </div>
           <div className="add-product-button">
-           <Link to="/addproduct"> <button className="button">Add product</button></Link>
+            <Link to="/addproduct">
+              {" "}
+              <button className="button">Add product</button>
+            </Link>
           </div>
         </div>
 
         <div className="bottom-section">
-        <div className="products-wrapper">
-  {products.length > 0 ? (
-    currentProducts.reverse().map((product) => (
-      <Productlists product={product} key={product.id} />
-    ))
-  ) : (
-    <div>Loading products...</div>
-  )}
-</div>
-
+          <div className="products-wrapper">
+            {products.length > 0 ? (
+              currentProducts
+                .reverse()
+                .map((product) => (
+                  <Productlists product={product} key={product.id} />
+                ))
+            ) : (
+              <div>Loading products...</div>
+            )}
+          </div>
         </div>
         <div className="pagination-buttons">
-          <button className="page-button"
+          <button
+            className="page-button"
             disabled={currentPage === 1}
             onClick={() => setCurrentPage(1)}
           >
             First
           </button>
-          <button className="page-button"
+          <button
+            className="page-button"
             disabled={currentPage === 1}
             onClick={() => setCurrentPage(currentPage - 1)}
           >
@@ -71,13 +77,15 @@ function SellerProduct() {
               </button>
             )
           )}
-          <button className="page-button"
+          <button
+            className="page-button"
             disabled={currentPage === totalPages}
             onClick={() => setCurrentPage(currentPage + 1)}
           >
             Next
           </button>
-          <button className="page-button"
+          <button
+            className="page-button"
             disabled={currentPage === totalPages}
             onClick={() => setCurrentPage(totalPages)}
           >

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { createProduct } from "../../Redux/Features/Product/AddProductSlice";
 import { ViewCategory } from "../../Redux/Features/Product/CategorySlice";
 import { CloudinaryContext, Image } from "cloudinary-react";
-import Header from "../../components/Header/Header";
 import "./AddProduct.scss";
 
 function AddProductForm() {
@@ -82,7 +81,6 @@ function AddProductForm() {
   }, [dispatch]);
   return (
     <div>
-      <Header />
       <div className="">
         <div className="row">
           <form onSubmit={handleSubmit} className="addProduct-form">
@@ -216,7 +214,7 @@ function AddProductForm() {
                   />
                 </div>
                 <button className="btn" type="submit">
-                  Publish Product
+                  Save
                 </button>
               </div>
             </div>
