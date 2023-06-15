@@ -11,7 +11,7 @@ const ReviewComponent = ({ pid }) => {
   const [ratings, setRatings] = useState(0);
   const [feedback, setFeedback] = useState("");
   const dispatch = useDispatch();
-  const { status } = useSelector((state) => state.review);
+  const { status, error } = useSelector((state) => state.review);
   const [showSnackbar, setShowSnackbar] = useState(false);
 
   const handleSnackbarClose = () => {
@@ -67,7 +67,7 @@ const ReviewComponent = ({ pid }) => {
               severity="error"
               sx={{ width: "100%", fontSize: "1.5rem" }}
             >
-              Something went Wrong! Please try again later.
+              {error}
             </Alert>
           </Snackbar>
         </div>

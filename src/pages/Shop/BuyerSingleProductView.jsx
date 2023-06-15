@@ -94,6 +94,8 @@ export function BuyerSingleProductView() {
     return `${day}/${month}/${year} at ${hours}:${minutes}`;
   };
 
+  const userRole = localStorage.getItem("role");
+
   return (
     <>
       <div className="buyer-product-wrapper">
@@ -190,7 +192,11 @@ export function BuyerSingleProductView() {
               </div>
             )}
           </div>
-          <ReviewComponent pid={id} />
+
+          {userRole && userRole !== "2" && userRole !== "1" && (
+            <ReviewComponent pid={id} />
+          )}
+
           <ProductReviews pid={id} />
         </div>
       </div>
