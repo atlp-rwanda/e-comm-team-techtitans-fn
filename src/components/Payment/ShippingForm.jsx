@@ -21,10 +21,8 @@ const ShippingForm = () => {
   const cancelPayment = () => {
     setIsCancelPaymentLoading(true);
 
-    setTimeout(() => {
-      navigate('/'); // should redirect to the orders page
-      setIsCancelPaymentLoading(false);
-    }, 2000);
+    navigate('/'); // should redirect to the orders page
+    setIsCancelPaymentLoading(false);
   };
 
   const handleShippingDetails = async (data) => {
@@ -42,8 +40,9 @@ const ShippingForm = () => {
 
       // This timeout function is just for the Loader demonstration purposes
       setTimeout(async () => {
-        const theOrderToken =
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b3RhbCI6NDc1MCwiaWF0IjoxNjg2NzUyMTIxLCJleHAiOjE3MTgzMDk3MjF9.wyEyDHlwGcVHWQxS59Il1XGHRILYoHI02iI0WSSNbQE';
+        const theOrderToken = JSON.parse(localStorage.getItem('buyNowToken'));
+        // const theOrderToken =
+        //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b3RhbCI6NDc1MCwiaWF0IjoxNjg2NzUyMTIxLCJleHAiOjE3MTgzMDk3MjF9.wyEyDHlwGcVHWQxS59Il1XGHRILYoHI02iI0WSSNbQE';
 
         const response = await dispatch(
           shippingDetails({
@@ -54,7 +53,6 @@ const ShippingForm = () => {
             orderToken: theOrderToken,
           }),
         );
-        console.log('✅ Frontend response (shipping)', response);
 
         localStorage.setItem(
           'payToken',
@@ -72,7 +70,7 @@ const ShippingForm = () => {
     <div className="shipping-page-content">
       <div className="shipping-page-left-side">
         <h2 className="payment-form-title">
-          <span className="page-indication">1/3:</span> Shipping Address
+          <span className="payment-pageIndication">1/3:</span> Shipping Address
         </h2>
         <div className="name-part">
           <label htmlFor="names">Names </label>

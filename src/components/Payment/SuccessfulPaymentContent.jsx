@@ -18,18 +18,14 @@ const SuccessfulPaymentContent = () => {
     }, 2000);
   };
 
-  const invoicePreview = () => {
-    alert('This is the Invoice Preview');
-  };
-
-  const theInvoice =
-    JSON.parse(localStorage.getItem('invoicePreview')) || 'https://twitter.com';
+  const theInvoice = JSON.parse(localStorage.getItem('invoicePreview'));
 
   return (
     <div className="shipping-page-content">
       <div className="shipping-page-left-side">
         <h2 className="payment-form-title">
-          <span className="page-indication">3/3:</span> Successful Payment!
+          <span className="payment-pageIndication">3/3:</span> Successful
+          Payment!
         </h2>
 
         <p className="success-page-paragraph">
@@ -39,16 +35,12 @@ const SuccessfulPaymentContent = () => {
           your order for shipment and you will receive a confirmation email
           shortly with all the details.
         </p>
-
         <div className="action-buttons">
           {isLoading ? (
             <SpinerButtonWhite />
           ) : (
             <a href={theInvoice} target="_blank" rel="noreferrer">
-              <button
-                className="payment-continue-button"
-                onClick={invoicePreview}
-              >
+              <button className="payment-continue-button">
                 Invoice Preview
               </button>
             </a>

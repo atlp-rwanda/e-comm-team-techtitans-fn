@@ -54,6 +54,22 @@ const CardDetailsForm = () => {
     setCvc(event.target.value);
   };
 
+  const handleCvcBlur = (event) => {
+    const value = event.target.value;
+
+    if (value.trim() !== '' && value.length !== 3) {
+      toast.warning('Please enter a valid CVC (3 digits)');
+    }
+  };
+  const handleCardNumberBlur = (event) => {
+    const value = event.target.value;
+
+    if (value.length !== 16) {
+      toast.warning('The Card number should have 16 digits)');
+    }
+    setCardNumber(value);
+  };
+
   const handlePayment = async () => {
     setIsPaymentLoading(true);
     const response = await dispatch(
@@ -69,17 +85,16 @@ const CardDetailsForm = () => {
       JSON.stringify(response.payload.charge.receipt_url),
     );
 
-    setTimeout(() => {
-      setIsPaymentLoading(false);
-      navigate('/payment/success');
-    }, 2000);
+    setIsPaymentLoading(false);
+    navigate('/payment/success');
   };
 
   return (
     <div className="shipping-page-content">
       <div className="shipping-page-left-side">
         <h2 className="payment-form-title">
-          <span className="page-indication">2/3:</span> Enter your Card Details
+          <span className="payment-pageIndication">2/3:</span> Enter your Card
+          Details
         </h2>
 
         <p className="payment-details-paragraph">
@@ -97,6 +112,7 @@ const CardDetailsForm = () => {
             placeholder="9870  8880  8880  8880"
             className="input-styles card-number-input"
             value={cardNumber}
+            onBlur={handleCardNumberBlur}
             onChange={handleCardNumberChange}
           />
         </div>
@@ -124,6 +140,7 @@ const CardDetailsForm = () => {
               placeholder="1 2 3"
               maxLength={3}
               value={cvc}
+              onBlur={handleCvcBlur}
               onChange={handleCvcChange}
             />
           </div>

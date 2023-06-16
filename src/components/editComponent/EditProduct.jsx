@@ -125,9 +125,9 @@ const EditProduct = () => {
                           secure="true"
                         />
                         {/* Image Title */}
-                        {uploadedImage.split(
+                        {/* {uploadedImage.split(
                           'https://res.cloudinary.com/dgcmsqndb/image/upload/titans/',
-                        )}
+                        )} */}
                       </div>
                     ))}
                   </CloudinaryContext>

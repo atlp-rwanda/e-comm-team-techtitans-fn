@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../../scss/Auth/ForgotPassword.scss';
 
-import PasswordResetSuccess from "./PasswordResetSuccess";
+import PasswordResetSuccess from './PasswordResetSuccess';
 
 const ResetPassword = () => {
   let [response, setResponse] = useState({ status: 0 });
@@ -26,7 +26,7 @@ const ResetPassword = () => {
   const navigate = useNavigate();
 
   const backToLogin = () => {
-    navigate("/auth/login");
+    navigate('/auth/login');
   };
 
   const handleResetPassword = async (data) => {
@@ -91,9 +91,10 @@ const ResetPassword = () => {
             </h3>
             <div className="password-input-container">
               <input
-                type={showPassword ? "text" : "password"}
-                {...register("password", { required: true })}
+                type={showPassword ? 'text' : 'password'}
+                {...register('password', { required: true })}
                 placeholder="New Password"
+                className="send-email-input"
               />
             </div>
             {errors.password && (
@@ -103,9 +104,10 @@ const ResetPassword = () => {
             )}
             <div className="password-input-container">
               <input
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? 'text' : 'password'}
                 placeholder="Confirm Password"
-                {...register("confirmPassword", { required: true })}
+                {...register('confirmPassword', { required: true })}
+                className="send-email-input"
               />
               {errors.confirmPassword && (
                 <p className="validation-error-text">

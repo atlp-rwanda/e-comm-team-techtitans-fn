@@ -1,13 +1,11 @@
 .page1-indicator {
-  //   border: 1px solid red;
-  //   align-items: center;
-  //   justify-content: center;
   text-align: center;
 }
-.page-indication {
+.payment-pageIndication {
   color: rgb(76, 72, 72);
   font-size: 14px;
   font-weight: 200;
+  padding-right: 5px;
   padding-top: 10px;
 }
 
@@ -16,7 +14,7 @@
   font-weight: 500;
   font-size: 25px;
   display: flex;
-  gap: 5px;
+  margin: 0;
 }
 
 .shipping-page-content {

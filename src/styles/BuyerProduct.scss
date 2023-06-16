@@ -1,4 +1,4 @@
-@import "../variables/variables.scss";
+@import '../variables/variables.scss';
 
 // ---------------single products----------------
 .main-image-1 {
@@ -97,12 +97,11 @@
     display: block;
     margin-bottom: 5px;
   }
-  input[type="number"] {
+  input[type='number'] {
     width: 50px;
     padding: 3px;
   }
 }
-
 
 .buyer-choice-1 p {
   white-space: nowrap;
@@ -122,7 +121,7 @@
   align-items: center;
 }
 .buyer-choice-1 label:not(:last-child)::after {
-  content: "|";
+  content: '|';
   margin-left: 5px;
   margin-right: 5px;
   color: $secondary-color;
@@ -132,7 +131,6 @@ h3,
 p {
   margin-top: 30px;
 }
-
 
 /* -------------Pagination------------*/
 .pagination-buttons {
@@ -159,12 +157,12 @@ p {
   }
 }
 @media (max-width: $breakpoint-md) {
-  .buyer-product-wrapper{
+  .buyer-product-wrapper {
     display: flex;
     flex-wrap: wrap;
   }
 }
-.addcartbtn{
+.addcartbtn {
   margin-top: 10px;
   border-radius: 5px;
   padding: 10px 20px;
@@ -173,5 +171,16 @@ p {
   border: none;
   color: #fff;
   background-color: $secondary-color;
+  cursor: pointer;
+}
+.buyNowBtn {
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bolder;
+  border: 0.7px solid $secondary-color;
+  color: $secondary-color;
+  background-color: rgb(255, 255, 255);
   cursor: pointer;
 }
