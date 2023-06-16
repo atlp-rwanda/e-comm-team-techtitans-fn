@@ -43,6 +43,8 @@ import Mission from "../components/About/Mission.jsx";
 import Team from "../components/About/Team.jsx";
 import { Advantages } from "../components/About/Advantages.jsx";
 import { Faqs } from "../components/About/Faqs.jsx";
+import DashBoardProfile from "../pages/Profile/UserProfile/DashBoardProfile.jsx";
+import DashBoardEditProfile from "../pages/Profile/EditProfile/DashBoardEditProfile.jsx";
 
 const socket = socketIO.connect(`${SOCKET_URL}`);
 
@@ -91,6 +93,11 @@ let allRoutes = () => {
         />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/updateprofile" element={<EditProfile />} />
+        <Route path="/dashboardprofile" element={<DashBoardProfile />} />
+        <Route
+          path="/dashboardupdateprofile"
+          element={<DashBoardEditProfile />}
+        />
 
         <Route path="/products/:id" element={<SingleProduct />} />
         <Route path="/mycart" element={<YourCart />} />
@@ -108,6 +115,7 @@ let allRoutes = () => {
         <Route path="/about/team" element={<Team />} />
         <Route path="/about/advantages" element={<Advantages />} />
         <Route path="/about/faqs" element={<Faqs />} />
+
       </Routes>
       <ToastContainer />
     </>

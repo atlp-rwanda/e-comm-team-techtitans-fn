@@ -152,7 +152,7 @@ let Header = () => {
           <DarkModeSwitch onChange={toggleTheme} checked={theme === "dark"} />
         </div>
         <div className="icons">
-          <div className="icon-search">
+          <div className="search-container">
             <Searching className="search-icon-button" />
           </div>
 
