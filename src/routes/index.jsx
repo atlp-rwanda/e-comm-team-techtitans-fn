@@ -37,6 +37,13 @@ import OrderDetails from "../pages/Order/OrderDetail";
 import ReadNotification from "../pages/Dashboard/SingleNotification.jsx";
 
 import WishlistPage from "../pages/wishli/Wishlist";
+import About from "../components/About/About.jsx";
+import { Welcome } from "../components/About/Welcome.jsx";
+import Mission from "../components/About/Mission.jsx";
+import Team from "../components/About/Team.jsx";
+import { Advantages } from "../components/About/Advantages.jsx";
+import { Faqs } from "../components/About/Faqs.jsx";
+
 const socket = socketIO.connect(`${SOCKET_URL}`);
 
 let allRoutes = () => {
@@ -95,6 +102,12 @@ let allRoutes = () => {
           path="/dashboard/notification/:id"
           element={<ReadNotification />}
         />
+
+        <Route path="/about/welcome" element={<Welcome />} />
+        <Route path="/about/mission" element={<Mission />} />
+        <Route path="/about/team" element={<Team />} />
+        <Route path="/about/advantages" element={<Advantages />} />
+        <Route path="/about/faqs" element={<Faqs />} />
       </Routes>
       <ToastContainer />
     </>
