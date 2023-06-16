@@ -132,7 +132,7 @@ let Header = () => {
             </Menu>
           </li>
           <li>
-            <Link className="nav_link" to="#">
+            <Link className="nav_link" to="/about/welcome">
               About
             </Link>
           </li>
