@@ -1,8 +1,13 @@
-// WishlistButton.scss
-
 button {
-    border: none;
-    outline: none;
-    background-color:white;
+  border: none;
+  outline: none;
+  background-color: white;  
+  &:active {
+    background-color: rgb(11, 151, 182);
   }
-  
+}
+
+.card-container .card-title .icon:visited .css-i4bv87-MuiSvgIcon-root {
+  background-color: #de2424 !important;
+  font-size: 1.8rem !important;
+}
