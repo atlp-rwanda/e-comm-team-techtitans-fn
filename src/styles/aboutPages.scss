@@ -1,0 +1,176 @@
+@import "../variables/variables.scss";
+
+* {
+  font-family: $fontfamily;
+}
+
+// Navbar styles
+.nav-menu {
+  background-color: $backgroundWhite-color;
+  width: 262px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  transition: 850ms;
+  box-shadow: 1px 3px 10px $primary-dark;
+}
+
+.nav-menu.active {
+  transition: 350ms;
+}
+
+.nav-text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  list-style: none;
+  height: 60px;
+  box-shadow: 0px 0.1px 2px $primary-dark;
+  background-color: $primary-color;
+  @media (max-width: 920px) {
+    box-shadow: 1px 10px 20px 2px $secondary-color;
+  }
+}
+
+.nav-text a {
+  text-decoration: none;
+  color: $primarydark-color;
+  font-size: 18px;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
+  color:$secondary-color ;
+}
+
+.nav-text a:hover {
+  background-color: $secondary-color;
+  color:$primarydark-color;
+}
+
+.nav-menu-items {
+  width: 100%;
+}
+
+span {
+  margin-left: 16px;
+}
+
+// General layout styles
+.aboutGeneral {
+  display: flex;
+  padding: 80px;
+
+  @media (max-width: 920px) {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+
+.leftContents {
+  flex: 90%;
+  background-color: $primary-color;
+  box-shadow: 1px 3px 10px $primary-dark;
+  padding-right: 60px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+
+  @media (max-width: 920px) {
+    flex: 100%;
+    padding: 20px;
+  }
+}
+
+.navbar2 {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+
+  @media (max-width: 920px) {
+    width: 100%;
+    justify-content: center;
+    padding-top: 30px;
+  }
+}
+
+// page styles
+.welcome-texts {
+  width: 100%;
+  margin-left: 30px;
+  padding: 0 30px;
+  font-family: $fontfamily;
+}
+
+.welcome-texts h3 {
+  padding-bottom: 10px;
+  color: $secondary-color;
+}
+
+.welcome-texts h4 {
+  padding-top: 10px;
+  color: $secondary-color;
+}
+
+.welcome-texts h2 {
+  color: $secondary-color;
+  padding-bottom: 10px;
+  top: 0;
+}
+
+.welcome-texts p {
+  padding-bottom: 15px;
+}
+
+.first-part {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.second-part {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.member-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 50px;
+  margin-bottom: 20px;
+}
+
+.circular-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 1px 3px 10px $primary-dark;
+}
+
+.circular-image:hover {
+  box-shadow: 5px 3px 50px $primary-dark;
+}
+
+.caption {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.fullname {
+  font-weight: bold;
+}
+
+.position {
+  color: $secondary-color;
+}
+
+.horizontal-line {
+  width: 100%;
+  border: 0;
+  border-top: 2px solid #ccc;
+  margin: 20px 0;
+}

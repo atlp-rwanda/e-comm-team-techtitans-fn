@@ -38,14 +38,14 @@ import ReadNotification from "../pages/Dashboard/SingleNotification.jsx";
 import ViewCart from "../pages/Cart";
 
 import WishlistPage from "../pages/wishli/Wishlist";
-import About from "../components/About/About.jsx";
-import { Welcome } from "../components/About/Welcome.jsx";
-import Mission from "../components/About/Mission.jsx";
-import Team from "../components/About/Team.jsx";
-import { Advantages } from "../components/About/Advantages.jsx";
-import { Faqs } from "../components/About/Faqs.jsx";
+
 import DashBoardProfile from "../pages/Profile/UserProfile/DashBoardProfile.jsx";
 import DashBoardEditProfile from "../pages/Profile/EditProfile/DashBoardEditProfile.jsx";
+import WelcomeComponent from "../components/aboutComponents/WelcomeComponent.jsx";
+import MissionComponent from "../components/aboutComponents/MissionComponent.jsx";
+import TeamComponent from "../components/aboutComponents/TeamComponent.jsx";
+import AdvantagesComponent from "../components/aboutComponents/AdvantagesComponent.jsx";
+import FaqsComponent from "../components/aboutComponents/FaqsComponent.jsx";
 
 const socket = socketIO.connect(`${SOCKET_URL}`);
 
@@ -111,12 +111,11 @@ let allRoutes = () => {
           element={<ReadNotification />}
         />
         <Route path="/viewcart" element={<ViewCart />} />
-        <Route path="/about/welcome" element={<Welcome />} />
-        <Route path="/about/mission" element={<Mission />} />
-        <Route path="/about/team" element={<Team />} />
-        <Route path="/about/advantages" element={<Advantages />} />
-        <Route path="/about/faqs" element={<Faqs />} />
-
+        <Route path="/about" element={<WelcomeComponent />} />
+        <Route path="/about/mission" element={<MissionComponent />} />
+        <Route path="/about/team" element={<TeamComponent />} />
+        <Route path="/about/advantages" element={<AdvantagesComponent />} />
+        <Route path="/about/faqs" element={<FaqsComponent />} />
       </Routes>
       <ToastContainer />
     </>
