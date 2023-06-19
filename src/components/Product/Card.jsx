@@ -30,7 +30,7 @@ const Card = () => {
         <Backdrop
           sx={{ color: "#7A89E9", zIndex: (theme) => theme.zIndex.drawer + 1 }}
           open={open}
-          onClick={() => {}}
+          onClick={() => { }}
         >
           <CircularProgress color="inherit" />
         </Backdrop>
@@ -45,8 +45,19 @@ const Card = () => {
           products.map((product) => (
             <div className="card-one" key={product.id}>
               <Link to={`/buyer/product/${product.id}`}>
-                <div>
+                <div className="cardz">
                   <img src={product.images[0]} alt={product.name} />
+                  <div className="card-hover">
+                    <div className="card-hover--content">
+                      <p className="only">Only </p>
+                      <h5 className="only-price">${product.price}</h5>
+                      <div className="quickly">
+                        <a href="" className="only-btn">Quick Review</a>
+                      </div>
+
+
+                    </div>
+                  </div>
                 </div>
               </Link>
               <div className="card-title">

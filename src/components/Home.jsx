@@ -24,7 +24,7 @@ function Home() {
               <div className="word-part">
                 <p>High Quality</p>
                 <h3>Electronics</h3>
-                <a href="#" className="btn-shop" style={{ color: "black" }}>
+                <a href="#" className="btn-shop" style={{ color: "white" }}>
                   Shop now
                 </a>
               </div>
@@ -34,7 +34,7 @@ function Home() {
               <div className="word-part">
                 <p>High Quality</p>
                 <h3>Furnitures</h3>
-                <a href="#" className="btn-shop" style={{ color: "black" }}>
+                <a href="#" className="btn-shop" style={{ color: "white" }}>
                   Shop now
                 </a>
               </div>
@@ -44,7 +44,7 @@ function Home() {
               <div className="word-part">
                 <p>High Quality</p>
                 <h3>Clothes</h3>
-                <a href="#" className="btn-shop" style={{ color: "black" }}>
+                <a href="#" className="btn-shop" style={{ color: "white" }}>
                   Shop now
                 </a>
               </div>

@@ -1,10 +1,16 @@
-
-
+import React from "react";
+import Card from '../components/Product/Card';
+import Footer from "./Footer/Footer";
 let Shop = () => {
   return (
-    <div className="homeCont">
-      <h1>This is shoping page</h1>
-    </div>
+    <>
+      <div className="homeCont">
+        <Card />
+
+      </div>
+      <Footer />
+    </>
+
   );
 };
 
