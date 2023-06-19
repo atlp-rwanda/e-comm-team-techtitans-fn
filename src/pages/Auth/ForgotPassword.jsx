@@ -10,7 +10,7 @@ import { ThemeContext } from '../../components/Theme/ThemeContext';
 import { useContext } from 'react';
 
 const ForgotPassword = () => {
-  const { theme} = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
@@ -63,6 +63,7 @@ const ForgotPassword = () => {
           type="email"
           {...register('email')}
           placeholder="Enter your email"
+          className="send-email-input"
         />
         <button
           type="submit"

@@ -66,14 +66,43 @@ export const paymentDetails = createAsyncThunk(
 
       const payToken = JSON.parse(localStorage.getItem('payToken'));
 
+      console.log('THE PAYYYY TOKEENNn', payToken);
+
       const response = await axios.post(
-        ` ${BASE_URL}/api/v1/payment/${payToken}`,
+        `${BASE_URL}/api/v1/payment/${payToken}`,
         { cvc, cardNumber },
         config,
       );
+      console.log('123');
       console.log('🛒 payment details response', response);
       return response.data;
     } catch (error) {
+      console.log('❌ 1.0', error);
+      return rejectWithValue(error.response.data.message);
+    }
+  },
+);
+
+export const buyNowThunk = createAsyncThunk(
+  'api/v1/order/buy-now',
+  async ({ productId, quantity }, { rejectWithValue }) => {
+    try {
+      const authToken = localStorage.getItem('token');
+      const config = {
+        headers: {
+          Authorization: 'Bearer ' + authToken,
+        },
+      };
+
+      const response = await axios.post(
+        ` ${BASE_URL}/api/v1/order`,
+        { productId, quantity },
+        config,
+      );
+      console.log('🛒 buy now response (bn)', response);
+      return response.data;
+    } catch (error) {
+      console.log('❌ 2.0', error);
       return rejectWithValue(error.response.data.message);
     }
   },
@@ -91,7 +120,7 @@ const PaymentSlice = createSlice({
       state.status = 'loading.....';
     },
     [getOrders.fulfilled]: (state, action) => {
-      state.product = action.payload;
+      state.payment = action.payload;
       state.status = 'success';
     },
     [getOrders.rejected]: (state, action) => {
@@ -102,7 +131,7 @@ const PaymentSlice = createSlice({
       state.status = 'loading.....';
     },
     [shippingDetails.fulfilled]: (state, action) => {
-      state.product = action.payload;
+      state.payment = action.payload;
       state.status = 'success';
     },
     [shippingDetails.rejected]: (state, action) => {
@@ -113,10 +142,21 @@ const PaymentSlice = createSlice({
       state.status = 'loading.....';
     },
     [paymentDetails.fulfilled]: (state, action) => {
-      state.product = action.payload;
+      state.payment = action.payload;
       state.status = 'success';
     },
     [paymentDetails.rejected]: (state, action) => {
+      state.error = action.payload;
+      state.status = 'failed';
+    },
+    [buyNowThunk.pending]: (state) => {
+      state.status = 'loading.....';
+    },
+    [buyNowThunk.fulfilled]: (state, action) => {
+      state.payment = action.payload;
+      state.status = 'success';
+    },
+    [buyNowThunk.rejected]: (state, action) => {
       state.error = action.payload;
       state.status = 'failed';
     },
