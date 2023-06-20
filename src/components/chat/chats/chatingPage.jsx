@@ -15,6 +15,8 @@ function ChatingPage({ socket }) {
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
+    width: "100%",
+    heigth: "100vh",
   };
   const bell = "";
 

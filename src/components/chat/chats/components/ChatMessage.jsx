@@ -31,7 +31,7 @@ export default function ChatMessage({ socket }) {
         messages={allMyMessage ? [...allMyMessage, ...messages] : [...messages]}
         lastMessageRef={lastMessageRef}
       />
-      <div className='chatfooter'>
+      <div>
         <ChatSendMessage socket={socket} />
       </div>
     </div>
