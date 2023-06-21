@@ -41,6 +41,8 @@ import orderSlice from "../Features/Order/sellerOrder.slice.js";
 import updateOrderStatusSlice from "../Features/Order/updateOrderStatus.slice";
 import buyerOrderSlice from "../Features/Order/buyerOrder.slice";
 import singleOrderSlice from "../Features/Order/getOrder.slice";
+import viewProductCartSlice from "../Features/Cart/ViewCartSlice";
+import ClearCartSlice from "../Features/Cart/ClearCartSlice";
 const middleware = [...getDefaultMiddleware(), thunk];
 
 // eslint-disable-next-line no-undef
@@ -87,6 +89,8 @@ const store = configureStore({
 
     getnotification:GetNoticationSlice,
     oneNotification:GetOneNotificationReducer,
+    showcart: viewProductCartSlice,
+    clearcart:ClearCartSlice,
 
   },
   middleware,

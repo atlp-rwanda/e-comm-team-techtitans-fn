@@ -1,26 +1,25 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
-import axios from "axios";
-import { BASE_URL } from "../../../utils/apiUtilis";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
+import axios from 'axios';
+import { BASE_URL } from '../../../utils/apiUtilis';
 
 export const handleShippingDetails = createAsyncThunk(
-  "checkout/handleShippingDetails",
+  'checkout/handleShippingDetails',
   async (data, { dispatch }) => {
-    console.log(data);
-    if (data.names === "") {
-      toast.warning("Please enter the recipient name");
+    if (data.names === '') {
+      toast.warning('Please enter the recipient name');
       return;
-    } else if (data.shippingAddress === "") {
-      toast.warning("Please enter the shipping address");
+    } else if (data.shippingAddress === '') {
+      toast.warning('Please enter the shipping address');
       return;
-    } else if (data.telephoneNumber === "") {
-      toast.warning("Please enter the phone number");
+    } else if (data.telephoneNumber === '') {
+      toast.warning('Please enter the phone number');
       return;
     } else if (data.telephoneNumber) {
-      toast.warning("Please enter a valid phone number");
+      toast.warning('Please enter a valid phone number');
       return;
-    } else if (data.shippingMethod === "") {
-      toast.warning("Please select a shipping method");
+    } else if (data.shippingMethod === '') {
+      toast.warning('Please select a shipping method');
       return;
     }
 
@@ -28,20 +27,19 @@ export const handleShippingDetails = createAsyncThunk(
 
     try {
       const response = await axios.post(`${BASE_URL}/api/v1/checkout`, data);
-      localStorage.setItem("payToken", response.data.payToken);
+      localStorage.setItem('payToken', response.data.payToken);
 
-      console.log(response.data);
       return response.data;
     } catch (error) {
-      console.log(error);
+      toast.error(error.message);
     }
 
     dispatch(setLoading(false)); //remove
-  }
+  },
 );
 
 const checkoutSlice = createSlice({
-  name: "checkout",
+  name: 'checkout',
   initialState: {
     isLoading: false,
     isCancelPaymentLoading: false,

@@ -1,4 +1,4 @@
-@import "../../../variables/variables.scss";
+@import '../../../variables/variables.scss';
 .order-header {
   display: flex;
   justify-content: space-between;
@@ -84,18 +84,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 200px;
   font-size: 20px;
   color: #333;
 }
 
 .loader:before {
-  content: "";
+  content: '';
   display: inline-block;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 3px solid #333;
+  border: 2px solid #f9f9f9;
   border-top-color: transparent;
   animation: spin 1s linear infinite;
 }
