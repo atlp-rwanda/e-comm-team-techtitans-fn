@@ -6,10 +6,7 @@ import { useDispatch } from 'react-redux';
 import { SpinerButtonPurple } from './Spinner1';
 import { SpinerButtonWhite } from './Spinner2';
 import OrderSummary from './OrderSummary';
-import {
-  getOrders,
-  paymentDetails,
-} from '../../Redux/Features/Payment/paymentSlice';
+import { paymentDetails } from '../../Redux/Features/Payment/paymentSlice';
 
 import '../../scss/Payment/CardDetails.scss';
 
@@ -72,13 +69,13 @@ const CardDetailsForm = () => {
 
   const handlePayment = async () => {
     setIsPaymentLoading(true);
+
     const response = await dispatch(
       paymentDetails({
         cvc,
         cardNumber,
       }),
     );
-    console.log('✅Frontend response (payment)', response);
 
     localStorage.setItem(
       'invoicePreview',
