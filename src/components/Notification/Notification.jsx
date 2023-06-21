@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { GetNotification } from "../../Redux/Features/Notification/NotificationSlice";
 import ReadNotification from "./readNotification";
 
-
 const Notification = ({ id }) => {
   const { getnotification, status, error } = useSelector(
     (state) => state.getnotification
@@ -73,13 +72,28 @@ const Notification = ({ id }) => {
         <div className="notificationDisplay">
           {currentItems.map((notification) => (
             <div key={notification.id} className="notificationAll">
-
               <div className="">
                 <h3>{notification.subject}</h3>
-                <p className="stat">Status:&nbsp;&nbsp;<span className="notStatus" style={notification.notificationStatus === 'read' ? { color: "green" } : { color: "red" }}>{notification.notificationStatus}</span> </p>
+                <p className="stat">
+                  Status:&nbsp;&nbsp;
+                  <span
+                    className="notStatus"
+                    style={
+                      notification.notificationStatus === "read"
+                        ? { color: "green" }
+                        : { color: "red" }
+                    }
+                  >
+                    {notification.notificationStatus}
+                  </span>{" "}
+                </p>
 
-
-                <Link to={`/dashboard/notification/${notification.id}`} key={notification.id} className="notificationStatus"><span>Read Notification</span>
+                <Link
+                  to={`/dashboard/notification/${notification.id}`}
+                  key={notification.id}
+                  className="notificationStatus"
+                >
+                  <span>Read Notification</span>
                 </Link>
               </div>
             </div>
