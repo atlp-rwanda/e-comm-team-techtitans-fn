@@ -66,7 +66,7 @@ function SideBar() {
             navigate("/auth/login");
           }}
         >
-          <i class='bx bx-log-out'></i>
+          <i className="bx bx-log-out"></i>
           Logout
         </li>
         <li>
@@ -79,4 +79,3 @@ function SideBar() {
 }
 
 export default SideBar;
-

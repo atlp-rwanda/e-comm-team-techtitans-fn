@@ -4,6 +4,7 @@ import { createProduct } from "../../Redux/Features/Product/AddProductSlice";
 import { ViewCategory } from "../../Redux/Features/Product/CategorySlice";
 import { CloudinaryContext, Image } from "cloudinary-react";
 import "./AddProduct.scss";
+import { useNavigate } from "react-router-dom";
 
 function AddProductForm() {
   const [name, setName] = useState("");
@@ -17,6 +18,7 @@ function AddProductForm() {
   const [uploadProgress, setUploadProgress] = useState(0);
   const dispatch = useDispatch();
   const { status, error } = useSelector((state) => state.product);
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!categoryId) {
@@ -35,7 +37,8 @@ function AddProductForm() {
         description,
         expiryDate,
         images: imageUrls,
-      })
+      }),
+      navigate(`/dashboard/productsList`)
     )
       .then(() => {})
       .catch((error) => console.log("Product Create error:", error));
