@@ -1,45 +1,82 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createProduct } from "../../Redux/Features/Product/AddProductSlice";
 import { ViewCategory } from "../../Redux/Features/Product/CategorySlice";
 import { CloudinaryContext, Image } from "cloudinary-react";
 import "./AddProduct.scss";
+import { useNavigate } from "react-router-dom";
 
 function AddProductForm() {
   const [name, setName] = useState("");
+  const [nameError, setNameError] = useState("");
   const [price, setPrice] = useState(0);
+  const [priceError, setPriceError] = useState("");
   const [quantity, setQuantity] = useState(0);
   const [categoryId, setCategoryId] = useState("");
   const [description, setDescription] = useState("");
+  const [descriptionError, setDescriptionError] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
+  const [expiryDateError, setExpiryDateError] = useState("");
   const [images, setImages] = useState([]);
   const [categoryIds, setCategoryIds] = useState([]);
   const [uploadProgress, setUploadProgress] = useState(0);
   const dispatch = useDispatch();
   const { status, error } = useSelector((state) => state.product);
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // Reset error messages
+    setNameError("");
+    setPriceError("");
+    setDescriptionError("");
+    setExpiryDateError("");
+
+    // Validation
+    let isValid = true;
+    if (name.trim() === "") {
+      setNameError("Name is required to create a product");
+      isValid = false;
+    }
+    if (price <= 0) {
+      setPriceError("Price must be greater than 0");
+      isValid = false;
+    }
+    if (description.trim() === "") {
+      setDescriptionError("Description is required");
+      isValid = false;
+    }
+    if (expiryDate === "") {
+      setExpiryDateError("Expiry date is required");
+      isValid = false;
+    }
+
     if (!categoryId) {
       return;
     }
-    const imageUrls = images.map(
-      (image) =>
-        `https://res.cloudinary.com/dgcmsqndb/image/upload/${image.name}`
-    );
-    dispatch(
-      createProduct({
-        name,
-        price,
-        quantity,
-        categoryId,
-        description,
-        expiryDate,
-        images: imageUrls,
-      })
-    )
-      .then(() => {})
-      .catch((error) => console.log("Product Create error:", error));
+
+    if (isValid) {
+      const imageUrls = images.map(
+        (image) =>
+          `https://res.cloudinary.com/dgcmsqndb/image/upload/${image.name}`
+      );
+      dispatch(
+        createProduct({
+          name,
+          price,
+          quantity,
+          categoryId,
+          description,
+          expiryDate,
+          images: imageUrls,
+        })
+      )
+        .then(() => {})
+        .catch((error) => console.log("Product Create error:", error));
+    }
   };
+
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     const formData = new FormData();
@@ -68,6 +105,7 @@ function AddProductForm() {
     };
     xhr.send(formData);
   };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -79,6 +117,9 @@ function AddProductForm() {
     };
     fetchData();
   }, [dispatch]);
+  if (status === "success") {
+    navigate("/dashboard/productsList");
+  }
   return (
     <div>
       <div className="">
@@ -141,6 +182,7 @@ function AddProductForm() {
                     value={name}
                     onChange={(event) => setName(event.target.value)}
                   />
+                  {nameError && <div className="error">{nameError}</div>}
                 </div>
                 <div className="">
                   <label className="" htmlFor="price">
@@ -153,6 +195,7 @@ function AddProductForm() {
                     value={price}
                     onChange={(event) => setPrice(event.target.value)}
                   />
+                  {priceError && <div className="error">{priceError}</div>}
                 </div>
                 <div className="">
                   <label className="" htmlFor="quantity">
@@ -175,19 +218,14 @@ function AddProductForm() {
                     id="categoryId"
                     value={categoryId}
                     onChange={(event) => setCategoryId(event.target.value)}
-                    // onClick={handleViewCategory}
                   >
                     <option value="">Select a category</option>
-                    {Array.isArray(categoryIds) && // this will Checks if categoryIds is an array
-                      categoryIds.map(
-                        (
-                          category // Iteration over the category objects
-                        ) => (
-                          <option key={category.id} value={category.id}>
-                            {category.name}
-                          </option>
-                        )
-                      )}
+                    {Array.isArray(categoryIds) &&
+                      categoryIds.map((category) => (
+                        <option key={category.id} value={category.id}>
+                          {category.name}
+                        </option>
+                      ))}
                   </select>
                 </div>
                 <div className="">
@@ -201,6 +239,9 @@ function AddProductForm() {
                     value={expiryDate}
                     onChange={(event) => setExpiryDate(event.target.value)}
                   />
+                  {expiryDateError && (
+                    <div className="error">{expiryDateError}</div>
+                  )}
                 </div>
                 <div className="">
                   <label className="" htmlFor="description">
@@ -212,6 +253,9 @@ function AddProductForm() {
                     value={description}
                     onChange={(event) => setDescription(event.target.value)}
                   />
+                  {descriptionError && (
+                    <div className="error">{descriptionError}</div>
+                  )}
                 </div>
                 <button className="btn" type="submit">
                   Save
@@ -231,4 +275,5 @@ function AddProductForm() {
     </div>
   );
 }
+
 export default AddProductForm;
