@@ -157,7 +157,7 @@ let Header = () => {
           </div>
 
           <div className="cart-icon">
-            <Link to="/orders">
+            <Link to="/viewcart">
               <ShoppingCartIcon />
             </Link>
           </div>
