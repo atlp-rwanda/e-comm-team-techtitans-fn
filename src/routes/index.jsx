@@ -35,7 +35,9 @@ import ListOrder from "../pages/Order";
 import BuyOrder from "../pages/Order/BuyerOrder";
 import OrderDetails from "../pages/Order/OrderDetail";
 import ReadNotification from "../pages/Dashboard/SingleNotification.jsx";
-import ViewCart from "../pages/Cart";
+// import ViewCart from "../pages/Cart";
+import ViewCart from '../components/CartOperations/ViewCart.jsx';
+import EmptyCart from '../components/CartOperations/EmptyCart.jsx';
 
 import WishlistPage from "../pages/wishli/Wishlist";
 
@@ -116,6 +118,7 @@ let allRoutes = () => {
         <Route path="/about/team" element={<TeamComponent />} />
         <Route path="/about/advantages" element={<AdvantagesComponent />} />
         <Route path="/about/faqs" element={<FaqsComponent />} />
+        <Route path="/emptycart" element={<EmptyCart />} />
       </Routes>
       <ToastContainer />
     </>
