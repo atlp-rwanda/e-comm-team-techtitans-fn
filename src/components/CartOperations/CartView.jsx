@@ -120,7 +120,7 @@ const handleClearCart = () => {
       
       <div className="btndetails">
         <button className="clearcartbtn" onClick={handleOpen}>CLEAR CART</button>
-          <button className="clearcartbtn">CONTINUE SHOPING</button>
+         <Link to="/orders"><button className="clearcartbtn">VIEW ORDERS DETAILS</button></Link> 
       </div>
          
          

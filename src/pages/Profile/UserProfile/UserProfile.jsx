@@ -36,7 +36,7 @@ const UserProfile = () => {
     location,
     billingAddress
   } = getprofile
-  console.log("This is the profile", id)
+  // console.log("This is the profile", id)
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
