@@ -120,6 +120,8 @@ export function BuyerSingleProductView() {
           JSON.stringify(response?.payload?.token),
         );
 
+        localStorage.setItem('fromBuyNow', 'true');
+
         navigate('/checkout');
 
         setIsBuyNowLoading(false);
