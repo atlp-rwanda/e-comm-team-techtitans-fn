@@ -5,7 +5,7 @@
   flex-direction: row;
   background-color: $primary-color;
   border-bottom: 1px solid #ccc;
-  //   width: 100%;
+  width: 100%;
 }
 .img-detail img {
   margin: 20px;
@@ -39,4 +39,37 @@
   font-size: 16px;
   font-weight: 400;
   padding-top: 13px;
+}
+
+@media screen and (min-width: 481px) and (max-width: 900px) {
+  .card-container-detail {
+    display: flex;
+    flex-direction: column;
+    column-gap: -20px;
+    // width: fit-content;
+    padding: 0 20px;
+
+    .img-detail img {
+      margin: 10px 0;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  .content-body {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .detail-one {
+    margin-top: -30px;
+    margin-left: -30px;
+  }
+  .detail-one p:first-child {
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .detail-two {
+    margin-top: -10px;
+    margin-left: -30px;
+  }
 }

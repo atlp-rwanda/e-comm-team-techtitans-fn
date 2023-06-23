@@ -12,11 +12,10 @@ import { AddToCartProduct } from '../../Redux/Features/Cart/CartSlice';
 import Alert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
 import { buyNowThunk } from '../../Redux/Features/Payment/paymentSlice';
-import { toast } from 'react-toastify';
 
 export function BuyerSingleProductView() {
   const { id } = useParams();
-  const [quantitys, setQuantitys] = useState(1);
+  const [quantitys, setQuantitys] = useState();
   const dispatch = useDispatch();
   const { statuss } = useSelector((state) => state.cart);
   const [showSnackbar, setShowSnackbar] = useState(false);
@@ -32,6 +31,28 @@ export function BuyerSingleProductView() {
     dispatch(AddToCartProduct({ productId: id, productQuantity: quantitys }));
     setShowSnackbar(true);
   };
+
+  // Buy Now 👇🏽
+  const handleBuyNow = async () => {
+    setIsBuyNowLoading(true);
+
+    const response = await dispatch(
+      buyNowThunk({ productId: id, quantity: quantitys }),
+    );
+
+    // console.log('✅ Frontend response (buyNow)', response);
+    console.log('🍀 Payload', response?.payload?.token);
+    localStorage.setItem(
+      'buyNowToken',
+      JSON.stringify(response?.payload?.token),
+    );
+
+    // navigate('/checkout');
+    navigate('/checkout');
+
+    setIsBuyNowLoading(false);
+  };
+  // Buy Now 👆🏽
 
   const { singleProduct, status, error } = useSelector(
     (state) => state.singleProduct,
@@ -100,37 +121,7 @@ export function BuyerSingleProductView() {
     return `${day}/${month}/${year} at ${hours}:${minutes}`;
   };
 
-  const userRole = localStorage.getItem('role');
-
-  // Buy Now 👇🏽
-  const handleBuyNow = async () => {
-    try {
-      setIsBuyNowLoading(true);
-
-      const response = await dispatch(
-        buyNowThunk({ productId: id, quantity: quantitys }),
-      );
-
-      if (response.error) {
-        toast.error('This product is already among your current orders');
-        setIsBuyNowLoading(false);
-      } else {
-        localStorage.setItem(
-          'buyNowToken',
-          JSON.stringify(response?.payload?.token),
-        );
-
-        localStorage.setItem('fromBuyNow', 'true');
-
-        navigate('/checkout');
-
-        setIsBuyNowLoading(false);
-      }
-    } catch (error) {
-      return error;
-    }
-  };
-  // Buy Now 👆🏽
+  const userRole = localStorage.getItem("role");
 
   return (
     <>
@@ -158,9 +149,9 @@ export function BuyerSingleProductView() {
           <div className={`enlarged-image-1 ${isHovered ? 'visible' : ''}`}>
             <img src={currentImage} alt="" />
           </div>
-          <h2>{name}</h2>
-          <h3>${price}</h3>
-          <p>{description}</p>
+          <div className='right-side-1-h2' >{name}</div>
+          <div className='right-side-1-h3'>${price}</div>
+          <div className='right-side-1-p'>{description}</div>
           <div className="buyer-choice-1">
             <div className="color-picker-1">
               <label>Color</label>
@@ -249,7 +240,7 @@ export function BuyerSingleProductView() {
             )}
           </div>
 
-          {userRole && userRole !== '2' && userRole !== '1' && (
+          {userRole && userRole !== "2" && userRole !== "1" && (
             <ReviewComponent pid={id} />
           )}
 
