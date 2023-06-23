@@ -58,7 +58,6 @@ const DeleteProduct = () => {
         id,
       })
     );
-    message.success("Product Successfully deleted");
     navigate(`/dashboard/productsList`);
   };
 

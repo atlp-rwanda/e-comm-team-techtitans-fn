@@ -4,6 +4,7 @@ import { getProducts } from "../../Redux/Features/Dashboard/productsSlice";
 import Productlists from "../../pages/Dashboard/ViewProduct";
 import "./DashboardSellerProducts.scss";
 import { Link } from "react-router-dom";
+import Toast from "../../components/Toast";
 
 function SellerProduct() {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ function SellerProduct() {
 
   return (
     <>
+      <Toast />
       <div className="content">
         <div className="content-header">
           <div className="titles">
