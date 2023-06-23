@@ -33,7 +33,7 @@ import WishlistSlice from "../../Redux/Features/Wishlist/Wishlist";
 import addProductToCartSlice from "../Features/Cart/CartSlice";
 import checkoutSlice from "../Features/checkout/Checkoutslice";
 import GetOneNotificationReducer from "../../Redux/Features/Notification/GetOneNotificationSlice"
-
+import getStatsSlice from "../../Redux/Features/Statistics/statistics.slice"
 
 
 
@@ -91,6 +91,7 @@ const store = configureStore({
     oneNotification:GetOneNotificationReducer,
     showcart: viewProductCartSlice,
     clearcart:ClearCartSlice,
+    getstats:getStatsSlice
 
   },
   middleware,

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import Profile from "../../assets/images/profile.jpeg";
 import Notification from "../Notification/Notification";
 import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";
@@ -24,7 +25,7 @@ function NavBar() {
   useEffect(() => {
     dispatch(GetProfile());
   }, [dispatch]);
-  console.log("This is the profile", getprofile);
+  // console.log("This is the profile", getprofile);
   if (!getprofile) {
     return null;
   }
@@ -58,10 +59,9 @@ function NavBar() {
         <img src={image} alt="" />
         <div className="name">
           <Link to="/dashboardprofile">
-          <h3 id="currentLogin">{fullname}</h3>
+            <h3 id="currentLogin">{fullname}</h3>
           </Link>
         </div>
-       
       </div>
     </div>
   );
