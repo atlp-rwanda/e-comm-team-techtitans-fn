@@ -86,6 +86,31 @@
   padding: 0px 18px;
   padding-bottom: 20px;
 }
+
+.date-btn-stat{
+  margin: 12px;
+  border-radius:10px;
+  border: 1px solid #ccc;
+}
+.chart-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.div-chart{
+  margin-top: 4rem;
+  height: 200px;
+  width: 400px;
+}
+.order-title{
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.revenue-title{
+  font-size: 14px;
+  margin-bottom: 10px;
+  padding-top: 0px;
+}
 /* responsive design */
 
 @media (max-width: 769px) {

@@ -21,48 +21,48 @@ const ShippingForm = () => {
   const cancelPayment = () => {
     setIsCancelPaymentLoading(true);
 
-    navigate('/'); // should redirect to the orders page
+    navigate('/orders');
     setIsCancelPaymentLoading(false);
   };
 
   const handleShippingDetails = async (data) => {
-    console.log(data);
-    if (data.names === '') {
-      toast.warning('Please enter the recepient name');
-    } else if (data.shippingAddress === '') {
-      toast.warning('Please enter the shipping address');
-    } else if (data.telephoneNumber === '') {
-      toast.warning('Please enter the phone number');
-    } else if (data.shippingMethod === '') {
-      toast.warning('Please select a shipping method');
-    } else {
-      setIsLoading(true);
+    try {
+      if (data.names === '') {
+        toast.warning('Please enter the recepient name');
+      } else if (data.shippingAddress === '') {
+        toast.warning('Please enter the shipping address');
+      } else if (data.telephoneNumber === '') {
+        toast.warning('Please enter the phone number');
+      } else if (data.shippingMethod === '') {
+        toast.warning('Please select a shipping method');
+      } else {
+        setIsLoading(true);
 
-      // This timeout function is just for the Loader demonstration purposes
-      setTimeout(async () => {
         const theOrderToken = JSON.parse(localStorage.getItem('buyNowToken'));
-        // const theOrderToken =
-        //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b3RhbCI6NDc1MCwiaWF0IjoxNjg2NzUyMTIxLCJleHAiOjE3MTgzMDk3MjF9.wyEyDHlwGcVHWQxS59Il1XGHRILYoHI02iI0WSSNbQE';
+        setTimeout(async () => {
+          const response = await dispatch(
+            shippingDetails({
+              receiverName: data.names,
+              address: data.shippingAddress,
+              phoneNumber: data.telephoneNumber,
+              shippingMethod: data.shippingMethod,
+              orderToken: theOrderToken,
+            }),
+          );
 
-        const response = await dispatch(
-          shippingDetails({
-            receiverName: data.names,
-            address: data.shippingAddress,
-            phoneNumber: data.telephoneNumber,
-            shippingMethod: data.shippingMethod,
-            orderToken: theOrderToken,
-          }),
-        );
+          localStorage.setItem(
+            'payToken',
+            JSON.stringify(response.payload.payToken),
+          );
+          localStorage.setItem('orderToken', JSON.stringify(theOrderToken));
 
-        localStorage.setItem(
-          'payToken',
-          JSON.stringify(response.payload.payToken),
-        );
-        localStorage.setItem('orderToken', JSON.stringify(theOrderToken));
-
-        navigate('/payment');
-        setIsLoading(false);
-      }, 2000);
+          navigate('/payment');
+          setIsLoading(false);
+        }, 2000);
+      }
+    } catch (error) {
+      toast.error(error);
+      return error;
     }
   };
 

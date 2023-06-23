@@ -1,6 +1,5 @@
-import "../../styles/about.scss";
-
-export const FaqsPage = () => {
+import "../../styles/aboutPages.scss";
+function FaqsPage() {
   return (
     <>
       <div className="welcome-texts">
@@ -13,16 +12,17 @@ export const FaqsPage = () => {
         <h4>Q: Why am I asked to verify my account when signing in ?</h4>
         <p>
           A: The verification process ensures the security and authenticity of
-          your account, providing a safe <br></br>and trustworthy shopping
-          environment for all users.
+          your account, providing a safe and trustworthy shopping environment
+          for all users.
         </p>
         <h4>Q: What will i do if i did not like the product i ordered ?</h4>
         <p>
           A: Contact our customer service team, and we'll assist you with
-          returns or exchanges to ensure <br></br>your satisfaction with your
-          purchase.
+          returns or exchanges to ensure your satisfaction with your purchase.
         </p>
       </div>
     </>
   );
-};
+}
+
+export default FaqsPage;

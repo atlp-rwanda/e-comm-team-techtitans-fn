@@ -18,6 +18,7 @@ import Header from '../../components/Header/Header';
 import { ThemeContext } from '../../components/Theme/ThemeContext';
 import { useContext } from 'react';
 import LogoDark from '../../assets/images/LogoDark.svg'
+import { Link } from 'react-router-dom';
 
 //sign up with google
 const handleSignUp = () => {

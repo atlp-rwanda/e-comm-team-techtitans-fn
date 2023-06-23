@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom";
 import "./YourCart.scss";
+
 const YourCart =()=>{
   return(
     <div className="containerview">

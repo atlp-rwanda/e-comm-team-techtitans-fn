@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
@@ -55,7 +56,7 @@ const DashBoardEditProfile = () => {
   useEffect(() => {
     dispatch(GetProfile())
   }, [dispatch])
-  console.log("This is the profile", getprofile)
+  // console.log("This is the profile", getprofile)
   if (!getprofile) {
     return null;
   }

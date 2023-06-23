@@ -1,11 +1,11 @@
-import Profile from "../../assets/images/profile.jpeg";
 import Notification from "../Notification/Notification";
 import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { GetNotification } from "../../Redux/Features/Notification/NotificationSlice";
 import { GetProfile } from "../../Redux/Features/Profile/getprofile.slice";
+import Pusher from "pusher-js";
+
 function NavBar() {
   const { getprofile } = useSelector((state) => state.getprofile);
   const [notification, setNotification] = useState(false);
@@ -18,20 +18,16 @@ function NavBar() {
   } else {
     count = 0;
   }
-
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(GetProfile());
   }, [dispatch]);
-  console.log("This is the profile", getprofile);
+  // console.log("This is the profile", getprofile);
   if (!getprofile) {
     return null;
   }
   const { fullname, image } = getprofile;
 
-  // const loggedIn = JSON.parse(localStorage.getItem("userIn"));
-  // const { fullname } = loggedIn;
   return (
     <div className="navigation">
       <div className="n1">
@@ -58,10 +54,9 @@ function NavBar() {
         <img src={image} alt="" />
         <div className="name">
           <Link to="/dashboardprofile">
-          <h3 id="currentLogin">{fullname}</h3>
+            <h3 id="currentLogin">{fullname}</h3>
           </Link>
         </div>
-       
       </div>
     </div>
   );

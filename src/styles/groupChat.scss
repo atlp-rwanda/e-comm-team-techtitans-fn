@@ -1,3 +1,4 @@
+@import './mixins';
 .group-chat-cont{
     background-color: #E7E7E7;
 }
@@ -13,12 +14,7 @@
 .chat__header{
     text-align: center;
 }
-.active-chats{
-    // width: 95%;
-    // height: 100%;
-    // background-color: turquoise;
-    // border-radius: 4px;
-}
+
 .group-side-bar{
     background-color: #dddbdb;
     border-right: 2px solid grey;
@@ -221,4 +217,64 @@ p{
 .flex{
     display: flex;
     align-items: center;
+}
+@include breakpoint(xs){
+    .group-chat-subCont{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .group-side-bar{
+      display: none;
+    }
+    .active-chats{
+        display: none;
+    }
+}
+@include breakpoint(ms){
+    .group-chat-subCont{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .group-side-bar{
+      display: none;
+    }
+    .active-chats{
+        display: none;
+    }
+}
+@include breakpoint(md){
+    .group-chat-subCont{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .group-side-bar{
+      display: none;
+    }
+    .active-chats{
+        display: none;
+    }
+}
+@include breakpoint(lg){
+    .group-chat-subCont{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .group-side-bar{
+      display: none;
+    }
+    .active-chats{
+        display: none;
+    }
+}
+@include breakpoint(xl){
+    .group-chat-subCont{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .group-side-bar{
+      display: none;
+    }
+    .active-chats{
+        display: none;
+    }
 }
