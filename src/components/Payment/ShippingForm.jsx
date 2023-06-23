@@ -38,7 +38,17 @@ const ShippingForm = () => {
       } else {
         setIsLoading(true);
 
-        const theOrderToken = JSON.parse(localStorage.getItem('buyNowToken'));
+        const checkIsBuyNow = localStorage.getItem('fromBuyNow');
+        let theOrderToken;
+
+        if (checkIsBuyNow === 'true') {
+          theOrderToken = JSON.parse(localStorage.getItem('buyNowToken'));
+        } else {
+          theOrderToken = JSON.parse(
+            localStorage.getItem('cartToCheckoutToken'),
+          );
+        }
+
         setTimeout(async () => {
           const response = await dispatch(
             shippingDetails({
