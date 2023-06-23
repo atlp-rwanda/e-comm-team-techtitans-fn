@@ -58,6 +58,7 @@ const DeleteProduct = () => {
         id,
       })
     );
+    message.success("Product Successfully deleted");
     navigate(`/dashboard/productsList`);
   };
 
@@ -67,7 +68,7 @@ const DeleteProduct = () => {
         <div className="row" style={{ marginLeft: "10%" }}>
           <form className="addProduct-form">
             <h2 className="addProduct-heading">Delete Product</h2>
-            <div className="productName">
+            <div className="productName-d">
               <label className="" htmlFor="description">
                 Reason:
               </label>
@@ -78,10 +79,10 @@ const DeleteProduct = () => {
                 defaultValue={description}
                 onChange={(event) => setDescription(event.target.value)}
               />
-              <button className="edit-btn" type="submit" onClick={handleSubmit}>
+              <button className="edit-btn-d" type="submit" onClick={handleSubmit}>
                 Delete Product
               </button>
-              <button className="back-btn" onClick={previousPage}>
+              <button className="back-btn-d" onClick={previousPage}>
                 Back
               </button>
             </div>

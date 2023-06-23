@@ -1,23 +1,23 @@
-import { useState, useEffect } from "react";
-import "../../pages/Product/AddProduct.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { message } from "antd";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import '../../pages/Product/AddProduct.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { message } from 'antd';
+import { useParams } from 'react-router-dom';
 import {
   editProduct,
   getProductDetails,
-} from "../../Redux/Features/Product/EditProductSlice";
-import { ViewCategory } from "../../Redux/Features/Product/CategorySlice";
-import { CloudinaryContext, Image } from "cloudinary-react";
-import { useNavigate } from "react-router-dom";
+} from '../../Redux/Features/Product/EditProductSlice';
+import { ViewCategory } from '../../Redux/Features/Product/CategorySlice';
+import { CloudinaryContext, Image } from 'cloudinary-react';
+import { useNavigate } from 'react-router-dom';
 
 const EditProduct = () => {
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
   const [price, setPrice] = useState(0);
   const [quantity, setQuantity] = useState(0);
-  const [categoryId, setCategoryId] = useState("");
-  const [description, setDescription] = useState("");
-  const [expiryDate, setExpiryDate] = useState("");
+  const [categoryId, setCategoryId] = useState('');
+  const [description, setDescription] = useState('');
+  const [expiryDate, setExpiryDate] = useState('');
   const [images, setImages] = useState([]);
   const [categoryIds, setCategoryIds] = useState([]);
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -50,7 +50,7 @@ const EditProduct = () => {
         // set the expiry date format accordingly
         const formattedExpiryDate = response.payload.data.expiryDate.substring(
           0,
-          10
+          10,
         );
 
         // set everything else to match the fetched product's details
@@ -69,7 +69,7 @@ const EditProduct = () => {
   }, [dispatch, id]);
 
   const previousPage = () => {
-    navigate("/dashboard/productsList");
+    navigate('/dashboard/productsList');
   };
 
   const imageUrls = images.map((image) => image);
@@ -89,16 +89,16 @@ const EditProduct = () => {
         description,
         expiryDate,
         images: imageUrls,
-      })
+      }),
     );
-    // message.success("Product Successfully updated");
+    message.success('Product Successfully updated');
     navigate(`/dashboard/productsList`);
   };
 
   return (
     <div>
-      <div style={{ marginTop: "80px" }}>
-        <div className="row" style={{ marginLeft: "10%" }}>
+      <div style={{ marginTop: '80px' }}>
+        <div className="row" style={{ marginLeft: '10%' }}>
           <form className="addProduct-form">
             <h2 className="addProduct-heading">Edit Product</h2>
             <div className="productName">
@@ -120,7 +120,7 @@ const EditProduct = () => {
                           transformation={{
                             width: 100,
                             height: 50,
-                            crop: "fill",
+                            crop: 'fill',
                           }}
                           secure="true"
                         />
@@ -236,7 +236,7 @@ const EditProduct = () => {
                     type="submit"
                     onClick={handleSubmit}
                   >
-                    Edit Product
+                    Update
                   </button>
                   <button className="back-btn" onClick={previousPage}>
                     Back
@@ -244,11 +244,11 @@ const EditProduct = () => {
                 </div>
               </div>
             </div>
-            {status === "loading....." && (
+            {status === 'loading.....' && (
               <div className="process">Loading...</div>
             )}
-            {status === "failed" && <div className="error">{error}</div>}
-            {status === "success" && (
+            {status === 'failed' && <div className="error">{error}</div>}
+            {status === 'success' && (
               <div className="success">Product updated successfully!</div>
             )}
           </form>
