@@ -16,7 +16,6 @@ const WishlistButton = ({ product_id }) => {
   const isLoggedIn = useSelector((state) => state.wishlist.isLoggedIn);
 
   const handleAddToWishlist = () => {
-    console.log("product_Id", product_id);
     if (!isLoggedIn) {
       toast.error("You must be logged in to add an item to the wishlist");
       return;
@@ -28,14 +27,7 @@ const WishlistButton = ({ product_id }) => {
         toast.success("Added to Wishlist");
       })
       .catch((error) => {
-        if (
-          error.message ===
-          "You must be logged in to add an item to the wishlist"
-        ) {
-          toast.error("You must be logged in to add an item to the wishlist");
-        } else {
-          toast.error(error.message);
-        }
+        toast.error(error.message);
       });
   };
 
@@ -43,8 +35,8 @@ const WishlistButton = ({ product_id }) => {
     if (product_id) {
       dispatch(removeWishlistItem(product_id))
         .unwrap()
-        .then((error) => {
-          toast.error(error.message);
+        .then(() => {
+          toast.success("Removed from Wishlist");
         })
         .catch((error) => {
           toast.error(error.message);
@@ -53,14 +45,11 @@ const WishlistButton = ({ product_id }) => {
   };
 
   const handleToggleLogin = () => {
-    if (!isLoggedIn) {
-      dispatch(toggleLogin());
-    }
+    dispatch(toggleLogin());
   };
 
-  const isItemInWishlist = wishlistItems.some(
-    (item) => item.product_id === product_id
-  );
+  const isItemInWishlist =
+    product_id && wishlistItems.some((item) => item.product_id === product_id);
 
   return (
     <div>
