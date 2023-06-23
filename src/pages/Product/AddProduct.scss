@@ -19,7 +19,7 @@
   border: 1px solid $accent;
 }
 @mixin publishedButton($bgColor, $color) {
-  padding: 10px 18rem;
+  // padding: 10px 50px;
   border: none;
   background-color: $bgColor;
   color: $color;
@@ -42,8 +42,163 @@
       letter-spacing: 0.2px;
       margin-bottom: 0.4rem;
     }
+    .productName-d {
+      padding: 3rem;
+      width: 100%;
+      // background-color: red;
+      // gap: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      label {
+        font-size: $medium-font-size;
+        display: block;
+        font-weight: 600;
+        &:not(:last-child) {
+          margin-bottom: 0;
+        }
+      }
+      input,
+      select {
+        @include inputs;
+        padding: 1rem;
+      }
+      textarea {
+        @include inputs;
+        padding: 1.2rem;
+      }
+      &-left {
+        @extend %form;
+        .productImage {
+          border: 1px solid $accent;
+          display: flex;
+          align-items: center;
+          gap: 1.5rem;
+          margin-bottom: 1.5rem;
+          padding: 1rem;
+          border-radius: 1rem;
+        }
+        /* Display progress */
+        .relative {
+          position: relative;
+        }
+
+        .pt-1 {
+          padding-top: 0.25rem;
+        }
+
+        .overflow-hidden {
+          overflow: hidden;
+        }
+
+        .h-2 {
+          height: 0.5rem;
+        }
+
+        .mb-4 {
+          margin-bottom: 1rem;
+        }
+
+        .text-xs {
+          font-size: 0.75rem;
+        }
+
+        .flex {
+          display: flex;
+        }
+
+        .rounded {
+          border-radius: 0.25rem;
+        }
+
+        .bg-200 {
+          background-color: $accent;
+        }
+
+        .shadow-none {
+          box-shadow: none;
+        }
+
+        .text-center {
+          text-align: center;
+        }
+
+        .whitespace-nowrap {
+          white-space: nowrap;
+        }
+
+        .text-white {
+          color: $backgroundWhite-color;
+        }
+
+        .justify-center {
+          justify-content: center;
+        }
+
+        .bg-500 {
+          background-color: $secondary-color;
+        }
+
+        .transition-all {
+          transition-property: all;
+          transition-duration: 0.5s;
+        }
+
+        .duration-500 {
+          transition-duration: 0.5s;
+        }
+
+        input {
+          padding: 8rem 2rem 8rem 0;
+          border: 2px dashed $dashdot;
+          border-radius: 5px;
+          display: flex;
+          position: relative;
+          cursor: pointer;
+          //Hidding upload button
+
+          &::-webkit-file-upload-button {
+            visibility: hidden;
+            position: absolute;
+            bottom: 0;
+          }
+          &::before {
+            content: url('/src/assets/gallery-icon-png-191.png');
+            display: inline-block;
+            position: absolute;
+            //padding: 0.5rem 1rem;
+            -webkit-user-select: none;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            margin-right: 1rem;
+          }
+        }
+      }
+      &-right {
+        @extend %form;
+        display: flex;
+        flex-direction: column;
+        .btn {
+          @include publishedButton($secondary-color, $textprimary-color);
+        
+          border-radius: 0.5rem;
+          margin: 1rem 0;
+          background-color: rgb(121, 133, 235);
+          &:hover {
+            background-color: $accent;
+            transition: all 0.3s;
+            color: $primary-color;
+          }
+        }
+      }
+    }
     .productName {
-      // padding: 3rem;
+      padding: 3rem;
       width: 100%;
       // background-color: red;
       gap: 3rem;
@@ -231,12 +386,28 @@
 }
 
 // Edit Product
+.back-btn-d {
+  @include publishedButton(gray, $textprimary-color);
+  align-self: center;
+  border-radius: 0.5rem;
+  // margin: 3rem 0;
+  // margin-left: 20px;
+  // margin-right: 20px;
+  width: 150px;
+  height: 40px;
+  &:hover {
+    background-color: gray;
+    transition: all 0.3s;
+    background-color: rgba(0, 0, 0, 0.653);
+    cursor: pointer;
+    // color: black;
+  }
+}
 .back-btn {
   @include publishedButton(gray, $textprimary-color);
   align-self: center;
   border-radius: 0.5rem;
   margin: 3rem 0;
-  margin-left: 20px;
   width: 150px;
   &:hover {
     background-color: gray;
@@ -246,7 +417,7 @@
     // color: black;
   }
 }
-.edit-btn {
+.edit-btn-d {
   @include publishedButton($secondary-color, $textprimary-color);
   align-self: center;
   border-radius: 0.5rem;

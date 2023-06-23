@@ -144,21 +144,22 @@ let Header = () => {
               Profile
             </Link>
           </li>
-          <li>
+          </ul>
+          <div className="switch">
+                <DarkModeSwitch onChange={toggleTheme} checked={theme === 'dark'} className="nav_link" />
+              </div>
             <div className="icons">
 
 
               <div className="search-container">
                 <Searching className="search-icon-button nav_link" />
               </div>
-              <div className="switch">
-                <DarkModeSwitch onChange={toggleTheme} checked={theme === 'dark'} className="nav_link" />
-              </div>
+              
               <div className="cart-icon">
-                <Link to="/orders">
-                  <ShoppingCartIcon className="nav_link" />
-                </Link>
-              </div>
+            <Link to="/viewcart">
+              <ShoppingCartIcon />
+            </Link>
+          </div>
               <div className="iconContainer">
 
                 <div className="like-icon">
@@ -167,14 +168,9 @@ let Header = () => {
                   </Link>
                 </div>
               </div>
-              <div className="checkout-icon">
-                <Link to="/checkout">
-                  <span className="login-text-navbar nav_link"><PaymentsIcon /></span>
-                </Link>
-              </div>
+
             </div>
-          </li>
-        </ul>
+         
 
 
         <div

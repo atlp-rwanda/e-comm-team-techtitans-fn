@@ -1,11 +1,22 @@
-@import '../variables/variables.scss';
+@import "../variables/variables.scss";
 
-// ---------------single products----------------
+.content {
+  padding: 0 65px;
+}
+.titles {
+  color: $secondary-color;
+  padding: 10px 0px;
+  font-size: $heading-title;
+}
+
 .main-image {
   overflow: hidden;
+
   img {
     width: 100%;
-    transition: transform 0.3s ease-in-out;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 10px;
   }
 
   &.zoomed img {
@@ -15,28 +26,30 @@
 
 .enlarged-image {
   position: absolute;
-  top: 0;
+  margin-left: 50px;
   right: 0;
   width: 50%;
-  height: auto;
+  height: 20vh;
   display: none;
   z-index: 5;
 
   img {
     width: 100%;
     height: auto;
+    object-fit: cover;
   }
 }
 
 .visible {
   display: block;
+  padding-left: 20px;
 }
 
 .image-wrapper {
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
-  overflow-x: auto; /* Add horizontal scroll if necessary */
+  overflow-x: auto;
 }
 
 .image-wrapper img {
@@ -47,7 +60,6 @@
   cursor: pointer;
 }
 
-/* Optional styling to improve the image presentation */
 .image-wrapper::-webkit-scrollbar {
   height: 5px;
 }
@@ -64,24 +76,39 @@
   display: flex;
   gap: 20px;
 
-  .left-side {
+  .left-side-8 {
     width: 50%;
   }
 
-  .right-side {
+  .right-side-8 {
     width: 50%;
+    overflow: auto;
+    font-family: $fontfamily;
+    box-shadow: 1px 2px 5px 1px $primary-dark;
   }
+}
+.right-side-8 h1 {
+  color: $secondary-color;
+}
+.right-side-8 h4 {
+  font-size: $body-font-size;
+}
+.right-side-8-p {
+  margin-top: 30px;
+}
+.right-side-8 > * {
+  margin-left: 20px;
 }
 
 .buyer-choice {
   display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
   gap: 15px;
   margin-top: 30px;
 }
 .buyer-choice p {
-  white-space: nowrap;
+  white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: $small-font-size;
@@ -92,27 +119,49 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: $heading-title;
+  font-size: 16px;
   margin: 0;
   display: flex;
   align-items: center;
+  flex: 1;
 }
 .buyer-choice label:not(:last-child)::after {
-  content: '|';
+  content: "|";
   margin-left: 5px;
   margin-right: 5px;
   color: $secondary-color;
 }
-.right-side h2,
-h3,
-p {
-  margin-top: 30px;
+
+/* -------------Pagination------------*/
+.pagination-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    background-color: $accent;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &.active {
+      background-color: $secondary-color;
+      font-weight: bold;
+    }
+  }
 }
 
 .edit-product-button {
   margin-top: 35px;
+  margin-bottom: 35px;
   height: 25px;
-  width: 100px;
+  width: 120px;
   border-radius: 5px;
   border: 1px solid $secondary-color;
   background-color: $secondary-color;
@@ -120,5 +169,3 @@ p {
   color: black;
   cursor: pointer;
 }
-
-

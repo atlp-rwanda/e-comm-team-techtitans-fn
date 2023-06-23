@@ -47,13 +47,8 @@ export function SingleProductView() {
     quantity,
     description,
     images,
-    bonus,
     expiryDate,
-    ec,
     createdAt,
-    updatedAt,
-    categoryId,
-    vendorId,
   } = singleProduct.data;
 
   const handleImageClick = (image) => {
@@ -105,13 +100,13 @@ export function SingleProductView() {
         {showModal ? (
           <EditProduct id={id} closeModal={closeModal} />
         ) : (
-          <div className="content-header">
+          <div className="content-header-8">
             <div className="titles">
               <h5>Products / {name}</h5>
             </div>
 
             <div className="product-wrapper">
-              <div className="left-side">
+              <div className="left-side-8">
                 <div
                   className={`main-image ${isHovered ? "zoomed" : ""}`}
                   onMouseEnter={handleMouseEnter}
@@ -130,13 +125,13 @@ export function SingleProductView() {
                   ))}
                 </div>
               </div>
-              <div className="right-side">
+              <div className="right-side-8">
                 <div className={`enlarged-image ${isHovered ? "visible" : ""}`}>
                   <img src={currentImage} alt="" />
                 </div>
-                <h2>{name}</h2>
-                <h3>${price}</h3>
-                <p>{description}</p>
+                <h1>{name}</h1>
+                <h4>${price}</h4>
+                <div className="right-side-8-p">{description}</div>
                 <div className="buyer-choice">
                   <div className="quantity">
                     <label>Quantity</label>

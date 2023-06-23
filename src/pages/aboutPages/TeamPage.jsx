@@ -109,7 +109,7 @@ function TeamPage() {
     },
     {
       id: 11,
-      fullName: "Edwin Bayingana",
+      fullName: "Edwin BAYINGANA",
       position: "Software Engineer",
       image: {
         src: Edwin,
