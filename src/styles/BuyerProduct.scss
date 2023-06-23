@@ -1,13 +1,15 @@
 @import '../variables/variables.scss';
 
-// ---------------single products----------------
+// -----------single products-----------
 .main-image-1 {
   overflow: hidden;
 
+  
   img {
     width: 100%;
-    height: 50%;
-    transition: transform 0.3s ease-in-out;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 10px;
   }
 
   &.zoomed img {
@@ -17,16 +19,17 @@
 
 .enlarged-image-1 {
   position: absolute;
-  top: 0;
+  margin-left: 50px;
   right: 0;
   width: 50%;
-  height: auto;
+  height: 20vh;
   display: none;
   z-index: 5;
 
   img {
     width: 100%;
     height: auto;
+    object-fit: cover;
   }
 }
 
@@ -38,7 +41,7 @@
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
-  overflow-x: auto; /* Add horizontal scroll if necessary */
+  overflow-x: auto; 
 }
 
 .image-wrapper-1 img {
@@ -49,7 +52,6 @@
   cursor: pointer;
 }
 
-/* Optional styling to improve the image presentation */
 .image-wrapper-1::-webkit-scrollbar {
   height: 5px;
 }
@@ -64,18 +66,24 @@
 }
 .buyer-product-wrapper {
   display: flex;
-  gap: 20px;
+  gap: 90px;
   padding-top: 100px;
   padding-bottom: 100px;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
   .left-side-1 {
     width: 50%;
   }
 
   .right-side-1 {
     width: 50%;
+    overflow: auto;
+    font-family: $fontfamily;
   }
+}
+
+.right-side-1 > * {
+  margin-left: 20px;
 }
 
 .buyer-choice-1 {
@@ -126,17 +134,28 @@
   margin-right: 5px;
   color: $secondary-color;
 }
-.right-side-1 h2,
-h3,
-p {
-  margin-top: 30px;
+
+.right-side-1-h2{
+  color: $secondary-color;
+  font-size: $heading-title;
+  font-weight: bold;
+  padding-bottom:10px ;
 }
 
-/* -------------Pagination------------*/
+.right-side-1-h3{
+  font-size: $heading-title;
+  font-weight: bold;
+  padding-bottom:10px ;
+
+  
+}
+/* ---------Pagination----------*/
 .pagination-buttons {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+
+
 
   button {
     margin: 0 5px;
