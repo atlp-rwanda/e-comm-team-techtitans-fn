@@ -17,6 +17,7 @@ import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { ThemeContext } from '../Theme/ThemeContext';
 import { useContext } from 'react';
 import LogoDark from '../../assets/images/LogoDark.svg';
+import PaymentsIcon from '@mui/icons-material/Payments';
 
 let Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -95,11 +96,7 @@ let Header = () => {
               Home
             </Link>
           </li>
-          <li>
-            <Link className="nav_link" to="/shop">
-              Shop
-            </Link>
-          </li>
+
           <li>
             <Link
               className="nav_link"
@@ -147,31 +144,39 @@ let Header = () => {
               Profile
             </Link>
           </li>
-        </ul>
-        <div className="switch">
-          <DarkModeSwitch onChange={toggleTheme} checked={theme === 'dark'} />
-        </div>
-        <div className="icons">
-          <div className="search-container">
-            <Searching className="search-icon-button" />
-          </div>
+          <li>
+            <div className="icons">
 
-          <div className="cart-icon">
-            <Link to="/viewcart">
-              <ShoppingCartIcon />
-            </Link>
-          </div>
-          <div className="iconContainer">
-            <div className="iconContainer-number">
-              <p></p>
+
+              <div className="search-container">
+                <Searching className="search-icon-button nav_link" />
+              </div>
+              <div className="switch">
+                <DarkModeSwitch onChange={toggleTheme} checked={theme === 'dark'} className="nav_link" />
+              </div>
+              <div className="cart-icon">
+                <Link to="/orders">
+                  <ShoppingCartIcon className="nav_link" />
+                </Link>
+              </div>
+              <div className="iconContainer">
+
+                <div className="like-icon">
+                  <Link to="/wishlist">
+                    <FavoriteBorderIcon className="nav_link" />{' '}
+                  </Link>
+                </div>
+              </div>
+              <div className="checkout-icon">
+                <Link to="/checkout">
+                  <span className="login-text-navbar nav_link"><PaymentsIcon /></span>
+                </Link>
+              </div>
             </div>
-            <div className="like-icon">
-              <Link to="/wishlist">
-                <FavoriteBorderIcon />{' '}
-              </Link>
-            </div>
-          </div>
-        </div>
+          </li>
+        </ul>
+
+
         <div
           className="mobile-menu-icon"
           onClick={() => setIsMobile(!isMobile)}
