@@ -49,7 +49,6 @@ export const paymentDetails = createAsyncThunk(
       );
       return response.data;
     } catch (error) {
-      console.error('🚨 The error:', error);
       toast.error(error.response.data.message);
       return rejectWithValue(error.response.data.message);
     }

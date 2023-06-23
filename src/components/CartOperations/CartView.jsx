@@ -65,7 +65,6 @@ const CartView = () => {
 
   const handleCheckoutRedirect = () => {
     const cartId = mycart && mycart[0].id;
-    console.log('ID:', cartId);
     dispatch(createOrderFromCart({ cartId }));
     localStorage.setItem('fromBuyNow', 'false');
     navigate('/checkout');
