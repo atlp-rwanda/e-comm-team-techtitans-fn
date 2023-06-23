@@ -2,7 +2,8 @@
 
 .footer {
   background-color: $primarydark-color;
-  padding: 8rem 16rem;
+  padding: 8rem 16rem 2rem;
+  color: $accent;
   &-container {
     max-width: 114rem;
     margin: 0 auto;
@@ -10,19 +11,13 @@
   &-section {
     display: grid;
     grid-template-columns: 15% 15% 30% 30%;
-    column-gap: 20rem;
-    
+    column-gap: 4rem;
 
     h3 {
-      color: $primary-color;
+      color: #eee;
       font-size: 18px;
+      font-weight: 700;
       margin-bottom: 1.5rem !important;
-    }
-  }
-  .linkToemail{
-    color: $secondary-color;
-    &:hover {
-      text-decoration: underline; 
     }
   }
   &-links {
@@ -35,39 +30,28 @@
   &-link:visited {
     text-decoration: none;
     color: $background-white-dark;
-    cursor: pointer;
     font-size: 12px;
     font-weight: 500;
   }
   &-touch {
     p {
       line-height: 1.7;
-      color: white;
+      color: $background-white-dark !important;
     }
     .icons-social {
       margin-top: 1.5rem;
       display: flex;
       flex-direction: row;
+      gap: 1.5rem;
       align-items: center;
-     
-      
-     
+      justify-content: center;
     }
   }
 
-  .button-join{
-    background-color: $secondary-color;
-    color: white;
-    width: 40%;
-    margin-top: 10px;
-    text-align: center;
-    padding-top: 5px;
-    height: 30px;
-    border-radius: 40px;
-  }
   input {
     padding: 1rem;
     background-color: transparent;
+    display: block;
     border: none;
     border-bottom: 1px solid $secondary-color;
     margin-bottom: 1.5rem;
@@ -85,23 +69,30 @@
       color: white;
     }
   }
-  .email{
+  .email {
     display: grid;
     margin-top: 2px;
   }
-  .button {
-    width: 40%;
-    height: 30px;
+  .button-footer {
     text-decoration: none;
-    font-size: 8px;
+    display: inline-block;
+    font-size: 12px;
     border-radius: 40px;
   }
-  .copyright{
-    margin-top: 50px;
-   display: flex;
-    align-items: center;
-    justify-content: space-around;
-font-size: 12px;
+  .button-link-footer {
+    font-size: 1.4rem;
+    padding: 0.5rem 3rem;
+    color: $primary-color;
+    background-color: $secondary-color;
+    border-radius: 12rem;
+  }
+}
+.footer-copyright {
+  background-color: #333;
+  padding: 1rem;
+  text-align: center;
+  p {
+    color: #ccc;
   }
 }
 @media (max-width: $breakpoint-lg) {
@@ -112,39 +103,22 @@ font-size: 12px;
       grid-template-columns: 50% 50%;
       row-gap: 1.5rem;
     }
-    &-links{
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      justify-content: center;
-    }
   }
 }
 @media (max-width: $breakpoint-sm) {
   .footer {
-    padding: 4rem;
+    padding: 8rem;
     &-section {
       display: flex;
       flex-direction: column;
-      align-items: center;
+
       justify-content: center;
-    
-    }
-    &-links{
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      justify-content: center;
-    }
-    li {
-      margin: 0 10px; /* Adjust the margin as needed */
     }
   }
 }
-#dark{
- 
+#dark {
   background-color: #000000;
-.footer h3{
-color:$textprimary-color-dark;
-}
+  .footer h3 {
+    color: $textprimary-color-dark;
+  }
 }

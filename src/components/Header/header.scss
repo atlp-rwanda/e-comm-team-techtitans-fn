@@ -74,6 +74,7 @@ body {
   .nav {
     background-color: $primary-color;
     justify-content: space-evenly;
+
     padding: 1rem;
     display: flex;
     align-items: center;
@@ -85,7 +86,10 @@ body {
       right: 16%;
       z-index: 10;
     }
-
+    .switch {
+      display: flex;
+      align-items: center;
+    }
     .mobile-menu-icon {
       display: none;
     }
@@ -98,7 +102,7 @@ body {
       display: flex;
       list-style-type: none;
       gap: 3rem;
-
+      align-items: center;
       justify-content: space-evenly;
 
       .nav_link {
@@ -129,10 +133,10 @@ body {
         }
       }
     }
-    .icon-search{
+    .icon-search {
       height: 45px;
     }
-    .cart-icon{
+    .cart-icon {
       margin-top: 8px;
       margin-left: 20px;
     }
@@ -140,10 +144,16 @@ body {
       margin-top: 8px;
       margin-left: 5px;
     }
-    .checkout-icon{
-      margin-top: 8px;
-      margin-left: 15px;
-      height: 10px;
+    .checkout-icon {
+      display: flex;
+      align-items: center;
+
+      // margin-top: 8px;
+      // margin-left: 15px;
+      span {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }
@@ -157,10 +167,12 @@ body {
     }
   }
 }
-@media (max-width: $breakpoint-medium) {
+@media (max-width: $breakpoint-large) {
   .header {
     .nav {
       position: relative;
+      display: flex;
+      justify-content: space-between;
       .mobile-menu-icon {
         display: block;
         // position: absolute;
@@ -196,6 +208,19 @@ body {
         width: 100%;
         transition: all 0.5s ease;
       }
+      .icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 42px;
+        position: relative;
+      }
+      .search-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+      }
       &_link:hover,
       &_link:active {
         background-color: white;
@@ -222,9 +247,7 @@ body {
   }
 }
 
-
-#dark{
-
+#dark {
   .header {
     &_main {
       background-color: #000000;
@@ -249,7 +272,6 @@ body {
       }
     }
   }
-
 
   .nav {
     background-color: $primarydark-color;
@@ -390,31 +412,31 @@ body {
     }
   }
 
-  .nav{
-  background-color: $primarydark-color;
-  .nav_link {
-    &:link,
-    &:visited {
-      text-decoration: none;
-      color: $textprimary-color;
-      font-size: $medium-font-size;
-      transition: all 0.3s;
+  .nav {
+    background-color: $primarydark-color;
+    .nav_link {
+      &:link,
+      &:visited {
+        text-decoration: none;
+        color: $textprimary-color;
+        font-size: $medium-font-size;
+        transition: all 0.3s;
+      }
+      &:active,
+      &:hover {
+        color: $secondary-color;
+      }
     }
-    &:active,
-    &:hover {
-      color: $secondary-color;
+    li {
+      &:first-child .nav_link {
+        color: $secondary-color;
+      }
     }
   }
-  li {
-    &:first-child .nav_link {
-      color: $secondary-color;
-    }
+
+  .icons,
+  .mobile-menu-icon,
+  .login-text-navbar {
+    color: $textprimary-color;
   }
-}
-
-.icons,.mobile-menu-icon,.login-text-navbar{
-  color: $textprimary-color
-}
-
-
 }
