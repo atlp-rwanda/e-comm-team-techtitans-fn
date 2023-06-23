@@ -48,6 +48,7 @@ const WishlistPage = () => {
           )}
         </div>
       </div>
+      <div className="line"></div>
       <Footer />
     </>
   );

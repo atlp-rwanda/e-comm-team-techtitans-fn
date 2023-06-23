@@ -1,9 +1,12 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { ThemeProvider,ThemeContext } from '../../../src/components/Theme/ThemeContext';
+import React from "react";
+import { render, screen, fireEvent } from "@testing-library/react";
+import {
+  ThemeProvider,
+  ThemeContext,
+} from "../../../src/components/Theme/ThemeContext";
 
-describe('ThemeProvider', () => {
-  test('should toggle the theme from light to dark', () => {
+describe("ThemeProvider", () => {
+  test("should toggle the theme from light to dark", () => {
     render(
       <ThemeProvider>
         <ThemeContext.Consumer>
@@ -18,12 +21,12 @@ describe('ThemeProvider', () => {
         </ThemeContext.Consumer>
       </ThemeProvider>
     );
-    expect(screen.getByTestId('theme-display').textContent).toBe('light');
-    fireEvent.click(screen.getByTestId('theme-toggle'));
-    expect(screen.getByTestId('theme-display').textContent).toBe('dark');
+    expect(screen.getByTestId("theme-display").textContent).toBe("light");
+    fireEvent.click(screen.getByTestId("theme-toggle"));
+    expect(screen.getByTestId("theme-display").textContent).toBe("dark");
   });
 
-  test('should toggle the theme from dark to light', () => {
+  test("should toggle the theme from dark to light", () => {
     render(
       <ThemeProvider>
         <ThemeContext.Consumer>
@@ -38,9 +41,9 @@ describe('ThemeProvider', () => {
         </ThemeContext.Consumer>
       </ThemeProvider>
     );
-    fireEvent.click(screen.getByTestId('theme-toggle'));
-    expect(screen.getByTestId('theme-display').textContent).toBe('light');
-    fireEvent.click(screen.getByTestId('theme-toggle'));
-    expect(screen.getByTestId('theme-display').textContent).toBe('dark');
+    fireEvent.click(screen.getByTestId("theme-toggle"));
+    expect(screen.getByTestId("theme-display").textContent).toBe("light");
+    fireEvent.click(screen.getByTestId("theme-toggle"));
+    expect(screen.getByTestId("theme-display").textContent).toBe("dark");
   });
 });
