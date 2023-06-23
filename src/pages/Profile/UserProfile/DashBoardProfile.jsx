@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */import {  } from 'react-router-dom'
 import { useDispatch,useSelector} from 'react-redux';
 import { Link,} from 'react-router-dom';
@@ -35,7 +36,7 @@ const DashBoardProfile = () => {
     location,
     billingAddress
   } = getprofile
-  console.log("This is the profile", id)
+  // console.log("This is the profile", id)
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);

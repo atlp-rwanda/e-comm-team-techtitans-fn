@@ -55,70 +55,85 @@ let allRoutes = () => {
   return (
     <>
       <Routes>
-        <Route element={<Auth allowedRoles={["admin", "seller", "buyer"]} />}>
-          <Route path="/chat" element={<ChatingPage socket={socket} />} />
-        </Route>
-        <Route path="/" element={<Home />} />
-        <Route path="/categories" element={<Categories />} />
-        <Route path="/unauthorized" element={<UnauthorizedPage />} />
-        <Route element={<Auth allowedRoles={["admin", "seller"]} />} />
-        <Route path="/shop" element={<Shop />} />
+{/* ************************************************************************************
+                        REQUIRE AUTH
+************************************************************************************ */}
+
+<Route element={<Auth allowedRoles={["admin", "seller", "buyer"]} />}>
+        <Route path="/chat" element={<ChatingPage socket={socket} />} />
+        <Route path="/changepassword" element={<ChangePasswordPage />} />
+        <Route path="/updateprofile" element={<EditProfile />} />
+        <Route path="/dashboardprofile" element={<DashBoardProfile />} />
+        <Route path="/dashboardupdateprofile" element={<DashBoardEditProfile />}/>
+        <Route path="/profile" element={<UserProfile />} />
+</Route>
+
+{/* ************************************************************************************
+                         ADMIN'S
+************************************************************************************ */}
+
+<Route element={<Auth allowedRoles={["admin"]} />}>
+        <Route path="/listusers" element={<ListUser />} /> 
+        <Route path="/listusers/:id" element={<ListUser />} /> 
+</Route>
+{/*************************************************************************************
+                         SELLER'S
+************************************************************************************ */}
+<Route element={<Auth allowedRoles={["seller"]} />}>
         <Route path="/addproduct" element={<AddProductForm />} />
-
-        <Route element={<Auth allowedRoles={["admin", "seller"]} />}>
-          <Route path="/categories" element={<Categories />} />
-        </Route>
-
-        <Route path="/verifyotp" element={<VerifyOtp socket={socket} />} />
-        <Route path="/auth/login" element={<Login socket={socket} />} />
-        <Route path="/signup" element={<SignupForm />} />
-        <Route path="/auth/forgot-password" element={<ForgotPassword />} />
-        <Route
-          path="/auth/reset-password/:userId"
-          element={<ResetPasswordForm />}
-        />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/listusers" element={<ListUser />} />
-        <Route path="/product/:id" element={<SingleDashboard />} />
-        <Route path="/product/buyer/:id" element={<DisplayProducts />} />
-        <Route path="/dashboard/productsList" element={<SellersDashboard />} />
+</Route>
+{/*************************************************************************************
+                         BUYER'S
+************************************************************************************ */}
+<Route element={<Auth allowedRoles={["buyer"]} />}>
+        <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/review" element={<ReviewComponent />} />
-        <Route path="/listusers/:id" element={<ListUser />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/payment" element={<CardDetails />} />
         <Route path="/payment/success" element={<SuccessfulPayment />} />
         <Route path="/payment/cancelled" element={<CancelPayment />} />
-        <Route path="/changepassword" element={<ChangePasswordPage />} />
-        <Route path="/buyer/product/:id" element={<BuyerSingleProduct />} />
-        <Route
-          path="/dashboard/notification"
-          element={<NotificationDashboard />}
-        />
-        <Route path="/profile" element={<UserProfile />} />
-        <Route path="/updateprofile" element={<EditProfile />} />
-        <Route path="/dashboardprofile" element={<DashBoardProfile />} />
-        <Route
-          path="/dashboardupdateprofile"
-          element={<DashBoardEditProfile />}
-        />
-
-        <Route path="/products/:id" element={<SingleProduct />} />
-        <Route path="/mycart" element={<YourCart />} />
-        <Route path="/listorders" element={<ListOrder />} />
         <Route path="/orders" element={<BuyOrder />} />
         <Route path="/order/:id" element={<OrderDetails />} />
-        <Route path="/wishlist" element={<WishlistPage />} />
-        <Route
-          path="/dashboard/notification/:id"
-          element={<ReadNotification />}
-        />
         <Route path="/viewcart" element={<ViewCart />} />
+        <Route path="/viewcart" element={<ViewCart />} />
+        <Route path="/emptycart" element={<EmptyCart />} />
+</Route>
+
+{/*************************************************************************************
+                         NO AUTH
+************************************************************************************ */}
+
+        <Route path="/" element={<Home />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/unauthorized" element={<UnauthorizedPage />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/verifyotp" element={<VerifyOtp socket={socket} />} />
+        <Route path="/auth/login" element={<Login socket={socket} />} />
+        <Route path="/signup" element={<SignupForm />} />
+        <Route path="/auth/forgot-password" element={<ForgotPassword />} />
+        <Route path="/auth/reset-password/:userId" element={<ResetPasswordForm />} />
+        <Route path="/buyer/product/:id" element={<BuyerSingleProduct />} />
+        <Route path="/mycart" element={<YourCart />} />
         <Route path="/about" element={<WelcomeComponent />} />
         <Route path="/about/mission" element={<MissionComponent />} />
         <Route path="/about/team" element={<TeamComponent />} />
         <Route path="/about/advantages" element={<AdvantagesComponent />} />
         <Route path="/about/faqs" element={<FaqsComponent />} />
-        <Route path="/emptycart" element={<EmptyCart />} />
+        <Route path="/products/:id" element={<SingleProduct />} />
+{/*************************************************************************************
+                         ADMIN && SELLER
+************************************************************************************ */}
+<Route element={<Auth allowedRoles={["seller","admin"]} />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/product/:id" element={<SingleDashboard />} />
+        <Route path="/product/buyer/:id" element={<DisplayProducts />} />
+        <Route path="/dashboard/productsList" element={<SellersDashboard />} /> 
+        <Route path="/dashboard/notification" element={<NotificationDashboard />} />
+        <Route path="/listorders" element={<ListOrder />} />
+        <Route path="/dashboard/notification/:id" element={<ReadNotification />} />
+</Route>
+ 
       </Routes>
       <ToastContainer />
     </>

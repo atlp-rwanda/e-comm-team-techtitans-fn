@@ -22,7 +22,7 @@ function NavBar() {
   useEffect(() => {
     dispatch(GetProfile());
   }, [dispatch]);
-  console.log("This is the profile", getprofile);
+  // console.log("This is the profile", getprofile);
   if (!getprofile) {
     return null;
   }

@@ -171,11 +171,6 @@ let Header = () => {
               </Link>
             </div>
           </div>
-          <div className="checkout-icon">
-            <Link to="/checkout">
-              <span className="login-text-navbar">💳</span>
-            </Link>
-          </div>
         </div>
         <div
           className="mobile-menu-icon"

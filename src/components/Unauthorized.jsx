@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom/dist';
 import '../variables/variables.scss'
 import { Button } from 'antd';
-import { fontWeight } from '@mui/system';
+import { fontWeight, textAlign } from '@mui/system';
 const NotFound = () => {
   const divStyle = {
  
@@ -28,7 +29,7 @@ const NotFound = () => {
   };
   const buttonStyle={
     marginTop:'10px',
-    fontWeight:'bold'
+    fontWeight:'bold',
   }
 
 
@@ -40,7 +41,7 @@ const NotFound = () => {
         To access the page please log in as authorized user
       </div>
       <div>
-        <Button style={buttonStyle}>Login</Button>
+        <Link to="/auth/login"><Button style={buttonStyle}>Login</Button></Link>
       </div>
     </div>
   );
