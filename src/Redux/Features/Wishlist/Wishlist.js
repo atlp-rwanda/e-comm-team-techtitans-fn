@@ -39,7 +39,8 @@ export const createWishlistItem = createAsyncThunk(
     try {
       const token = localStorage.getItem("token");
       if (!token) {
-        toast.info("please login to add item to wishlist");
+        toast.info("Please login to add an item to the wishlist");
+        return;
       }
 
       const config = {
@@ -61,7 +62,7 @@ export const createWishlistItem = createAsyncThunk(
 
 export const removeWishlistItem = createAsyncThunk(
   "wishlist/removeWishlistItem",
-  async (productId, { rejectWithValue }) => {
+  async (product_id, { rejectWithValue }) => {
     try {
       const token = localStorage.getItem("token");
       if (!token) {
@@ -74,9 +75,16 @@ export const removeWishlistItem = createAsyncThunk(
         headers: {
           Authorization: `Bearer ${token}`,
         },
+        data: {
+          product_id: product_id, // Pass the product_id in the request body
+        },
       };
-      await axios.delete(`${BASE_URL}/api/v1/wishlist/${productId}`, config);
-      return productId;
+      await axios.delete(`${BASE_URL}/api/v1/wishList`, config);
+
+      // Show toast notification
+      toast.success("Product removed successfully");
+
+      return product_id;
     } catch (error) {
       return rejectWithValue(error.response.data);
     }
@@ -84,7 +92,7 @@ export const removeWishlistItem = createAsyncThunk(
 );
 
 const WishlistSlice = createSlice({
-  name: "Wishlist",
+  name: "wishlist",
   initialState,
   reducers: {
     toggleLogin: (state) => {
@@ -100,34 +108,41 @@ const WishlistSlice = createSlice({
       .addCase(fetchWishlist.fulfilled, (state, action) => {
         state.isLoading = false;
         state.items = action.payload;
+        state.error = null;
       })
       .addCase(fetchWishlist.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload;
+        state.message = "No wishlist found at the moment.";
       })
       .addCase(createWishlistItem.pending, (state) => {
-        state.error = null;
         state.isAddingItem = true;
+        state.error = null;
       })
       .addCase(createWishlistItem.fulfilled, (state, action) => {
-        state.items.push(action.payload);
         state.isAddingItem = false;
+        state.items.push(action.payload);
+        toast.success("Product added successfully"); // Display success message using toast
+        state.error = null;
       })
       .addCase(createWishlistItem.rejected, (state, action) => {
-        state.error = action.payload;
         state.isAddingItem = false;
+        state.error = action.payload.message;
         toast.error(action.payload.message); // Display error message using toast
       })
       .addCase(removeWishlistItem.pending, (state) => {
+        state.isAddingItem = true;
         state.error = null;
       })
       .addCase(removeWishlistItem.fulfilled, (state, action) => {
+        state.isAddingItem = false;
         state.items = state.items.filter(
-          (item) => item.productId !== action.payload
+          (item) => item.product_id !== action.payload
         );
+        state.error = null;
       })
       .addCase(removeWishlistItem.rejected, (state, action) => {
-        state.error = action.payload;
+        state.isAddingItem = false;
+        state.error = action.payload.message;
         toast.error(action.payload.message); // Display error message using toast
       });
   },

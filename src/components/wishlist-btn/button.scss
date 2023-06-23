@@ -1,8 +1,17 @@
-// WishlistButton.scss
+ // WishlistButton.scss
 
 button {
-    border: none;
-    outline: none;
-    background-color:white;
-  }
-  
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.card-container .card-title .icon:visited .css-i4bv87-MuiSvgIcon-root {
+  background-color: mediumpurple !important;
+  color: white !important;
+}
+.card-container .card-title .icon:active .css-i4bv87-MuiSvgIcon-root {
+  background-color: rgb(216, 112, 199);
+  color: white;
+}

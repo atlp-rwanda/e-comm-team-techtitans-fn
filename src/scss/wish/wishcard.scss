@@ -28,14 +28,12 @@
       }
   
       button {
-        display: block;
-        width: 100%;
-        padding: 8px;
+
         font-size: 16px;
-        background-color: #4caf50;
-        color: white;
         border: none;
         border-radius: 4px;
         cursor: pointer;
+        background-color: #f1f1f1;
+        color:red;
       }
     }
