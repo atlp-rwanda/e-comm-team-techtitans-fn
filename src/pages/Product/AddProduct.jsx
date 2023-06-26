@@ -5,6 +5,7 @@ import { ViewCategory } from "../../Redux/Features/Product/CategorySlice";
 import { CloudinaryContext, Image } from "cloudinary-react";
 import "./AddProduct.scss";
 import { useNavigate } from "react-router-dom";
+import { ThreeDots,TailSpin } from "react-loader-spinner";
 
 function AddProductForm() {
   const [name, setName] = useState("");
@@ -257,14 +258,23 @@ function AddProductForm() {
                     <div className="error">{descriptionError}</div>
                   )}
                 </div>
+               
                 <button className="btn" type="submit">
-                  Save
+                   {status === 'loading.....' ?  
+                  <TailSpin
+                  height="25"
+                  width="25"
+                  color="#ffffff"
+                  ariaLabel="tail-spin-loading"
+                  radius="1"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                  visible={true}
+                />
+                   : 'Save'}
                 </button>
               </div>
             </div>
-            {status === "loading....." && (
-              <div className="process">Loading...</div>
-            )}
             {status === "failed" && <div className="error">{error}</div>}
             {status === "success" && (
               <div className="success">Product created successfully!</div>

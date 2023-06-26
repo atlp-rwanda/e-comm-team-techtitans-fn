@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
 import { ThemeContext } from "../../components/Theme/ThemeContext";
 import { useContext } from "react";
 import LogoDark from "../../assets/images/LogoDark.svg";
+import { ThreeDots,TailSpin } from "react-loader-spinner";
 const handleLogin = () => {
   window.open(`${BASE_URL}/api/v1/auth/google/callback`, "_self");
 };
@@ -64,7 +65,6 @@ const Login = ({ socket }) => {
     <>
       <Header />
       <div className="login-section" id={theme}>
-        {status === "loading....." && <div className="process">Loading...</div>}
         {status === "failed" && (
           <div
             className="error"
@@ -128,7 +128,11 @@ const Login = ({ socket }) => {
                   </div>
 
                   <button type="submit" className="login-btn">
-                    Login
+                  {status === 'loading.....' ?  
+                <div className="spinner-wrapper">
+                <TailSpin height={25} width={25} color="#ffffff" ariaLabel="tail-spin-loading" radius={1} visible={true} />
+              </div>
+                   : 'Login'}
                   </button>
 
                   <Link to="/auth/forgot-password" className="forgetText">
