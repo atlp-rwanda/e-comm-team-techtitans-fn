@@ -32,28 +32,6 @@ export function BuyerSingleProductView() {
     setShowSnackbar(true);
   };
 
-  // Buy Now 👇🏽
-  const handleBuyNow = async () => {
-    setIsBuyNowLoading(true);
-
-    const response = await dispatch(
-      buyNowThunk({ productId: id, quantity: quantitys }),
-    );
-
-    // console.log('✅ Frontend response (buyNow)', response);
-    console.log('🍀 Payload', response?.payload?.token);
-    localStorage.setItem(
-      'buyNowToken',
-      JSON.stringify(response?.payload?.token),
-    );
-
-    // navigate('/checkout');
-    navigate('/checkout');
-
-    setIsBuyNowLoading(false);
-  };
-  // Buy Now 👆🏽
-
   const { singleProduct, status, error } = useSelector(
     (state) => state.singleProduct,
   );
@@ -121,7 +99,37 @@ export function BuyerSingleProductView() {
     return `${day}/${month}/${year} at ${hours}:${minutes}`;
   };
 
-  const userRole = localStorage.getItem("role");
+  const userRole = localStorage.getItem('role');
+
+  // .Buy Now. 👇🏽
+  const handleBuyNow = async () => {
+    try {
+      setIsBuyNowLoading(true);
+
+      const response = await dispatch(
+        buyNowThunk({ productId: id, quantity: quantitys }),
+      );
+
+      if (response.error) {
+        toast.error('This product is already among your current orders');
+        setIsBuyNowLoading(false);
+      } else {
+        localStorage.setItem(
+          'buyNowToken',
+          JSON.stringify(response?.payload?.token),
+        );
+
+        localStorage.setItem('fromBuyNow', 'true');
+
+        navigate('/checkout');
+
+        setIsBuyNowLoading(false);
+      }
+    } catch (error) {
+      return error;
+    }
+  };
+  // .Buy Now. 👆🏽
 
   return (
     <>
@@ -149,9 +157,9 @@ export function BuyerSingleProductView() {
           <div className={`enlarged-image-1 ${isHovered ? 'visible' : ''}`}>
             <img src={currentImage} alt="" />
           </div>
-          <div className='right-side-1-h2' >{name}</div>
-          <div className='right-side-1-h3'>${price}</div>
-          <div className='right-side-1-p'>{description}</div>
+          <div className="right-side-1-h2">{name}</div>
+          <div className="right-side-1-h3">${price}</div>
+          <div className="right-side-1-p">{description}</div>
           <div className="buyer-choice-1">
             <div className="color-picker-1">
               <label>Color</label>
@@ -240,7 +248,7 @@ export function BuyerSingleProductView() {
             )}
           </div>
 
-          {userRole && userRole !== "2" && userRole !== "1" && (
+          {userRole && userRole !== '2' && userRole !== '1' && (
             <ReviewComponent pid={id} />
           )}
 
