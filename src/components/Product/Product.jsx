@@ -1,7 +1,6 @@
 import React from "react";
 import Card from "./Card";
 import "./Product.scss";
-import FilterListIcon from "@mui/icons-material/FilterList";
 import CategoryIcon from "@mui/icons-material/Category";
 import { ThemeContext } from "../Theme/ThemeContext";
 import { useContext } from "react";
@@ -39,11 +38,6 @@ const Product = () => {
             </a>
           </li>
         </ul>
-        <div className="icon-filter">
-          <a className="btn-icon">
-            <FilterListIcon /> Filter{" "}
-          </a>
-        </div>
       </div>
       <Card />
     </div>
