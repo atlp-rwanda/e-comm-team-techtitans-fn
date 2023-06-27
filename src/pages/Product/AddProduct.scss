@@ -189,11 +189,6 @@
           border-radius: 0.5rem;
           margin: 1rem 0;
           background-color: rgb(121, 133, 235);
-          &:hover {
-            background-color: $accent;
-            transition: all 0.3s;
-            color: $primary-color;
-          }
         }
       }
     }
@@ -343,11 +338,7 @@
           border-radius: 0.5rem;
           margin: 1rem 0;
           background-color: rgb(121, 133, 235);
-          &:hover {
-            background-color: $accent;
-            transition: all 0.3s;
-            color: $primary-color;
-          }
+         
         }
       }
     }
