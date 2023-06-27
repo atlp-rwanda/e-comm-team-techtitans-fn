@@ -18,7 +18,6 @@ html {
 body {
   background: $background-white;
 }
-
 .css-i4bv87-MuiSvgIcon-root {
   font-size: 2.4rem !important;
   z-index: 1;
@@ -29,6 +28,7 @@ body {
 .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
   font-size: $medium-font-size !important;
 }
+
 
 @mixin iconsWithNUmber {
   position: absolute;
@@ -48,6 +48,9 @@ body {
   z-index: 10;
   cursor: pointer;
 }
+ li :hover{
+  color: #474f85;
+ }
 .header {
   &_main {
     background-color: $primarydark-color;
@@ -71,6 +74,7 @@ body {
       }
     }
   }
+  
   .nav {
     background-color: $primary-color;
     justify-content: space-evenly;
@@ -82,8 +86,9 @@ body {
     position: relative;
     .search-container {
       position: absolute;
-      top: 10px;
-      right: 16%;
+      height: 5px;
+      top: 15px;
+      right: 13%;
       z-index: 10;
     }
     .switch {
@@ -122,7 +127,6 @@ body {
 
     .icons {
       display: flex;
-      //margin-top: 10px;
       padding-left: 200px;
       justify-content: space-around;
       gap: 0.5rem;
@@ -137,26 +141,26 @@ body {
       height: 45px;
     }
     .cart-icon {
+      background-color: white;
+      border-radius: 5px;
       margin-top: 8px;
-      margin-left: 20px;
+      margin-left: 105px;
+      transform: scale(1.4); 
     }
     .like-icon {
+      background-color: white;
+      border-radius: 5px;
       margin-top: 8px;
-      margin-left: 5px;
+      margin-left: 20px;
+      transform: scale(1.4); /* Increase the scale factor to your desired value */
     }
-    .checkout-icon {
-      display: flex;
-      align-items: center;
-
-      // margin-top: 8px;
-      // margin-left: 15px;
       span {
         width: 100%;
         height: 100%;
       }
     }
   }
-}
+
 @media (max-width: $breakpoint-large) {
   .header {
     .nav {
@@ -212,15 +216,11 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 42px;
+        padding: 50px;
         position: relative;
       }
-      .search-icon {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, 0%);
-      }
+      
+     
       &_link:hover,
       &_link:active {
         background-color: white;
@@ -270,8 +270,9 @@ body {
           }
         }
       }
-    }
+    } 
   }
+
 
   .nav {
     background-color: $primarydark-color;
@@ -285,16 +286,16 @@ body {
       }
       &:active,
       &:hover {
-        color: $secondary-color;
+        color: $primary-color;
       }
     }
     li {
       &:first-child .nav_link {
-        color: $secondary-color;
+        color: $primary-color;
       }
     }
   }
-
+  
   .icons,
   .mobile-menu-icon,
   .login-text-navbar {
