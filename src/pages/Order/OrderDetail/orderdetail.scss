@@ -1,4 +1,4 @@
-@import '../../../variables/variables.scss';
+@import "../../../variables/variables.scss";
 .order-header {
   display: flex;
   justify-content: space-between;
@@ -89,7 +89,7 @@
 }
 
 .loader:before {
-  content: '';
+  content: "";
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -102,5 +102,101 @@
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Media Queries */
+@media screen and (min-width: 480px) and (max-width: 880px) {
+  .order-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .order-header h4 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  .order-header button {
+    font-size: 14px;
+  }
+
+  .order-header i {
+    font-size: 14px;
+    margin-top: 4px;
+  }
+
+  .order-date h6 {
+    font-size: 14px;
+  }
+
+  .title h2 {
+    font-size: 18px;
+  }
+
+  .sub-title h4 {
+    font-size: 14px;
+  }
+
+  .sub-title .bxl-mastercard {
+    font-size: 18px;
+  }
+
+  .sub-title .bxs-map {
+    font-size: 16px;
+  }
+
+  .button-invoice button {
+    font-size: 16px;
+  }
+
+  .address p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .card-two {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .order-header h4 {
+    font-size: 16px;
+  }
+
+  .order-header button {
+    font-size: 14px;
+  }
+
+  .order-header i {
+    font-size: 14px;
+    margin-top: 4px;
+  }
+
+  .order-date h6 {
+    font-size: 14px;
+  }
+
+  .sub-title h4 {
+    font-size: 14px;
+  }
+
+  .sub-title .bxl-mastercard {
+    font-size: 20px;
+  }
+
+  .sub-title .bxs-map {
+    font-size: 18px;
+  }
+
+  .button-invoice button {
+    font-size: 16px;
+  }
+
+  .address p {
+    font-size: 14px;
+    margin-bottom: 10px;
   }
 }

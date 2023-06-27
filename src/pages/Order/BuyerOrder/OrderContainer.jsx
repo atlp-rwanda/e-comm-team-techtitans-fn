@@ -23,7 +23,6 @@ function OrderContainer() {
     socket.on("orderStatusUpdated", (data) => {
       setOrderStatus(data);
     });
-    console.log("orderStatus", orderStatus);
   }, [orderStatus]);
 
   const formatDescription = (description) => {
