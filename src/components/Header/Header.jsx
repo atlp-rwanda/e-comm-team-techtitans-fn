@@ -108,7 +108,6 @@ let Header = () => {
                       className="nav_link"
                       to="/signup"
                       style={{ color: "blue" }}
-                      style={{ color: "blue" }}
                     >
                       <MenuItem onClick={popupState.close}>Register</MenuItem>
                     </Link>
@@ -199,17 +198,26 @@ let Header = () => {
         </div>
         <div className="icons">
           <div className="search-container">
-            <Searching className="search-icon-button nav_link" />
+            <Searching className="search-icon-button nav_link"/>
           </div>
           <div className="cart-icon">
             <Link to="/viewcart">
-              <ShoppingCartIcon />
+            {theme === "dark" ? (
+        <ShoppingCartIcon style={{ color: "white",backgroundColor:'#222222',border:'none' }} />
+      ) : (
+        <ShoppingCartIcon/>
+      )}
             </Link>
           </div>
           <div className="iconContainer">
             <div className="like-icon">
               <Link to="/wishlist">
-                <FavoriteBorderIcon className="nav_link" />{" "}
+              {theme === "dark" ? (
+        <FavoriteBorderIcon style={{ color: "white",backgroundColor:'#222222' }} />
+      ) : (
+        <FavoriteBorderIcon className="nav_link"/>
+      )}
+               
               </Link>
             </div>
           </div>

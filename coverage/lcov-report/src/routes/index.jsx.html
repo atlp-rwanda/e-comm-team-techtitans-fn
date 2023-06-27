@@ -191,7 +191,36 @@
 <a name='L126'></a><a href='#L126'>126</a>
 <a name='L127'></a><a href='#L127'>127</a>
 <a name='L128'></a><a href='#L128'>128</a>
-<a name='L129'></a><a href='#L129'>129</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a>
+<a name='L148'></a><a href='#L148'>148</a>
+<a name='L149'></a><a href='#L149'>149</a>
+<a name='L150'></a><a href='#L150'>150</a>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a>
+<a name='L154'></a><a href='#L154'>154</a>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -246,6 +275,35 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -357,8 +415,8 @@ import BuyOrder from "../pages/Order/BuyerOrder";
 import OrderDetails from "../pages/Order/OrderDetail";
 import ReadNotification from "../pages/Dashboard/SingleNotification.jsx";
 // import ViewCart from "../pages/Cart";
-import ViewCart from '../components/CartOperations/ViewCart.jsx';
-import EmptyCart from '../components/CartOperations/EmptyCart.jsx';
+import ViewCart from "../components/CartOperations/ViewCart.jsx";
+import EmptyCart from "../components/CartOperations/EmptyCart.jsx";
 &nbsp;
 import WishlistPage from "../pages/wishli/Wishlist";
 &nbsp;
@@ -376,20 +434,62 @@ let allRoutes = <span class="cstat-no" title="statement not covered" ><span clas
 <span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;&gt;
       &lt;Routes&gt;
+        {/* ************************************************************************************
+                        REQUIRE AUTH
+************************************************************************************ */}
+&nbsp;
         &lt;Route element={&lt;Auth allowedRoles={["admin", "seller", "buyer"]} /&gt;}&gt;
           &lt;Route path="/chat" element={&lt;ChatingPage socket={socket} /&gt;} /&gt;
+          &lt;Route path="/changepassword" element={&lt;ChangePasswordPage /&gt;} /&gt;
+          &lt;Route path="/updateprofile" element={&lt;EditProfile /&gt;} /&gt;
+          &lt;Route path="/dashboardprofile" element={&lt;DashBoardProfile /&gt;} /&gt;
+          &lt;Route
+            path="/dashboardupdateprofile"
+            element={&lt;DashBoardEditProfile /&gt;}
+          /&gt;
+          &lt;Route path="/profile" element={&lt;UserProfile /&gt;} /&gt;
         &lt;/Route&gt;
+&nbsp;
+        {/* ************************************************************************************
+                         ADMIN'S
+************************************************************************************ */}
+&nbsp;
+        &lt;Route element={&lt;Auth allowedRoles={["admin"]} /&gt;}&gt;
+          &lt;Route path="/listusers" element={&lt;ListUser /&gt;} /&gt;
+          &lt;Route path="/listusers/:id" element={&lt;ListUser /&gt;} /&gt;
+        &lt;/Route&gt;
+        {/*************************************************************************************
+                         SELLER'S
+************************************************************************************ */}
+        &lt;Route element={&lt;Auth allowedRoles={["seller"]} /&gt;}&gt;
+          &lt;Route path="/addproduct" element={&lt;AddProductForm /&gt;} /&gt;
+        &lt;/Route&gt;
+        {/*************************************************************************************
+                         BUYER'S
+************************************************************************************ */}
+        &lt;Route element={&lt;Auth allowedRoles={["buyer"]} /&gt;}&gt;
+          &lt;Route path="/wishlist" element={&lt;WishlistPage /&gt;} /&gt;
+          &lt;Route path="/review" element={&lt;ReviewComponent /&gt;} /&gt;
+          &lt;Route path="/checkout" element={&lt;Checkout /&gt;} /&gt;
+          &lt;Route path="/payment" element={&lt;CardDetails /&gt;} /&gt;
+          &lt;Route path="/payment/success" element={&lt;SuccessfulPayment /&gt;} /&gt;
+          &lt;Route path="/payment/cancelled" element={&lt;CancelPayment /&gt;} /&gt;
+          &lt;Route path="/orders" element={&lt;BuyOrder /&gt;} /&gt;
+          &lt;Route path="/order/:id" element={&lt;OrderDetails /&gt;} /&gt;
+          &lt;Route path="/viewcart" element={&lt;ViewCart /&gt;} /&gt;
+          &lt;Route path="/viewcart" element={&lt;ViewCart /&gt;} /&gt;
+          &lt;Route path="/emptycart" element={&lt;EmptyCart /&gt;} /&gt;
+        &lt;/Route&gt;
+&nbsp;
+        {/*************************************************************************************
+                         NO AUTH
+************************************************************************************ */}
+&nbsp;
         &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
         &lt;Route path="/categories" element={&lt;Categories /&gt;} /&gt;
         &lt;Route path="/unauthorized" element={&lt;UnauthorizedPage /&gt;} /&gt;
-        &lt;Route element={&lt;Auth allowedRoles={["admin", "seller"]} /&gt;} /&gt;
         &lt;Route path="/shop" element={&lt;Shop /&gt;} /&gt;
-        &lt;Route path="/addproduct" element={&lt;AddProductForm /&gt;} /&gt;
-&nbsp;
-        &lt;Route element={&lt;Auth allowedRoles={["admin", "seller"]} /&gt;}&gt;
-          &lt;Route path="/categories" element={&lt;Categories /&gt;} /&gt;
-        &lt;/Route&gt;
-&nbsp;
+        &lt;Route path="/categories" element={&lt;Categories /&gt;} /&gt;
         &lt;Route path="/verifyotp" element={&lt;VerifyOtp socket={socket} /&gt;} /&gt;
         &lt;Route path="/auth/login" element={&lt;Login socket={socket} /&gt;} /&gt;
         &lt;Route path="/signup" element={&lt;SignupForm /&gt;} /&gt;
@@ -398,48 +498,35 @@ let allRoutes = <span class="cstat-no" title="statement not covered" ><span clas
           path="/auth/reset-password/:userId"
           element={&lt;ResetPasswordForm /&gt;}
         /&gt;
-        &lt;Route path="/dashboard" element={&lt;Dashboard /&gt;} /&gt;
-        &lt;Route path="/listusers" element={&lt;ListUser /&gt;} /&gt;
-        &lt;Route path="/product/:id" element={&lt;SingleDashboard /&gt;} /&gt;
-        &lt;Route path="/product/buyer/:id" element={&lt;DisplayProducts /&gt;} /&gt;
-        &lt;Route path="/dashboard/productsList" element={&lt;SellersDashboard /&gt;} /&gt;
-        &lt;Route path="/review" element={&lt;ReviewComponent /&gt;} /&gt;
-        &lt;Route path="/listusers/:id" element={&lt;ListUser /&gt;} /&gt;
-        &lt;Route path="/checkout" element={&lt;Checkout /&gt;} /&gt;
-        &lt;Route path="/payment" element={&lt;CardDetails /&gt;} /&gt;
-        &lt;Route path="/payment/success" element={&lt;SuccessfulPayment /&gt;} /&gt;
-        &lt;Route path="/payment/cancelled" element={&lt;CancelPayment /&gt;} /&gt;
-        &lt;Route path="/changepassword" element={&lt;ChangePasswordPage /&gt;} /&gt;
         &lt;Route path="/buyer/product/:id" element={&lt;BuyerSingleProduct /&gt;} /&gt;
-        &lt;Route
-          path="/dashboard/notification"
-          element={&lt;NotificationDashboard /&gt;}
-        /&gt;
-        &lt;Route path="/profile" element={&lt;UserProfile /&gt;} /&gt;
-        &lt;Route path="/updateprofile" element={&lt;EditProfile /&gt;} /&gt;
-        &lt;Route path="/dashboardprofile" element={&lt;DashBoardProfile /&gt;} /&gt;
-        &lt;Route
-          path="/dashboardupdateprofile"
-          element={&lt;DashBoardEditProfile /&gt;}
-        /&gt;
-&nbsp;
-        &lt;Route path="/products/:id" element={&lt;SingleProduct /&gt;} /&gt;
         &lt;Route path="/mycart" element={&lt;YourCart /&gt;} /&gt;
-        &lt;Route path="/listorders" element={&lt;ListOrder /&gt;} /&gt;
-        &lt;Route path="/orders" element={&lt;BuyOrder /&gt;} /&gt;
-        &lt;Route path="/order/:id" element={&lt;OrderDetails /&gt;} /&gt;
-        &lt;Route path="/wishlist" element={&lt;WishlistPage /&gt;} /&gt;
-        &lt;Route
-          path="/dashboard/notification/:id"
-          element={&lt;ReadNotification /&gt;}
-        /&gt;
-        &lt;Route path="/viewcart" element={&lt;ViewCart /&gt;} /&gt;
         &lt;Route path="/about" element={&lt;WelcomeComponent /&gt;} /&gt;
         &lt;Route path="/about/mission" element={&lt;MissionComponent /&gt;} /&gt;
         &lt;Route path="/about/team" element={&lt;TeamComponent /&gt;} /&gt;
         &lt;Route path="/about/advantages" element={&lt;AdvantagesComponent /&gt;} /&gt;
         &lt;Route path="/about/faqs" element={&lt;FaqsComponent /&gt;} /&gt;
-        &lt;Route path="/emptycart" element={&lt;EmptyCart /&gt;} /&gt;
+        &lt;Route path="/products/:id" element={&lt;SingleProduct /&gt;} /&gt;
+        {/*************************************************************************************
+                         ADMIN &amp;&amp; SELLER
+************************************************************************************ */}
+        &lt;Route element={&lt;Auth allowedRoles={["seller", "admin"]} /&gt;}&gt;
+          &lt;Route path="/dashboard" element={&lt;Dashboard /&gt;} /&gt;
+          &lt;Route path="/product/:id" element={&lt;SingleDashboard /&gt;} /&gt;
+          &lt;Route path="/product/buyer/:id" element={&lt;DisplayProducts /&gt;} /&gt;
+          &lt;Route
+            path="/dashboard/productsList"
+            element={&lt;SellersDashboard /&gt;}
+          /&gt;
+          &lt;Route
+            path="/dashboard/notification"
+            element={&lt;NotificationDashboard /&gt;}
+          /&gt;
+          &lt;Route path="/listorders" element={&lt;ListOrder /&gt;} /&gt;
+          &lt;Route
+            path="/dashboard/notification/:id"
+            element={&lt;ReadNotification /&gt;}
+          /&gt;
+        &lt;/Route&gt;
       &lt;/Routes&gt;
       &lt;ToastContainer /&gt;
     &lt;/&gt;
@@ -454,7 +541,7 @@ export default allRoutes;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-06-22T16:39:53.716Z
+                at 2023-06-27T20:33:05.789Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

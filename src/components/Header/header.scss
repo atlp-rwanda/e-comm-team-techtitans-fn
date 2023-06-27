@@ -94,6 +94,7 @@ body {
     .switch {
       display: flex;
       align-items: center;
+     
     }
     .mobile-menu-icon {
       display: none;
@@ -111,6 +112,7 @@ body {
       justify-content: space-evenly;
 
       .nav_link {
+        
         &:link,
         &:visited {
           text-decoration: none;
@@ -296,10 +298,8 @@ body {
     }
   }
   
-  .icons,
-  .mobile-menu-icon,
-  .login-text-navbar {
-    color: $textprimary-color;
+  .cart-icon{
+   border:none
   }
 }
 

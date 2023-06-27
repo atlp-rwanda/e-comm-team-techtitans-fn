@@ -1,5 +1,5 @@
 import React from 'react';
-import './ChangePasswordForm.scss';
+//import './ChangePasswordForm.scss';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -109,6 +109,7 @@ const ChangePasswordForm = () => {
               <label htmlFor="newPassword">New Password</label>
               <input
                 type={passwordShown ? 'text' : 'password'}
+                id="newPassword"
                 name="newPassword"
                 value={new_password}
                 onChange={(event) => setNewPass(event.target.value)}
