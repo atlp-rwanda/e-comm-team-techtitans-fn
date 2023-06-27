@@ -10,7 +10,10 @@
     object-fit: cover;
     // position: relative;
     img {
+      filter: brightness(95%);
+      height: auto;
       object-fit: cover;
+      border: 5px solid $primary-color;
     }
     .word-part {
       position: absolute;
@@ -46,10 +49,10 @@
   }
 }
 .category {
-  padding: 2rem 0rem;
+  padding: 5px 0rem;
   background-color: $primary-color;
   .carousel .slider {
-    height: 60vh;
+    height: 50vh;
   }
   .carousel .control-dots .dot {
     border: 1px solid $primarydark-color;
@@ -61,20 +64,22 @@
 
 .part-0ne {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  row-gap: 3rem;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 1rem;
   column-gap: 3rem;
   align-items: center;
   justify-content: center;
   .category-card_one {
     position: relative;
+
     img {
-      width: 20rem;
-      height: 25rem;
+      width: 32rem;
+      height: 30rem;
     }
 
     h3 {
       position: absolute;
+      text-transform: capitalize;
       top: 6%;
       left: 10%;
       color: $primarydark-color;
@@ -84,7 +89,7 @@
       position: absolute;
       top: 16%;
       left: 10%;
-      font-size: $small-font-size;
+      font-size: 13;
     }
   }
 }
@@ -140,4 +145,22 @@
   .category {
     background-color: $primarydark-color;
   }
+}
+
+// ************** Category Styling ****************************
+
+.category-container {
+  margin: 0 auto;
+  padding: 20px 31rem 1rem;
+  background-color: white;
+  padding-top: 7rem;
+  padding-bottom: 10rem;
+}
+.category-title h1 {
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.category-subtitle p {
+  font-weight: 100;
+  font-size: 17px;
 }

@@ -1,6 +1,10 @@
 import PropTypes from "prop-types";
 import "../../styles/order.scss";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deleteBuyerOrder } from "../../Redux/Features/Order/deleteOrder.slice";
+import { message } from "antd";
+import { getAllBuyerOrder } from "../../Redux/Features/Order/buyerOrder.slice";
 
 function OrderCard({
   sellerName,
@@ -14,6 +18,18 @@ function OrderCard({
   expiryDate,
 }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  console.log("orderId", orderId);
+  const handleSubmit = () => {
+    dispatch(
+      deleteBuyerOrder({
+        id: orderId,
+      })
+    );
+    dispatch(getAllBuyerOrder());
+    message.success("Order Successfully deleted");
+    navigate(`/orders`);
+  };
 
   const handleViewDetail = () => {
     navigate(`/order/${orderId}`);
@@ -34,7 +50,10 @@ function OrderCard({
         </div>
       </div>
       <div className="card-body">
+        {/* <div className="card-image"> */}
         <img src={image} alt="" />
+        {/* </div> */}
+
         <div className="card-body-content">
           <div className="card-left">
             <h3>{productName}</h3>
@@ -44,9 +63,7 @@ function OrderCard({
           <div className="card-right">
             <p>Price: {price}</p>
             <p>Quantity: {quantity}</p>
-            <button>
-              <i className="bx bx-trash"></i>
-            </button>
+            <button onClick={handleSubmit}>Delete</button>
           </div>
         </div>
       </div>

@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import Card from "./Card";
+import Card from "./CategoryCard";
 import "./Product.scss";
 import CategoryIcon from "@mui/icons-material/Category";
 import { ThemeContext } from "../Theme/ThemeContext";
 import { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+// import { useDispatch, useSelector } from "react-redux";
 import { ViewCategory } from "../../Redux/Features/Product/CategorySlice.js";
 
 const Product = () => {
@@ -42,8 +43,7 @@ const Product = () => {
             <li key={category.id}>
               <Link
                 to={`/filter/category/${category?.name}`}
-                className="category-link"
-              >
+                className="category-link">
                 {category.name}
               </Link>
             </li>
