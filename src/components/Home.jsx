@@ -6,6 +6,7 @@ import { Carousel } from "react-responsive-carousel";
 import Product from "./Product/Product";
 import { ThemeContext } from "./Theme/ThemeContext";
 import { useContext } from "react";
+
 function Home() {
   const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ function Home() {
             <div className="slider">
               <img src="https://w0.peakpx.com/wallpaper/991/598/HD-wallpaper-workspace-laptop-headphones-watch-ultra-computers-hardware-business-laptop-music-phone-modern-desk-background-minimalist-technology-mobile-computer-silver-clean-minimalism-headphones.jpg" />
               <div className="word-part">
-                <p>High Quality</p>
+                <p style={{ fontSize: 15 }}>High Quality</p>
                 <h3>Electronics</h3>
                 <a href="#" className="btn-shop" style={{ color: "white" }}>
                   Shop now
@@ -32,7 +33,7 @@ function Home() {
             <div className="slider">
               <img src="https://c4.wallpaperflare.com/wallpaper/488/747/592/design-sofa-interior-pillow-living-room-hd-wallpaper-preview.jpg" />
               <div className="word-part">
-                <p>High Quality</p>
+                <p style={{ fontSize: 15 }}>High Quality</p>
                 <h3>Furnitures</h3>
                 <a href="#" className="btn-shop" style={{ color: "white" }}>
                   Shop now
@@ -42,7 +43,7 @@ function Home() {
             <div className="slider">
               <img src="https://images.pexels.com/photos/298864/pexels-photo-298864.jpeg?" />
               <div className="word-part">
-                <p>High Quality</p>
+                <p style={{ fontSize: 15 }}>High Quality</p>
                 <h3>Clothes</h3>
                 <a href="#" className="btn-shop" style={{ color: "white" }}>
                   Shop now

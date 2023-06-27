@@ -73,7 +73,9 @@ function AddProductForm() {
           images: imageUrls,
         })
       )
-        .then(() => {})
+        .then(() => {
+          toast.success("New product added!");
+        })
         .catch((error) => console.log("Product Create error:", error));
     }
   };
@@ -282,6 +284,7 @@ function AddProductForm() {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

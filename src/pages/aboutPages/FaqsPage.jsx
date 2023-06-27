@@ -17,7 +17,7 @@ function FaqsPage() {
         </p>
         <h4>Q: What will i do if i did not like the product i ordered ?</h4>
         <p>
-          A: Contact our customer service team, and we'll assist you with
+          A: Contact our customer service team, and we will assist you with
           returns or exchanges to ensure your satisfaction with your purchase.
         </p>
       </div>
