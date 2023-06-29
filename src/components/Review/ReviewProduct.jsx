@@ -6,6 +6,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "./ReviewProduct.scss";
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
+import { ThreeDots, TailSpin } from "react-loader-spinner";
 
 const ReviewComponent = ({ pid }) => {
   const [ratings, setRatings] = useState(0);
@@ -52,9 +53,21 @@ const ReviewComponent = ({ pid }) => {
         disabled={status === "loading"}
         className="submiti-button"
       >
-        Submit Review
+        {status === "loading" ? (
+          <ThreeDots
+            height="18"
+            width="95"
+            radius="1"
+            color="#ffffff"
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{}}
+            wrapperClassName=""
+            visible={true}
+          />
+        ) : (
+          "Submit Review"
+        )}
       </button>
-      {status === "loading" && <div className="signup-right">Loading...</div>}
       {status === "failed" && (
         <div className="signup-right">
           <Snackbar
