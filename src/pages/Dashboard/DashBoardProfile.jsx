@@ -2,13 +2,15 @@
 /* eslint-disable prettier/prettier */import {  } from 'react-router-dom'
 import { useDispatch,useSelector} from 'react-redux';
 import { Link,} from 'react-router-dom';
-
-import { GetProfile } from "../../../Redux/Features/Profile/getprofile.slice";
+import SideBar from "../../components/SideBar/SideBar";
+import Content from "../../components/Content/Content";
+import NavBar from "../../components/NavMenu/NavBar";
+import { GetProfile } from "../../Redux/Features/Profile/getprofile.slice";
 
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 
-import './UserProfile.scss'
+import '../Profile/UserProfile/UserProfile.scss'
 
 import { useEffect } from 'react';
 const DashBoardProfile = () => {
@@ -20,7 +22,16 @@ const DashBoardProfile = () => {
     useEffect(()=> {
       dispatch(GetProfile())
     },[dispatch])
-  console.log("This is the profile", getprofile)
+    const getInitials = (name) => {
+      const names = name.split(' ');
+      const initials = names.map((name) => {
+        if (name.length > 0) {
+          return name[0].toUpperCase();
+        }
+      });
+      return initials.join('');
+    };
+    
   if (!getprofile) {
     return null; 
   }
@@ -62,13 +73,27 @@ const DashBoardProfile = () => {
   }
 
   return (
+   
+    <div className="interface" id="interface">
+        {/* <NavBar /> */}
+        <Content>
+        
+      <h1 style={{color: "#7a89e9"}}>Profile</h1>
     <div className="profile">
    
    
     <div className="profile-container">
   
       <div className="profile-image">
-      <img src={image} />
+      <div className="image-initials">
+      {image ? (
+    <img src={image} alt="Profile" />
+  ) : (
+    <div className="initials-name">
+    <div className="initials">{getInitials(fullname)}</div>
+    </div>
+  )}
+      </div>
         <div className="profile-name">
         
         <div className="profile-description">
@@ -105,6 +130,10 @@ const DashBoardProfile = () => {
     </div>
     
     </div>
+    </Content>
+        <SideBar />
+      {/* </div> */}
+      </div>
   );
 };
 

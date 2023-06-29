@@ -43,11 +43,18 @@ const ProductRating = ({ pid }) => {
     );
   }
 
+  let formattedAverage = reviewAverage.toFixed(1);
+
+  // Remove decimal if the average is a whole number
+  if (Number.isInteger(reviewAverage)) {
+    formattedAverage = reviewAverage.toFixed(0);
+  }
+
   return (
     <div>
       <div style={{ display: "flex", alignItems: "center" }}>
         <StarRating rating={reviewAverage} />
-        <p style={{ marginLeft: "0.5rem" }}>&nbsp; {reviewAverage}</p>
+        <p style={{ marginLeft: "0.5rem" }}>&nbsp; {formattedAverage}</p>
       </div>
     </div>
   );

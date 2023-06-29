@@ -21,6 +21,7 @@ $fontfamily: "Poppins", sans-serif;
   background-color: #ffffff;
   margin: 0 auto;
   padding: 30px;
+  border: 1px solid #eee;
   &--image {
     display: flex;
     align-items: center;
@@ -30,10 +31,12 @@ $fontfamily: "Poppins", sans-serif;
     img {
       width: 100px;
       height: 100px;
-      background-color: #222222;
+      background-color: #b7b0b0;
       border-radius: 50%;
     }
   }
+
+ 
   &--description {
     display: flex;
     flex-direction: column;
