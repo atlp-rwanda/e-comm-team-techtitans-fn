@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../../scss/Auth/ForgotPassword.scss';
+import { TailSpin } from 'react-loader-spinner';
 
 import PasswordResetSuccess from './PasswordResetSuccess';
 
@@ -53,11 +54,14 @@ const ResetPassword = () => {
       toast.error('Passwords must match');
       return;
     } else {
-      await dispatch(
-        resetPassword({ password, confirmPassword, userId }),
-      ).unwrap();
-      toast.success('Password reset successful');
       setIsResetSuccess(true);
+      setTimeout(async () => {
+        await dispatch(
+          resetPassword({ password, confirmPassword, userId }),
+        ).unwrap();
+        toast.success('Password reset successful');
+        setIsResetSuccess(false);
+      }, 2000);
     }
   };
 
@@ -117,7 +121,20 @@ const ResetPassword = () => {
             </div>
 
             <button type="submit" className="send-email-button">
-              Reset password
+              {isResetSuccess ? (
+                <TailSpin
+                  height="25"
+                  width="25"
+                  color="#ffffff"
+                  ariaLabel="tail-spin-loading"
+                  radius="1"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                  visible={true}
+                />
+              ) : (
+                'Reset password'
+              )}
             </button>
             <div className="below-the-submit-button">
               <p className="back-to-login-text" onClick={backToLogin}>

@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../../scss/Auth/ForgotPassword.scss';
 import { ThemeContext } from '../../components/Theme/ThemeContext';
 import { useContext } from 'react';
+import { TailSpin } from 'react-loader-spinner';
 
 const ForgotPassword = () => {
   const { theme } = useContext(ThemeContext);
@@ -31,17 +32,19 @@ const ForgotPassword = () => {
       toast.error('Please enter a valid email address');
     } else {
       setIsLoading(true);
+      setTimeout(async () => {
+        // setIsLoading(true);
+        await dispatch(sendResetLink(data))
+          .unwrap()
+          .then(() => {
+            setIsLoading(false);
 
-      await dispatch(sendResetLink(data))
-        .unwrap()
-        .then(() => {
-          setIsLoading(false);
-
-          toast.success('Check your email for a password-reset link');
-        })
-        .catch((error) => {
-          setIsLoading(false);
-        });
+            toast.success('Check your email for a password-reset link');
+          })
+          .catch((error) => {
+            setIsLoading(false);
+          });
+      }, 2000);
     }
   };
 
@@ -70,7 +73,20 @@ const ForgotPassword = () => {
           className="send-email-button"
           onClick={handleSubmit(handleResetPassword)}
         >
-          Reset password
+          {isLoading ? (
+            <TailSpin
+              height="25"
+              width="25"
+              color="#ffffff"
+              ariaLabel="tail-spin-loading"
+              radius="1"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+          ) : (
+            'Reset password'
+          )}
         </button>
         <p className="back-to-login-text" onClick={backToLogin}>
           <span>← </span> Back to login
@@ -79,8 +95,5 @@ const ForgotPassword = () => {
     </div>
   );
 };
-//   </Container>
-// );
-// };
 
 export default ForgotPassword;
