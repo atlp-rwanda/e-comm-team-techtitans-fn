@@ -156,7 +156,7 @@ const CartView = () => {
           <img className="boximportantdesign" src={boximportant} />
           <p>Are you Sure?</p>
           <p className="textpara">
-            Do you Want to remove everythinmg from cart?
+            Do you Want to remove everything from cart?
           </p>
           <div className="buttondetails">
             <button className="btncancel" onClick={handleClose}>

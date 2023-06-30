@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { createProduct } from "../../Redux/Features/Product/AddProductSlice";
-import { ViewCategory } from "../../Redux/Features/Product/CategorySlice";
-import { CloudinaryContext, Image } from "cloudinary-react";
-import "./AddProduct.scss";
-import { useNavigate } from "react-router-dom";
-import { ThreeDots,TailSpin } from "react-loader-spinner";
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { createProduct } from '../../Redux/Features/Product/AddProductSlice';
+import { ViewCategory } from '../../Redux/Features/Product/CategorySlice';
+import { CloudinaryContext, Image } from 'cloudinary-react';
+import './AddProduct.scss';
+import { useNavigate } from 'react-router-dom';
+import { ThreeDots, TailSpin } from 'react-loader-spinner';
+import { ToastContainer } from 'react-toastify';
 
 function AddProductForm() {
-  const [name, setName] = useState("");
-  const [nameError, setNameError] = useState("");
+  const [name, setName] = useState('');
+  const [nameError, setNameError] = useState('');
   const [price, setPrice] = useState(0);
-  const [priceError, setPriceError] = useState("");
+  const [priceError, setPriceError] = useState('');
   const [quantity, setQuantity] = useState(0);
-  const [categoryId, setCategoryId] = useState("");
-  const [description, setDescription] = useState("");
-  const [descriptionError, setDescriptionError] = useState("");
-  const [expiryDate, setExpiryDate] = useState("");
-  const [expiryDateError, setExpiryDateError] = useState("");
+  const [categoryId, setCategoryId] = useState('');
+  const [description, setDescription] = useState('');
+  const [descriptionError, setDescriptionError] = useState('');
+  const [expiryDate, setExpiryDate] = useState('');
+  const [expiryDateError, setExpiryDateError] = useState('');
   const [images, setImages] = useState([]);
   const [categoryIds, setCategoryIds] = useState([]);
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -29,27 +30,27 @@ function AddProductForm() {
     event.preventDefault();
 
     // Reset error messages
-    setNameError("");
-    setPriceError("");
-    setDescriptionError("");
-    setExpiryDateError("");
+    setNameError('');
+    setPriceError('');
+    setDescriptionError('');
+    setExpiryDateError('');
 
     // Validation
     let isValid = true;
-    if (name.trim() === "") {
-      setNameError("Name is required to create a product");
+    if (name.trim() === '') {
+      setNameError('Name is required to create a product');
       isValid = false;
     }
     if (price <= 0) {
-      setPriceError("Price must be greater than 0");
+      setPriceError('Price must be greater than 0');
       isValid = false;
     }
-    if (description.trim() === "") {
-      setDescriptionError("Description is required");
+    if (description.trim() === '') {
+      setDescriptionError('Description is required');
       isValid = false;
     }
-    if (expiryDate === "") {
-      setExpiryDateError("Expiry date is required");
+    if (expiryDate === '') {
+      setExpiryDateError('Expiry date is required');
       isValid = false;
     }
 
@@ -60,7 +61,7 @@ function AddProductForm() {
     if (isValid) {
       const imageUrls = images.map(
         (image) =>
-          `https://res.cloudinary.com/dgcmsqndb/image/upload/${image.name}`
+          `https://res.cloudinary.com/dgcmsqndb/image/upload/${image.name}`,
       );
       dispatch(
         createProduct({
@@ -71,28 +72,28 @@ function AddProductForm() {
           description,
           expiryDate,
           images: imageUrls,
-        })
+        }),
       )
         .then(() => {
-          toast.success("New product added!");
+          toast.success('New product added!');
         })
-        .catch((error) => console.log("Product Create error:", error));
+        .catch((error) => console.log('Product Create error:', error));
     }
   };
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", "gwkladqc");
+    formData.append('file', file);
+    formData.append('upload_preset', 'gwkladqc');
     const xhr = new XMLHttpRequest();
     xhr.open(
-      "POST",
-      "https://api.cloudinary.com/v1_1/dgcmsqndb/image/upload",
-      true
+      'POST',
+      'https://api.cloudinary.com/v1_1/dgcmsqndb/image/upload',
+      true,
     );
-    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-    xhr.upload.addEventListener("progress", (event) => {
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.upload.addEventListener('progress', (event) => {
       const progress = Math.round((event.loaded / event.total) * 100);
       setUploadProgress(progress);
     });
@@ -102,7 +103,7 @@ function AddProductForm() {
           const data = JSON.parse(xhr.responseText);
           setImages((prevImages) => [...prevImages, { name: data.public_id }]);
         } else {
-          console.error("Error uploading image:", xhr.statusText);
+          console.error('Error uploading image:', xhr.statusText);
         }
       }
     };
@@ -120,8 +121,8 @@ function AddProductForm() {
     };
     fetchData();
   }, [dispatch]);
-  if (status === "success") {
-    navigate("/dashboard/productsList");
+  if (status === 'success') {
+    navigate('/dashboard/productsList');
   }
   return (
     <div>
@@ -151,7 +152,7 @@ function AddProductForm() {
                           transformation={{
                             width: 100,
                             height: 50,
-                            crop: "fill",
+                            crop: 'fill',
                           }}
                           secure="true"
                         />
@@ -260,25 +261,27 @@ function AddProductForm() {
                     <div className="error">{descriptionError}</div>
                   )}
                 </div>
-               
+
                 <button className="btn" type="submit">
-                   {status === 'loading.....' ?  
-                  <TailSpin
-                  height="25"
-                  width="25"
-                  color="#ffffff"
-                  ariaLabel="tail-spin-loading"
-                  radius="1"
-                  wrapperStyle={{}}
-                  wrapperClass=""
-                  visible={true}
-                />
-                   : 'Save'}
+                  {status === 'loading.....' ? (
+                    <TailSpin
+                      height="25"
+                      width="25"
+                      color="#ffffff"
+                      ariaLabel="tail-spin-loading"
+                      radius="1"
+                      wrapperStyle={{}}
+                      wrapperClass=""
+                      visible={true}
+                    />
+                  ) : (
+                    'Save'
+                  )}
                 </button>
               </div>
             </div>
-            {status === "failed" && <div className="error">{error}</div>}
-            {status === "success" && (
+            {status === 'failed' && <div className="error">{error}</div>}
+            {status === 'success' && (
               <div className="success">Product created successfully!</div>
             )}
           </form>

@@ -73,7 +73,14 @@ export const buyNowThunk = createAsyncThunk(
       );
       return response.data;
     } catch (error) {
-      // toast.error(error.message);
+      if (
+        error.response.data.message ===
+        '🚫 Your already order this product you need paid inorder to order it Again!'
+      ) {
+        toast.warning('This product is already among your orders');
+      } else {
+        toast.warning(error.response.data.message);
+      }
       return rejectWithValue(error.response.data.message);
     }
   },

@@ -1,19 +1,19 @@
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { getSingleProduct } from "../../Redux/Features/Dashboard/singleProductSlice";
-import "../../styles/BuyerProduct.scss";
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { getSingleProduct } from '../../Redux/Features/Dashboard/singleProductSlice';
+import '../../styles/BuyerProduct.scss';
 
-import ReviewComponent from "../../components/Review/ReviewProduct.jsx";
-import { Recommend } from "../Product/Recommended.jsx";
-import ProductReviews from "../../components/Review/GetProductReviews.jsx";
-import { AddToCartProduct } from "../../Redux/Features/Cart/CartSlice";
-import Alert from "@mui/material/Alert";
-import Snackbar from "@mui/material/Snackbar";
-import { buyNowThunk } from "../../Redux/Features/Payment/paymentSlice";
+import ReviewComponent from '../../components/Review/ReviewProduct.jsx';
+import { Recommend } from '../Product/Recommended.jsx';
+import ProductReviews from '../../components/Review/GetProductReviews.jsx';
+import { AddToCartProduct } from '../../Redux/Features/Cart/CartSlice';
+import Alert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
+import { buyNowThunk } from '../../Redux/Features/Payment/paymentSlice';
 
-import Skeleton from "./Skeleton";
+import Skeleton from './Skeleton';
 
 export function BuyerSingleProductView() {
   const { id } = useParams();
@@ -36,14 +36,14 @@ export function BuyerSingleProductView() {
   };
 
   const { singleProduct, status, error } = useSelector(
-    (state) => state.singleProduct
+    (state) => state.singleProduct,
   );
-  const [currentImage, setCurrentImage] = useState("");
+  const [currentImage, setCurrentImage] = useState('');
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     dispatch(getSingleProduct(id)).then(() => {
-      setIsLoading(false); 
+      setIsLoading(false);
     });
   }, [dispatch, id]);
 
@@ -61,7 +61,7 @@ export function BuyerSingleProductView() {
     );
   }
 
-  if (status === "error") {
+  if (status === 'error') {
     return <div>Error: {error}</div>;
   }
 
@@ -97,7 +97,7 @@ export function BuyerSingleProductView() {
     setIsHovered(false);
   };
 
-  const userRole = localStorage.getItem("role");
+  const userRole = localStorage.getItem('role');
 
   // .Buy Now. 👇🏽
   const handleBuyNow = async () => {
@@ -105,21 +105,21 @@ export function BuyerSingleProductView() {
       setIsBuyNowLoading(true);
 
       const response = await dispatch(
-        buyNowThunk({ productId: id, quantity: quantitys })
+        buyNowThunk({ productId: id, quantity: quantitys }),
       );
 
       if (response.error) {
-        toast.error("This product is already among your current orders");
+        toast.error('This product is already among your current orders');
         setIsBuyNowLoading(false);
       } else {
         localStorage.setItem(
-          "buyNowToken",
-          JSON.stringify(response?.payload?.token)
+          'buyNowToken',
+          JSON.stringify(response?.payload?.token),
         );
 
-        localStorage.setItem("fromBuyNow", "true");
+        localStorage.setItem('fromBuyNow', 'true');
 
-        navigate("/checkout");
+        navigate('/checkout');
 
         setIsBuyNowLoading(false);
       }
@@ -134,7 +134,7 @@ export function BuyerSingleProductView() {
       <div className="buyer-product-wrapper">
         <div className="left-side-1">
           <div
-            className={`main-image-1 ${isHovered ? "zoomed" : ""}`}
+            className={`main-image-1 ${isHovered ? 'zoomed' : ''}`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
@@ -152,7 +152,7 @@ export function BuyerSingleProductView() {
           </div>
         </div>
         <div className="right-side-1">
-          <div className={`enlarged-image-1 ${isHovered ? "visible" : ""}`}>
+          <div className={`enlarged-image-1 ${isHovered ? 'visible' : ''}`}>
             <img src={currentImage} alt="" />
           </div>
           <div className="right-side-1-h2">{name}</div>
@@ -185,8 +185,9 @@ export function BuyerSingleProductView() {
             <input
               type="submit"
               onClick={handleSubmit}
-              disabled={statuss === "loading"}
-              value="Add to Cart"
+              disabled={statuss === 'loading'}
+              // value="Add to Cart"
+              value={statuss === 'loading' ? 'Loading...' : 'Add To Cart'}
               className="addcartbtn"
             />
             {isBuyNowLoading ? (
@@ -207,10 +208,10 @@ export function BuyerSingleProductView() {
               />
             )}
 
-            {statuss === "loading" && (
+            {/* {statuss === "loading" && (
               <div className="signup-right">Loading...</div>
-            )}
-            {statuss === "failed" && (
+            )} */}
+            {statuss === 'failed' && (
               <div className="signup-right">
                 <Snackbar
                   open={showSnackbar}
@@ -220,14 +221,14 @@ export function BuyerSingleProductView() {
                   <Alert
                     onClose={handleSnackbarClose}
                     severity="error"
-                    sx={{ width: "100%", fontSize: "1.5rem" }}
+                    sx={{ width: '100%', fontSize: '1.5rem' }}
                   >
                     Something went Wrong! Please try again later.
                   </Alert>
                 </Snackbar>
               </div>
             )}
-            {statuss === "succeeded" && (
+            {statuss === 'succeeded' && (
               <div className="signup-right">
                 <Snackbar
                   open={showSnackbar}
@@ -237,7 +238,7 @@ export function BuyerSingleProductView() {
                   <Alert
                     onClose={handleSnackbarClose}
                     severity="success"
-                    sx={{ width: "100%", fontSize: "1.5rem" }}
+                    sx={{ width: '100%', fontSize: '1.5rem' }}
                   >
                     Product Added to Cart successfully!
                   </Alert>
@@ -246,7 +247,7 @@ export function BuyerSingleProductView() {
             )}
           </div>
 
-          {userRole && userRole !== "2" && userRole !== "1" && (
+          {userRole && userRole !== '2' && userRole !== '1' && (
             <ReviewComponent pid={id} />
           )}
 
