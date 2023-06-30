@@ -48,7 +48,9 @@ import MissionComponent from "../components/aboutComponents/MissionComponent.jsx
 import TeamComponent from "../components/aboutComponents/TeamComponent.jsx";
 import AdvantagesComponent from "../components/aboutComponents/AdvantagesComponent.jsx";
 import FaqsComponent from "../components/aboutComponents/FaqsComponent.jsx";
-
+import HomePage from "../pages/HomePage";
+import Category from "../pages/Home/Category.jsx";
+import FilterCategories from "../pages/Home/FilterCategory.jsx";
 const socket = socketIO.connect(`${SOCKET_URL}`);
 
 let allRoutes = () => {
@@ -62,9 +64,6 @@ let allRoutes = () => {
         <Route element={<Auth allowedRoles={["admin", "seller", "buyer"]} />}>
           <Route path="/chat" element={<ChatingPage socket={socket} />} />
           <Route path="/changepassword" element={<ChangePasswordPage />} />
-         
-          
-          
         </Route>
 
         {/* ************************************************************************************
@@ -100,7 +99,6 @@ let allRoutes = () => {
           <Route path="/emptycart" element={<EmptyCart />} />
           <Route path="/profile" element={<UserProfile />} />
           <Route path="/updateprofile" element={<EditProfile />} />
-          
         </Route>
 
         {/*************************************************************************************
@@ -108,7 +106,10 @@ let allRoutes = () => {
 ************************************************************************************ */}
 
         <Route path="/" element={<Home />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/categories" element={<Categories />} />
+        <Route path="/category/product/:name" element={<Category />} />
+        <Route path="/filter/category/:name" element={<FilterCategories />} />
         <Route path="/unauthorized" element={<UnauthorizedPage />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/categories" element={<Categories />} />
@@ -132,8 +133,6 @@ let allRoutes = () => {
                          ADMIN && SELLER
 ************************************************************************************ */}
         <Route element={<Auth allowedRoles={["seller", "admin"]} />}>
-          
-          
           <Route path="/product/:id" element={<SingleDashboard />} />
           <Route path="/product/buyer/:id" element={<DisplayProducts />} />
           <Route path="/dashboardprofile" element={<DashBoardProfile />} />

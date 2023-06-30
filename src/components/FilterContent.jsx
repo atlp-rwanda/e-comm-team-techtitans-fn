@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { ViewCategory } from "../Redux/Features/Product/CategorySlice";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import Product from "./Product/Product";
+import Product from "./Product/FilterProduct";
 import { ThemeContext } from "./Theme/ThemeContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 function Home() {
   const { theme } = useContext(ThemeContext);
   const dispatch = useDispatch();
-  const { product, status } = useSelector((state) => state.category);
+  const { product, status, error } = useSelector((state) => state.category);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -51,8 +51,8 @@ function Home() {
         slides.push(
           <div className="slider part-0ne" key={`slide-${i}`}>
             {categoriesSlice.map((category) => (
-              <div className="category-card_one" key={category?.name}>
-                <Link to={`/category/product/${category?.name}`}>
+              <div className="category-card_one" key={category?.id}>
+                <Link to={`/category/product/${category?.id}`}>
                   {category?.categoryProducts[0]?.images[0] && (
                     <img
                       src={
@@ -93,7 +93,7 @@ function Home() {
             <div className="slider">
               <img src="https://w0.peakpx.com/wallpaper/991/598/HD-wallpaper-workspace-laptop-headphones-watch-ultra-computers-hardware-business-laptop-music-phone-modern-desk-background-minimalist-technology-mobile-computer-silver-clean-minimalism-headphones.jpg" />
               <div className="word-part">
-                <p style={{ fontSize: 15 }}>High Quality</p>
+                <p>High Quality</p>
                 <h3>Electronics</h3>
                 <a href="#" className="btn-shop" style={{ color: "white" }}>
                   Shop now
@@ -103,7 +103,7 @@ function Home() {
             <div className="slider">
               <img src="https://c4.wallpaperflare.com/wallpaper/488/747/592/design-sofa-interior-pillow-living-room-hd-wallpaper-preview.jpg" />
               <div className="word-part">
-                <p style={{ fontSize: 15 }}>High Quality</p>
+                <p>High Quality</p>
                 <h3>Furnitures</h3>
                 <a href="#" className="btn-shop" style={{ color: "white" }}>
                   Shop now
@@ -113,7 +113,7 @@ function Home() {
             <div className="slider">
               <img src="https://images.pexels.com/photos/298864/pexels-photo-298864.jpeg?" />
               <div className="word-part">
-                <p style={{ fontSize: 15 }}>High Quality</p>
+                <p>High Quality</p>
                 <h3>Clothes</h3>
                 <a href="#" className="btn-shop" style={{ color: "white" }}>
                   Shop now

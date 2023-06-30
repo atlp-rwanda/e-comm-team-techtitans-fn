@@ -47,7 +47,7 @@ body {
   background-color: $primary-color;
   max-width: 114rem;
   margin: 0 auto;
-  padding: 0rem 10rem 4rem;
+  padding: 0rem 5rem 4rem;
   .category-show-icon {
     display: none;
   }
@@ -57,6 +57,7 @@ body {
     font-size: $medium-font-size;
     gap: 1.5rem;
     margin-bottom: 2rem;
+    text-transform: capitalize;
     list-style-type: none;
     li {
       &:first-child .category-link {
