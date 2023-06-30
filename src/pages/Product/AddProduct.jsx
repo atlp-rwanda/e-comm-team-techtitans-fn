@@ -5,7 +5,8 @@ import { ViewCategory } from "../../Redux/Features/Product/CategorySlice";
 import { CloudinaryContext, Image } from "cloudinary-react";
 import "./AddProduct.scss";
 import { useNavigate } from "react-router-dom";
-import { ThreeDots,TailSpin } from "react-loader-spinner";
+import { ThreeDots, TailSpin } from "react-loader-spinner";
+import { ToastContainer } from "react-toastify";
 
 function AddProductForm() {
   const [name, setName] = useState("");
@@ -73,7 +74,9 @@ function AddProductForm() {
           images: imageUrls,
         })
       )
-        .then(() => {})
+        .then(() => {
+          toast.success("New product added!");
+        })
         .catch((error) => console.log("Product Create error:", error));
     }
   };
@@ -111,7 +114,7 @@ function AddProductForm() {
     const fetchData = async () => {
       try {
         const response = await dispatch(ViewCategory());
-        setCategoryIds(response.payload.data); // Assuming the response contains an array of category objects
+        setCategoryIds(response.payload.data.categories); // Assuming the response contains an array of category objects
       } catch (error) {
         console.log(error);
       }
@@ -164,8 +167,7 @@ function AddProductForm() {
                     <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-200">
                       <div
                         style={{ width: `${uploadProgress}%` }}
-                        className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-500 transition-all duration-500"
-                      ></div>
+                        className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-500 transition-all duration-500"></div>
                     </div>
                     <div className="text-center">{uploadProgress}%</div>
                   </div>
@@ -218,8 +220,7 @@ function AddProductForm() {
                     className=""
                     id="categoryId"
                     value={categoryId}
-                    onChange={(event) => setCategoryId(event.target.value)}
-                  >
+                    onChange={(event) => setCategoryId(event.target.value)}>
                     <option value="">Select a category</option>
                     {Array.isArray(categoryIds) &&
                       categoryIds.map((category) => (
@@ -258,20 +259,22 @@ function AddProductForm() {
                     <div className="error">{descriptionError}</div>
                   )}
                 </div>
-               
+
                 <button className="btn" type="submit">
-                   {status === 'loading.....' ?  
-                  <TailSpin
-                  height="25"
-                  width="25"
-                  color="#ffffff"
-                  ariaLabel="tail-spin-loading"
-                  radius="1"
-                  wrapperStyle={{}}
-                  wrapperClass=""
-                  visible={true}
-                />
-                   : 'Save'}
+                  {status === "loading....." ? (
+                    <TailSpin
+                      height="25"
+                      width="25"
+                      color="#ffffff"
+                      ariaLabel="tail-spin-loading"
+                      radius="1"
+                      wrapperStyle={{}}
+                      wrapperClass=""
+                      visible={true}
+                    />
+                  ) : (
+                    "Save"
+                  )}
                 </button>
               </div>
             </div>
@@ -282,6 +285,7 @@ function AddProductForm() {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

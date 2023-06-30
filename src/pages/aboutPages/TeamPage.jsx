@@ -64,7 +64,7 @@ function TeamPage() {
     },
     {
       id: 6,
-      fullName: "Gentille E. Manirakiza",
+      fullName: "Gentille E. MANIRAKIZA",
       position: "Software Engineer",
       image: {
         src: Gentille,
@@ -91,7 +91,7 @@ function TeamPage() {
     },
     {
       id: 9,
-      fullName: "NDATIMANA Samuel",
+      fullName: "Samuel NDATIMANA",
       position: "Software Engineer",
       image: {
         src: Samuel,

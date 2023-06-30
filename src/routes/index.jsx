@@ -13,7 +13,10 @@ import Login from "../pages/User/Login.jsx";
 import SignupForm from "../pages/Auth/SignUp.jsx";
 import ListUser from "../pages/ListofUser";
 import Dashboard from "../pages/Dashboard/index.jsx";
+import AdminDashboard from "../pages/Dashboard/AdminDashboard.jsx";
 import SingleDashboard from "../pages/Dashboard/SingleDashboard.jsx";
+import DashBoardProfile from "../pages/Dashboard/DashBoardProfile.jsx";
+import DashBoardEditProfile from "../pages/Dashboard/DashBoardEditProfile.jsx";
 import SellersDashboard from "../pages/Dashboard/SellersDashboard.jsx";
 import ReviewComponent from "../components/Review/ReviewProduct.jsx";
 import ChangePasswordPage from "../pages/changePasswordPage.jsx";
@@ -40,9 +43,6 @@ import ViewCart from "../components/CartOperations/ViewCart.jsx";
 import EmptyCart from "../components/CartOperations/EmptyCart.jsx";
 
 import WishlistPage from "../pages/wishli/Wishlist";
-
-import DashBoardProfile from "../pages/Profile/UserProfile/DashBoardProfile.jsx";
-import DashBoardEditProfile from "../pages/Profile/EditProfile/DashBoardEditProfile.jsx";
 import WelcomeComponent from "../components/aboutComponents/WelcomeComponent.jsx";
 import MissionComponent from "../components/aboutComponents/MissionComponent.jsx";
 import TeamComponent from "../components/aboutComponents/TeamComponent.jsx";
@@ -64,13 +64,6 @@ let allRoutes = () => {
         <Route element={<Auth allowedRoles={["admin", "seller", "buyer"]} />}>
           <Route path="/chat" element={<ChatingPage socket={socket} />} />
           <Route path="/changepassword" element={<ChangePasswordPage />} />
-          <Route path="/updateprofile" element={<EditProfile />} />
-          <Route path="/dashboardprofile" element={<DashBoardProfile />} />
-          <Route
-            path="/dashboardupdateprofile"
-            element={<DashBoardEditProfile />}
-          />
-          <Route path="/profile" element={<UserProfile />} />
         </Route>
 
         {/* ************************************************************************************
@@ -80,12 +73,14 @@ let allRoutes = () => {
         <Route element={<Auth allowedRoles={["admin"]} />}>
           <Route path="/listusers" element={<ListUser />} />
           <Route path="/listusers/:id" element={<ListUser />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
         </Route>
         {/*************************************************************************************
                          SELLER'S
 ************************************************************************************ */}
         <Route element={<Auth allowedRoles={["seller"]} />}>
           <Route path="/addproduct" element={<AddProductForm />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
         {/*************************************************************************************
                          BUYER'S
@@ -102,6 +97,8 @@ let allRoutes = () => {
           <Route path="/viewcart" element={<ViewCart />} />
           <Route path="/viewcart" element={<ViewCart />} />
           <Route path="/emptycart" element={<EmptyCart />} />
+          <Route path="/profile" element={<UserProfile />} />
+          <Route path="/updateprofile" element={<EditProfile />} />
         </Route>
 
         {/*************************************************************************************
@@ -136,9 +133,13 @@ let allRoutes = () => {
                          ADMIN && SELLER
 ************************************************************************************ */}
         <Route element={<Auth allowedRoles={["seller", "admin"]} />}>
-          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/product/:id" element={<SingleDashboard />} />
           <Route path="/product/buyer/:id" element={<DisplayProducts />} />
+          <Route path="/dashboardprofile" element={<DashBoardProfile />} />
+          <Route
+            path="/dashboardupdateprofile"
+            element={<DashBoardEditProfile />}
+          />
           <Route
             path="/dashboard/productsList"
             element={<SellersDashboard />}

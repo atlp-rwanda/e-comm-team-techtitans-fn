@@ -3,7 +3,7 @@ import "../../scss/wish/wishcard.scss";
 import { useDispatch } from "react-redux";
 import { removeWishlistItem } from "../../Redux/Features/Wishlist/Wishlist";
 // import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 const Card = ({ product_id, product_name, product_image, product_price }) => {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const Card = ({ product_id, product_name, product_image, product_price }) => {
         <h3>{product_name}</h3>
         <p>Price: ${product_price}</p>
         <button onClick={handleRemoveItem}>
-          <DeleteForeverIcon />
+          <FavoriteBorderIcon />
         </button>
       </div>
     </div>

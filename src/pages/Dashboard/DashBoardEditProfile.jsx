@@ -3,9 +3,12 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { UpdateProfile } from "../../../Redux/Features/Profile/profile.slice";
-import './EditProfile.scss';
-import { GetProfile } from "../../../Redux/Features/Profile/getprofile.slice";
+import SideBar from "../../components/SideBar/SideBar";
+import Content from "../../components/Content/Content";
+import NavBar from "../../components/NavMenu/NavBar";
+import { UpdateProfile } from "../../Redux/Features/Profile/profile.slice";
+import '../Profile/EditProfile/EditProfile';
+import { GetProfile } from "../../Redux/Features/Profile/getprofile.slice";
 import { message } from "antd";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -25,7 +28,11 @@ const DashBoardEditProfile = () => {
   const { getprofile } = useSelector((state) => state.getprofile);
   const { status, error, profile } = useSelector((state) => state.profile);
 
-
+  function getInitials(name) {
+    const names = name.split(' ');
+    const initials = names.map((name) => name[0].toUpperCase());
+    return initials.join('');
+  }
 
 
   let imageUrl;
@@ -43,10 +50,12 @@ const DashBoardEditProfile = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-
-        imageUrl = `https://res.cloudinary.com/dgcmsqndb/image/upload/${data.public_id}`;
-        setImage(imageUrl);
-
+        if (Object.keys(data).length === 0 && data.constructor === Object) {
+          setImage(getInitials(fullname));
+        } else {
+          imageUrl = `https://res.cloudinary.com/dgcmsqndb/image/upload/${data.public_id}`;
+          setImage(imageUrl);
+        }
       })
 
       .catch((error) => {
@@ -84,7 +93,7 @@ const DashBoardEditProfile = () => {
 
     )
     message.success("Profile updated successfully")
-    navigate("/dashboard");
+    navigate("/dashboardprofile");
   };
 
 
@@ -105,10 +114,11 @@ const DashBoardEditProfile = () => {
   }
    
   return (
-    <div>
-
-
-      <div className="edit_profile--container">
+    <div className="interface" id="interface">
+    <NavBar />
+    <Content>
+   
+      <div style={{ background: "#fff",  width: "100%", padding: "4rem 10rem"}}>
         <div className="edit_profile">
           <div className="edit_profile--image">
             <img src={image} />
@@ -184,7 +194,10 @@ const DashBoardEditProfile = () => {
 
 
 
-    </div>
+   
+    </Content>
+    <SideBar />
+   </div>
     // </div>
   );
 };

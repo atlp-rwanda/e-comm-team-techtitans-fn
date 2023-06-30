@@ -27,7 +27,7 @@ let Category = () => {
       <Header />
       <div className="category-container">
         <div className="category-title">
-          <h1>{categoryProducts}</h1>
+          <h6>{categoryProducts}</h6>
         </div>
         <div className="category-subtitle">
           <p>This recent product of the category</p>

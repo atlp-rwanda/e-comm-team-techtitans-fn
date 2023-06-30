@@ -16,6 +16,7 @@ let VerifyOtp = ({ socket }) => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   let email = localStorage.getItem("email");
+  const userRole = localStorage.getItem("role"); // Get user role from localStorage
   let [otp, setOtp] = useState("");
   let [message, setMessage] = useState("");
   let [go, setGo] = useState(false);
@@ -25,7 +26,9 @@ let VerifyOtp = ({ socket }) => {
   const { email: storedEmail, password } = useSelector((state) => state.user.user?.credentials);
   
   if (go) {
-    navigate("/dashboard");
+    {
+      userRole === "2" ? navigate("/dashboard") : navigate("/admin/dashboard");
+    }
   }
 
   let handleSubmit = () => {

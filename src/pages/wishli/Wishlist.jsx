@@ -19,36 +19,33 @@ const WishlistPage = () => {
     <>
       <Header />
       <div>
-        <h2>My Wishlist</h2>
-        <div className="line">
-          {isLoading ? (
-            <p>Loading wishlist...</p>
-          ) : error ? (
-            <p>Error: {error}</p>
-          ) : (
-            <div>
-              <div className="week">
-                {wishlist.length > 0 ? (
-                  wishlist.map((item) => (
-                    <div id="wishlist-items" className="">
-                      <Card
-                        key={item.product_id}
-                        product_id={item.product_id}
-                        product_name={item.product_name}
-                        product_image={item.product_image}
-                        product_price={item.product_price}
-                      />
-                    </div>
-                  ))
-                ) : (
-                  <p>Your wishlist is empty.</p>
-                )}
-              </div>
+        <h1>My Wishlist</h1>
+        {isLoading ? (
+          <p>Loading wishlist...</p>
+        ) : error ? (
+          <p>Error: {error}</p>
+        ) : (
+          <div>
+            <div className="week">
+              {wishlist.length > 0 ? (
+                wishlist.map((item) => (
+                  <div id="wishlist-items" className="">
+                    <Card
+                      key={item.product_id}
+                      product_id={item.product_id}
+                      product_name={item.product_name}
+                      product_image={item.product_image}
+                      product_price={item.product_price}
+                    />
+                  </div>
+                ))
+              ) : (
+                <p>Your wishlist is empty.</p>
+              )}
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
-      <div className="line"></div>
       <Footer />
     </>
   );

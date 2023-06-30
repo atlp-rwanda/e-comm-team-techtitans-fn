@@ -20,7 +20,14 @@ function SideBar() {
       <div className="items">
         <li className={activeItem === "dashboard" ? "active" : ""}>
           <i className="bx bxs-dashboard"></i>
-          <Link to="/dashboard" onClick={() => setActiveItem("dashboard")}>
+          <Link
+            to={
+              userRole === "1" || userRole === 1
+                ? "/admin/dashboard"
+                : "/dashboard"
+            }
+            onClick={() => setActiveItem("dashboard")}
+          >
             Dashboard
           </Link>
         </li>
