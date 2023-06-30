@@ -41,6 +41,7 @@ import singleOrderSlice from "../Features/Order/getOrder.slice";
 import viewProductCartSlice from "../Features/Cart/ViewCartSlice";
 import ClearCartSlice from "../Features/Cart/ClearCartSlice";
 import deleteOrderSlice from "../Features/Order/deleteOrder.slice";
+import singleCategorySlice from "../Features/Product/getCategorySlice";
 const middleware = [...getDefaultMiddleware(), thunk];
 
 // eslint-disable-next-line no-undef
@@ -90,6 +91,7 @@ const store = configureStore({
     showcart: viewProductCartSlice,
     clearcart: ClearCartSlice,
     getstats: getStatsSlice,
+    singleCategory: singleCategorySlice,
   },
   middleware,
 });

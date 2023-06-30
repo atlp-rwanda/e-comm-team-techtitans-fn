@@ -184,7 +184,6 @@ let Header = () => {
               Contact
             </Link>
           </li>
-
           <li>
             {isLoggedIn && showProfileLink && (
               <Link className="nav_link" to="/profile" style={linkStyleProfile}>
