@@ -38,14 +38,30 @@ $fontfamily: "Poppins", sans-serif;
       }
       .profile-image img{
         width: 106px;
+        
         background-color: #c0b8b8;
         height: 106px;
         border-radius: 50%;
         justify-content: space-between;
-        justify-items: center;
-        
-       
+        justify-items: center; 
        }
+
+       .initials-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #7A89E9;
+ 
+}
+
+.initials {
+  font-size: 48px;
+  font-weight: bold;
+  color: #ffffff;
+}
        .profile-image .profile-name {
         display: grid;
         grid-template-columns: auto;

@@ -135,7 +135,7 @@ const Dashboard = () => {
       <div className="interface" id="interface">
         <NavBar />
         <Content>
-          <Typography.Title>Dashboard</Typography.Title>
+          <Typography.Title>Seller Dashboard</Typography.Title>
           
           <input
           className="date-btn-stat"

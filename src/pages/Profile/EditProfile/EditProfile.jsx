@@ -26,7 +26,11 @@ const EditProfile = () => {
   const { status, error, profile } = useSelector((state) => state.profile);
 
 
-
+  function getInitials(name) {
+    const names = name.split(' ');
+    const initials = names.map((name) => name[0].toUpperCase());
+    return initials.join('');
+  }
 
   let imageUrl;
 
@@ -43,10 +47,12 @@ const EditProfile = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-
-        imageUrl = `https://res.cloudinary.com/dgcmsqndb/image/upload/${data.public_id}`;
-        setImage(imageUrl);
-
+        if (Object.keys(data).length === 0 && data.constructor === Object) {
+          setImage(getInitials(fullname));
+        } else {
+          imageUrl = `https://res.cloudinary.com/dgcmsqndb/image/upload/${data.public_id}`;
+          setImage(imageUrl);
+        }
       })
 
       .catch((error) => {
@@ -56,7 +62,7 @@ const EditProfile = () => {
   useEffect(() => {
     dispatch(GetProfile())
   }, [dispatch])
-  //console.log("This is the profile", getprofile)
+  
   if (!getprofile) {
     return null;
   }
@@ -68,7 +74,7 @@ const EditProfile = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('***imageprofile***', imageUrl);
+  
 
     dispatch(
       UpdateProfile({

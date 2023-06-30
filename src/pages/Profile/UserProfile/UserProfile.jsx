@@ -20,7 +20,17 @@ const UserProfile = () => {
     useEffect(()=> {
       dispatch(GetProfile())
     },[dispatch])
-  console.log("This is the profile", getprofile)
+
+    
+    const getInitials = (name) => {
+      const names = name.split(' ');
+      const initials = names.map((name) => {
+        if (name.length > 0) {
+          return name[0].toUpperCase();
+        }
+      });
+      return initials.join('');
+    };
   if (!getprofile) {
     return null; 
   }
@@ -46,6 +56,8 @@ const UserProfile = () => {
     
     return `${day} . ${month} . ${year}`;
   };
+
+  
 
   if (status === "loading" || getprofile === null) {
     return (
@@ -79,7 +91,16 @@ const UserProfile = () => {
     <div className="profile-container">
   
       <div className="profile-image">
-      <img src={image} />
+      <div className="image-initials">
+      {image ? (
+    <img src={image} alt="Profile" />
+  ) : (
+    <div className="initials-name">
+    <div className="initials">{getInitials(fullname)}</div>
+    </div>
+  )}
+      </div>
+      
         <div className="profile-name">
         
         <div className="profile-description">
