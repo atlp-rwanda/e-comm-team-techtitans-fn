@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import "./header.scss";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import Logo from "../../assets/images/Logo.svg";
-import GoogleTranslate from "./GoogleTranslate/GoogleTranslate";
-import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Divider from "@mui/material/Divider";
-import CloseIcon from "@mui/icons-material/Close";
-import MenuIcon from "@mui/icons-material/Menu";
-import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
-import Searching from "../../pages/SearchIntegrations/search";
-import { DarkModeSwitch } from "react-toggle-dark-mode";
-import { ThemeContext } from "../Theme/ThemeContext";
-import { useContext } from "react";
-import LogoDark from "../../assets/images/LogoDark.svg";
-import PaymentsIcon from "@mui/icons-material/Payments";
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import './header.scss';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import Logo from '../../assets/images/Logo.svg';
+import GoogleTranslate from './GoogleTranslate/GoogleTranslate';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Divider from '@mui/material/Divider';
+import CloseIcon from '@mui/icons-material/Close';
+import MenuIcon from '@mui/icons-material/Menu';
+import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
+import Searching from '../../pages/SearchIntegrations/search';
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import { ThemeContext } from '../Theme/ThemeContext';
+import { useContext } from 'react';
+import LogoDark from '../../assets/images/LogoDark.svg';
+import PaymentsIcon from '@mui/icons-material/Payments';
 
 let Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -28,39 +28,39 @@ let Header = () => {
 
   const location = useLocation();
 
-  const isHomePage = location.pathname === "/";
+  const isHomePage = location.pathname === '/';
   const linkStyle = {
     fontWeight: 800,
     fontSize: 15,
-    color: isHomePage ? "#7a89e9" : "#555555",
+    color: isHomePage ? '#7a89e9' : '#555555',
   };
 
-  const isCategory = location.pathname === "/categories";
+  const isCategory = location.pathname === '/categories';
   const linkStyleCategory = {
     fontWeight: 800,
     fontSize: 15,
-    color: isCategory ? "#7a89e9" : "#555555",
+    color: isCategory ? '#7a89e9' : '#555555',
   };
 
-  const isAbout = location.pathname === "/about";
+  const isAbout = location.pathname === '/about';
   const linkStyleAbout = {
     fontWeight: 800,
     fontSize: 15,
-    color: isAbout ? "#7a89e9" : "#555555",
+    color: isAbout ? '#7a89e9' : '#555555',
   };
 
-  const isContactPage = location.pathname === "/contact";
+  const isContactPage = location.pathname === '/contact';
   const linkStyleContact = {
     fontWeight: 800,
     fontSize: 15,
-    color: isContactPage ? "#7a89e9" : "#555555",
+    color: isContactPage ? '#7a89e9' : '#555555',
   };
 
-  const isProfilePage = location.pathname === "/profile";
+  const isProfilePage = location.pathname === '/profile';
   const linkStyleProfile = {
     fontWeight: 800,
     fontSize: 15,
-    color: isProfilePage ? "#7a89e9" : "#555555",
+    color: isProfilePage ? '#7a89e9' : '#555555',
   };
 
   const open = Boolean(anchorEl);
@@ -71,14 +71,14 @@ let Header = () => {
     setAnchorEl(null);
   };
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    setsLoggedIn(token !== null && token !== "");
-    setShowProfileLink(token !== null && token !== "");
+    const token = localStorage.getItem('token');
+    setsLoggedIn(token !== null && token !== '');
+    setShowProfileLink(token !== null && token !== '');
   }, []);
   return (
     <div className="header" id={theme}>
       <div className="header_main">
-        <p style={{ color: "white" }}>Free shipping order over 1000$</p>
+        <p style={{ color: 'white' }}>Free shipping order over 1000$</p>
         <div className="header_main--two">
           <p>
             <PopupState variant="popover" popupId="demo-popup-menu">
@@ -88,8 +88,8 @@ let Header = () => {
                     variant="contained"
                     {...bindTrigger(popupState)}
                     style={{
-                      color: "#ffffff",
-                      background: "#222222",
+                      color: '#ffffff',
+                      background: '#222222',
                       fontSize: 11.2,
                     }}
                   >
@@ -107,8 +107,8 @@ let Header = () => {
                     <Link
                       className="nav_link"
                       to="/signup"
-                      style={{ color: "blue" }}
-                      style={{ color: "blue" }}
+                      style={{ color: 'blue' }}
+                      style={{ color: 'blue' }}
                     >
                       <MenuItem onClick={popupState.close}>Register</MenuItem>
                     </Link>
@@ -117,21 +117,24 @@ let Header = () => {
               )}
             </PopupState>
           </p>
-          <p style={{ ...{ color: "#ffffff" }, ...{ paddingTop: "7px" } }}>
+          <p style={{ ...{ color: '#ffffff' }, ...{ paddingTop: '7px' } }}>
             EN
           </p>
         </div>
       </div>
       <nav className="nav">
-        <div className="nav_logo">
-          {theme === "dark" ? (
-            <img src={LogoDark} />
-          ) : (
-            <img src={Logo} alt="Logo" />
-          )}
-        </div>
+        <Link to="/">
+          <div className="nav_logo">
+            {theme === 'dark' ? (
+              <img src={LogoDark} />
+            ) : (
+              <img src={Logo} alt="Logo" />
+            )}
+          </div>
+        </Link>
+
         <ul
-          className={isMobile ? "nav_links-mobile" : "nav_links"}
+          className={isMobile ? 'nav_links-mobile' : 'nav_links'}
           onClick={() => setIsMobile(false)}
         >
           <li>
@@ -143,9 +146,9 @@ let Header = () => {
             <Link
               className="nav_link"
               id="basic-button"
-              aria-controls={open ? "basic-menu" : undefined}
+              aria-controls={open ? 'basic-menu' : undefined}
               aria-haspopup="true"
-              aria-expanded={open ? "true" : undefined}
+              aria-expanded={open ? 'true' : undefined}
               onClick={handleClick}
               style={linkStyleCategory}
             >
@@ -157,7 +160,7 @@ let Header = () => {
               open={open}
               onClose={handleClose}
               MenuListProps={{
-                "aria-labelledby": "basic-button",
+                'aria-labelledby': 'basic-button',
               }}
             >
               <MenuItem onClick={handleClose}>Electronics</MenuItem>
@@ -192,7 +195,7 @@ let Header = () => {
         <div className="switch">
           <DarkModeSwitch
             onChange={toggleTheme}
-            checked={theme === "dark"}
+            checked={theme === 'dark'}
             className="nav_link"
           />
         </div>
@@ -208,7 +211,7 @@ let Header = () => {
           <div className="iconContainer">
             <div className="like-icon">
               <Link to="/wishlist">
-                <FavoriteBorderIcon className="nav_link" />{" "}
+                <FavoriteBorderIcon className="nav_link" />{' '}
               </Link>
             </div>
           </div>

@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
-import "./orderDetail.scss";
+import PropTypes from 'prop-types';
+import './orderDetail.scss';
 
 function OrderDetailCard({ productName, price, quantity, total, image }) {
   return (
@@ -13,7 +13,7 @@ function OrderDetailCard({ productName, price, quantity, total, image }) {
           <p>Price: {price} $</p>
         </div>
         <div className="detail-two">
-          <p>Total: {total} $</p>
+          <p>Total: ${total} </p>
           <p>Qty: {quantity}</p>
         </div>
       </div>
