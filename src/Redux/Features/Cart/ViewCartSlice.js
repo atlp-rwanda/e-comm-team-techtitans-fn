@@ -31,16 +31,7 @@ const viewProductCartSlice = createSlice({
     error: null,
   },
 
-  reducers: {
-    incrementItem(state, action) {
-      state.showcart = state.showcart.map((item) => {
-        if (item.id === action.payload) {
-          item.quantity++;
-        }
-        return item;
-      });
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(viewProductCart.pending, (state) => {
@@ -57,5 +48,4 @@ const viewProductCartSlice = createSlice({
       });
   },
 });
-export const { incrementItem } = viewProductCartSlice.actions;
 export default viewProductCartSlice.reducer;

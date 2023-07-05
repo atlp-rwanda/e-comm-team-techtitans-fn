@@ -1,12 +1,10 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState,useCallback } from 'react';
 import './cartview.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  viewProductCart,
-  incrementItem,
-} from '../../Redux/Features/Cart/ViewCartSlice';
+import {viewProductCart} from '../../Redux/Features/Cart/ViewCartSlice';
+import {UpdateCartProduct} from '../../Redux/Features/Cart/UpdateCartSlice';
 import { useEffect } from 'react';
 import EmptyCart from './EmptyCart';
 import Modal from '@mui/material/Modal';
@@ -33,6 +31,8 @@ const CartView = () => {
   const [showSnackbar, setShowSnackbar] = useState(false);
   const navigate = useNavigate();
 
+  
+
   const handleSnackbarClose = () => {
     setShowSnackbar(false);
   };
@@ -44,13 +44,57 @@ const CartView = () => {
   }, [dispatch]);
 
   const showmycart = mycart && mycart[0].products;
-
+  
+  const [quantities, setQuantities] = useState({}); 
+  // State to hold quantities for each product
+  
   const handleIncrement = (itemId) => {
-    console.log(itemId);
+    // const updatedCart = mycart.map((item) => {
+    //   if (item.id === itemId) {
+    //     return {
+    //       ...item,
+    //       quantity: item.quantity + 1,
+    //     };
+    //   }
+    //   return item;
+      
+    // });
+    
+    // console.log("this is ",updatedCart[0].id,updatedCart[0].quantity);
+    
+    // dispatch(UpdateCartProduct(updatedCart[0].id,updatedCart[0].quantity));
+    // setQuantity(quantity + 1);
+    setQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [itemId]: (prevQuantities[itemId] || 0) + 1
+      
+    }));
+    
   };
 
   const handleDecrement = (itemId) => {
-    console.log(itemId);
+    // const updatedCart = mycart.map((item) => {
+    //   if (item.id === itemId && item.quantity > 1) {
+    //     return {
+    //       ...item,
+    //       quantity: item.quantity - 1,
+    //     };
+    //   }
+    //   return item;
+    // });
+    // if (quantity > 1) {
+    //   setQuantity(quantity - 1);
+    // }
+    setQuantities((prevQuantities) => {
+      const currentQuantity = prevQuantities[itemId] || 0;
+      if (currentQuantity > 1) {
+        return {
+          ...prevQuantities,
+          [itemId]: currentQuantity - 1
+        };
+      }
+      return prevQuantities;
+    });
   };
 
   const handleClearCart = () => {
@@ -74,8 +118,11 @@ const CartView = () => {
     <>
       <div className="cartContainer">
         <div className="carttitle">
-          <div>
-            <p className="carttitledetails">Product</p>
+          <div  className="carttitledetails">
+            <p>Product</p>
+            <p>Price</p>
+            <p>Quantity</p>
+            <p>Total</p>
           </div>
 
           {statuss === 'loading' ? (
@@ -87,9 +134,10 @@ const CartView = () => {
                     <div className="cartproductdetails" key={product.id}>
                       <div>
                         <img className="designimage" src={product.images[0]} />
+                        <p className="designname">{product.name}</p>
                       </div>
 
-                      <h2 className="producttitledetails">{product.name}</h2>
+                     
                       <h2 className="producttitledetails">
                         {' '}
                         $ {product.price}
@@ -102,7 +150,15 @@ const CartView = () => {
                         >
                           +
                         </div>
-                        <div className="count">{product.quantity}</div>
+                        <div className=""><input type="number"
+                        className="qtydesign"
+                        value={quantities[product.id] || product.quantity}
+                        onChange={(e) =>
+                          setQuantities({
+                            ...quantities,
+                            [product.id]: parseInt(e.target.value)
+                          })
+                        } /></div>
                         <div
                           className="btn"
                           onClick={() => handleDecrement(product.id)}
@@ -125,7 +181,7 @@ const CartView = () => {
               CLEAR CART
             </button>
             <Link to="/orders">
-              <button className="clearcartbtn">VIEW ORDERS DETAILS</button>
+              <button className="updatecartbtn">VIEW ORDERS DETAILS</button>
             </Link>
           </div>
         </div>
