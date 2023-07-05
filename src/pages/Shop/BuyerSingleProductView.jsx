@@ -24,6 +24,8 @@ export function BuyerSingleProductView() {
   const [isBuyNowLoading, setIsBuyNowLoading] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  const [isAdded, setIsAdded] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSnackbarClose = () => {
@@ -31,8 +33,17 @@ export function BuyerSingleProductView() {
   };
 
   const handleSubmit = () => {
+ 
     dispatch(AddToCartProduct({ productId: id, productQuantity: quantitys }));
+
+    setIsAdded(true);
+  
+    setTimeout(() => {
+        setIsAdded(false);
+    }, 3000);
+
     setShowSnackbar(true);
+    
   };
 
   const { singleProduct, status, error } = useSelector(
@@ -182,14 +193,19 @@ export function BuyerSingleProductView() {
                 onChange={(e) => setQuantitys(e.target.value)}
               />
             </div>
+            
             <input
               type="submit"
               onClick={handleSubmit}
               disabled={statuss === 'loading'}
-              // value="Add to Cart"
-              value={statuss === 'loading' ? 'Loading...' : 'Add To Cart'}
+              // value="Add to Cart
+              value={isAdded ? 'Loading ...' : 'Add to cart'}
               className="addcartbtn"
             />
+
+          
+
+
             {isBuyNowLoading ? (
               <input
                 type="submit"
@@ -211,6 +227,7 @@ export function BuyerSingleProductView() {
             {/* {statuss === "loading" && (
               <div className="signup-right">Loading...</div>
             )} */}
+           
             {statuss === 'failed' && (
               <div className="signup-right">
                 <Snackbar
